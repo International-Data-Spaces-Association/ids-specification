@@ -1,0 +1,33 @@
+@startuml "hub-request-processing"
+!pragma layout smetana
+
+!include ../diagrams/diagram.styles.puml
+
+hide empty description
+
+state CONSUMER_REQUESTED: <color:$darkGray>ContractRequestMessage
+state PROVIDER_OFFERED: <color:$darkGray>ContractOfferMessage
+state CONSUMER_AGREED: <color:$darkGray>ContractNegotiationEventMessage:accepted
+state PROVIDER_AGREED: <color:$darkGray>ContractAgreementMessage
+state CONSUMER_VERIFIED: <color:$darkGray>ContractAgreementVerificationMessage
+state PROVIDER_FINALIZED: <color:$darkGray>ContractNegotiationEventMessage:finalized
+
+state TERMINATED $lightRed #$borderRed:  <color:$darkGray>ContractNegotiationTerminationMessage
+
+[*] --> CONSUMER_REQUESTED: C
+CONSUMER_REQUESTED -->  PROVIDER_OFFERED: P
+CONSUMER_REQUESTED -->  PROVIDER_AGREED: P
+
+[*] --> PROVIDER_OFFERED: P
+PROVIDER_OFFERED -->  CONSUMER_REQUESTED: C
+PROVIDER_OFFERED -->  CONSUMER_AGREED: C
+CONSUMER_AGREED --> PROVIDER_AGREED: P
+
+PROVIDER_AGREED --> CONSUMER_VERIFIED: C
+
+CONSUMER_VERIFIED --> PROVIDER_FINALIZED: P
+
+PROVIDER_FINALIZED -->[*]
+TERMINATED --> [*]
+
+@enduml

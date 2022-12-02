@@ -1,0 +1,10 @@
+{
+  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@type": "ids:ContractNegotiationTermination",
+  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "ids:code": "...",
+  "ids:reasons": [
+    {},
+    {}
+  ]
+}

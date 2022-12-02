@@ -1,0 +1,81 @@
+{
+    "@context":  "https://w3id.org/idsa/v5/context.json",
+    "@id": "http://provider.com/catalog1/dataset1/",
+    "@type": "dcat:Dataset",
+    "dct:title" : "IDS Dataset #1",
+    "dct:description": [ {
+        "@language": "en",
+        "@value": "This is the number 1 data asset of the IDS. The consumer must be a TRUST_PLUS certified connector."
+    }, {
+        "@language": "de",
+        "@value": "Dies ist das Nummer 1 Data Asset im IDS. Der Consumer muss ein TRUST_PLUS zertifizierter Connector sein."
+    } ],
+    "dcat:keyword": [
+        "high value data",
+        "example"
+    ],
+    "dcat:hasPolicy": {
+        "@type": "odrl:Offer",
+        "@id": "https://provider.com/edc/offer/1",
+        "odrl:permission": [ {
+            "odrl:action": {"@id": "odrl:use"},
+            "odrl:constraint" : [ {
+                "odrl:leftOperand": "ids:SECURITY_PROFILE",
+                "odrl:operand": "odrl:equals",
+                "odrl:rightOperand": "ids:TRUST_PLUS"
+            } ]
+        } ],
+        "odrl:prohibition": [ {
+            "odrl:action": {"@id": "odrl:distribute"}
+        } ]
+    },
+    "dcat:distribution": [ {
+        "@type": "dcat:Distribution",
+        "dct:title" : "Distribution#1",
+        "dct:description": "This is a distribution which provides the data via a HTTP REST API.",
+        "dcat:keyword": [
+            "HTTP",
+            "REST"
+        ],
+        "ids:transportType": {
+            "@id": "ids:HTTP_REST"
+        },
+        "dcat:accessService": [ {
+            "@type": [ "dcat:DataService", "ids:NEGOTIATION_SERVICE" ],
+            "dcat:endpointURL": {
+                "@type": "xsd:anyURI",
+                "@value": "https://provider.com/connector/negotiation"
+            }
+        }, {
+            "@type": [ "dcat:DataService", "ids:TRANSFER_SERVICE" ],
+            "dcat:endpointURL": {
+                "@type": "xsd:anyURI",
+                "@value": "https://provider.com/connector/transfer"
+            }
+        } ]
+    }, {
+        "@type": "dcat:Distribution",
+        "dct:title" : "Distribution#2",
+        "dct:description": "This is another distribution using an S3 API.",
+        "dcat:keyword": [
+            "S3",
+            "public"
+        ],
+        "ids:transportType": {
+            "@id": "ids:S3"
+        },
+        "dcat:accessService": [ {
+            "@type": [ "dcat:DataService", "ids:NEGOTIATION_SERVICE" ],
+            "dcat:endpointURL": {
+                "@type": "xsd:anyURI",
+                "@value": "https://provider.com/connector/negotiation"
+            }
+        }, {
+            "@type": [ "dcat:DataService", "ids:TRANSFER_SERVICE" ],
+            "dcat:endpointURL": {
+                "@type": "xsd:anyURI",
+                "@value": "https://provider.com/connector/transfer"
+            }
+        } ]
+    } ]
+}

@@ -1,0 +1,11 @@
+{
+  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@type": "ids:ContractOfferMessage",
+  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "ids:offer": {
+    "@type": "odrl:Offer",
+    "@id": "...",
+    "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
+  },
+  "ids:checksum": "..."
+}
