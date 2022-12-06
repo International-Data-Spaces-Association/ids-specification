@@ -1,0 +1,54 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "ContractNegotiationErrorMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/ContractNegotiationErrorMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/ContractNegotiationErrorMessageSchema",
+	"definitions": {
+		"ContractNegotiationErrorMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"pattern": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"pattern": "ids:ContractNegotiationErrorMessage",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:rejectionReason": {
+					"type": "string",
+					"enum": [
+						"ids:NOT_FOUND",
+						"ids:NOT_AUTHENTICATED",
+						"ids:NOT_AUTHORIZED",
+						"ids:TOO_MANY_RESULTS",
+						"ids:MALFORMED_MESSAGE",
+						"ids:INTERNAL_RECIPIENT_ERROR",
+						"ids:METHOD_NOT_SUPPORTED",
+						"ids:MESSAGE_TYPE_NOT_SUPPORTED",
+						"ids:VERSION_NOT_SUPPORTED",
+						"ids:BAD_PARAMETERS",
+						"ids:TEMPORARILY_NOT_AVAILABLE"
+					]
+				},
+				"dct:description": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}

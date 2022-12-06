@@ -1,0 +1,60 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "ContractNegotiationTerminationMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/ContractNegotiationTerminationMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/ContractNegotiationTerminationMessageSchema",
+	"definitions": {
+		"ContractNegotiationTerminationMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"pattern": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"pattern": "ids:ContractNegotiationTerminationMessage",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:code": {
+					"type": "object",
+					"properties": {
+						"@id": {
+							"anyOf": [
+								{
+									"type": "string",
+									"enum": [
+										
+									]
+								},
+								{
+									"type": "string"
+								}
+							]
+						},
+						"required": true
+					},
+					"required": true
+				},
+				"ids:reason": {
+					"type": "array",
+					"required": false,
+					"minItems": 1,
+					"items": {
+						
+					}
+				}
+			}
+		}
+	}
+}

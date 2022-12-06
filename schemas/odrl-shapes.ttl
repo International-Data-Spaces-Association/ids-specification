@@ -25,28 +25,17 @@ shapes:
 	] ;
 .
 
-shapes:ContractRequestMessageShape
+shapes:OfferShape
 	a sh:NodeShape ;
-	sh:targetClass ids:ContractRequestMessage ;
-	rdfs:subClassOf ids:ContractNegotiationMessageShape ;
+	sh:targetClass odrl:Offer ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:offer ;
-		sh:class odrl:Offer ;
-		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An ids:offer property must point to exactly one odrl:Offer class."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:callbackAddress ;
+		sh:path odrl:target ;
 		sh:datatype xsd:anyURI ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An ids:callbackAddress property must point to exactly one xsd:anyURI value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/odrl-shape.ttl> (OfferShape): An odrl:target property must point to exactly one xsd:anyURI."@en ;
 	] ;
 .

@@ -1,0 +1,44 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "ContractNegotiationEventMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/ContractNegotiationEventMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/ContractNegotiationEventMessageSchema",
+	"definitions": {
+		"ContractNegotiationEventMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"pattern": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"pattern": "ids:ContractNegotiationEventMessage",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:eventType": {
+					"type": "string",
+					"enum": [
+						"ids:ACCEPTED",
+						"ids:FINALIZED"
+					],
+					"required": true
+				},
+				"ids:checksum": {
+					"type": "string",
+					"required": true
+				}
+			}
+		}
+	}
+}

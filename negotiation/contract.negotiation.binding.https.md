@@ -18,7 +18,7 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 ### 2.2 ContractNegotiationError
 
 In the event of a client request error, the connector must return an appropriate HTTP 4xxx client error code. If an error body is returned it must be
-a [ContractNegotiationError](./message/contract.negotiation.error.json) with the following properties:
+a [ContractNegotiationError](./message/contract-negotiation-error.json) with the following properties:
 
 | Field         | Type          | Description                                                 |
 |---------------|---------------|-------------------------------------------------------------|
@@ -48,7 +48,7 @@ Authorization: ...
 ```
 
 If the negotiation is found and the client is authorized, the provider connector must return an HTTP 200 (OK) response and a body containing
-the [ContractNegotiation](./message/contract.negotiation.json):
+the [ContractNegotiation](./message/contract-negotiation.json):
 
 ```
 {
@@ -94,7 +94,7 @@ is included with or absent from the `callbackAddress` when resolving full URL.
 The @id is the correlation id that will be used for callback messages.
 
 The provider connector must return an HTTP 201 (Created) response with the location header set to the location of the contract negotiation and a body containing
-the [ContractNegotiation](./message/contract.negotiation.json) message:
+the [ContractNegotiation](./message/contract-negotiation.json) message:
 
 ```
 Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
@@ -113,7 +113,7 @@ Note that if the location header is not an absolute URL, it must resolve to an a
 
 #### 2.6.1 POST
 
-A consumer may make an offer by POSTing a [ContractRequestMessage](./message/contract.request.message.json) to `negotiations/:id/request`:
+A consumer may make an offer by POSTing a [ContractRequestMessage](./message/contract-request-message.json) to `negotiations/:id/request`:
 
 ```
 POST https://connector.provider.com/negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3/offers
@@ -142,7 +142,7 @@ it.
 
 #### 2.7.1 POST
 
-A consumer connector can POST a [ContractNegotiationEventMessage](./message/contract.negotiation.event.message.json) to `negotiations/:id/events` to accept the current
+A consumer connector can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to `negotiations/:id/events` to accept the current
 provider contract offer. If the negotiation state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not
 required to process it.
 
@@ -152,7 +152,7 @@ If the current contract offer was created by the consumer, the provider must ret
 
 #### 2.8.1 POST
 
-The consumer connector can POST a [ContractAgreementVerificationMessage](./message/contract.agreement.verification.message.json) to verify an agreement. If the negotiation state is
+The consumer connector can POST a [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json) to verify an agreement. If the negotiation state is
 successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
@@ -177,7 +177,7 @@ Authorization: ...
 
 #### 2.9.1 POST
 
-The consumer connector can POST a [ContractNegotiationTerminationMessage](./message/contract.negotiation.termination.message.json) to terminate a negotiation. If the negotiation
+The consumer connector can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a negotiation. If the negotiation
 state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ## 3 Consumer Callback Path Bindings
@@ -192,7 +192,7 @@ be `https://connector.consumer.com/callback/negotiations/:id/offers`.
 
 #### 3.2.1 POST
 
-A provider may make an offer by POSTing a [ContractOfferMessage](./message/contract.offer.message.json) to the `negotiations/:id/offers` callback:
+A provider may make an offer by POSTing a [ContractOfferMessage](./message/contract-offer-message.json) to the `negotiations/:id/offers` callback:
 
 ```
 POST https://connector.consumer.com/callback/negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3/offers
@@ -219,7 +219,7 @@ process it.
 
 #### 3.3.1 POST
 
-The provider connector can POST a [ContractAgreementMessage](./message/contract.agreement.message.json) to the `negotiations/:id/agreement` callback to create an agreement. If the
+The provider connector can POST a [ContractAgreementMessage](./message/contract-agreement-message.json) to the `negotiations/:id/agreement` callback to create an agreement. If the
 negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
@@ -244,7 +244,7 @@ Authorization: ...
 
 #### 3.4.1 POST
 
-A provider can POST a [ContractNegotiationEventMessage](./message/contract.negotiation.event.message.json) to the `negotiations/:id/events` callback with an `eventType`
+A provider can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to the `negotiations/:id/events` callback with an `eventType`
 of `finalized` to finalize a contract agreement. If the negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not
 specified and clients are not required to process it. 
 

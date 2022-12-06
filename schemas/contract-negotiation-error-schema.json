@@ -1,0 +1,57 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "ContractNegotiationErrorSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/ContractNegotiationError"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/ContractNegotiationErrorSchema",
+	"definitions": {
+		"ContractNegotiationError": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:ContractNegotiationError",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:rejectionReason": {
+					"anyOf": [ 
+						{
+							"type": "string",
+							"enum": [
+								"ids:COUNTER_OFFER_NOT_ALLOWED",
+								"ids:BAD_PARAMETERS"
+							]
+						},
+						{
+							"type": "string",
+							"pattern": "ids:[A-Z_]"
+						},
+						{
+							"type": "string",
+							"pattern": "https?:\/\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+						}
+					]
+				},
+				"dct:description": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}

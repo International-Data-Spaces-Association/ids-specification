@@ -25,28 +25,28 @@ shapes:
 	] ;
 .
 
-shapes:ContractRequestMessageShape
+shapes:ContractNegotiationShape
 	a sh:NodeShape ;
-	sh:targetClass ids:ContractRequestMessage ;
-	rdfs:subClassOf ids:ContractNegotiationMessageShape ;
+	sh:targetClass ids:ContractNegotiation ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:offer ;
-		sh:class odrl:Offer ;
+		sh:path ids:processId ;
+		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An ids:offer property must point to exactly one odrl:Offer class."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An ids:processId property must point from an ids:ContractNegotiation to exactly one xsd:string field."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:callbackAddress ;
-		sh:datatype xsd:anyURI ;
+		sh:path ids:negotiationId ;
+		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An ids:callbackAddress property must point to exactly one xsd:anyURI value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-event-message-shape.ttl> (ContractNegotiationShape): An ids:checksum property must point from an ids:negotiationId to exactly one xsd:string field."@en ;
 	] ;
+
 .

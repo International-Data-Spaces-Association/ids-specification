@@ -1,0 +1,31 @@
+@startuml "contract-negotiation-error"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:ContractNegotiationError" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:ContractNegotiationError"
+    ids:processId : String
+    ids:rejectionReason : ids:RejectionReason
+    dct:description : MultilanguageProperty
+}
+
+enum ids:RejectionReason {
+    "ids:COUNTER_OFFER_NOT_ALLOWED"
+    "ids:BAD_PARAMETERS"
+    "..."
+}
+
+class "MultilanguageProperty" {
+    @language : BCP47 Language-Tag
+    @value: String
+}
+
+"ids:ContractNegotiationError" "1" *-- "0..1" "ids:RejectionReason" : "ids:rejectionReason"
+"ids:ContractNegotiationError" "1" *-- "*" "MultilanguageProperty" : "dct:description"
+
+@enduml

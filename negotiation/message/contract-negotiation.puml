@@ -1,0 +1,17 @@
+@startuml "contract-negotiation"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:ContractNegotiation" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:ContractNegotiation"
+    ids:processId : String
+    ids:negotiationId : String
+}
+
+
+@enduml

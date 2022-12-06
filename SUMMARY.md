@@ -48,7 +48,7 @@
 * [Contract Negotiation Event Message (json)](./negotiation/message/contract.negotiation.event.message.json)
 * [Contract Negotation Message (json)](./negotiation/message/contract.negotiation.json)
 * [Contract Negotiation Termination Message (json)](./negotiation/message/contract.negotiation.termination.message.json)
-* [Contract Offer Message (json)](./negotiation/message/contract.offer.message.json)
+* [Contract Offer Message (json)](./negotiation/message/contract-offer-message.json)
 * [Contract Request Message (json)](./negotiation/message/contract.request.message.json)
 * [Example: Contract Agreement Message HTTP](./negotiation/message/example/contract.agreement.message.http.transfer.json)
 * [Section 5 Transfer process](./transfer/transfer.process.protocol.md)

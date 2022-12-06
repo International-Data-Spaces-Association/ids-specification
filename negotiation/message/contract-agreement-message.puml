@@ -1,0 +1,25 @@
+@startuml "contract-agreement-message"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:ContractAgreementMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:ContractAgreementMessage"
+    ids:processId : String
+    ids:agreement : odrl:Agreement
+    ids:callbackAddress : xsd:anyURI
+}
+
+class odrl:Agreement {
+    @type : "odrl:Agreement",
+    @id: String
+    odrl:target : xsd:anyURI
+}
+
+"ids:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "odrl:agreement"
+
+@enduml

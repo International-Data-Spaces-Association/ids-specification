@@ -1,0 +1,24 @@
+@startuml "contract-negotiation-event-message"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:ContractNegotiationEventMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:ContractNegotiationEventMessage"
+    ids:processId : String
+    ids:eventType : ids:NegotiationEvent
+    ids:checksum : String
+}
+
+enum ids:NegotiationEvent {
+    ids:ACCEPTED
+    ids:FINALIZED
+}
+
+"ids:ContractNegotiationEventMessage" "1" *-- "1" "ids:NegotiationEvent" : "ids:eventType"
+
+@enduml

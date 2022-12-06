@@ -1,0 +1,36 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "ContractAgreementMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/ContractAgreementMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/schemas/v5/ContractAgreementMessageSchema",
+	"definitions": {
+		"ContractAgreementMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"pattern": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"pattern": "ids:ContractAgreementMessage",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"odrl:agreement": {
+					"$ref": "https://w3id.org/idsa/schemas/v5/AgreementSchema#definitions/Agreement",
+					"required": true
+				}
+			}
+		}
+	}
+}

@@ -54,15 +54,18 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 ### 1. ContractRequestMessage
 
+![](./message/contract-request-message.png)
+
 **Sent by**: Consumer
 
 **Resulting State**: CONSUMER_REQUESTED, TERMINATED
 
-**Example**: [ContractRequestMessage](./message/contract.request.message.json)
+**Example**: [ContractRequestMessage](./message/contract-request-message.json)
 
-**Response**: [ContractNegotiation](./message/contract.negotiation.json) containing the negotiation id or ERROR.
+**Response**: [ContractNegotiation](./message/contract-negotiation.json) containing the negotiation id or ERROR:
+![](./message/contract-negotiation.png)
 
-**Schema**: [ContractRequestMessageShape](../../schemas/contract-request-message-shape.ttl)
+**Schema**: [ContractRequestMessageShape](../schemas/contract-request-message-shape.ttl), [ContractRequestMessage JSON Schema](../schemas/contract-request-message-schema.json), [ContractNegotiationShape](../schemas/contract-negotiation-shape.ttl) and [ContractNegotiation JSON Schema](../schemas/contract-negotiation-schema.json)
 
 #### Description
 
@@ -70,32 +73,34 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 #### Notes
 
-- The consumer must include either an `offer` or `offerId` property. If the message includes a `processId` property, the request will be associated with an existing contract
-  negotiation and a consumer offer will be created using either the `offer` or `offerId` properties. If the message does not include a `processId`, a new contract negotiation
-  will be created using either the `offer` or `offerId` properties and the provider selects an appropriate `processId`.
+- The consumer must include an `offer` property, which itself must have a `@id` property. If the message includes a `processId` property, the request will be associated with an existing contract
+  negotiation and a consumer offer will be created using either the `offer` or `offer.@id` properties. If the message does not include a `processId`, a new contract negotiation
+  will be created using either the `offer` or `offer.@id` properties and the provider selects an appropriate `processId`.
 
-- It is an error to include both an `offer` and `offerId` property.
-
-- An `offerId` will generally refer to an offer contained in a catalog. If the provider is not aware of the `offerId` value, it must respond with an error message.
+- An `offer.@id` will generally refer to an offer contained in a catalog. If the provider is not aware of the `offer.@id` value, it must respond with an error message.
 
 - The dataset id is not technically required but included to avoid an error where the offer is associated with a different data set.
 
-- `callbackAddress` is a URI indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
+> Comment sba (20.12.2022): Let's use the `offer.target` property for this, and nothing else.
+
+- `callbackAddress` is a URL indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
   UNRECOVERABLE error.
 
 > Comment sba (25.11.2022): What happens if the provider discovers that the callbackAddress is wrong/endpoint unavailable? Whom to send the error message to?
 
 ### 2. ContractAgreementMessage
 
+![](./message/contract-agreement-message.png)
+
 **Sent by**: Provider
 
 **Resulting State**: PROVIDER_AGREED, TERMINATED
 
-**Example**: [ContractAgreementMessage](./message/contract.agreement.message.json)
+**Example**: [ContractAgreementMessage](./message/contract-agreement-message.json)
 
 **Response**: OK or ERROR
 
-**Schema**: [ContractAgreementMessageShape](../../schemas/contract-agreement-message-shape.ttl)
+**Schema**: [ContractAgreementMessageShape](../schemas/contract-agreement-message-shape.ttl) and [ContractAgreementMessage JSON Schema](../schemas/contract-agreement-message-schema.json)
 
 #### Description
 
@@ -107,15 +112,18 @@ A _ContractAgreementMessage_ must contain an ODRL Agreement.
 
 ### 3. ContractAgreementVerificationMessage
 
+
+![](./message/contract-agreement-verification-message.png)
+
 **Sent by**: Consumer
 
 **Resulting State**: CONSUMER_VERIFIED, TERMINATED
 
-**Example**: [ContractAgreementVerificationMessage](./message/contract.agreement.verification.message.json)
+**Example**: [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json)
 
 **Response**: OK or ERROR
 
-**Schema**: [ContractAgreementVerificationMessageShape](../../schemas/contract-agreement-verification-message-shape.ttl)
+**Schema**: [ContractAgreementVerificationMessageShape](../schemas/contract-agreement-verification-message-shape.ttl) and the [ContractAgreementVerificationMessage JSON Schema](../schemas/contract-agreement-verification-message-schema.json)
 
 #### Description
 
@@ -126,19 +134,22 @@ A _ContractAgreementVerificationMessage_ must contain a `processId`.
 
 ### 4. ContractNegotiationEventMessage
 
+
+![](./message/contract-negotiation-event-message.png)
+
 **Sent by**: Provider or Consumer
 
 **Resulting State**: PROVIDER_FINALIZED, CONSUMER_AGREED, TERMINATED
 
-**Example**: [ContractNegotiationEventMessage](./message/contract.negotiation.event.message.json)
+**Example**: [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json)
 
 **Response**: OK or ERROR
 
-**Schema**: [ContractNegotiationEventMessageShape](../../schemas/contract-negotiation-event-message-shape.ttl)
+**Schema**: [ContractNegotiationEventMessageShape](../schemas/contract-negotiation-event-message-shape.ttl) and the [ContractNegotiationEventMessage JSON Schema](../schemas/contract-negotiation-event-message-schema.json)
 
 #### Description
 
-When the _ContractNegotiationEventMessage_ is sent by a provider with an `eventType` property set to `finalized`, a contract agreement has been finalized and the associated asset
+When the _ContractNegotiationEventMessage_ is sent by a provider with an `eventType` property set to `FINALIZED`, a contract agreement has been finalized and the associated asset
 is accessible. The state machine is transitioned to the PROVIDER_FINALIZED state. Other event types may be defined in the future. A consumer responds with an error if the signature
 can't be validated or is incorrect.
 
@@ -146,16 +157,18 @@ can't be validated or is incorrect.
 
 > Comment sba (25.11.2022): ContractNegotiationEventMessage + eventType has the same expressiveness as the explicetly typed negotiation messages. Why breaking the pattern here?
 
-It is an error for a consumer to send a ContractNegotiationEventMessage with an eventType `finalized` to the provider.
+It is an error for a consumer to send a ContractNegotiationEventMessage with an eventType `FINALIZED` to the provider.
 
-When the _ContractNegotiationEventMessage_ is sent by a consumer with an `eventType` set to  `accepted`, the state machine is placed in the CONSUMER_AGREED state.
+When the _ContractNegotiationEventMessage_ is sent by a consumer with an `eventType` set to  `ACCEPTED`, the state machine is placed in the CONSUMER_AGREED state.
 
-It is an error for a provider to send a ContractNegotiationEventMessage with an eventType `accepted` to the consumer.
+It is an error for a provider to send a ContractNegotiationEventMessage with an eventType `ACCEPTED` to the consumer.
 
 Note that contract events are not intended for propagation of agreement state after a contract negotiation has entered a terminal state. It is considered an error for a consumer or
 provider to send a contract negotiation event after the negotiation state machine has entered a terminal state.
 
 ### 5. ContractNegotiationTerminationMessage
+
+![](./message/contract-negotiation-termination-message.png)
 
 > Comment sba (25.11.2022): See ids:
 > RejectionMessage https://github.com/International-Data-Spaces-Association/InformationModel/blob/d35161747a2c1d0e71777dbedf7b7c6132734200/taxonomies/Message.ttl#L48
@@ -164,13 +177,13 @@ provider to send a contract negotiation event after the negotiation state machin
 
 **Resulting State**: TERMINATED
 
-**Example**: [ContractNegotiationTermination](./message/contract.negotiation.termination.message.json)
+**Example**: [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json)
 
-**Schema**: [ContractNegotiationTerminationMessageShape](../../schemas/contract-negotiation-termination-message-shape.ttl)
+**Schema**: [ContractNegotiationTerminationMessageShape](../schemas/contract-negotiation-termination-message-shape.ttl) and the [ContractNegotiationTerminationMessage JSON Schema](../schemas/contract-negotiation-termination-message-schema.json)
 
 #### Description
 
-The _ContractNegotiationTermination_ is sent by a consumer or provider indicating it has cancelled the negotiation sequence. The message can be sent at any state of a negotiation
+The _ContractNegotiationTerminationMessage_ is sent by a consumer or provider indicating it has cancelled the negotiation sequence. The message can be sent at any state of a negotiation
 without providing an explanation. Nevertheless, the sender may provide a description to help the receiver.
 
 #### Notes
@@ -178,15 +191,17 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 - A contract negotiation may be terminated for a variety of reasons, for example, an unrecoverable error was encountered or one of the parties no longer wishes to continue. A
   connector's operator may remove terminated contract negotiation resources after it has reached the terminated state.
 
-- If an error is received in response to a ContractNegotiationTermination, the sending party may choose to ignore the error.
+- If an error is received in response to a ContractNegotiationTerminationMessage, the sending party may choose to ignore the error.
 
 ## ContractNegotiationError
 
+![](./message/contract-negotiation-error-message.png)
+
 **Sent by**: Consumer or Provider
 
-**Example**: [NegotiationError](./message/contract.negotiation.error.json)
+**Example**: [NegotiationError](./message/contract-negotiation-error.json)
 
-**Schema**: [ContractNegotiationErrorShape](../../schemas/contract-negotiation-error-message-shape.ttl)
+**Schema**: [ContractNegotiationErrorShape](../schemas/contract-negotiation-error-shape.ttl) and the [ContractNegotiationErrorMessage JSON Schema](../schemas/contract-negotiation-error-message-schema.json)
 
 #### Description
 

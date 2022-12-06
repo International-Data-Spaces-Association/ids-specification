@@ -1,0 +1,29 @@
+@startuml "contract-negotiation-termination-message"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:ContractNegotiationTerminationMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:ContractNegotiationTerminationMessage"
+    ids:processId : String
+    ids:code : ids:TerminationCode
+    ids:reason : ids:Reason
+}
+
+enum ids:TerminationCode {
+    ...
+}
+
+class "ids:Reason" {
+    @type : "ids:Reason"
+    ...
+}
+
+"ids:ContractNegotiationTerminationMessage" "1" *-- "1" "ids:TerminationCode" : "ids:code"
+"ids:ContractNegotiationTerminationMessage" "1" *-- "*" "ids:Reason" : "ids:reason"
+
+@enduml
