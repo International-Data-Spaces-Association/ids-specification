@@ -14,15 +14,15 @@
         "high value data",
         "example"
     ],
-    "dcat:hasPolicy": {
+    "odrl:hasPolicy": {
         "@type": "odrl:Offer",
         "@id": "https://provider.com/edc/offer/1",
         "odrl:permission": [ {
             "odrl:action": {"@id": "odrl:use"},
             "odrl:constraint" : [ {
-                "odrl:leftOperand": "ids:SECURITY_PROFILE",
-                "odrl:operand": "odrl:equals",
-                "odrl:rightOperand": "ids:TRUST_PLUS"
+                "odrl:leftOperand": "idsc:SECURITY_LEVEL",
+                "odrl:operand": "odrl:eq",
+                "odrl:rightOperand": "idsc:TRUST_SECURITY_PROFILE"
             } ]
         } ],
         "odrl:prohibition": [ {
