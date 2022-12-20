@@ -1,12 +1,5 @@
 {
-    "@context": [
-        "http://www.w3.org/ns/odrl.jsonld",
-        { "dc": "http://purl.org/dc/elements/1.1/",
-        "dcat": "http://www.w3.org/ns/dcat#",
-        "dct": "http://purl.org/dc/terms/",
-        "ids":"https://w3id.org/idsa/core/",
-        "idsc" : "https://w3id.org/idsa/code/" }
-    ],
+    "@context":  "https://w3id.org/idsa/v5/context.json",
     "@id": "http://provider.com/catalog1/dataset1/",
     "@type": "dcat:Dataset",
     "dct:title" : "IDS Dataset #1",
@@ -23,7 +16,7 @@
     ],
     "odrl:hasPolicy": {
         "@type": "odrl:Offer",
-        "uid": "https://provider.com/edc/offer/1",
+        "@id": "https://provider.com/edc/offer/1",
         "odrl:permission": [ {
             "odrl:action": {"@id": "odrl:use"},
             "odrl:constraint" : [ {
