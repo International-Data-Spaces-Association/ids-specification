@@ -27,7 +27,7 @@
         "ids:transportType": {
             "@id": "ids:HTTP_REST"
         },
-        "dcat:hasPolicy": {
+        "odrl:hasPolicy": {
             "@type": "odrl:Offer",
             "@id": "https://provider.com/edc/offer/1",
             "odrl:permission": [ {
@@ -84,7 +84,7 @@
         "ids:transportType": {
             "@id": "ids:S3"
         },
-        "dcat:hasPolicy": {
+        "odrl:hasPolicy": {
             "@type": "odrl:Offer",
             "@id": "https://provider.com/edc/offer/1",
             "odrl:permission": [ {
