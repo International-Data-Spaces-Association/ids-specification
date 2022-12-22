@@ -101,7 +101,7 @@
           {
             "odrl:leftOperand": "idsc:SECURITY_LEVEL",
             "odrl:operand": "odrl:eq",
-            "odrl:rightOperand": "ids:TRUST_SECURITY_PROFILE"
+            "odrl:rightOperand": "idsc:TRUST_SECURITY_PROFILE"
           }
         ],
         "odrl:duty": [
