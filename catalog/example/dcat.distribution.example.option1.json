@@ -89,7 +89,7 @@
       ]
     }
   ],
-  "dcat:hasPolicy": {
+  "odrl:hasPolicy": {
     "@type": "odrl:Offer",
     "@id": "https://provider.com/connector/offer/1",
     "odrl:permission": [
