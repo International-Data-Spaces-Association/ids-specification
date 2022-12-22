@@ -34,18 +34,18 @@
                 "odrl:action": {"@id": "odrl:use"},
                 "odrl:constraint" : [ {
                     "odrl:leftOperand": "idsc:SECURITY_LEVEL",
-                    "odrl:operand": "odrl:eq",
+                    "odrl:operator": "odrl:eq",
                     "odrl:rightOperand": "idsc:TRUST_PLUS_SECURITY_PROFILE"
                 } ],
                 "odrl:duty": [ {
                     "odrl:action": {"@id": "odrl:Compensate"},
                     "odrl:constraint": [ {
                         "odrl:leftOperand": "ids:TRANSPORT",
-                        "odrl:operand": "odrl:eq",
+                        "odrl:operator": "odrl:eq",
                         "odrl:rightOperand": "ids:HTTP_REST"
                     }, {
                         "odrl:leftOperand": "odrl:payAmount",
-                        "odrl:operand": "odrl:eq",
+                        "odrl:operator": "odrl:eq",
                         "odrl:rightOperand": {
                             "@type": "xsd:decimal",
                             "@value": "2.0"
@@ -91,18 +91,18 @@
                 "odrl:action": {"@id": "odrl:use"},
                 "odrl:constraint" : [ {
                     "odrl:leftOperand": "idsc:SECURITY_LEVEL",
-                    "odrl:operand": "odrl:eq",
+                    "odrl:operator": "odrl:eq",
                     "odrl:rightOperand": "idsc:TRUST_PLUS_SECURITY_PROFILE"
                 } ],
                 "odrl:duty": [ {
                     "odrl:action": {"@id": "odrl:Compensate"},
                     "odrl:constraint": [ {
                         "odrl:leftOperand": "ids:TRANSPORT",
-                        "odrl:operand": "odrl:eq",
+                        "odrl:operator": "odrl:eq",
                         "odrl:rightOperand": "ids:S3"
                     }, {
                         "odrl:leftOperand": "odrl:payAmount",
-                        "odrl:operand": "odrl:eq",
+                        "odrl:operator": "odrl:eq",
                         "odrl:rightOperand": {
                             "@type": "xsd:decimal",
                             "@value": "5.0"
