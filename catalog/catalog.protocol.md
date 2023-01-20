@@ -20,31 +20,62 @@ Future IDS specifications may define additional optional serialization formats.
 
 ### 2.1 CatalogRequestMessage
 
+![](./images/catalog-request-message.png)
+
 **Sent by**: Consumer
 
-**Example**:
+**Example**: [CatalogRequestMessage](./message/catalog-request-message.json)
 
-```
-{
-  "@context": "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:CatalogRequest"
-  "ids:filter": {}
-}
-```
+**Response**: [Catalog](#22-catalog) containing the [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
-**Response**: [CatalogMessage](./message/catalog.message.json) containing the [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
-
-**Schema**: (xx)[]
+**Schema**: [CatalogRequestMessageShape](../schemas/catalog-request-message-shape.ttl) and the [CatalogRequestMessage JSON Schema](../schemas/catalog-request-message-schema.json)
 
 #### Description
 
-The `CatalogRequestMessage` is message sent by a consumer to a catalog service. The catalog service must respond with a `CatalogMessage,` which is a
-valid [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
+The `CatalogRequestMessage` is message sent by a consumer to a catalog service. The catalog service must respond with a `Catalog,` which is a
+valid instance of a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
 The `CatalogRequestMessage` may have a `filter` property which contains an implementation-specific query or filter expression type supported by the catalog service.
 
 The catalog service may require an authorization token. Details for including that token can be found in the relevant catalog binding specification. Similarly, pagination may
 be defined in the relevant catalog binding specification.
+
+
+### 2.2 Catalog
+
+![](./images/catalog.png)
+
+**Sent by**: Provider
+
+**Example**: [Catalog](./message/catalog.json)
+
+
+**Response**: OK or ERROR
+
+**Schema**: [CatalogShape](../schemas/catalog-shape.ttl) and the [Catalog JSON Schema](../schemas/catalog-schema.json)
+
+#### Description
+
+The catalog contains all [Asset Entries](#31-asset-entry) which the requester shall see.
+
+
+### 2.3 Catalog Error Message
+
+![](./images/catalog-error-message.png)
+
+**Sent by**: Consumer or Provider
+
+**Example**: [CatalogErrorMessage](./message/catalog-error-message.json)
+
+**Response**: OK or ERROR
+
+**Schema**: [CatalogErrorMessageShape](../schemas/catalog-error-message-shape.ttl) and the [CatalogErrorMessage JSON Schema](../schemas/catalog-error-message-schema.json)
+
+#### Description
+
+A Catalog Error Message is used when an error occured after a CatalogRequestMessage and the provider can not provide its catalog to the requester.
+
+
 
 ## 3 DCAT Vocabulary Mapping
 

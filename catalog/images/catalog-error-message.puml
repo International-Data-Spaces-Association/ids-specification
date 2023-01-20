@@ -1,0 +1,25 @@
+@startuml "catalog-error-message"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:CatalogErrorMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:CatalogErrorMessage"
+    ids:code : String
+    ids:reason : ids:RejectionReason
+}
+
+
+enum ids:RejectionReason {
+    "ids:COUNTER_OFFER_NOT_ALLOWED"
+    "ids:BAD_PARAMETERS"
+    "..."
+}
+
+"ids:CatalogErrorMessage" "1" *-- "0..1" "ids:RejectionReason" : "ids:rejectionReason"
+
+@enduml

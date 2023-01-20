@@ -170,8 +170,6 @@ provider to send a contract negotiation event after the negotiation state machin
 
 ![](./message/contract-negotiation-termination-message.png)
 
-> Comment sba (25.11.2022): See ids:
-> RejectionMessage https://github.com/International-Data-Spaces-Association/InformationModel/blob/d35161747a2c1d0e71777dbedf7b7c6132734200/taxonomies/Message.ttl#L48
 
 **Sent by**: Consumer or Provider
 

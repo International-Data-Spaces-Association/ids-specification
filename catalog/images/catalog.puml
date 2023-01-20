@@ -1,0 +1,14 @@
+@startuml "catalog"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class dcat:Catalog {
+    @type : "dcat:Catalog",
+    ...
+}
+
+@enduml
