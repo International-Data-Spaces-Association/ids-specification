@@ -14,12 +14,12 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"pattern": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/idsa/v5/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"pattern": "ids:CatalogErrorMessage",
+					"const": "ids:CatalogErrorMessage",
 					"required": true
 				}
 			}

@@ -14,19 +14,19 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"pattern": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/idsa/v5/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"pattern": "ids:CatalogRequestMessage",
+					"const": "ids:CatalogRequestMessage",
 					"required": true
 				},
 				"ids:filter": {
                     "type": "array",
                     "items": {
     					"@type": "string",
-                        "pattern": "ids:Filter"
+                        "const": "ids:Filter"
                     }
 				}
 			}

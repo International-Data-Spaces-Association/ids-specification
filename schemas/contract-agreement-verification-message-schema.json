@@ -14,11 +14,11 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"pattern": "https://w3id.org/idsa/v5/context.json"
+					"const": "https://w3id.org/idsa/v5/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"pattern": "ids:ContractAgreementVerificationMessage"
+					"const": "ids:ContractAgreementVerificationMessage"
 				},
 				"ids:processId": {
 					"type": "string"
@@ -43,11 +43,11 @@
 							"properties": {
 								"@type" : {
 									"type": "string",
-									"pattern" : "xsd:dateTime"
+									"const" : "xsd:dateTime"
 								},
 								"@value" : {
 									"type": "string",
-									"pattern": "todo"
+									"const": "todo"
 								} 
 							},
 							"required": [ "@type", "@value"]
