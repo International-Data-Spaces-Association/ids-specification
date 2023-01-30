@@ -107,7 +107,7 @@
         "odrl:duty": [
           {
             "odrl:action": {
-              "@id": "odrl:Compensate"
+              "@id": "odrl:compensate"
             },
             "odrl:constraint": {
               "odrl:xone": [
