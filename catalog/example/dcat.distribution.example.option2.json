@@ -38,7 +38,7 @@
                     "odrl:rightOperand": "idsc:TRUST_PLUS_SECURITY_PROFILE"
                 } ],
                 "odrl:duty": [ {
-                    "odrl:action": {"@id": "odrl:Compensate"},
+                    "odrl:action": {"@id": "odrl:compensate"},
                     "odrl:constraint": [ {
                         "odrl:leftOperand": "ids:TRANSPORT",
                         "odrl:operator": "odrl:eq",
@@ -95,7 +95,7 @@
                     "odrl:rightOperand": "idsc:TRUST_PLUS_SECURITY_PROFILE"
                 } ],
                 "odrl:duty": [ {
-                    "odrl:action": {"@id": "odrl:Compensate"},
+                    "odrl:action": {"@id": "odrl:compensate"},
                     "odrl:constraint": [ {
                         "odrl:leftOperand": "ids:TRANSPORT",
                         "odrl:operator": "odrl:eq",
