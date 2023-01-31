@@ -21,7 +21,7 @@
             "odrl:action": {"@id": "odrl:use"},
             "odrl:constraint" : [ {
                 "odrl:leftOperand": "idsc:SECURITY_LEVEL",
-                "odrl:operand": "odrl:eq",
+                "odrl:operator": "odrl:eq",
                 "odrl:rightOperand": "idsc:TRUST_SECURITY_PROFILE"
             } ]
         } ],
