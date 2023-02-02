@@ -28,9 +28,10 @@ An `IdentityProvider` is a trusted technology system that creates, maintains, an
 
 A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a `Participant` and `ParticipantAgents`.
 
-### ClearingHouse (TBD)
+### Observability, Traceability and Audit Logging
 
-A `ClearingHouse` is a trusted technology system that records and verifies domain events.
+`Observability, Tracability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a `Data Space` are required.
+A trusted technology system is required that records and verifies those domain events. This is not in the scope of the current version of the document and is subject of future work.
 
 ### DataspaceRegistrationService
 
