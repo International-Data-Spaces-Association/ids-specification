@@ -15,10 +15,10 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 2. All request and response messages must use the `application/json` media type.
 
-### 2.2 TransferErrorMessage
+### 2.2 TransferError
 
 In the event of a client request error, the connector must return an appropriate HTTP 4xxx client error code. If an error body is returned it must be
-a [TransferErrorMessage](./message/transfer.error.message.json) with the following properties:
+a [TransferError](./message/transfer.error.json) with the following properties:
 
 | Field             | Type          | Description                                                         |
 |-------------------|---------------|---------------------------------------------------------------------|
@@ -30,7 +30,7 @@ a [TransferErrorMessage](./message/transfer.error.message.json) with the followi
 ### 2.2.1 State transition errors
 
 If a client or provider connector makes a request that results in an invalid transfer process state transition as defined by the Transfer Process Protocol, it must return
-an HTTP code 400 (Bad Request) with an `TransferErrorMessage` in the response body.
+an HTTP code 400 (Bad Request) with an `TransferError` in the response body.
 
 ### 2.3 Authorization
 
