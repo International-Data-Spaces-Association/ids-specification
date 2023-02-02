@@ -180,21 +180,21 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 
 - If an error is received in response to a ContractNegotiationTermination, the sending party may choose to ignore the error.
 
-### 6. ContractNegotiationErrorMessage
+## ContractNegotiationError
 
 **Sent by**: Consumer or Provider
 
-**Example**: [NegotiationErrorMessage](./message/contract.negotiation.error.message.json)
+**Example**: [NegotiationError](./message/contract.negotiation.error.json)
 
-**Schema**: [ContractNegotiationErrorMessageShape](../../schemas/contract-negotiation-error-message-shape.ttl)
+**Schema**: [ContractNegotiationErrorShape](../../schemas/contract-negotiation-error-message-shape.ttl)
 
 #### Description
 
-The _ContractNegotiationErrorMessage_ is a message returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
+The _ContractNegotiationError_ is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
 
 #### Notes
 
-- A _ContractNegotiationErrorMessage_ is different to an error response. A _ContractNegotiationErrorMessage_ does not necessarily finish the negotiation but can continue
+- A _ContractNegotiationError_ is different to an error response. A _ContractNegotiationError_ does not necessarily finish the negotiation but can continue
   afterwards.
 
 ## Hash and Signature Calculations

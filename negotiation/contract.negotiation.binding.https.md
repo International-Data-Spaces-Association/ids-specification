@@ -15,10 +15,10 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 2. All request and response messages must use the `application/json` media type.
 
-### 2.2 NegotiationErrorMessage
+### 2.2 ContractNegotiationError
 
 In the event of a client request error, the connector must return an appropriate HTTP 4xxx client error code. If an error body is returned it must be
-a [ContractNegotiationErrorMessage](./message/contract.negotiation.error.message.json) with the following properties:
+a [ContractNegotiationError](./message/contract.negotiation.error.json) with the following properties:
 
 | Field         | Type          | Description                                                 |
 |---------------|---------------|-------------------------------------------------------------|
