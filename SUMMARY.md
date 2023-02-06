@@ -3,29 +3,19 @@
 ## Overview
 
 * [Introduction](./README.md)
-* [License](./LICENSE)
-
-## Common
-
-* [Definitions](./common/definitions.schema.json)
-
-## Model
-
-* [Model](./model/information.model.md)
-
-## Negotiation
-
-* [Contract Negotiation](./negotiation/contract.negotiation.protocol.md)
-* [Contract Negotiation https binding](./negotiation/contract.negotiation.binding.https.md)
-
-## Schemas
+* [Information Model](./model/information.model.md)
 
 ## Catalog
 
-* [Cataog](./catalog/catalog.protocol.md)
-* [Catalog https binding](./catalog/catalog.binding.https.md)
+* [Specification](./catalog/catalog.protocol.md)
+* [Binding: HTTPS](./catalog/catalog.binding.https.md)
 
-## Transfer
+## Contract Negotiation
 
-* [Transfer process](./transfer/transfer.process.protocol.md)
-* [Transfer process https binding](./transfer/transfer.process.binding.https.md)
+* [Specification](./negotiation/contract.negotiation.protocol.md)
+* [Binding: HTTPS](./negotiation/contract.negotiation.binding.https.md)
+
+## Transfer Process
+
+* [Specification](./transfer/transfer.process.protocol.md)
+* [Binding: HTTPS](./transfer/transfer.process.binding.https.md)
