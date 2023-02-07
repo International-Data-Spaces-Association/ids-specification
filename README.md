@@ -15,7 +15,7 @@ __*dataspace*__.
 Sharing data between autonomous entities requires the provision of metadata to facilitate the transfer of assets over a particular wire (or application layer) protocol.
 IDS defines how this metadata is provisioned:
 
-1. How data assets are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies]().
+1. How data assets are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
 2. How contract agreements that govern data access are syntactically expressed and electronically negotiated.
 3. How data assets are accessed using wire protocols.
 
