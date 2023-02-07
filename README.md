@@ -29,5 +29,9 @@ The specifications are organized into the following documents:
 * A __*Dataspace Information Model*__ document that defines key terms.
 * __*Catalog Protocol*__ and __*Catalog HTTPS Binding*__ documents that define how DCAT Catalogs are published and accessed as HTTPS endpoints respectively.
 * __*Contract Negotiation Protocol*__ and __*Contract Negotiation HTTPS Binding*__ documents that define how contract negotiations are conducted and requested via HTTPS endpoints.
-* __*Transfer Process Protocol*__ and __*Transfer Process HTTPS Binding*__ documents that define how transfer processes using a given wire protocol are governed via HTTPS
+* __*Transfer Process Protocol*__ and __*Transfer Process HTTPS Binding*__ documents that define how transfer processes using a given data transfer protocol are governed via HTTPS
   endpoints.
+
+This specification does not cover the data transfer process as such.
+While the data transfer is controlled by the __*Transfer Process Protocol*__ mentioned above, the data transfer itself and especially the handling of technical exceptions is an obligation to the Transport Protocol.
+As an implication, the data transfer can be conducted in a separated process if required, as long as this process is to the specified extend controlled by the __*Transfer Process Protocol*__.
