@@ -12,15 +12,17 @@ __*dataspace*__.
 
 ## Introduction
 
-Sharing data between autonomous entities requires the provision of metadata to facilitate the transfer of assets over a particular wire (or application layer) protocol.
+Sharing data between autonomous entities requires the provision of metadata to facilitate the transfer of assets by making use of a data transfer (or application layer) protocol.
 IDS defines how this metadata is provisioned:
 
 1. How data assets are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
 2. How contract agreements that govern data access are syntactically expressed and electronically negotiated.
-3. How data assets are accessed using wire protocols.
+3. How data assets are accessed using data transfer protocols.
 
-These specifications do not define wire protocols for data transfer. Instead, these specifications are designed to work with existing and future wire protocols that facilitate
-moving data between autonomous systems.
+These specifications build on protocols located in the [ISO OSI   model (ISO/IEC 7498-1:1994)](https://www.iso.org/standard/20269.html) layers, like HTTPS.
+The purpose of this specification is to define interactions between systems independend of such protocols, but describing how to implement it in an unambigious and extensible way.
+To do so, the messages that are exchanged during the process are described in this specification and the states and their transitions are specified as state machines, based on the key terms and concepts of a data space.
+On this foundation the binding to data transfer protocols, like HTTPS, is described.
 
 The specifications are organized into the following documents:
 
@@ -29,6 +31,3 @@ The specifications are organized into the following documents:
 * __*Contract Negotiation Protocol*__ and __*Contract Negotiation HTTPS Binding*__ documents that define how contract negotiations are conducted and requested via HTTPS endpoints.
 * __*Transfer Process Protocol*__ and __*Transfer Process HTTPS Binding*__ documents that define how transfer processes using a given wire protocol are governed via HTTPS
   endpoints.
-
-
-
