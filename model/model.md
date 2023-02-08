@@ -1,86 +1,12 @@
-# Dataspace Information Model
+# 2 Dataspace Information Model
 
-The information model defines the core concepts, entities, and relationships that underpin a `Dataspace`.
+The following sections outline the Dataspace concpets and models, which form the foundation of this specification.
 
-## 1 Terminology
-
-### Dataspace
-
-A `Dataspace` is a set of technical services that facilitate interoperable asset sharing between entities.
-
-### DataspaceAuthority
-
-A `DataspaceAuthority` is an entity that manages a `Dataspace`.
-
-### Participant
-
-A `Participant` is a `Dataspace` member that provides and/or consumes assets.
-
-### ParticipantAgent
-
-A `ParticipantAgent` is a technology system that performs operations on behalf of a `Participant`.
-
-### IdentityProvider
-
-An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a `Participant` and `ParticipantAgents`.
-
-### CredentialIssuer
-
-A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a `Participant` and `ParticipantAgents`.
-
-### ClearingHouse (TBD)
-
-A `ClearingHouse` is a trusted technology system that records and verifies domain events.
-
-### DataspaceRegistrationService
-
-A `DataspaceRegistrationService` is a technology system that maintains the state of `Participants` in a `Dataspace`.
-
-### Asset
-
-Data or a technical service that can be shared by a `Participant`.
-
-### Policy
-
-A set of rules, duties, and obligations that define the terms of use for an `Asset`.
-
-### Offer
-
-A concrete `Policy` associated with a specific `Asset`.
-
-### Agreement
-
-A concrete `Policy` associated with a specific `Asset` that has been signed by both the provider and consumer `Participants`.
-
-### Catalog
-
-A collection of entries representing `Assets` and their `Offers` that is advertised by a provider `Participant`.
-
-### CatalogService
-
-A `PariticipantAgent` that makes a `Catalog` accessible to `Participants`.
-
-### Connector (DataService)
-
-A `PariticipantAgent` that produces `Agreements` and manages `Asset` sharing.
-
-### Contract Negotiation
-
-A set of interactions between a provider `Connector` and consumer `Connector` that establish an `Agreement`.
-
-### Asset Transfer
-
-A set of interactions between a provider `Connector` and consumer `Connector` that give access to an `Asset` under the terms of an `Agreement`.
-
-## 2 Dataspace Information Model
-
-The following sections outline the Dataspace Information Model, which form the foundation of this specification.
-
-### 2.1 Dataspace Entity Relationships
+## 2.1 Dataspace Entity Relationships
 
 The relationships between the primary dataspace entities are defined as follows:
 
-![](./im.dataspace.relationships.png)
+![](./m.dataspace.relationships.png)
 
 Note that all relationships are multiplicities unless specified.
 
@@ -98,7 +24,7 @@ Note that all relationships are multiplicities unless specified.
 
 The diagram below depicts the relationships between `ParticipantAgent` types:
 
-![](./im.participant.entities.png)
+![](./m.participant.entities.png)
 
 - A `CatalogService` is a `Participant Agent` that makes a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) available to other participants.
 - A `Catalog` contains one or more `Asset Entries`, which are [DCAT Datasets](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset). A `Catalog` also contains **_at least one_**
@@ -121,7 +47,7 @@ A `Catalog` is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalo
   asset entries.  (DCAT PROFILE)
 - 1.N [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where assets may be obtained.  (DCAT PROFILE)
 
-### 2.2.1 Asset Entry
+### 2.2.2 Asset Entry
 
 An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
@@ -130,7 +56,7 @@ An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:D
 - 1..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where the distribution
   is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `AssetTransfer`. (DCAT PROFILE)
 
-### 2.2.1 Offer
+### 2.2.3 Offer
 
 An `Offer` is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) with the following attributes:
 
@@ -138,14 +64,9 @@ An `Offer` is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) wi
 - The `Offer` must be unique to a dataset since the target of the offer is derived from its enclosing context.
 - The `Offer` must NOT include an explicit `target` attribute.
 
-### 2.2.1 Agreement
+## 2.2.4 Agreement
 
 An `Agreement` is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) with the following attributes:
 
 - The `Agreement` class must include one `target` attribute that is the UUID of the asset the agreement is associated with. An agreement is therefore associated with **EXACTLY
   ONE** asset. (ODRL PROFILE)
-
-
-
-
-
