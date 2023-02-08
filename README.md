@@ -40,8 +40,8 @@ As an implication, the data transfer can be conducted in a separated process if 
 
 The __*Name of the protocol goes here*__ is used in the context of data spaces as described and defined in the subequent sections with the purpose to support interoperability.
 In this context, the specification provides fundamental technical interoperability for particiants in data spaces and therefore the protocol specified here is required to join any data space as specified [here]().
-Beyond the technical interoperability measures desribed in this specification, semantic interoperability should also be addressed by the participants. On the perspective of the data space, interoperability needs to be addressed also on the level of trust, on organizational level and on legal level.
-The aspect of cross data space commuication is not subject of this document, as this is addressed by the data spaces' organizational and legal agreements.
+Beyond the technical interoperability measures described in this specification, semantic interoperability should also be addressed by the participants. On the perspective of the data space, interoperability needs to be addressed also on the level of trust, on organizational level and on legal level.
+The aspect of cross data space communication is not subject of this document, as this is addressed by the data spaces' organizational and legal agreements.
 
 The interaction of participants in a data space is conducted by the participant agents, so called Data Connectors, which implement the protocols described above.
 While most interactions take place between data connectors, some interactions with other systems are required.
