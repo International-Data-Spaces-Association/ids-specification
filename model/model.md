@@ -1,4 +1,4 @@
-# 2 Dataspace Information Model
+# 2 Dataspace Model
 
 The following sections outline the Dataspace concpets and models, which form the foundation of this specification.
 
@@ -37,7 +37,7 @@ The diagram below depicts the relationships between `ParticipantAgent` types:
 
 Not all dataspace entities have a concrete _technical_ materialization; some entities may exist as purely logical constructs. For example, a `Dataspace Authority`
 and `Participant Agent` have no representation in the protocol message flows that constitute dataspace interactions. This section outlines the classes that comprise the concrete
-elements of the information model, i.e. those that are represented in protocol message flows.
+elements of the model, i.e. those that are represented in protocol message flows.
 
 ### 2.2.1 Catalog
 
