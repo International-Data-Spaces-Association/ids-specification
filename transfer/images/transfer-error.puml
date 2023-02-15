@@ -1,0 +1,30 @@
+@startuml "transfer-error"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:TransferError" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:TransferError"
+    ids:processId : String
+    ids:correlationId : String
+    ids:code : ids:TerminationCode
+    ids:reason : ids:Reason
+}
+
+
+enum ids:TerminationCode {
+    "..."
+}
+
+enum ids:Reason {
+    "..."
+}
+
+"ids:TransferError" "1" *-- "1" "ids:TerminationCode" : "ids:code"
+"ids:TransferError" "1" *-- "*" "ids:Reason" : "ids:reason"
+
+@enduml

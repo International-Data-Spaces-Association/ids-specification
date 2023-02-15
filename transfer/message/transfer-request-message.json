@@ -3,7 +3,7 @@
   "@id": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "@type": "ids:TransferRequestMessage",
   "ids:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-  "dct:format": "ids:s3+push",
+  "dct:format": "ids:S3_AWS_PUSH",
   "ids:dataAddress": {},
   "ids:callbackAddress": "https://......"
 }

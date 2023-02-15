@@ -1,0 +1,27 @@
+@startuml "transfer-process"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:TransferProcess" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:TransferProcess"
+    ids:correlationId : String
+    ids:state : ids:State
+}
+
+
+enum ids:State {
+    "ids:REQUESTED"
+    "ids:STARTED"
+    "ids:TERMINATED"
+    "ids:COMPLETED"
+    "ids:SUSPENDED"
+}
+
+"ids:TransferProcess" "1" *-- "1" "ids:State" : "ids:state"
+
+@enduml

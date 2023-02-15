@@ -1,0 +1,92 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "TransferRequestMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/TransferRequestMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/TransferRequestMessageSchema",
+	"definitions": {
+		"TransferRequestMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:TransferRequestMessage",
+					"required": true
+				},
+				"ids:agreementId": {
+					"type": "object",
+                    "properties": {
+                        "@value": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "@type": {
+                            "type": "string",
+                            "const": "xsd:anyURI",
+                            "required": true
+                        }
+                    },
+					"required": true
+				},
+				"dct:format": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "oneOf": [
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "ids:S3_AWS_PUSH"
+                                    ]
+                                }, 
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "required": true
+                    }
+				},
+				"ids:dataAddress": {
+					"type": "object",
+                    "properties": {
+                        "@value": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "@type": {
+                            "type": "string",
+                            "const": "xsd:anyURI",
+                            "required": true
+                        }
+                    },
+					"required": false
+				},
+				"ids:callbackAddress": {
+					"type": "object",
+                    "properties": {
+                        "@value": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "@type": {
+                            "type": "string",
+                            "const": "xsd:anyURI",
+                            "required": true
+                        }
+                    },
+					"required": true
+				}
+			}
+		}
+	}
+}

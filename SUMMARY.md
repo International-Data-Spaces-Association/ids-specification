@@ -60,7 +60,7 @@
 * [Transfer Process Message (json)](./transfer/message/transfer.process.json)
 * [Transfer Request Message (json)](./transfer/message/transfer.request.message.json)
 * [Transfer Start Message (json)](./transfer/message/transfer.start.message.json)
-* [Transfer Suspension Message (json)](./transfer/message/transfer.suspension.message.json)
+* [Transfer Suspension Message (json)](./transfer/message/transfer-suspension-message.json)
 * [Transfer Termination Message (json)](./transfer/message/transfer.termination.message.json)
 * [Common Schema (json)](./common/definitions.schema.json)
 * [Shape: Contract Agreement Message (ttl)](./schemas/contract-agreement-message-shape.ttl)

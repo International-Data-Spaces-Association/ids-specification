@@ -38,14 +38,14 @@ Asset transfers are characterized as `push` or `pull` transfers and asset data i
 A push transfer is when the producer data plane initiates sending of asset data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
 producer begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
 
-<< Include example diagram >>
+<< TODO: Include example diagram >>
 
 #### Pull Transfer
 
 A pull transfer is when the consumer data plane initiates retrieval of asset data from a producer endpoint. For example, after the consumer has issued an `TransferProcessStart,`
 message, the consumer requests the data from the producer-specified endpoint.
 
-<< Include example diagram >>
+<< TODO: Include example diagram >>
 
 #### Finite and Non-Finite Asset Data
 
@@ -65,21 +65,25 @@ The TP states are:
 
 ### Transfer Process State Machine
 
-![](./transfer.process.state.machine.png)
+![](./transfer-process-state-machine.png)
 
 ## Message Types
 
-### 1. TransferRequestMessage
+### 1. Transfer Request Message
+
+![](./images/transfer-request-message.png)
 
 **Sent by**: Consumer
 
 **Resulting State**: REQUESTED
 
-**Example**: [TransferRequestMessage](./message/transfer.request.message.json)
+**Example**: [TransferRequestMessage](./message/transfer-request-message.json)
 
-**Response**: [TransferProcess](./message/transfer.process.json) containing the transfer process id or ERROR.
+**Response**: [TransferProcess](./message/transfer-process.json) containing the transfer process id or ERROR.
 
-**Schema**: (xx)[]
+![](./images/transfer-process.png)
+
+**Schema**: [TransferRequestMessage](../schemas/transfer-request-message-shape.ttl), [TransferRequestMessage JSON Schema](../schemas/transfer-request-message-schema.json), [TransferProcess Shape](../schemas/transfer-process-shape.ttl) and the [TransferProcess JSON Schema](../schemas/transfer-process-schema.json)
 
 #### Description
 
@@ -103,18 +107,23 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 #### Notes
 
 - The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
+- Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
 
-### 2. TransferStartMessage
+
+### 2. Transfer Start Message
+
+![](./images/transfer-start-message.png)
 
 **Sent by**: Provider
 
 **Resulting State**: STARTED
 
-**Example**: [TransferStartMessage](./message/transfer.start.message.json)
+**Example**: [TransferStartMessage](./message/transfer-start-message.json)
 
 **Response**: ACK or ERROR.
 
-**Schema**: (xx)[]
+**Schema**: [TransferStartMessageShape](../schemas/transfer-start-message-shape.ttl) and the [TransferStartMessage JSON Schema](../schemas/transfer-start-message-schema.json)
+
 
 #### Description
 
@@ -125,14 +134,56 @@ The _TransferStartMessage_ is sent by the provider to indicate the asset transfe
 - The 'dataAddress' is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
   temporary authorization token.
 
-### 3. TransferCompletionMessage
+### 3. Transfer Suspension Message
+
+![](./images/transfer-suspension-message.png)
+
+**Sent by**: Provider or Consumer
+
+**Resulting State**: SUSPENDED
+
+**Example**: [TransferSuspensionMessage](./message/transfer-suspension-message.json)
+
+**Response**: ACK or ERROR.
+
+**Schema**: [TransferSuspensionMessageShape](../schemas/transfer-suspension-message-shape.ttl) and the [TransferSuspensionMessage JSON Schema](../schemas/transfer-suspension-message-schema.json)
+
+#### Description
+
+The _TransferSuspensionMessage_ is sent by the provider or consumer when either of them needs to temporarily suspend the data transfer.
+
+### 4. Transfer Completion Message
+
+![](./images/transfer-completion-message.png)
+
+**Sent by**: 
+
+**Resulting State**: 
+
+**Example**: [TransferCompletionMessage](./message/transfer-completion-message.json)
+
+**Response**: ACK or ERROR.
+
+**Schema**: [TransferCompletionMessageShape](../schemas/transfer-completion-message-shape.ttl) and the [TransferCompletionMessage JSON Schema](../schemas/transfer-completion-message-schema.json)
 
 #### Description
 
 The _TransferCompletionMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
 notification by performing it as part of its wire protocol. In those cases, a _TransferCompletionMessage_ message does not need to be sent.
 
-### 4. TransferTerminationMessage
+### 5. Transfer Termination Message
+
+![](./images/transfer-termination-message.png)
+
+**Sent by**: Provider or Consumer
+
+**Resulting State**: TERMINATED
+
+**Example**: [TransferTerminationMessage](./message/transfer-termination-message.json)
+
+**Response**: ACK or ERROR.
+
+**Schema**: [TransferTerminationMessageShape](../schemas/transfer-termination-message-shape.ttl) and the [TransferTerminationMessage JSON Schema](../schemas/transfer-termination-message-schema.json)
 
 #### Description
 
@@ -141,11 +192,13 @@ a terminal state. If the termination was due to an error, the sender may include
 
 ## TransferError
 
+![](./images/transfer-error.png)
+
 **Sent by**: Consumer or Provider
 
-**Example**: [TransferError](./message/transfer.error.json)
+**Example**: [TransferError](./message/transfer-error.json)
 
-**Schema**: [TransferErrorShape](../../schemas/transfer-error-shape.ttl)
+**Schema**: [TransferErrorShape](../schemas/transfer-error-shape.ttl) and the [TransferError JSON Schema](../schemas/transfer-error-schema.json)
 
 #### Description
 

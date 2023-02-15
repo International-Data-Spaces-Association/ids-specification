@@ -1,0 +1,26 @@
+@startuml "transfer-request-message"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:TransferRequestMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:TransferRequestMessage"
+    ids:agreementId : xsd:anyURI
+    dct:format : ids:DataPlaneType
+    ids:dataAddress : xsd:anyURI
+    ids:callbackAddress : xsd:anyURI
+}
+
+
+enum ids:DataPlaneType {
+    "ids:S3_AWS_PUSH"
+    "..."
+}
+
+"ids:TransferRequestMessage" "1" *-- "1" "ids:DataPlaneType" : "dct:format"
+
+@enduml

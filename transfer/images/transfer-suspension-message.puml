@@ -1,0 +1,23 @@
+@startuml "transfer-suspension-message"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:TransferSuspensionMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:TransferSuspensionMessage"
+    ids:processId : String
+    ids:correlationId : String
+    ids:reason : ids:Reason
+}
+
+enum ids:Reason {
+    "..."
+}
+
+"ids:TransferSuspensionMessage" "1" *-- "*" "ids:Reason" : "ids:reason"
+
+@enduml

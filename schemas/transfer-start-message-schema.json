@@ -1,0 +1,51 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "TransferStartMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/TransferStartMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/TransferStartMessageSchema",
+	"definitions": {
+		"TransferStartMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:TransferStartMessage",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:correlationId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:dataAddress": {
+					"type": "object",
+                    "properties": {
+                        "@value": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "@type": {
+                            "type": "string",
+                            "const": "xsd:anyURI",
+                            "required": true
+                        }
+                    },
+					"required": false
+				}
+			}
+		}
+	}
+}
