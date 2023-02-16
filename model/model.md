@@ -20,7 +20,7 @@ Note that all relationships are multiplicities unless specified.
   use a _**verifiable presentation**_ generated from a _**credential**_ obtained from a third-party issuer. A participant agent may also use an _**ID token**_ issued by a
   third-party identity provider. Note that a participant agent is a logical construct and does not necessarily correspond to a single runtime process.
 - An `Identity Provider` is a trust anchor that generates `ID tokens` used to verify the identity of a `Participant Agent`. Multiple identity providers may operate in
-  a dataspace. The identity standard used by a provider is not defined but could be _OAuth2_ or _Decentralized Identifiers using did:web_. An identity provider may be a third-party
+  a dataspace. The identity standard used by a provider is not defined but could be, for example, _OAuth2_ or _Decentralized Identifiers using did:web_. An identity provider may be a third-party
   or a participant itself (for example, in the case of decentralized identifiers).
 - A `Credential Issuer` issues _verifiable credentials_ used by participant agents to allow access to assets and verify usage control.
 
