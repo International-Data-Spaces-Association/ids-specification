@@ -138,3 +138,19 @@ notification by performing it as part of its wire protocol. In those cases, a _T
 
 The _TransferTerminationMessage_ is sent by the provider or consumer at any point except a terminal state to indicate the data transfer process should stop and be placed in
 a terminal state. If the termination was due to an error, the sender may include error information. 
+
+## TransferError
+
+**Sent by**: Consumer or Provider
+
+**Example**: [TransferError](./message/transfer.error.json)
+
+**Schema**: [TransferErrorShape](../../schemas/transfer-error-shape.ttl)
+
+#### Description
+
+The _TransferError_ is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
+
+#### Notes
+
+- A _TransferError_ is different to an error response. A _TransferError_ does not necessarily finish the negotiation but can continue afterwards.

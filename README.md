@@ -4,6 +4,8 @@
 
 > __NOTE:__ These specifications are working drafts and subject to change.
 
+> __NOTE:__ For GitHub users, The link to the rendered content is https://docs.internationaldataspaces.org/communication-guide-v2-draft/
+
 ## Abstract
 
 IDS is a set of specifications designed to facilitate interoperable data sharing between entities governed by usage control and based on Web technologies. These specifications
