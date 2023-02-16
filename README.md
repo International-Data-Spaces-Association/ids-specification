@@ -50,7 +50,7 @@ The figure below provides an overview on the context of this specification.
 An Identity Provider realizes the required interfaces and provides required information to implement Trust Framework of a data space.
 The validation of the identity of a given participant agent and the validation of addtional claims is the fundamental mechanism. The strucutre and content of such claims and identity may vary between different data spaces, as well as the structure of such an Identity Provider, e.g. a centralized system, a decentralized system or a federated system.
 
-A data connector will implement addtional internal functionalities, like monitoring or Policy Engines, as appropriate. It is not covered by this specification, if a data connector implements such or how.
+A connector will implement addtional internal functionalities, like monitoring or Policy Engines, as appropriate. It is not covered by this specification, if a connector implements such or how.
 
 The same applies for the data, which is transfered between the systems. While this document does not define the transpprt protocol, the structure, syntax and semantics of the data, a specification for those aspects is required and subject to the agreements of the participants or the data space.
 
