@@ -3,7 +3,8 @@
 ## Overview
 
 * [Introduction](./README.md)
-* [Information Model](./model/information.model.md)
+* [Terminology](./model/terminology.md)
+* [Information Model](./model/model.md)
 
 ## Catalog
 
