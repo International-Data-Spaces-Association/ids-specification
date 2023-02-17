@@ -83,8 +83,6 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
   UNRECOVERABLE error.
 
-> Comment sba (25.11.2022): What happens if the provider discovers that the callbackAddress is wrong/endpoint unavailable? Whom to send the error message to?
-
 ### 2. ContractAgreementMessage
 
 **Sent by**: Provider
@@ -142,10 +140,6 @@ When the _ContractNegotiationEventMessage_ is sent by a provider with an `eventT
 is accessible. The state machine is transitioned to the PROVIDER_FINALIZED state. Other event types may be defined in the future. A consumer responds with an error if the signature
 can't be validated or is incorrect.
 
-> Comment sba (25.11.2022): Which signature?
-
-> Comment sba (25.11.2022): ContractNegotiationEventMessage + eventType has the same expressiveness as the explicetly typed negotiation messages. Why breaking the pattern here?
-
 It is an error for a consumer to send a ContractNegotiationEventMessage with an eventType `finalized` to the provider.
 
 When the _ContractNegotiationEventMessage_ is sent by a consumer with an `eventType` set to  `accepted`, the state machine is placed in the CONSUMER_AGREED state.
@@ -156,9 +150,6 @@ Note that contract events are not intended for propagation of agreement state af
 provider to send a contract negotiation event after the negotiation state machine has entered a terminal state.
 
 ### 5. ContractNegotiationTerminationMessage
-
-> Comment sba (25.11.2022): See ids:
-> RejectionMessage https://github.com/International-Data-Spaces-Association/InformationModel/blob/d35161747a2c1d0e71777dbedf7b7c6132734200/taxonomies/Message.ttl#L48
 
 **Sent by**: Consumer or Provider
 
