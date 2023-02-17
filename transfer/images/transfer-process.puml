@@ -10,11 +10,11 @@ class "ids:TransferProcess" {
     @context : "https://w3id.org/idsa/v5/context.json"
     @type : "ids:TransferProcess"
     ids:correlationId : String
-    ids:state : ids:State
+    ids:state : ids:TransferState
 }
 
 
-enum ids:State {
+enum ids:TransferState {
     "ids:REQUESTED"
     "ids:STARTED"
     "ids:TERMINATED"
@@ -22,6 +22,6 @@ enum ids:State {
     "ids:SUSPENDED"
 }
 
-"ids:TransferProcess" "1" *-- "1" "ids:State" : "ids:state"
+"ids:TransferProcess" "1" *-- "1" "ids:TransferState" : "ids:transferState"
 
 @enduml

@@ -9,6 +9,7 @@ hide empty description
 class "ids:ContractRequestMessage" {
     @context : "https://w3id.org/idsa/v5/context.json"
     @type : ids:ContractRequestMessage
+    ids:dataSet : String
     ids:processId : String
     ids:offer : odrl:Offer
     ids:callbackAddress : xsd:anyURI

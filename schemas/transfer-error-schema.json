@@ -31,23 +31,7 @@
 					"required": true
 				},
 				"ids:code": {
-					"type": "object",
-					"properties": {
-						"@id": {
-							"anyOf": [
-								{
-									"type": "string",
-									"enum": [
-										
-									]
-								},
-								{
-									"type": "string"
-								}
-							]
-						},
-						"required": true
-					},
+					"type": "string",
 					"required": true
 				},
 				"ids:reason": {
@@ -55,7 +39,7 @@
 					"required": false,
 					"minItems": 1,
 					"items": {
-						
+
 					}
 				}
 			}

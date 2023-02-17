@@ -42,11 +42,11 @@ shapes:TransferRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dct:format ;
-		sh:class ids:DataPlaneType ;
+		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): A dct:format property must point exactly one ids:DataPlaneType entity."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): A dct:format property must point exactly one entity."@en ;
 	] ;
 
 	sh:property [

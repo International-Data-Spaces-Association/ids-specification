@@ -26,24 +26,13 @@
 					"type": "string",
 					"required": true
 				},
-				"ids:rejectionReason": {
-					"anyOf": [ 
-						{
-							"type": "string",
-							"enum": [
-								"ids:COUNTER_OFFER_NOT_ALLOWED",
-								"ids:BAD_PARAMETERS"
-							]
-						},
-						{
-							"type": "string",
-							"pattern": "ids:[A-Z_]"
-						},
-						{
-							"type": "string",
-							"pattern": "https?:\/\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
-						}
-					]
+				"ids:reason": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+
+					},
+					"required": false
 				},
 				"dct:description": {
 					"type": "array",

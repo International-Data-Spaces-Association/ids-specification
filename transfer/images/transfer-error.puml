@@ -11,20 +11,8 @@ class "ids:TransferError" {
     @type : "ids:TransferError"
     ids:processId : String
     ids:correlationId : String
-    ids:code : ids:TerminationCode
-    ids:reason : ids:Reason
+    ids:code : String
+    ids:reason : Array
 }
-
-
-enum ids:TerminationCode {
-    "..."
-}
-
-enum ids:Reason {
-    "..."
-}
-
-"ids:TransferError" "1" *-- "1" "ids:TerminationCode" : "ids:code"
-"ids:TransferError" "1" *-- "*" "ids:Reason" : "ids:reason"
 
 @enduml

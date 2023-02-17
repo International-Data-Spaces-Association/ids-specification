@@ -40,13 +40,4 @@ shapes:TransferSuspensionMessageShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferSuspensionMessageShape): An ids:correlationId property must point from an ids:TransferSuspensionMessage to exactly one xsd:string field."@en ;
 	] ;
 
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:reason ;
-		sh:class ids:Reason ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferTerminationMessageShape): An ids:reason property must point from an ids:TransferSuspensionMessage to at least one ids:Reason."@en ;
-	] ;
-
 .

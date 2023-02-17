@@ -11,7 +11,7 @@ class "ids:TransferStartMessage" {
     @type : "ids:TransferStartMessage"
     ids:processId : String
     ids:correlationId : String
-    ids:dataAddress : xsd:anyURI
+    ids:dataAddress : String
 }
 
 @enduml

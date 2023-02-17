@@ -50,7 +50,7 @@ request.
 
 #### 2.3.2 OK (200) Response
 
-If the request is successful, the catalog service must return a response body containing a [CatalogMessage](./message/catalog.message.json) which is a profiled DCAT Catalog type
+If the request is successful, the catalog service must return a response body containing a [Catalog](./message/catalog.json) which is a profiled DCAT Catalog type
 described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ## 3 Technical Considerations

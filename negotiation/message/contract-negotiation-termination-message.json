@@ -2,11 +2,9 @@
   "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractNegotiationTerminationMessage",
   "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "ids:code": {
-    "@id": "http://example.org/CONTRACT_NOT_ACCEPTABLE"
-  },
+  "ids:code": "...",
   "ids:reason": [
-    { 
+    {
       "@value": "License model does not fit.",
       "@language": "en"
     },

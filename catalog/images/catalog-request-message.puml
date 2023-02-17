@@ -9,15 +9,7 @@ hide empty description
 class "ids:CatalogRequestMessage" {
     @context : "https://w3id.org/idsa/v5/context.json"
     @type : ids:CatalogRequestMessage
-    ids:filter : ids:Filter
+    ids:filter : Object
 }
-
-class ids:Filter {
-    @type : "ids:Filter",
-    @id: String
-    ...
-}
-
-"ids:CatalogRequestMessage" "1" *-- "0..n" "ids:Filter" : "ids:filter"
 
 @enduml

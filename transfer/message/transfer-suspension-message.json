@@ -5,7 +5,7 @@
   "ids:processId": "urn:uuid:24a62493-06eb-45e4-a41c-6de091b51da5",
   "ids:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "ids:code": "...",
-  "ids:reasons": [
+  "ids:reason": [
     {},
     {}
   ]

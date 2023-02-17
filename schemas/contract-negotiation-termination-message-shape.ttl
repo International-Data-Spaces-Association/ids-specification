@@ -30,23 +30,4 @@ shapes:ContractNegotiationTerminationMessageShape
 	sh:targetClass ids:ContractNegotiationTerminationMessage ;
 	rdfs:subClassOf ids:ContractNegotiationMessageShape ;
 
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:code ;
-		sh:class ids:TerminationCode ;
-		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-termination-message-shape.ttl> (ContractNegotiationTerminationMessageShape): An ids:code property must point from an ids:ContractNegotiationTerminationMessage to exactly one ids:TerminationCode."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path ids:reason ;
-		sh:class ids:Reason ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-termination-message-shape.ttl> (ContractNegotiationTerminationMessageShape): An ids:reason property must point from an ids:ContractNegotiationTerminationMessage to at least one ids:Reason."@en ;
-	] ;
-
 .

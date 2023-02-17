@@ -199,7 +199,7 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 
 **Example**: [NegotiationError](./message/contract-negotiation-error.json)
 
-**Schema**: [ContractNegotiationErrorShape](../schemas/contract-negotiation-error-shape.ttl) and the [ContractNegotiationErrorMessage JSON Schema](../schemas/contract-negotiation-error-message-schema.json)
+**Schema**: [ContractNegotiationErrorShape](../schemas/contract-negotiation-error-shape.ttl) and the [ContractNegotiationErrorMessage JSON Schema](../schemas/contract-negotiation-error-schema.json)
 
 #### Description
 

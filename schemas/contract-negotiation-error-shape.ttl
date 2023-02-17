@@ -32,18 +32,9 @@ shapes:ContractNegotiationErrorShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:rejectionReason ;
-		sh:class ids:RejectionReason ;
-		sh:maxCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An ids:rejectionReason property must point from an ids:ContractNegotiationError to zero or one ids:RejectionReason."@en ;
-	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path dct:description ;
 		sh:datatype rdf:langString ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): A dct:description property must point from an ids:ContractNegotiationError to zero or more rdf:langString values."@en ;
-	] 
+	]
 .

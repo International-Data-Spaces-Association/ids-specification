@@ -10,14 +10,9 @@ class "ids:ContractNegotiationError" {
     @context : "https://w3id.org/idsa/v5/context.json"
     @type : "ids:ContractNegotiationError"
     ids:processId : String
-    ids:rejectionReason : ids:RejectionReason
+    ids:code : String
+    ids:reason : Array
     dct:description : MultilanguageProperty
-}
-
-enum ids:RejectionReason {
-    "ids:COUNTER_OFFER_NOT_ALLOWED"
-    "ids:BAD_PARAMETERS"
-    "..."
 }
 
 class "MultilanguageProperty" {
@@ -25,7 +20,6 @@ class "MultilanguageProperty" {
     @value: String
 }
 
-"ids:ContractNegotiationError" "1" *-- "0..1" "ids:RejectionReason" : "ids:rejectionReason"
 "ids:ContractNegotiationError" "1" *-- "*" "MultilanguageProperty" : "dct:description"
 
 @enduml

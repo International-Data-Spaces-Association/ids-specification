@@ -38,23 +38,8 @@
 					"required": true
 				},
 				"dct:format": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "oneOf": [
-                                {
-                                    "type": "string",
-                                    "enum": [
-                                        "ids:S3_AWS_PUSH"
-                                    ]
-                                }, 
-                                {
-                                    "type": "string"
-                                }
-                            ]
-                        },
-                        "required": true
-                    }
+                    "type": "string",
+                    "required": true
 				},
 				"ids:dataAddress": {
 					"type": "object",

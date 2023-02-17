@@ -11,20 +11,8 @@ class "ids:TransferTerminationMessage" {
     @type : "ids:TransferTerminationMessage"
     ids:processId : String
     ids:correlationId : String
-    ids:code : ids:TerminationCode
-    ids:reason : ids:Reason
+    ids:code : String
+    ids:reason : Array
 }
-
-
-enum ids:TerminationCode {
-    "..."
-}
-
-enum ids:Reason {
-    "..."
-}
-
-"ids:TransferTerminationMessage" "1" *-- "1" "ids:TerminationCode" : "ids:code"
-"ids:TransferTerminationMessage" "1" *-- "*" "ids:Reason" : "ids:reason"
 
 @enduml

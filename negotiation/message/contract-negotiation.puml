@@ -10,8 +10,20 @@ class "ids:ContractNegotiation" {
     @context : "https://w3id.org/idsa/v5/context.json"
     @type : "ids:ContractNegotiation"
     ids:processId : String
-    ids:negotiationId : String
+    ids:state : ids:ContractNegotiationState
 }
 
+enum ids:ContractNegotiationState {
+    "ids:CONSUMER_REQUESTED"
+    "ids:PROVIDER_OFFERED"
+    "ids:CONSUMER_AGREED"
+    "ids:PROVIDER_AGREED"
+    "ids:CONSUMER_VERIFIED"
+    "ids:PROVIDER_FINALIZED"
+    "ids:TERMINATED"
+    "..."
+}
+
+"ids:ContractNegotiation" "1" *-- "1" "ids:ContractNegotiationState" : "ids:contractNegotiationState"
 
 @enduml

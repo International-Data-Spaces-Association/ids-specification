@@ -26,7 +26,7 @@
 					"type": "string",
 					"required": true
 				},
-				"ids:state": {
+				"ids:transferState": {
                     "type": "object",
                     "properties": {
                         "@id": {

@@ -11,13 +11,8 @@ class "ids:TransferSuspensionMessage" {
     @type : "ids:TransferSuspensionMessage"
     ids:processId : String
     ids:correlationId : String
-    ids:reason : ids:Reason
+    ids:code : String
+    ids:reason : Array
 }
-
-enum ids:Reason {
-    "..."
-}
-
-"ids:TransferSuspensionMessage" "1" *-- "*" "ids:Reason" : "ids:reason"
 
 @enduml
