@@ -14,9 +14,12 @@ state TERMINATED $lightRed #$borderRed : <color:$darkGray>TransferTerminationMes
 
 [*] --> REQUESTED: C
 REQUESTED -->  STARTED: P
+REQUESTED -->  TERMINATED: P
 STARTED -->  COMPLETED: P/C
 STARTED -->  SUSPENDED: P/C
+STARTED -->  TERMINATED: P/C
 SUSPENDED --> STARTED: P/C
+SUSPENDED --> TERMINATED: P/C
 COMPLETED -->[*]
 
 TERMINATED --> [*]
