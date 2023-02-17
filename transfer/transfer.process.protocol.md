@@ -71,7 +71,7 @@ The TP states are:
 
 ### 1. Transfer Request Message
 
-![](./images/transfer-request-message.png)
+![](./message/diagram/transfer-request-message.png)
 
 **Sent by**: Consumer
 
@@ -81,9 +81,9 @@ The TP states are:
 
 **Response**: [TransferProcess](./message/transfer-process.json) containing the transfer process id or ERROR.
 
-![](./images/transfer-process.png)
+![](./message/diagram/transfer-process.png)
 
-**Schema**: [TransferRequestMessage](../schemas/transfer-request-message-shape.ttl), [TransferRequestMessage JSON Schema](../schemas/transfer-request-message-schema.json), [TransferProcess Shape](../schemas/transfer-process-shape.ttl) and the [TransferProcess JSON Schema](../schemas/transfer-process-schema.json)
+**Schema**: [TransferRequestMessage](./message/shape/transfer-request-message-shape.ttl), [TransferRequestMessage JSON Schema](./message/schema/transfer-request-message-schema.json), [TransferProcess Shape](./message/shape/transfer-process-shape.ttl) and the [TransferProcess JSON Schema](./message/schema/transfer-process-schema.json)
 
 #### Description
 
@@ -112,7 +112,7 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 ### 2. Transfer Start Message
 
-![](./images/transfer-start-message.png)
+![](./message/diagram/transfer-start-message.png)
 
 **Sent by**: Provider
 
@@ -122,7 +122,7 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 **Response**: ACK or ERROR.
 
-**Schema**: [TransferStartMessageShape](../schemas/transfer-start-message-shape.ttl) and the [TransferStartMessage JSON Schema](../schemas/transfer-start-message-schema.json)
+**Schema**: [TransferStartMessageShape](./message/shape/transfer-start-message-shape.ttl) and the [TransferStartMessage JSON Schema](./message/schema/transfer-start-message-schema.json)
 
 
 #### Description
@@ -136,7 +136,7 @@ The _TransferStartMessage_ is sent by the provider to indicate the asset transfe
 
 ### 3. Transfer Suspension Message
 
-![](./images/transfer-suspension-message.png)
+![](./message/diagram/transfer-suspension-message.png)
 
 **Sent by**: Provider or Consumer
 
@@ -146,7 +146,7 @@ The _TransferStartMessage_ is sent by the provider to indicate the asset transfe
 
 **Response**: ACK or ERROR.
 
-**Schema**: [TransferSuspensionMessageShape](../schemas/transfer-suspension-message-shape.ttl) and the [TransferSuspensionMessage JSON Schema](../schemas/transfer-suspension-message-schema.json)
+**Schema**: [TransferSuspensionMessageShape](./message/shape/transfer-suspension-message-shape.ttl) and the [TransferSuspensionMessage JSON Schema](./message/schema/transfer-suspension-message-schema.json)
 
 #### Description
 
@@ -154,7 +154,7 @@ The _TransferSuspensionMessage_ is sent by the provider or consumer when either 
 
 ### 4. Transfer Completion Message
 
-![](./images/transfer-completion-message.png)
+![](./message/diagram/transfer-completion-message.png)
 
 **Sent by**: 
 
@@ -164,7 +164,7 @@ The _TransferSuspensionMessage_ is sent by the provider or consumer when either 
 
 **Response**: ACK or ERROR.
 
-**Schema**: [TransferCompletionMessageShape](../schemas/transfer-completion-message-shape.ttl) and the [TransferCompletionMessage JSON Schema](../schemas/transfer-completion-message-schema.json)
+**Schema**: [TransferCompletionMessageShape](./message/shape/transfer-completion-message-shape.ttl) and the [TransferCompletionMessage JSON Schema](./message/schema/transfer-completion-message-schema.json)
 
 #### Description
 
@@ -173,7 +173,7 @@ notification by performing it as part of its wire protocol. In those cases, a _T
 
 ### 5. Transfer Termination Message
 
-![](./images/transfer-termination-message.png)
+![](./message/diagram/transfer-termination-message.png)
 
 **Sent by**: Provider or Consumer
 
@@ -183,7 +183,7 @@ notification by performing it as part of its wire protocol. In those cases, a _T
 
 **Response**: ACK or ERROR.
 
-**Schema**: [TransferTerminationMessageShape](../schemas/transfer-termination-message-shape.ttl) and the [TransferTerminationMessage JSON Schema](../schemas/transfer-termination-message-schema.json)
+**Schema**: [TransferTerminationMessageShape](./message/shape/transfer-termination-message-shape.ttl) and the [TransferTerminationMessage JSON Schema](./message/schema/transfer-termination-message-schema.json)
 
 #### Description
 
@@ -192,13 +192,13 @@ a terminal state. If the termination was due to an error, the sender may include
 
 ## TransferError
 
-![](./images/transfer-error.png)
+![](./message/diagram/transfer-error.png)
 
 **Sent by**: Consumer or Provider
 
 **Example**: [TransferError](./message/transfer-error.json)
 
-**Schema**: [TransferErrorShape](../schemas/transfer-error-shape.ttl) and the [TransferError JSON Schema](../schemas/transfer-error-schema.json)
+**Schema**: [TransferErrorShape](./message/shape/transfer-error-shape.ttl) and the [TransferError JSON Schema](./message/schema/transfer-error-schema.json)
 
 #### Description
 

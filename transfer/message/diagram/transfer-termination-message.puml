@@ -1,14 +1,14 @@
-@startuml "transfer-suspension-message"
+@startuml "transfer-termination-message"
 !pragma layout smetana
 
-!include ../../diagrams/diagram.styles.puml
+!include ../../../common/style/diagram.styles.puml
 
 hide empty description
 
 
-class "ids:TransferSuspensionMessage" {
+class "ids:TransferTerminationMessage" {
     @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:TransferSuspensionMessage"
+    @type : "ids:TransferTerminationMessage"
     ids:processId : String
     ids:correlationId : String
     ids:code : String

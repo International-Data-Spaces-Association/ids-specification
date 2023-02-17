@@ -1,7 +1,7 @@
 @startuml "contract-negotiation-error"
 !pragma layout smetana
 
-!include ../../diagrams/diagram.styles.puml
+!include ../../../common/style/diagram.styles.puml
 
 hide empty description
 

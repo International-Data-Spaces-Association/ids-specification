@@ -54,7 +54,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 ### 1. ContractRequestMessage
 
-![](./message/contract-request-message.png)
+![](./message/diagram/contract-request-message.png)
 
 **Sent by**: Consumer
 
@@ -63,9 +63,9 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 **Example**: [ContractRequestMessage](./message/contract-request-message.json)
 
 **Response**: [ContractNegotiation](./message/contract-negotiation.json) containing the negotiation id or ERROR:
-![](./message/contract-negotiation.png)
+![](./message/diagram/contract-negotiation.png)
 
-**Schema**: [ContractRequestMessageShape](../schemas/contract-request-message-shape.ttl), [ContractRequestMessage JSON Schema](../schemas/contract-request-message-schema.json), [ContractNegotiationShape](../schemas/contract-negotiation-shape.ttl) and [ContractNegotiation JSON Schema](../schemas/contract-negotiation-schema.json)
+**Schema**: [ContractRequestMessageShape](./message/shape/contract-request-message-shape.ttl), [ContractRequestMessage JSON Schema](./message/schema/contract-request-message-schema.json), [ContractNegotiationShape](./message/shape/contract-negotiation-shape.ttl) and [ContractNegotiation JSON Schema](./message/schema/contract-negotiation-schema.json)
 
 #### Description
 
@@ -90,7 +90,7 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 ### 2. ContractAgreementMessage
 
-![](./message/contract-agreement-message.png)
+![](./message/diagram/contract-agreement-message.png)
 
 **Sent by**: Provider
 
@@ -100,7 +100,7 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 **Response**: OK or ERROR
 
-**Schema**: [ContractAgreementMessageShape](../schemas/contract-agreement-message-shape.ttl) and [ContractAgreementMessage JSON Schema](../schemas/contract-agreement-message-schema.json)
+**Schema**: [ContractAgreementMessageShape](./message/shape/contract-agreement-message-shape.ttl) and [ContractAgreementMessage JSON Schema](./message/schema/contract-agreement-message-schema.json)
 
 #### Description
 
@@ -113,7 +113,7 @@ A _ContractAgreementMessage_ must contain an ODRL Agreement.
 ### 3. ContractAgreementVerificationMessage
 
 
-![](./message/contract-agreement-verification-message.png)
+![](./message/diagram/contract-agreement-verification-message.png)
 
 **Sent by**: Consumer
 
@@ -123,7 +123,7 @@ A _ContractAgreementMessage_ must contain an ODRL Agreement.
 
 **Response**: OK or ERROR
 
-**Schema**: [ContractAgreementVerificationMessageShape](../schemas/contract-agreement-verification-message-shape.ttl) and the [ContractAgreementVerificationMessage JSON Schema](../schemas/contract-agreement-verification-message-schema.json)
+**Schema**: [ContractAgreementVerificationMessageShape](./message/shape/contract-agreement-verification-message-shape.ttl) and the [ContractAgreementVerificationMessage JSON Schema](./message/schema/contract-agreement-verification-message-schema.json)
 
 #### Description
 
@@ -135,7 +135,7 @@ A _ContractAgreementVerificationMessage_ must contain a `processId`.
 ### 4. ContractNegotiationEventMessage
 
 
-![](./message/contract-negotiation-event-message.png)
+![](./message/diagram/contract-negotiation-event-message.png)
 
 **Sent by**: Provider or Consumer
 
@@ -145,7 +145,7 @@ A _ContractAgreementVerificationMessage_ must contain a `processId`.
 
 **Response**: OK or ERROR
 
-**Schema**: [ContractNegotiationEventMessageShape](../schemas/contract-negotiation-event-message-shape.ttl) and the [ContractNegotiationEventMessage JSON Schema](../schemas/contract-negotiation-event-message-schema.json)
+**Schema**: [ContractNegotiationEventMessageShape](./message/shape/contract-negotiation-event-message-shape.ttl) and the [ContractNegotiationEventMessage JSON Schema](./message/schema/contract-negotiation-event-message-schema.json)
 
 #### Description
 
@@ -168,7 +168,7 @@ provider to send a contract negotiation event after the negotiation state machin
 
 ### 5. ContractNegotiationTerminationMessage
 
-![](./message/contract-negotiation-termination-message.png)
+![](./message/diagram/contract-negotiation-termination-message.png)
 
 
 **Sent by**: Consumer or Provider
@@ -177,7 +177,7 @@ provider to send a contract negotiation event after the negotiation state machin
 
 **Example**: [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json)
 
-**Schema**: [ContractNegotiationTerminationMessageShape](../schemas/contract-negotiation-termination-message-shape.ttl) and the [ContractNegotiationTerminationMessage JSON Schema](../schemas/contract-negotiation-termination-message-schema.json)
+**Schema**: [ContractNegotiationTerminationMessageShape](./message/shape/contract-negotiation-termination-message-shape.ttl) and the [ContractNegotiationTerminationMessage JSON Schema](./message/schema/contract-negotiation-termination-message-schema.json)
 
 #### Description
 
@@ -199,7 +199,7 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 
 **Example**: [NegotiationError](./message/contract-negotiation-error.json)
 
-**Schema**: [ContractNegotiationErrorShape](../schemas/contract-negotiation-error-shape.ttl) and the [ContractNegotiationErrorMessage JSON Schema](../schemas/contract-negotiation-error-schema.json)
+**Schema**: [ContractNegotiationErrorShape](./message/shape/contract-negotiation-error-shape.ttl) and the [ContractNegotiationErrorMessage JSON Schema](./message/schema/contract-negotiation-error-schema.json)
 
 #### Description
 

@@ -20,7 +20,7 @@ Future IDS specifications may define additional optional serialization formats.
 
 ### 2.1 CatalogRequestMessage
 
-![](./images/catalog-request-message.png)
+![](./message/diagram/catalog-request-message.png)
 
 **Sent by**: Consumer
 
@@ -28,7 +28,7 @@ Future IDS specifications may define additional optional serialization formats.
 
 **Response**: [Catalog](#22-catalog) containing the [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
-**Schema**: [CatalogRequestMessageShape](../schemas/catalog-request-message-shape.ttl) and the [CatalogRequestMessage JSON Schema](../schemas/catalog-request-message-schema.json)
+**Schema**: [CatalogRequestMessageShape](./message/shape/catalog-request-message-shape.ttl) and the [CatalogRequestMessage JSON Schema](./message/schema/catalog-request-message-schema.json)
 
 #### Description
 
@@ -43,7 +43,7 @@ be defined in the relevant catalog binding specification.
 
 ### 2.2 Catalog
 
-![](./images/catalog.png)
+![](./message/diagram/catalog.png)
 
 **Sent by**: Provider
 
@@ -52,7 +52,7 @@ be defined in the relevant catalog binding specification.
 
 **Response**: OK or ERROR
 
-**Schema**: [CatalogShape](../schemas/catalog-shape.ttl) and the [Catalog JSON Schema](../schemas/catalog-schema.json)
+**Schema**: [CatalogShape](./message/shape/catalog-shape.ttl) and the [Catalog JSON Schema](./message/schema/catalog-schema.json)
 
 #### Description
 
@@ -61,7 +61,7 @@ The catalog contains all [Asset Entries](#31-asset-entry) which the requester sh
 
 ### 2.3 Catalog Error Message
 
-![](./images/catalog-error-message.png)
+![](./message/diagram/catalog-error-message.png)
 
 **Sent by**: Consumer or Provider
 
@@ -69,7 +69,7 @@ The catalog contains all [Asset Entries](#31-asset-entry) which the requester sh
 
 **Response**: OK or ERROR
 
-**Schema**: [CatalogErrorMessageShape](../schemas/catalog-error-message-shape.ttl) and the [CatalogErrorMessage JSON Schema](../schemas/catalog-error-message-schema.json)
+**Schema**: [CatalogErrorMessageShape](./message/shape/catalog-error-message-shape.ttl) and the [CatalogErrorMessage JSON Schema](./message/schema/catalog-error-message-schema.json)
 
 #### Description
 
