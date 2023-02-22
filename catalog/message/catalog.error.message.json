@@ -1,9 +1,0 @@
-{
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:CatalogErrorMessage",
-  "ids:code": "123:A",
-  "ids:reasons": [
-    {},
-    {}
-  ]
-}

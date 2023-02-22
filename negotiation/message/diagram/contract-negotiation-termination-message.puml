@@ -1,0 +1,17 @@
+@startuml "contract-negotiation-termination-message"
+!pragma layout smetana
+
+!include ../../../common/style/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:ContractNegotiationTerminationMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:ContractNegotiationTerminationMessage"
+    ids:processId : String
+    ids:code : Object
+    ids:reason : Array
+}
+
+@enduml

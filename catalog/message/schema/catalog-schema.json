@@ -1,0 +1,39 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "CatalogSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/Catalog"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/schemas/v5/CatalogSchema",
+	"definitions": {
+		"Catalog": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "dcat:Catalog",
+					"required": true
+				},
+				"dcat:dataset": {
+                    "type": "array",
+                    "items": {
+    					"@type": {
+                            "type": "string",
+                            "const": "dcat:Dataset"
+                        }
+                    },
+                    "minItems": 1,
+                    "required": false
+				}
+			}
+		}
+	}
+}

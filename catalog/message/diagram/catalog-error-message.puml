@@ -1,0 +1,16 @@
+@startuml "catalog-error-message"
+!pragma layout smetana
+
+!include ../../../common/style/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:CatalogErrorMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:CatalogErrorMessage"
+    ids:code : String
+    ids:reason : Array
+}
+
+@enduml

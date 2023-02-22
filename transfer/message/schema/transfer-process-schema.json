@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "TransferProcessSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/TransferProcess"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/TransferProcessSchema",
+	"definitions": {
+		"TransferProcess": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:TransferProcess",
+					"required": true
+				},
+				"ids:correlationId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:transferState": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string",
+                            "enum": [
+                                "ids:REQUESTED",
+                                "ids:STARTED",
+                                "ids:TERMINATED",
+                                "ids:COMPLETED",
+                                "ids:SUSPENDED"
+                            ]
+                        },
+                        "required": true
+                    }
+				}
+			}
+		}
+	}
+}

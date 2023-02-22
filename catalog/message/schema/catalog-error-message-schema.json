@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "CatalogErrorMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/CatalogErrorMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/schemas/v5/CatalogErrorMessageSchema",
+	"definitions": {
+		"CatalogErrorMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:CatalogErrorMessage",
+					"required": true
+				}
+			}
+		}
+	}
+}

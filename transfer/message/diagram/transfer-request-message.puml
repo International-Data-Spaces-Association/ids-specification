@@ -1,0 +1,18 @@
+@startuml "transfer-request-message"
+!pragma layout smetana
+
+!include ../../../common/style/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:TransferRequestMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:TransferRequestMessage"
+    ids:agreementId : String
+    dct:format : String
+    ids:dataAddress : String
+    ids:callbackAddress : String
+}
+
+@enduml

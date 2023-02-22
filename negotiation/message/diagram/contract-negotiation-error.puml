@@ -1,0 +1,25 @@
+@startuml "contract-negotiation-error"
+!pragma layout smetana
+
+!include ../../../common/style/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:ContractNegotiationError" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : "ids:ContractNegotiationError"
+    ids:processId : String
+    ids:code : String
+    ids:reason : Array
+    dct:description : MultilanguageProperty
+}
+
+class "MultilanguageProperty" {
+    @language : BCP47 Language-Tag
+    @value: String
+}
+
+"ids:ContractNegotiationError" "1" *-- "*" "MultilanguageProperty" : "dct:description"
+
+@enduml

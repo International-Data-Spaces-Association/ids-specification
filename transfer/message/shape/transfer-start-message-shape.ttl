@@ -1,0 +1,53 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix cred: <https://www.w3.org/2018/credentials#> .
+@prefix sec: <https://w3id.org/security#> .
+
+@prefix ids: <https://w3id.org/idsa/v5/> .
+@prefix ids_shapes: <https://w3id.org/idsa/shapes/v5/> .
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+shapes:
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] ;
+	sh:declare [
+		sh:prefix "ids" ;
+		sh:namespace "https://w3id.org/idsa/v5/"^^xsd:anyURI ;
+	] ;
+.
+
+shapes:TransferStartMessageShape
+	a sh:NodeShape ;
+	sh:targetClass ids:TransferStartMessage ;
+	rdfs:subClassOf ids:MessageShape ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:correlationId ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An ids:correlationId property must point from an ids:TransferStartMessage to exactly one xsd:string field."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path ids:dataAddress ;
+		sh:datatype xsd:anyURI ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An ids:dataAddress property must point from an ids:TransferStartMessage to exactly one xsd:anyURI field."@en ;
+	] ;
+
+.

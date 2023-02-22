@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "TransferTerminationMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/TransferTerminationMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/TransferTerminationMessageSchema",
+	"definitions": {
+		"TransferTerminationMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:TransferTerminationMessage",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:correlationId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:code": {
+					"type": "string",
+					"required": true
+				},
+				"ids:reason": {
+					"type": "array",
+					"required": false,
+					"minItems": 1,
+					"items": {
+
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "ContractNegotiationErrorSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/ContractNegotiationError"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/core/v5/ContractNegotiationErrorSchema",
+	"definitions": {
+		"ContractNegotiationError": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:ContractNegotiationError",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"ids:reason": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+
+					},
+					"required": false
+				},
+				"dct:description": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}

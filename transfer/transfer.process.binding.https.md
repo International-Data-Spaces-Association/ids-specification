@@ -18,7 +18,7 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 ### 2.2 TransferError
 
 In the event of a client request error, the connector must return an appropriate HTTP 4xxx client error code. If an error body is returned it must be
-a [TransferError](./message/transfer.error.json) with the following properties:
+a [TransferError](./message/transfer-error.json) with the following properties:
 
 | Field             | Type          | Description                                                         |
 |-------------------|---------------|---------------------------------------------------------------------|
@@ -139,7 +139,7 @@ process state is successfully transitioned, the provider must return HTTP code 2
 
 #### 2.9.1 POST
 
-The consumer connector can POST a [TransferSuspensionMessage](./message/transfer.suspension.message.json) to suspend a transfer process. If the transfer
+The consumer connector can POST a [TransferSuspensionMessage](./message/transfer-suspension-message.json) to suspend a transfer process. If the transfer
 process state is successfully transitioned, the producer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ## 3 Consumer Callback Path Bindings
@@ -175,5 +175,5 @@ process state is successfully transitioned, the consumer must return HTTP code 2
 
 #### 3.5.1 POST
 
-The provider connector can POST a [TransferSuspensionMessage](./message/transfer.suspension.message.json) to suspend a transfer process. If the transfer
+The provider connector can POST a [TransferSuspensionMessage](./message/transfer-suspension-message.json) to suspend a transfer process. If the transfer
 process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 

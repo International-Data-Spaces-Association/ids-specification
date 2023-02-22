@@ -1,0 +1,14 @@
+{
+  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@type": "ids:ContractNegotiationError",
+  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "ids:code": "...",
+  "ids:reason": [
+    { "@value": "Catalog not provisioned for this requester.", "@language": "en" },
+    { "some": "other reason"}
+  ],
+  "dct:description": [
+    { "@language": "en", "@value": "The parsing of the input parameters failed." },
+    { "@language": "de", "@value": "Das Lesen der Eingabeparameter schlug fehl." }
+  ]
+}

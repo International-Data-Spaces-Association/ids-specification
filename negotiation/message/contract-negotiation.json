@@ -1,0 +1,8 @@
+{
+    "@context":  "https://w3id.org/idsa/v5/context.json",
+    "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+    "@type": "ids:ContractNegotiation",
+    "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+    "ids:state": "CONSUMER_REQUESTED",
+    "ids:checksum": "..."
+  }

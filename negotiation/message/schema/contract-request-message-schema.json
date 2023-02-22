@@ -1,0 +1,40 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "ContractRequestMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/ContractRequestMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/schemas/v5/ContractRequestMessageSchema",
+	"definitions": {
+		"ContractRequestMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:ContractRequestMessage",
+					"required": true
+				},
+				"ids:processId": {
+					"type": "string",
+					"required": true
+				},
+				"odrl:offer": {
+					"$ref": "https://w3id.org/idsa/schemas/v5/OfferSchema#definitions/Offer",
+					"required": true
+				},
+				"ids:callbackAddress": {
+					"type" : "string",
+					"required": true
+				}
+			}
+		}
+	}
+}
