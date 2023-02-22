@@ -7,5 +7,9 @@
     "@id": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
   },
+  "ids:callbackAddress": {
+    "@value": "https://......",
+    "@type": "xsd:anyURI"
+  },
   "ids:checksum": "..."
 }

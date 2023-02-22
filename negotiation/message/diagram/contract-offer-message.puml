@@ -1,0 +1,26 @@
+@startuml "contract-offer-message"
+!pragma layout smetana
+
+!include ../../../common/style/diagram.styles.puml
+
+hide empty description
+
+
+class "ids:ContractOfferMessage" {
+    @context : "https://w3id.org/idsa/v5/context.json"
+    @type : ids:ContractOfferMessage
+    ids:processId : String
+    ids:offer : odrl:Offer
+    ids:callbackAddress : xsd:anyURI
+    ids:checksum: String
+}
+
+class odrl:Offer {
+    @type : odrl:Offer,
+    @id: String
+    odrl:target : xsd:anyURI
+}
+
+"ids:ContractOfferMessage" "1" *-- "1" "odrl:Offer" : "ids:offer"
+
+@enduml
