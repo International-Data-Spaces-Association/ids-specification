@@ -193,7 +193,7 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 
 ## ContractNegotiationError
 
-![](./message/contract-negotiation-error-message.png)
+![](./message/diagram/contract-negotiation-error.png)
 
 **Sent by**: Consumer or Provider
 
