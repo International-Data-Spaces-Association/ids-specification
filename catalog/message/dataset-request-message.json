@@ -1,0 +1,5 @@
+{
+  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@type": "ids:DatasetRequestMessage",
+  "ids:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
+}

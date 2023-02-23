@@ -1,0 +1,32 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"title": "DatasetRequestMessageSchema",
+	"type": "object",
+	"allOf": [
+	  {
+		"$ref": "#/definitions/DatasetRequestMessage"
+	  }
+	],
+	"$id": "https://w3id.org/idsa/schemas/v5/DatasetRequestMessageSchema",
+	"definitions": {
+		"DatasetRequestMessage": {
+			"type": "object",
+			"properties": {
+				"@context": {
+					"type": "string",
+					"const": "https://w3id.org/idsa/v5/context.json",
+					"required": true
+				},
+				"@type": {
+					"type": "string",
+					"const": "ids:DatasetRequestMessage",
+					"required": true
+				},
+				"ids:dataset": {
+                    "type": "string",
+					"required": true
+				}
+			}
+		}
+	}
+}
