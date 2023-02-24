@@ -11,7 +11,7 @@ class "ids:ContractOfferMessage" {
     @type : ids:ContractOfferMessage
     ids:processId : String
     ids:offer : odrl:Offer
-    ids:callbackAddress : xsd:anyURI
+    ids:callbackAddress : String
     ids:checksum: String
 }
 

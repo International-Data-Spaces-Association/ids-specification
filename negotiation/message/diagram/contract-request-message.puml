@@ -12,7 +12,7 @@ class "ids:ContractRequestMessage" {
     ids:dataSet : String
     ids:processId : String
     ids:offer : odrl:Offer
-    ids:callbackAddress : xsd:anyURI
+    ids:callbackAddress : String
 }
 
 class odrl:Offer {
