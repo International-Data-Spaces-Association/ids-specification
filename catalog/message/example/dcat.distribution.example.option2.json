@@ -1,5 +1,5 @@
 {
-    "@context":  "https://w3id.org/idsa/v5/context.json",
+    "@context":  "https://w3id.org/dspace/1/0/context.json",
     "@id": "http://provider.com/catalog1/dataset1/",
     "@type": "dcat:Dataset",
     "dct:title" : "IDS Dataset Collection",
@@ -11,7 +11,7 @@
         "@value": "Dieses Dataset bezeichnet alle Assets, deren Identifier dem Pattern 'urn:guid:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}' folgen. Ein Transfer via S3 kostet etwa 5 Euro, wohingegen der Transfer via HTTP_RESt nur mit etwa 2 Euro zu Buche schlägt.. Der Consumer muss ein TRUST_PLUS zertifizierter Connetor sein. Eine Weiterverbreitung ist nicht gestattet."
     } ],
     "dcat:keyword": [
-        "IDS",
+        "data space",
         "data asset",
         "dcat dataset",
         "collection"
@@ -24,8 +24,8 @@
             "HTTP",
             "REST"
         ],
-        "ids:transportType": {
-            "@id": "ids:HTTP_REST"
+        "dspace:transportType": {
+            "@id": "dspace:HTTP_REST"
         },
         "odrl:hasPolicy": {
             "@type": "odrl:Offer",
@@ -40,9 +40,9 @@
                 "odrl:duty": [ {
                     "odrl:action": {"@id": "odrl:compensate"},
                     "odrl:constraint": [ {
-                        "odrl:leftOperand": "ids:TRANSPORT",
+                        "odrl:leftOperand": "dspace:TRANSPORT",
                         "odrl:operator": "odrl:eq",
-                        "odrl:rightOperand": "ids:HTTP_REST"
+                        "odrl:rightOperand": "dspace:HTTP_REST"
                     }, {
                         "odrl:leftOperand": "odrl:payAmount",
                         "odrl:operator": "odrl:eq",
@@ -61,13 +61,13 @@
             } ]
         },
         "dcat:accessService": [ {
-            "@type": [ "dcat:DataService", "ids:NEGOTIATION_SERVICE" ],
+            "@type": [ "dcat:DataService", "dspace:NEGOTIATION_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/negotiation"
             }
         }, {
-            "@type": [ "dcat:DataService", "ids:TRANSFER_SERVICE" ],
+            "@type": [ "dcat:DataService", "dspace:TRANSFER_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/transfer"
@@ -81,8 +81,8 @@
             "S3",
             "public"
         ],
-        "ids:transportType": {
-            "@id": "ids:S3"
+        "dspace:transportType": {
+            "@id": "dspace:S3"
         },
         "odrl:hasPolicy": {
             "@type": "odrl:Offer",
@@ -97,9 +97,9 @@
                 "odrl:duty": [ {
                     "odrl:action": {"@id": "odrl:compensate"},
                     "odrl:constraint": [ {
-                        "odrl:leftOperand": "ids:TRANSPORT",
+                        "odrl:leftOperand": "dspace:TRANSPORT",
                         "odrl:operator": "odrl:eq",
-                        "odrl:rightOperand": "ids:S3"
+                        "odrl:rightOperand": "dspace:S3"
                     }, {
                         "odrl:leftOperand": "odrl:payAmount",
                         "odrl:operator": "odrl:eq",
@@ -118,13 +118,13 @@
             } ]
         },
         "dcat:accessService": [ {
-            "@type": [ "dcat:DataService", "ids:NEGOTIATION_SERVICE" ],
+            "@type": [ "dcat:DataService", "dspace:NEGOTIATION_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/negotiation"
             }
         }, {
-            "@type": [ "dcat:DataService", "ids:TRANSFER_SERVICE" ],
+            "@type": [ "dcat:DataService", "dspace:TRANSFER_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/transfer"

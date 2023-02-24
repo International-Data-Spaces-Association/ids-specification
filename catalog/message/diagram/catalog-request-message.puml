@@ -6,10 +6,10 @@
 hide empty description
 
 
-class "ids:CatalogRequestMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : ids:CatalogRequestMessage
-    ids:filter : Object
+class "dspace:CatalogRequestMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : dspace:CatalogRequestMessage
+    dspace:filter : Object
 }
 
 @enduml

@@ -52,10 +52,10 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 
 ```
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:ContractNegotiation"
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "ids:state" :"CONSUMER_REQUESTED"
+  "dspace:state" :"CONSUMER_REQUESTED"
 }  
 ```
 
@@ -76,12 +76,12 @@ POST https://connector.provider.com/negotiations/request
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:ContractRequest"
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:ContractRequest"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "ids:dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
-  "ids:offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
-  "ids:callbackAddress": "https://......"
+  "dspace:dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+  "dspace:offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
+  "dspace:callbackAddress": "https://......"
 }
 ```
 
@@ -100,10 +100,10 @@ the [ContractNegotiation](./message/contract-negotiation.json) message:
 Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
 
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:ContractNegotiation"
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "ids:state" :"CONSUMER_REQUESTED"
+  "dspace:state" :"CONSUMER_REQUESTED"
 }
 ```
 
@@ -121,15 +121,15 @@ POST https://connector.provider.com/negotiations/urn:uuid:dcbf434c-eacf-4582-9a0
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:ContractRequestMessage",
-  "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "ids:offer": {
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:ContractRequestMessage",
+  "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:offer": {
     "@type": "odrl:Offer",
     "@id": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
   },
-  "ids:checksum": "..."
+  "dspace:checksum": "..."
 }
 ```
 
@@ -161,10 +161,10 @@ POST https://connector.provider.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:ContractAgreementVerificationMessage",
-  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "ids:consumerSignature": {
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:ContractAgreementVerificationMessage",
+  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerSignature": {
     "timestamp": 121212,
     "hash": "....",
     "signature": ""
@@ -200,15 +200,15 @@ POST https://connector.consumer.com/callback/negotiations/urn:uuid:dcbf434c-eacf
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:ContractOfferMessage",
-  "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "ids:offer": {
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:ContractOfferMessage",
+  "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:offer": {
     "@type": "odrl:Offer",
     "@id": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
   },
-  "ids:checksum": "..."
+  "dspace:checksum": "..."
 }
 ```
 
@@ -228,15 +228,15 @@ POST https://connector.consumer.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:ContractAgreementMessage",
-  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "ids:agreement": {
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:ContractAgreementMessage",
+  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:agreement": {
     "@type": "odrl:Agreement",
     "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44"
     }
   },
-  "ids:checksum": "..."
+  "dspace:checksum": "..."
 }
 ```
 

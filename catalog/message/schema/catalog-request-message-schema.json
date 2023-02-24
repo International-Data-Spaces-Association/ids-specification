@@ -7,26 +7,26 @@
 		"$ref": "#/definitions/CatalogRequestMessage"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/schemas/v5/CatalogRequestMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/CatalogRequestMessageSchema",
 	"definitions": {
 		"CatalogRequestMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/dspace/1/0/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:CatalogRequestMessage",
+					"const": "dspace:CatalogRequestMessage",
 					"required": true
 				},
-				"ids:filter": {
+				"dspace:filter": {
                     "type": "array",
                     "items": {
     					"@type": "string",
-                        "const": "ids:Filter"
+                        "const": "dspace:Filter"
                     }
 				}
 			}

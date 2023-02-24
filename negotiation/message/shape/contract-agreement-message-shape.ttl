@@ -8,8 +8,8 @@
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 @prefix sec: <https://w3id.org/security#> .
 
-@prefix ids: <https://w3id.org/idsa/v5/> .
-@prefix ids_shapes: <https://w3id.org/idsa/shapes/v5/> .
+@prefix dspace: <https://w3id.org/dspace/1/0/> .
+@prefix dspace_shapes: <https://w3id.org/dspace/shapes/1/0/> .
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
@@ -20,14 +20,14 @@ shapes:
 		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
 	] ;
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/v5/"^^xsd:anyURI ;
+		sh:prefix "dspace" ;
+		sh:namespace "https://w3id.org/dspace/1/0/"^^xsd:anyURI ;
 	] ;
 .
 
 shapes:ContractAgreementMessageShape
 	a sh:NodeShape ;
-	sh:targetClass ids:ContractAgreementMessage ;
+	sh:targetClass dspace:ContractAgreementMessage ;
 	rdfs:subClassOf shapes:ContractNegotiationMessageShape ;
 
 	sh:property [

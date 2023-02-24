@@ -7,22 +7,22 @@
 		"$ref": "#/definitions/TransferRequestMessage"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/core/v5/TransferRequestMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/TransferRequestMessageSchema",
 	"definitions": {
 		"TransferRequestMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/dspace/1/0/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:TransferRequestMessage",
+					"const": "dspace:TransferRequestMessage",
 					"required": true
 				},
-				"ids:agreementId": {
+				"dspace:agreementId": {
 					"type": "object",
                     "properties": {
                         "@value": {
@@ -41,7 +41,7 @@
                     "type": "string",
                     "required": true
 				},
-				"ids:dataAddress": {
+				"dspace:dataAddress": {
 					"type": "object",
                     "properties": {
                         "@value": {
@@ -56,7 +56,7 @@
                     },
 					"required": false
 				},
-				"ids:callbackAddress": {
+				"dspace:callbackAddress": {
 					"type": "object",
                     "properties": {
                         "@value": {

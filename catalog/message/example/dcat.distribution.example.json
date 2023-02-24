@@ -1,5 +1,5 @@
 {
-    "@context":  "https://w3id.org/idsa/v5/context.json",
+    "@context":  "https://w3id.org/dspace/1/0/context.json",
     "@id": "http://provider.com/catalog1/dataset1/",
     "@type": "dcat:Dataset",
     "dct:title" : "IDS Dataset #1",
@@ -37,17 +37,17 @@
             "HTTP",
             "REST"
         ],
-        "ids:transportType": {
-            "@id": "ids:HTTP_REST"
+        "dspace:transportType": {
+            "@id": "dspace:HTTP_REST"
         },
         "dcat:accessService": [ {
-            "@type": [ "dcat:DataService", "ids:NEGOTIATION_SERVICE" ],
+            "@type": [ "dcat:DataService", "dspace:NEGOTIATION_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/negotiation"
             }
         }, {
-            "@type": [ "dcat:DataService", "ids:TRANSFER_SERVICE" ],
+            "@type": [ "dcat:DataService", "dspace:TRANSFER_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/transfer"
@@ -61,17 +61,17 @@
             "S3",
             "public"
         ],
-        "ids:transportType": {
-            "@id": "ids:S3"
+        "dspace:transportType": {
+            "@id": "dspace:S3"
         },
         "dcat:accessService": [ {
-            "@type": [ "dcat:DataService", "ids:NEGOTIATION_SERVICE" ],
+            "@type": [ "dcat:DataService", "dspace:NEGOTIATION_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/negotiation"
             }
         }, {
-            "@type": [ "dcat:DataService", "ids:TRANSFER_SERVICE" ],
+            "@type": [ "dcat:DataService", "dspace:TRANSFER_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/transfer"

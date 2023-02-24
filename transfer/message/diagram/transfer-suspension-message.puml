@@ -6,13 +6,13 @@
 hide empty description
 
 
-class "ids:TransferSuspensionMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:TransferSuspensionMessage"
-    ids:processId : String
-    ids:correlationId : String
-    ids:code : String
-    ids:reason : Array
+class "dspace:TransferSuspensionMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:TransferSuspensionMessage"
+    dspace:processId : String
+    dspace:correlationId : String
+    dspace:code : String
+    dspace:reason : Array
 }
 
 @enduml

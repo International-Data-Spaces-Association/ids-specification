@@ -8,8 +8,8 @@
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 @prefix sec: <https://w3id.org/security#> .
 
-@prefix ids: <https://w3id.org/idsa/v5/> .
-@prefix ids_shapes: <https://w3id.org/idsa/shapes/v5/> .
+@prefix dspace: <https://w3id.org/dspace/1/0/> .
+@prefix dspace_shapes: <https://w3id.org/dspace/shapes/1/0/> .
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
@@ -20,21 +20,21 @@ shapes:
 		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
 	] ;
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/v5/"^^xsd:anyURI ;
+		sh:prefix "dspace" ;
+		sh:namespace "https://w3id.org/dspace/1/0/"^^xsd:anyURI ;
 	] ;
 .
 
 shapes:ContractNegotiationErrorShape
 	a sh:NodeShape ;
-	rdfs:subClassOf ids:ContractNegotiationMessageShape ; # TODO: Is a ContractNegotiationError really a Message?
-	sh:targetClass ids:ContractNegotiationError ;
+	rdfs:subClassOf dspace:ContractNegotiationMessageShape ; # TODO: Is a ContractNegotiationError really a Message?
+	sh:targetClass dspace:ContractNegotiationError ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dct:description ;
 		sh:datatype rdf:langString ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): A dct:description property must point from an ids:ContractNegotiationError to zero or more rdf:langString values."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): A dct:description property must point from an dspace:ContractNegotiationError to zero or more rdf:langString values."@en ;
 	]
 .

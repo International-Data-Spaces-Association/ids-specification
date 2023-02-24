@@ -6,13 +6,13 @@
 hide empty description
 
 
-class "ids:TransferRequestMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:TransferRequestMessage"
-    ids:agreementId : String
+class "dspace:TransferRequestMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:TransferRequestMessage"
+    dspace:agreementId : String
     dct:format : String
-    ids:dataAddress : String
-    ids:callbackAddress : String
+    dspace:dataAddress : String
+    dspace:callbackAddress : String
 }
 
 @enduml

@@ -7,25 +7,25 @@
 		"$ref": "#/definitions/CatalogMessage"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/schemas/v5/CatalogMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/CatalogMessageSchema",
 	"definitions": {
 		"CatalogMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/dspace/1/0/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:CatalogMessage",
+					"const": "dspace:CatalogMessage",
 					"required": true
 				},
-				"ids:catalog": {
+				"dspace:catalog": {
                     "type": "array",
                     "items": {
-    					"$ref": "https://w3id.org/idsa/schemas/v5/CatalogSchema#definitions/Catalog"
+    					"$ref": "https://w3id.org/dspace/schemas/1/0/CatalogSchema#definitions/Catalog"
                     }
 				}
 			}

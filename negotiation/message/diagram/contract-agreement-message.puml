@@ -6,12 +6,12 @@
 hide empty description
 
 
-class "ids:ContractAgreementMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:ContractAgreementMessage"
-    ids:processId : String
-    ids:agreement : odrl:Agreement
-    ids:callbackAddress : xsd:anyURI
+class "dspace:ContractAgreementMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:ContractAgreementMessage"
+    dspace:processId : String
+    dspace:agreement : odrl:Agreement
+    dspace:callbackAddress : xsd:anyURI
 }
 
 class odrl:Agreement {
@@ -20,6 +20,6 @@ class odrl:Agreement {
     odrl:target : xsd:anyURI
 }
 
-"ids:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "odrl:agreement"
+"dspace:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "odrl:agreement"
 
 @enduml

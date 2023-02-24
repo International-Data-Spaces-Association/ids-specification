@@ -7,34 +7,34 @@
 		"$ref": "#/definitions/TransferTerminationMessage"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/core/v5/TransferTerminationMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/TransferTerminationMessageSchema",
 	"definitions": {
 		"TransferTerminationMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/dspace/1/0/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:TransferTerminationMessage",
+					"const": "dspace:TransferTerminationMessage",
 					"required": true
 				},
-				"ids:processId": {
+				"dspace:processId": {
 					"type": "string",
 					"required": true
 				},
-				"ids:correlationId": {
+				"dspace:correlationId": {
 					"type": "string",
 					"required": true
 				},
-				"ids:code": {
+				"dspace:code": {
 					"type": "string",
 					"required": true
 				},
-				"ids:reason": {
+				"dspace:reason": {
 					"type": "array",
 					"required": false,
 					"minItems": 1,

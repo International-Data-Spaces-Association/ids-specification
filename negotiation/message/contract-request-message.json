@@ -1,16 +1,16 @@
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "@type": "ids:ContractRequestMessage",
-  "ids:dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
-  "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "ids:offer": {
+  "@type": "dspace:ContractRequestMessage",
+  "dspace:dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+  "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:offer": {
     "@type": "odrl:Offer",
     "@id": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a89",
     "odrl:target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
     ...
   },
-  "ids:callbackAddress": {
+  "dspace:callbackAddress": {
     "@value": "https://......",
     "@type": "xsd:anyURI"
   }
