@@ -75,6 +75,24 @@ The catalog contains all [Asset Entries](#31-asset-entry) which the requester sh
 
 A Catalog Error Message is used when an error occured after a CatalogRequestMessage and the provider can not provide its catalog to the requester.
 
+### 2.4 DatasetRequestMessage
+
+**Sent by**: Consumer
+
+**Example**: [DatasetRequestMessage](./message/dataset-request-message.json)
+
+**Response**: [Dataset](#22-catalog) containing the [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
+
+**Schema**: [DatasetRequestMessageShape](./message/shape/dataset-request-message-shape.ttl) and the [DatasetRequestMessage JSON Schema](./message/schema/dataset-request-message-schema.json)
+
+#### Description
+
+The `DatasetRequestMessage` is message sent by a consumer to a catalog service. The catalog service must respond with a `Dataset,` which is a
+valid instance of a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
+
+The `DatasetRequestMessage` must have a `dataset` property which contains the id of the dataset.
+
+The catalog service may require an authorization token. Details for including that token can be found in the relevant catalog binding specification.
 
 
 ## 3 DCAT Vocabulary Mapping
