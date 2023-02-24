@@ -43,10 +43,10 @@ shapes:ContractRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path ids:callbackAddress ;
-		sh:datatype xsd:anyURI ;
+		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An ids:callbackAddress property must point to exactly one xsd:anyURI value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An ids:callbackAddress property must point to exactly one xsd:string value."@en ;
 	] ;
 .
