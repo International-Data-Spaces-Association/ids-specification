@@ -8,8 +8,8 @@
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 @prefix sec: <https://w3id.org/security#> .
 
-@prefix ids: <https://w3id.org/idsa/v5/> .
-@prefix ids_shapes: <https://w3id.org/idsa/shapes/v5/> .
+@prefix dspace: <https://w3id.org/dspace/1/0/> .
+@prefix dspace_shapes: <https://w3id.org/dspace/shapes/1/0/> .
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
@@ -20,24 +20,24 @@ shapes:
 		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
 	] ;
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/v5/"^^xsd:anyURI ;
+		sh:prefix "dspace" ;
+		sh:namespace "https://w3id.org/dspace/1/0/"^^xsd:anyURI ;
 	] ;
 .
 
 shapes:TransferSuspensionMessageShape
 	a sh:NodeShape ;
-	sh:targetClass ids:TransferSuspensionMessage ;
-	rdfs:subClassOf ids:MessageShape ;
+	sh:targetClass dspace:TransferSuspensionMessage ;
+	rdfs:subClassOf dspace:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:correlationId ;
+		sh:path dspace:correlationId ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferSuspensionMessageShape): An ids:correlationId property must point from an ids:TransferSuspensionMessage to exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:correlationId property must point from an dspace:TransferSuspensionMessage to exactly one xsd:string field."@en ;
 	] ;
 
 .

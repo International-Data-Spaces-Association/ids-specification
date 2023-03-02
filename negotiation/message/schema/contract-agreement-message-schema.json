@@ -7,27 +7,27 @@
 		"$ref": "#/definitions/ContractAgreementMessage"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/schemas/v5/ContractAgreementMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/ContractAgreementMessageSchema",
 	"definitions": {
 		"ContractAgreementMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/dspace/1/0/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:ContractAgreementMessage",
+					"const": "dspace:ContractAgreementMessage",
 					"required": true
 				},
-				"ids:processId": {
+				"dspace:processId": {
 					"type": "string",
 					"required": true
 				},
 				"odrl:agreement": {
-					"$ref": "https://w3id.org/idsa/schemas/v5/AgreementSchema#definitions/Agreement",
+					"$ref": "https://w3id.org/dspace/schemas/1/0/AgreementSchema#definitions/Agreement",
 					"required": true
 				}
 			}

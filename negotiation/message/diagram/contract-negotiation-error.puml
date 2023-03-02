@@ -6,12 +6,12 @@
 hide empty description
 
 
-class "ids:ContractNegotiationError" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:ContractNegotiationError"
-    ids:processId : String
-    ids:code : String
-    ids:reason : Array
+class "dspace:ContractNegotiationError" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:ContractNegotiationError"
+    dspace:processId : String
+    dspace:code : String
+    dspace:reason : Array
     dct:description : MultilanguageProperty
 }
 
@@ -20,6 +20,6 @@ class "MultilanguageProperty" {
     @value: String
 }
 
-"ids:ContractNegotiationError" "1" *-- "*" "MultilanguageProperty" : "dct:description"
+"dspace:ContractNegotiationError" "1" *-- "*" "MultilanguageProperty" : "dct:description"
 
 @enduml

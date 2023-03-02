@@ -1,7 +1,7 @@
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
-  "@type": "ids:TransferProcess",
-  "ids:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
-  "ids:state": "REQUESTED"
+  "@type": "dspace:TransferProcess",
+  "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "dspace:state": "REQUESTED"
 }

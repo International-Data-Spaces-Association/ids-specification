@@ -6,11 +6,11 @@
 hide empty description
 
 
-class "ids:CatalogErrorMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:CatalogErrorMessage"
-    ids:code : String
-    ids:reason : Array
+class "dspace:CatalogErrorMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:CatalogErrorMessage"
+    dspace:code : String
+    dspace:reason : Array
 }
 
 @enduml

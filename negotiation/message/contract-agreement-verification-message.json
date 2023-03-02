@@ -1,10 +1,10 @@
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:ContractAgreementVerificationMessage",
-  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:ContractAgreementVerificationMessage",
+  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "cred:credentialSubject": {
-    "@type": "ids:ContractAgreementMessage",
-    "ids:hash": "abcdefghijk12345"
+    "@type": "dspace:ContractAgreementMessage",
+    "dspace:hash": "abcdefghijk12345"
   },
   "sec:proof": [  
     {

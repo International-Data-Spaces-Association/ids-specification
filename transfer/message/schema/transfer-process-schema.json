@@ -7,36 +7,36 @@
 		"$ref": "#/definitions/TransferProcess"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/core/v5/TransferProcessSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/TransferProcessSchema",
 	"definitions": {
 		"TransferProcess": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/dspace/1/0/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:TransferProcess",
+					"const": "dspace:TransferProcess",
 					"required": true
 				},
-				"ids:correlationId": {
+				"dspace:correlationId": {
 					"type": "string",
 					"required": true
 				},
-				"ids:transferState": {
+				"dspace:transferState": {
                     "type": "object",
                     "properties": {
                         "@id": {
                             "type": "string",
                             "enum": [
-                                "ids:REQUESTED",
-                                "ids:STARTED",
-                                "ids:TERMINATED",
-                                "ids:COMPLETED",
-                                "ids:SUSPENDED"
+                                "dspace:REQUESTED",
+                                "dspace:STARTED",
+                                "dspace:TERMINATED",
+                                "dspace:COMPLETED",
+                                "dspace:SUSPENDED"
                             ]
                         },
                         "required": true

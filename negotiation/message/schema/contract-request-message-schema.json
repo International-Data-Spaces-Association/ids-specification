@@ -7,30 +7,30 @@
 		"$ref": "#/definitions/ContractRequestMessage"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/schemas/v5/ContractRequestMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/ContractRequestMessageSchema",
 	"definitions": {
 		"ContractRequestMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/dspace/1/0/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:ContractRequestMessage",
+					"const": "dspace:ContractRequestMessage",
 					"required": true
 				},
-				"ids:processId": {
+				"dspace:processId": {
 					"type": "string",
 					"required": true
 				},
 				"odrl:offer": {
-					"$ref": "https://w3id.org/idsa/schemas/v5/OfferSchema#definitions/Offer",
+					"$ref": "https://w3id.org/dspace/schemas/1/0/OfferSchema#definitions/Offer",
 					"required": true
 				},
-				"ids:callbackAddress": {
+				"dspace:callbackAddress": {
 					"type" : "string",
 					"required": true
 				}

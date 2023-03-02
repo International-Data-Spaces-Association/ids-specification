@@ -6,24 +6,24 @@
 hide empty description
 
 
-class "ids:ContractNegotiation" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:ContractNegotiation"
-    ids:processId : String
-    ids:state : ids:ContractNegotiationState
+class "dspace:ContractNegotiation" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:ContractNegotiation"
+    dspace:processId : String
+    dspace:state : dspace:ContractNegotiationState
 }
 
-enum ids:ContractNegotiationState {
-    "ids:CONSUMER_REQUESTED"
-    "ids:PROVIDER_OFFERED"
-    "ids:CONSUMER_AGREED"
-    "ids:PROVIDER_AGREED"
-    "ids:CONSUMER_VERIFIED"
-    "ids:PROVIDER_FINALIZED"
-    "ids:TERMINATED"
+enum dspace:ContractNegotiationState {
+    "dspace:CONSUMER_REQUESTED"
+    "dspace:PROVIDER_OFFERED"
+    "dspace:CONSUMER_AGREED"
+    "dspace:PROVIDER_AGREED"
+    "dspace:CONSUMER_VERIFIED"
+    "dspace:PROVIDER_FINALIZED"
+    "dspace:TERMINATED"
     "..."
 }
 
-"ids:ContractNegotiation" "1" *-- "1" "ids:ContractNegotiationState" : "ids:contractNegotiationState"
+"dspace:ContractNegotiation" "1" *-- "1" "dspace:ContractNegotiationState" : "dspace:contractNegotiationState"
 
 @enduml

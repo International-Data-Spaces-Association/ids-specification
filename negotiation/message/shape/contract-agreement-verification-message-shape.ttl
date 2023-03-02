@@ -8,8 +8,8 @@
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 @prefix sec: <https://w3id.org/security#> .
 
-@prefix ids: <https://w3id.org/idsa/v5/> .
-@prefix ids_shapes: <https://w3id.org/idsa/shapes/v5/> .
+@prefix dspace: <https://w3id.org/dspace/1/0/> .
+@prefix dspace_shapes: <https://w3id.org/dspace/shapes/1/0/> .
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
@@ -20,24 +20,24 @@ shapes:
 		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
 	] ;
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/v5/"^^xsd:anyURI ;
+		sh:prefix "dspace" ;
+		sh:namespace "https://w3id.org/dspace/1/0/"^^xsd:anyURI ;
 	] ;
 .
 
 shapes:ContractAgreementVerificationMessageShape
 	a sh:NodeShape ;
-	sh:targetClass ids:ContractAgreementVerificationMessage ;
+	sh:targetClass dspace:ContractAgreementVerificationMessage ;
 	rdfs:subClassOf shapes:ContractNegotiationMessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path cred:credentialSubject ;
-		sh:class ids:ContractAgreementMessage ; # TODO: Having the ContractAgreementMessage class(!) here but only with the property ids:hash is a bad idea, not safe for the schema engine.
+		sh:class dspace:ContractAgreementMessage ; # TODO: Having the ContractAgreementMessage class(!) here but only with the property dspace:hash is a bad idea, not safe for the schema engine.
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): An cred:credentialSubject property must point to exactly one ids:ContractAgreementMessage."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): An cred:credentialSubject property must point to exactly one dspace:ContractAgreementMessage."@en ;
 	] ;
 
 	sh:property [

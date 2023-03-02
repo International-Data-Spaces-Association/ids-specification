@@ -6,12 +6,12 @@
 hide empty description
 
 
-class "ids:ContractNegotiationTerminationMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:ContractNegotiationTerminationMessage"
-    ids:processId : String
-    ids:code : Object
-    ids:reason : Array
+class "dspace:ContractNegotiationTerminationMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:ContractNegotiationTerminationMessage"
+    dspace:processId : String
+    dspace:code : Object
+    dspace:reason : Array
 }
 
 @enduml

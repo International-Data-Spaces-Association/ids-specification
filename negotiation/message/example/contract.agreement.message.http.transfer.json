@@ -1,9 +1,9 @@
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
   "@id": "some-id",
-  "@type": ["ids:ContractAgreementMessage"],
-  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "ids:agreement": {
+  "@type": ["dspace:ContractAgreementMessage"],
+  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:agreement": {
     "@type": "odrl:Agreement",
     "@id": "some-other-id",
     "odrl:target": { "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88" },
@@ -11,18 +11,18 @@
       "@id": "some-permission-id",
       "odrl:action": { "@id": "odrl:use" },
       "odrl:constraint": {
-        "odrl:leftOperand": { "@id": "ids:TRANSPORT" },
+        "odrl:leftOperand": { "@id": "dspace:TRANSPORT" },
         "odrl:operand": { "@id": "odrl:equals" },
-        "oderl:rightOperand": { "@id": "ids:HTTP_REST" }
+        "oderl:rightOperand": { "@id": "dspace:HTTP_REST" }
       }
     },
     "odrl:duty": {
       "@id": "some-permission-id",
       "odrl:action": { "@id": "odrl:use" },
       "odrl:constraint": {
-        "odrl:leftOperand": { "@id": "ids:TRANSPORT" },
+        "odrl:leftOperand": { "@id": "dspace:TRANSPORT" },
         "odrl:operand": { "@id": "odrl:equals" },
-        "oderl:rightOperand": { "@id": "ids:HTTP_REST" }
+        "oderl:rightOperand": { "@id": "dspace:HTTP_REST" }
       }
     }
   }

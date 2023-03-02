@@ -6,11 +6,11 @@
 hide empty description
 
 
-class "ids:TransferCompletionMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:TransferCompletionMessage"
-    ids:processId : String
-    ids:correlationId : String
+class "dspace:TransferCompletionMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:TransferCompletionMessage"
+    dspace:processId : String
+    dspace:correlationId : String
 }
 
 @enduml

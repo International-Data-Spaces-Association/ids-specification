@@ -7,29 +7,29 @@
 		"$ref": "#/definitions/ContractAgreementVerificationMessage"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/schemas/v5/ContractAgreementVerificationMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/ContractAgreementVerificationMessageSchema",
 	"definitions": {
 		"ContractAgreementVerificationMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json"
+					"const": "https://w3id.org/dspace/1/0/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:ContractAgreementVerificationMessage"
+					"const": "dspace:ContractAgreementVerificationMessage"
 				},
-				"ids:processId": {
+				"dspace:processId": {
 					"type": "string"
 				},
 				"cred:subject": {
 					"type": "object",
 					"properties": {
-						"ids:hash": {
+						"dspace:hash": {
 							"type": "string"
 						},
-						"required": [ "ids:hash" ]
+						"required": [ "dspace:hash" ]
 					}
 				},
 				"sec:proof": {
@@ -61,7 +61,7 @@
 					"maxItems": 2
 				}
 			},
-			"required": [ "@context", "@type", "ids:processId", "cred:credentialSubject", "sec:proof" ]
+			"required": [ "@context", "@type", "dspace:processId", "cred:credentialSubject", "sec:proof" ]
 		}
 	}
 }

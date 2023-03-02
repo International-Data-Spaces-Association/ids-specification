@@ -7,30 +7,30 @@
 		"$ref": "#/definitions/TransferStartMessage"
 	  }
 	],
-	"$id": "https://w3id.org/idsa/core/v5/TransferStartMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/1/0/TransferStartMessageSchema",
 	"definitions": {
 		"TransferStartMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/idsa/v5/context.json",
+					"const": "https://w3id.org/dspace/1/0/context.json",
 					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "ids:TransferStartMessage",
+					"const": "dspace:TransferStartMessage",
 					"required": true
 				},
-				"ids:processId": {
+				"dspace:processId": {
 					"type": "string",
 					"required": true
 				},
-				"ids:correlationId": {
+				"dspace:correlationId": {
 					"type": "string",
 					"required": true
 				},
-				"ids:dataAddress": {
+				"dspace:dataAddress": {
 					"type": "object",
                     "properties": {
                         "@value": {

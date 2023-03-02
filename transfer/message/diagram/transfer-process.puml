@@ -6,22 +6,22 @@
 hide empty description
 
 
-class "ids:TransferProcess" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:TransferProcess"
-    ids:correlationId : String
-    ids:state : ids:TransferState
+class "dspace:TransferProcess" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:TransferProcess"
+    dspace:correlationId : String
+    dspace:state : dspace:TransferState
 }
 
 
-enum ids:TransferState {
-    "ids:REQUESTED"
-    "ids:STARTED"
-    "ids:TERMINATED"
-    "ids:COMPLETED"
-    "ids:SUSPENDED"
+enum dspace:TransferState {
+    "dspace:REQUESTED"
+    "dspace:STARTED"
+    "dspace:TERMINATED"
+    "dspace:COMPLETED"
+    "dspace:SUSPENDED"
 }
 
-"ids:TransferProcess" "1" *-- "1" "ids:TransferState" : "ids:transferState"
+"dspace:TransferProcess" "1" *-- "1" "dspace:TransferState" : "dspace:transferState"
 
 @enduml

@@ -6,17 +6,17 @@
 hide empty description
 
 
-class "ids:ContractAgreementVerificationMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:ContractAgreementVerificationMessage"
-    ids:processId : String
-    cred:credentialSubject : ids:ContractAgreementMessage
+class "dspace:ContractAgreementVerificationMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:ContractAgreementVerificationMessage"
+    dspace:processId : String
+    cred:credentialSubject : dspace:ContractAgreementMessage
     sec:proof : sec:Proof
 }
 
-class ids:ContractAgreementMessage {
-    @type : "ids:ContractAgreementMessage"
-    ids:hash : String
+class dspace:ContractAgreementMessage {
+    @type : "dspace:ContractAgreementMessage"
+    dspace:hash : String
 }
 
 class sec:Proof {
@@ -37,8 +37,8 @@ enum Signature {
     sec:BbsBlsSignatureProof2020
 }
 
-"ids:ContractAgreementVerificationMessage" "1" *-- "1" "ids:ContractAgreementMessage" : "cred:credentialSubject"
-"ids:ContractAgreementVerificationMessage" "1" *-- "0..2" "sec:Proof" : "sec:proof"
+"dspace:ContractAgreementVerificationMessage" "1" *-- "1" "dspace:ContractAgreementMessage" : "cred:credentialSubject"
+"dspace:ContractAgreementVerificationMessage" "1" *-- "0..2" "sec:Proof" : "sec:proof"
 "sec:Proof" "1" *-- "1" Signature : @type
 
 @enduml

@@ -53,11 +53,11 @@ the [TransferProcess](./message/transfer.process.json):
 
 ```
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
-  "@type": "ids:TransferProcess",
-  "ids:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
-  "ids:state": "REQUESTED"
+  "@type": "dspace:TransferProcess",
+  "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "dspace:state": "REQUESTED"
 } 
 ```
 
@@ -78,13 +78,13 @@ to `transfer-processes/request`:
  Authorization: ...
  
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
   "@id": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
-  "@type": "ids:TransferRequestMessage",
-  "ids:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-  "dct:format": "ids:s3+push",
+  "@type": "dspace:TransferRequestMessage",
+  "dspace:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
+  "dct:format": "dspace:s3+push",
   "dataAddress": {},
-  "ids:callbackAddress": "https://......"
+  "dspace:callbackAddress": "https://......"
 }
  ```
 
@@ -103,11 +103,11 @@ the [TransferProcess](./message/transfer.process.json) message:
  Location: /transfer-processes/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16
  
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
-  "@type": "ids:TransferProcess",
-  "ids:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
-  "ids:state": "REQUESTED"
+  "@type": "dspace:TransferProcess",
+  "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "dspace:state": "REQUESTED"
 }
 
  ```

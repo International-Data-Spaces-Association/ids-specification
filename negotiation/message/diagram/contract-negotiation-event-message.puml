@@ -6,19 +6,19 @@
 hide empty description
 
 
-class "ids:ContractNegotiationEventMessage" {
-    @context : "https://w3id.org/idsa/v5/context.json"
-    @type : "ids:ContractNegotiationEventMessage"
-    ids:processId : String
-    ids:eventType : ids:NegotiationEvent
-    ids:checksum : String
+class "dspace:ContractNegotiationEventMessage" {
+    @context : "https://w3id.org/dspace/1/0/context.json"
+    @type : "dspace:ContractNegotiationEventMessage"
+    dspace:processId : String
+    dspace:eventType : dspace:NegotiationEvent
+    dspace:checksum : String
 }
 
-enum ids:NegotiationEvent {
-    ids:ACCEPTED
-    ids:FINALIZED
+enum dspace:NegotiationEvent {
+    dspace:ACCEPTED
+    dspace:FINALIZED
 }
 
-"ids:ContractNegotiationEventMessage" "1" *-- "1" "ids:NegotiationEvent" : "ids:eventType"
+"dspace:ContractNegotiationEventMessage" "1" *-- "1" "dspace:NegotiationEvent" : "dspace:eventType"
 
 @enduml

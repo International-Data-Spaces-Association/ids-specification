@@ -1,8 +1,8 @@
 {
-  "@context":  "https://w3id.org/idsa/v5/context.json",
-  "@type": "ids:CatalogErrorMessage",
-  "ids:code": "123:A",
-  "ids:reason": [
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@type": "dspace:CatalogErrorMessage",
+  "dspace:code": "123:A",
+  "dspace:reason": [
     { "@value": "Catalog not provisioned for this requester.", "@language": "en" },
     { "some": "other reason"}
   ]

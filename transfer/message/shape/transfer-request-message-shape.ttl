@@ -8,8 +8,8 @@
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 @prefix sec: <https://w3id.org/security#> .
 
-@prefix ids: <https://w3id.org/idsa/v5/> .
-@prefix ids_shapes: <https://w3id.org/idsa/shapes/v5/> .
+@prefix dspace: <https://w3id.org/dspace/1/0/> .
+@prefix dspace_shapes: <https://w3id.org/dspace/shapes/1/0/> .
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
@@ -20,23 +20,23 @@ shapes:
 		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
 	] ;
 	sh:declare [
-		sh:prefix "ids" ;
-		sh:namespace "https://w3id.org/idsa/v5/"^^xsd:anyURI ;
+		sh:prefix "dspace" ;
+		sh:namespace "https://w3id.org/dspace/1/0/"^^xsd:anyURI ;
 	] ;
 .
 
 shapes:TransferRequestMessageShape
 	a sh:NodeShape ;
-	sh:targetClass ids:TransferRequestMessage ;
+	sh:targetClass dspace:TransferRequestMessage ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:agreementId ;
+		sh:path dspace:agreementId ;
 		sh:datatype xsd:anyURI ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An ids:agreementId property must point exactly one xsd:anyURI field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:agreementId property must point exactly one xsd:anyURI field."@en ;
 	] ;
 
 	sh:property [
@@ -51,21 +51,21 @@ shapes:TransferRequestMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:dataAddress ;
+		sh:path dspace:dataAddress ;
 		sh:datatype xsd:anyURI ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 0 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An ids:dataAddress property must point zero or one xsd:anyURI field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:dataAddress property must point zero or one xsd:anyURI field."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path ids:callbackAddress ;
+		sh:path dspace:callbackAddress ;
 		sh:datatype xsd:anyURI ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An ids:callbackAddress property must point exactly one xsd:anyURI field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:callbackAddress property must point exactly one xsd:anyURI field."@en ;
 	] ;
 .
