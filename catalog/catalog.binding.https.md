@@ -78,8 +78,10 @@ described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ### 3.1 Authorization
 
-A catalog service may require authorization. If the catalog service requires authorization, requests must include an HTTP `Authorization` header with a token. The contents of  
-the token are undefined by may be an OAUTH2, Web DID, or other access token type.
+A catalog service may require authorization. If the catalog service requires authorization, requests must include an HTTP `Authorization` header with a token.
+The type and contents of the token are not defined by this standard, but security considerations for `verifiable presentations` and `ID tokens`, mentioned in
+[Dataspace Entity Relationships](../model/model.md#21-dataspace-entity-relationships), apply. Specifically, it is recommended to protect against session hijacking by including
+the TLS certificate fingerprint of the holder into the authorization token, and verifying it accordingly.
 
 ### 3.2 Versioning
 

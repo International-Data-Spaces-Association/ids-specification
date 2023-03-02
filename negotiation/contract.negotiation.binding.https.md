@@ -35,6 +35,9 @@ an HTTP code 400 (Bad Request) with an NegotiationErrorMessage in the response b
 
 All requests should use the `Authorizartion` header to include authorization data as specified by an authorization protocol such as [OAuth2](https://www.rfc-editor.org/rfc/rfc6749)
 . The `Authorization` HTTP header is optional if the connector does not require authorization. This specification does not mandate the use of a particular authorization standard.
+Security considerations for `verifiable presentations` and `ID tokens`, mentioned in [Dataspace Entity Relationships](../model/model.md#21-dataspace-entity-relationships), apply.
+Specifically, it is recommended to protect against session hijacking by including the TLS certificate fingerprint of the holder into the authorization token, and verifying it
+accordingly.
 
 ### 2.4 The provider `negotiations` resource
 
