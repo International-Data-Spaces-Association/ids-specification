@@ -86,7 +86,27 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 - `callbackAddress` is a URL indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
   UNRECOVERABLE error.
 
-### 2. ContractAgreementMessage
+
+### 2. ContractOfferMessage
+
+![](./message/diagram/contract-offer-message.png)
+
+**Sent by**: Provider
+
+**Resulting State**: PROVIDER_OFFERED, TERMINATED
+
+**Example**: [ContractOfferMessage](./message/contract-offer-message.json)
+
+**Response**: `ContractNegotiation` (see [Section ContractRequestMessage](#1-contractrequestmessage)) containing the negotiation id or ERROR
+
+**Schema**: [ContractOfferMessageShape](./message/shape/contract-offer-message-shape.ttl) and [ContractOfferMessage JSON Schema](./message/schema/contract-offer-message-schema.json)
+
+#### Description
+
+The _ContractOfferMessage_ is sent by a provider to initiate a contract negotiation.
+
+
+### 3. ContractAgreementMessage
 
 ![](./message/diagram/contract-agreement-message.png)
 
@@ -108,7 +128,7 @@ A _ContractAgreementMessage_ must contain a `processId`.
 
 A _ContractAgreementMessage_ must contain an ODRL Agreement.
 
-### 3. ContractAgreementVerificationMessage
+### 4. ContractAgreementVerificationMessage
 
 
 ![](./message/diagram/contract-agreement-verification-message.png)
@@ -130,7 +150,7 @@ validated or is incorrect.
 
 A _ContractAgreementVerificationMessage_ must contain a `processId`.
 
-### 4. ContractNegotiationEventMessage
+### 5. ContractNegotiationEventMessage
 
 
 ![](./message/diagram/contract-negotiation-event-message.png)
@@ -160,7 +180,7 @@ It is an error for a provider to send a ContractNegotiationEventMessage with an 
 Note that contract events are not intended for propagation of agreement state after a contract negotiation has entered a terminal state. It is considered an error for a consumer or
 provider to send a contract negotiation event after the negotiation state machine has entered a terminal state.
 
-### 5. ContractNegotiationTerminationMessage
+### 6. ContractNegotiationTerminationMessage
 
 ![](./message/diagram/contract-negotiation-termination-message.png)
 

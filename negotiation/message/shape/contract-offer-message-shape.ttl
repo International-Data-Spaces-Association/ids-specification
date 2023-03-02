@@ -25,9 +25,9 @@ shapes:
 	] ;
 .
 
-shapes:ContractRequestMessageShape
+shapes:ContractOfferMessageShape
 	a sh:NodeShape ;
-	sh:targetClass dspace:ContractRequestMessage ;
+	sh:targetClass dspace:ContractOfferMessage ;
 	rdfs:subClassOf dspace:ContractNegotiationMessageShape ;
 
 	sh:property [
@@ -37,7 +37,7 @@ shapes:ContractRequestMessageShape
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An dspace:offer property must point to exactly one odrl:Offer class."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-offer-message-shape.ttl> (ContractOfferMessageShape): A dspace:offer property must point to exactly one odrl:Offer class."@en ;
 	] ;
 
 	sh:property [
@@ -47,6 +47,16 @@ shapes:ContractRequestMessageShape
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An dspace:callbackAddress property must point to exactly one xsd:string value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-offer-message-shape.ttl> (ContractOfferMessageShape): A dspace:callbackAddress property must point to exactly one xsd:string value."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:checksum ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-offer-message-shape.ttl> (ContractOfferMessageShape): A dspace:checksum property must point to exactly one xsd:string value."@en ;
 	] ;
 .
