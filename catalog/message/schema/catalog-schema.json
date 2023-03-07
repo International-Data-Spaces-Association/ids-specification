@@ -11,16 +11,22 @@
 	"definitions": {
 		"Catalog": {
 			"type": "object",
+            "required":["@context", "@type", "dct:hasPart"],
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/1/0/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/1/0/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dcat:Catalog",
-					"required": true
+					"const": "dcat:Catalog"
+				},
+				"dcat:catalog": {
+                    "type": "array",
+                    "items": {
+						"ref": "definitions/Catalog"
+                    },
+                    "minItems": 1
 				},
 				"dcat:dataset": {
                     "type": "array",
@@ -30,10 +36,500 @@
                             "const": "dcat:Dataset"
                         }
                     },
-                    "minItems": 1,
-                    "required": false
-				}
-			}
+                    "minItems": 1
+				},
+				"dcat:record": {
+                    "ref": "definitions/dcat:CatalogRecord"                    
+				},
+                "dcat:service": {
+                    "type": "array",
+                    "items": {
+						"ref": "definitions/dcat:DataService"
+                    },
+                    "minItems": 1
+                },
+                "dcat:themeTaxonomy": {
+                    "type": "string"
+                },
+                "dct:hasPart": {
+                    "type": "array",
+                    "items": {
+						"ref": "definitions/Catalog"
+                    },
+                    "minItems": 1
+                },
+                "foaf:homepage": {
+                    "type": "string"
+                },
+                "dcat:distribution": {
+                    "type": "string"
+                },
+                "dcat:spatialResolutionInMeters": {
+                    "type": "string"
+                },
+                "dcat:temporalResolution": {
+                    "type": "string"
+                },
+                "dct:accrualPeriodicity": {
+                    "type": "string"
+                },
+                "dct:spatial": {
+                    "type": "string"
+                },
+                "dct:temporal": {
+                    "type": "string"
+                },
+                "prov:wasGeneratedBy": {
+                    "type": "string"
+                },
+                "dcat:contactPoint": {
+                    "type": "string"
+                },
+                "dcat:keyword": {
+                    "type": "string"
+                },
+                "dcat:landingPage": {
+                    "type": "string"
+                },
+                "dcat:qualifiedRelation": {
+                    "type": "string"
+                },
+                "dcat:theme": {
+                    "type": "string"
+                },
+                "dct:accessRights": {
+                    "type": "string"
+                },
+                "dct:conformsTo": {
+                    "type": "string"
+                },
+                "dct:creator": {
+                    "type": "string"
+                },
+                "dct:description": {
+                    "type": "string"
+                },
+                "dct:identifier": {
+                    "type": "string"
+                },
+                "dct:isReferencedBy": {
+                    "type": "string"
+                },
+                "dct:issued": {
+                    "type": "string"
+                },
+                "dct:Ianguage": {
+                    "type": "string"
+                },
+                "dct:license": {
+                    "type": "string"
+                },
+                "dct:modified": {
+                    "type": "string"
+                },
+                "dct:publisher": {
+                    "type": "string"
+                },
+                "dct:relation": {
+                    "type": "string"
+                },
+                "dct:rights": {
+                    "type": "string"
+                },
+                "dct:title": {
+                    "type": "string"
+                },
+                "dct:type": {
+                    "type": "string"
+                },
+                "odrl:hasPolicy": {
+                    "type": "boolean"
+                },
+                "prov:qualifiedAttribution": {
+                    "type": "string"
+                }
+
+			},
+            "dcat:CatalogRecord":{
+                "type": "object",
+                "required":["foaf:primaryTopiy"],
+                "properties": {
+                    "dct:conformsTo": {
+                        "type": "string"
+                    },
+                    "dct:description": {
+                        "type": "string"
+                    },
+                    "dct:issued": {
+                        "type": "string"
+                    },
+                    "dct:modified": {
+                        "type": "string"
+                    },
+                    "dct:title": {
+                        "type": "string"
+                    },
+                    "foaf:primaryTopiy":{
+                        "ref": "definitions/dcat:Resource"
+                    }
+                }
+            },
+            "dcat:Resource":{
+                "type": "object",
+                "properties": {
+                    "dcat:contractPoint": {
+                        "type": "string"
+                    },
+                    "dcat:keyword": {
+                        "type": "string"
+                    },
+                    "dcat:landingPage": {
+                        "type": "string"
+                    },
+                    "dcat:qualifiedRelation": {
+                        "ref": "definitions/dcat:Relationship"
+                    },
+                    "dcat:theme": {
+                        "type": "array",
+                        "items": {
+                            "ref": "definitions/dcat:Concept"									
+                        },
+                        "minItems": 1
+                    },
+                    "dct:accessRights": {
+                        "type": "string"
+                    },
+                    "dct:conformsTo": {
+                        "type": "string"
+                    },
+                    "dct:creator": {
+                        "type": "string"
+                    },
+                    "dct:description": {
+                        "type": "string"
+                    },
+                    "dct:identifier": {
+                        "type": "string"
+                    },
+                    "dct:isReferencedBy": {
+                        "type": "string"
+                    },
+                    "dct:issued": {
+                        "type": "string"
+                    },
+                    "dct:dscription": {
+                        "type": "string"
+                    },
+                    "dct:language": {
+                        "type": "string"
+                    },
+                    "dct:license": {
+                        "type": "string"
+                    },
+                    "dct:modified": {
+                        "type": "string"
+                    },
+                    "dct:publisher": {
+                        "type": "string"
+                    },
+                    "dct:relation": {
+                        "type": "string"
+                    },
+                    "dct:rights": {
+                        "type": "string"
+                    },
+                    "dct:title": {
+                        "type": "string"
+                    },
+                    "dct:type": {
+                        "type": "string"
+                    },
+                    "dct:hasPolicy": {
+                        "type": "boolean"
+                    },
+                    "prov:qualifiedAttribution": {
+                        "type": "string"
+                    }
+                }
+             } ,
+             "dcat:Relationship":{
+                "type": "object",
+                "const": "dcat:Relationship",
+                "properties": {
+                    "dcat:hadRole": {
+                        "type": "boolean"
+                    },
+                    "dct:relation":{
+                        "ref": "definitions/dcat:Resource"
+                    }
+                } 
+             },
+             "skos:Concept": {
+                "type": "object"
+             },
+             "skos:ConceptScheme": {
+                "skos:inScheme": {
+                    "ref": "definitions/dcat:Resource"
+                }
+            },
+            "foaf:Agent": {
+                "type": "object"
+            },
+             
+            "dcat:Dataset": {
+                "type": "object",
+                "properties": {
+                    "dcat:distribution": {
+                        "type": "array",
+                        "items": {
+                            "ref": "definitions/dcat:Distribution"
+                        },
+                        "minItems": 1
+                        
+                    },
+                    "dcat:spatialResolutionInMeters": {
+                        "type": "string"
+                    },
+                    "dcat:temporalResolution": {
+                        "type": "string"
+                    },
+                    "dct:accrualPeriodicity": {
+                        "type": "string"
+                    },
+                    "dct:spatial": {
+                        "type": "string"
+                    },
+                    "dct:temporal": {
+                        "type": "string"
+                    },
+                    "prov:wasGeneratedBy": {
+                        "type": "string"
+                    },
+                    "dcat:Resource":{
+                        "type": "string"
+                    },
+                    "dcat:contactPoint": {
+                        "type": "string"
+                    },
+                    "dcat:keyword": {
+                        "type": "string"
+                    },
+                    "dcat:landingPage": {
+                        "type": "string"
+                    },
+                    "dcat:qualifiedRelation": {
+                        "type": "string"
+                    },
+                    "dcat:theme": {
+                        "type": "string"
+                    },
+                    "dct:accessRights": {
+                        "type": "string"
+                    },
+                    "dct:conformsTo": {
+                        "type": "string"
+                    },
+                    "dct:creator": {
+                        "type": "string"
+                    },
+                    "dct:description": {
+                        "type": "string"
+                    },
+                    "dct:identifier": {
+                        "type": "string"
+                    },
+                    "dct:isReferencedBy": {
+                        "type": "string"
+                    },
+                    "dct:issued": {
+                        "type": "string"
+                    },
+                    "dct:language": {
+                        "type": "string"
+                    },
+                    "dct:license": {
+                        "type": "string"
+                    },
+                    "dct:modified": {
+                        "type": "string"
+                    },
+                    "dct:publisher": {
+                        "type": "string"
+                    },
+                    "dct:relation": {
+                        "type": "string"
+                    },
+                    "dct:rights": {
+                        "type": "string"
+                    },
+                    "dct:title": {
+                        "type": "string"
+                    },
+                    "dct:type": {
+                        "type": "string"
+                    },
+                    "odrl:hasPolicy": {
+                        "type": "boolean"
+                    },
+                    "prov:qualifiedAttribution": {
+                        "type": "string"
+                    }
+                }
+            },
+
+            "dcat:DataService":{
+                "type": "object",
+                "properties": {
+                    "dcat:endpointDescription": {
+                        "type": "string"
+                    },
+                    "dcat:endpointURL": {
+                        "type": "string"
+                    },
+                    "dcat:servesDataset": {
+                        "type": "array",
+                        "items": {
+                            "ref": "definitions/dcat:Dataset"
+                        },
+                        "minItems": 1
+                    },
+                    "dcat:contactPoint": {
+                        "type": "string"
+                    },
+                    "dcat:keyword": {
+                        "type": "string"
+                    },
+                    "dcat:landingPage": {
+                        "type": "string"
+                    },
+                    "dcat:qualifiedRelation": {
+                        "type": "string"
+                    },
+                    "dcat:theme": {
+                        "type": "string"
+                    },
+                    "dct:accessRights": {
+                        "type": "string"
+                    },
+                    "dct:conformsTo": {
+                        "type": "string"
+                    },
+                    "dct:creator": {
+                        "type": "string"
+                    },
+                    "dct:description": {
+                        "type": "string"
+                    },
+                    "dct:identifier": {
+                        "type": "string"
+                    },
+                    "dct:isReferencedBy": {
+                        "type": "string"
+                    },
+                    "dct:issued": {
+                        "type": "string"
+                    },
+                    "dct:language": {
+                        "type": "string"
+                    },
+                    "dct:license": {
+                        "type": "string"
+                    },
+                    "dct:modified": {
+                        "type": "string"
+                    },
+                    "dct:publisher": {
+                        "type": "string"
+                    },
+                    "dct:relation": {
+                        "type": "string"
+                    },
+                    "dct:rights": {
+                        "type": "string"
+                    },
+                    "dct:title": {
+                        "type": "string"
+                    },
+                    "dct:type": {
+                        "type": "string"
+                    },
+                    "odrl:hasPolicy": {
+                        "type": "boolean"
+                    },
+                    "prov:qualifiedAttribution": {
+                        "type": "string"
+                    }
+                }
+            },
+
+            "dcat:Distribution": {
+                "type": "object",
+                "properties": {
+                    "dcat:accessService": {
+                        "type": "array",
+                        "items": {
+                            "ref": "definitions/dcat:DataService"
+                        },
+                        "minItems": 1
+                    },
+                    "dcat:accessURL": {
+                        "type": "string"
+                    },
+                    "dcat:byteSize": {
+                        "type": "string"
+                    },
+                    "dcat:compressFormat": {
+                        "type": "string"
+                    },
+                    "dcat:downloadURL": {
+                        "type": "string"
+                    },
+                    "dcat:mediaType": {
+                        "type": "string"
+                    },
+                    "dcat:packageFormat": {
+                        "type": "string"
+                    },
+                    "dcat:spatiaIResolutionInMeters": {
+                        "type": "string"
+                    },
+                    "dcat:temporalResolution": {
+                        "type": "string"
+                    },
+                    "dct:accessRights": {
+                        "type": "string"
+                    },
+                    "dct:conformsTo": {
+                        "type": "string"
+                    },
+                    "dct:description": {
+                        "type": "string"
+                    },
+                    "dct:format": {
+                        "type": "string"
+                    },
+                    "dct:issued": {
+                        "type": "string"
+                    },
+                    "dct:license": {
+                        "type": "string"
+                    },
+                    "dct:modified": {
+                        "type": "string"
+                    },
+                    "dct:rights": {
+                        "type": "string"
+                    },
+                    "dct:title": {
+                        "type": "string"
+                    },
+                    "odrl:hasPolicy": {
+                        "type": "boolean"
+                    }
+                }
+
+            }			
+        
 		}
 	}
 }
