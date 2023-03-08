@@ -1,15 +1,15 @@
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementVerificationMessage",
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "cred:credentialSubject": {
     "@type": "dspace:ContractAgreementMessage",
     "dspace:hash": "abcdefghijk12345"
   },
-  "sec:proof": [  
+  "sec:proof": [
     {
       "@type": "sec:Ed25519Signature2018",
-      "dct:created": { 
+      "dct:created": {
         "@type": "xsd:dateTime",
         "@value": "2022-11-18T12:00:01Z"
       },
@@ -17,7 +17,7 @@
       "sec:proofPurpose": "assertionMethod"
     },{
       "@type": "sec:Ed25519Signature2018",
-      "dct:created": { 
+      "dct:created": {
         "@type": "xsd:dateTime",
         "@value": "2022-11-18T12:00:01Z"
       },

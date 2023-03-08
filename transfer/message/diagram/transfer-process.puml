@@ -7,7 +7,7 @@ hide empty description
 
 
 class "dspace:TransferProcess" {
-    @context : "https://w3id.org/dspace/1/0/context.json"
+    @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:TransferProcess"
     dspace:correlationId : String
     dspace:state : dspace:TransferState

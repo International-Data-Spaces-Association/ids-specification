@@ -53,7 +53,7 @@ the [TransferProcess](./message/transfer.process.json):
 
 ```
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "dspace:TransferProcess",
   "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
@@ -78,7 +78,7 @@ to `transfer-processes/request`:
  Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@id": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "@type": "dspace:TransferRequestMessage",
   "dspace:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
@@ -103,7 +103,7 @@ the [TransferProcess](./message/transfer.process.json) message:
  Location: /transfer-processes/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16
  
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "dspace:TransferProcess",
   "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",

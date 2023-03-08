@@ -1,6 +1,6 @@
 {
   "@context": {
-    "dspace": "https://w3id.org/dspace/1/0/",
+    "dspace": "https://w3id.org/dspace/v0.8/",
     "odrl": "http://www.w3.org/ns/odrl/2/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "cred": "https://www.w3.org/2018/credentials#",
