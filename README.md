@@ -1,4 +1,4 @@
-# International Dataspaces (IDS) - Version X
+# Dataspace Protocol - Version 0.8
 
 ### Working Draft 1 February 2023
 
@@ -8,14 +8,14 @@
 
 ## Abstract
 
-IDS is a set of specifications designed to facilitate interoperable data sharing between entities governed by usage control and based on Web technologies. These specifications
+The __Dataspace Protocol__ is a set of specifications designed to facilitate interoperable data sharing between entities governed by usage control and based on Web technologies. These specifications
 define the schemas and protocols required for entities to publish data, negotiate usage agreements, and access data as part of a federation of technical systems termed a
 __*dataspace*__.
 
 ## Introduction
 
 Sharing data between autonomous entities requires the provision of metadata to facilitate the transfer of assets by making use of a data transfer (or application layer) protocol.
-IDS defines how this metadata is provisioned:
+The __Dataspace Protocol__ defines how this metadata is provisioned:
 
 1. How data assets are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
 2. How contract agreements that govern data usage are syntactically expressed and electronically negotiated.
@@ -28,7 +28,7 @@ On this foundation the binding to data transfer protocols, like HTTPS, is descri
 
 The specifications are organized into the following documents:
 
-* A __*Dataspace Information Model*__ document that defines key terms.
+* __*Dataspace Model*__ and __*Dataspace Terminology*__ documents that define key terms.
 * __*Catalog Protocol*__ and __*Catalog HTTPS Binding*__ documents that define how DCAT Catalogs are published and accessed as HTTPS endpoints respectively.
 * __*Contract Negotiation Protocol*__ and __*Contract Negotiation HTTPS Binding*__ documents that define how contract negotiations are conducted and requested via HTTPS endpoints.
 * __*Transfer Process Protocol*__ and __*Transfer Process HTTPS Binding*__ documents that define how transfer processes using a given data transfer protocol are governed via HTTPS
@@ -40,7 +40,7 @@ As an implication, the data transfer can be conducted in a separated process if 
 
 ### Context of this specification
 
-The __*Name of the protocol goes here*__ is used in the context of data spaces as described and defined in the subequent sections with the purpose to support interoperability.
+The __Dataspace Protocol__ is used in the context of data spaces as described and defined in the subequent sections with the purpose to support interoperability.
 In this context, the specification provides fundamental technical interoperability for particiants in data spaces and therefore the protocol specified here is required to join any data space as specified [here]().
 Beyond the technical interoperability measures described in this specification, semantic interoperability should also be addressed by the participants. On the perspective of the data space, interoperability needs to be addressed also on the level of trust, on organizational level and on legal level.
 The aspect of cross data space communication is not subject of this document, as this is addressed by the data spaces' organizational and legal agreements.
