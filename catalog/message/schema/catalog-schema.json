@@ -164,7 +164,7 @@
                         "type": "string"
                     },
                     "dct:modified": {
-                        "type": "string"
+                        "type": "boolean"
                     },
                     "dct:title": {
                         "type": "string"
@@ -227,7 +227,7 @@
                         "type": "string"
                     },
                     "dct:modified": {
-                        "type": "string"
+                        "type": "boolean"
                     },
                     "dct:publisher": {
                         "type": "string"
@@ -351,7 +351,7 @@
                         "type": "string"
                     },
                     "dct:modified": {
-                        "type": "string"
+                        "type": "boolean"
                     },
                     "dct:publisher": {
                         "type": "string"
@@ -436,7 +436,7 @@
                         "type": "string"
                     },
                     "dct:modified": {
-                        "type": "string"
+                        "type": "boolean"
                     },
                     "dct:publisher": {
                         "type": "string"
@@ -515,7 +515,7 @@
                         "type": "string"
                     },
                     "dct:modified": {
-                        "type": "string"
+                        "type": "boolean"
                     },
                     "dct:rights": {
                         "type": "string"
