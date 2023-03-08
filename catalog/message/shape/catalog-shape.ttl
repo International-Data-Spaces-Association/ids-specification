@@ -562,3 +562,25 @@ shapes:ResourceShape
     ] ;  
 
 .
+
+shapes:RelationshipShape
+	a sh:NodeShape ;
+	sh:targetClass dcat:Relationship ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dcat:hadRole ;
+		sh:datatype xsd:boolean ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (RelationshipShape): A dcat:hadRole property must point to a xsd:boolean field."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dct:relation ;
+		sh:class dcat:Resource ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (RelationshipShape): A dct:relation property must point to a dcat:Resource."@en ;
+	] ;
+
+.
