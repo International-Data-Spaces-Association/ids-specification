@@ -169,7 +169,7 @@
                     "dct:title": {
                         "type": "string"
                     },
-                    "foaf:primaryTopiy":{
+                    "foaf:primaryTopic":{
                         "ref": "definitions/dcat:Resource"
                     }
                 }
