@@ -118,7 +118,7 @@
                 "dct:issued": {
                     "type": "string"
                 },
-                "dct:Ianguage": {
+                "dct:language": {
                     "type": "string"
                 },
                 "dct:license": {
