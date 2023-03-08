@@ -192,7 +192,7 @@
                     "dcat:theme": {
                         "type": "array",
                         "items": {
-                            "ref": "definitions/dcat:Concept"									
+                            "ref": "definitions/skos:Concept"									
                         },
                         "minItems": 1
                     },
