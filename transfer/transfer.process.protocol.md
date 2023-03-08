@@ -26,8 +26,7 @@ receives counter-party messages and manages the TP state. The data plane perform
 planes.
 
 It is important to note that the control and data planes are logical constructs. Implementations may choose to deploy both components within a single process or across
-heterogeneous
-clusters.
+heterogeneous clusters.
 
 ### Asset Transfer Types
 
@@ -69,7 +68,7 @@ The TP states are:
 
 ## Message Types
 
-### 1. Transfer Request Message
+### 1. TransferRequestMessage
 
 ![](./message/diagram/transfer-request-message.png)
 
@@ -87,7 +86,7 @@ The TP states are:
 
 #### Description
 
-The _TransferRequestMessage_ is sent by a consumer to initiate a transfer process.
+The `TransferRequestMessage` is sent by a consumer to initiate a transfer process.
 
 #### Notes
 
@@ -96,21 +95,21 @@ The _TransferRequestMessage_ is sent by a consumer to initiate a transfer proces
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
 
-Providers should implement idempotent behavior for TransferRequestMessage based on the value of `@id`. Providers may choose to implement idempotent behavior for a certain period of
+Providers should implement idempotent behavior for `TransferRequestMessage` based on the value of `@id`. Providers may choose to implement idempotent behavior for a certain period of
 time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period. If a request for the given `@id` has already been
-received *and* the same consumer sent the original message, the provider should respond with an appropriate _DataAddressMessage_.
+received *and* the same consumer sent the original message, the provider should respond with an appropriate `DataAddressMessage`.
 
-Once a transfer process have been created, all associated callback messages must include a `correlationId` set to the _TransferRequestMessage_ `@id` value.
+Once a transfer process have been created, all associated callback messages must include a `correlationId` set to the `TransferRequestMessage` `@id` value.
 
-Providers must include a `correlationId` property in the `TransferProcessMessage` with a value set to the `@id` of the corresponding _TransferRequestMessage_
+Providers must include a `correlationId` property in the `TransferProcessMessage` with a value set to the `@id` of the corresponding `TransferRequestMessage`.
 
 #### Notes
 
-- The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
+- The `dataAddress` contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 - Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
 
 
-### 2. Transfer Start Message
+### 2. TransferStartMessage
 
 ![](./message/diagram/transfer-start-message.png)
 
@@ -127,14 +126,14 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 #### Description
 
-The _TransferStartMessage_ is sent by the provider to indicate the asset transfer has been initiated.
+The `TransferStartMessage` is sent by the provider to indicate the asset transfer has been initiated.
 
 #### Notes
 
-- The 'dataAddress' is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
+- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
   temporary authorization token.
 
-### 3. Transfer Suspension Message
+### 3. TransferSuspensionMessage
 
 ![](./message/diagram/transfer-suspension-message.png)
 
@@ -150,9 +149,9 @@ The _TransferStartMessage_ is sent by the provider to indicate the asset transfe
 
 #### Description
 
-The _TransferSuspensionMessage_ is sent by the provider or consumer when either of them needs to temporarily suspend the data transfer.
+The `TransferSuspensionMessage` is sent by the provider or consumer when either of them needs to temporarily suspend the data transfer.
 
-### 4. Transfer Completion Message
+### 4. TransferCompletionMessage
 
 ![](./message/diagram/transfer-completion-message.png)
 
@@ -168,10 +167,10 @@ The _TransferSuspensionMessage_ is sent by the provider or consumer when either 
 
 #### Description
 
-The _TransferCompletionMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
-notification by performing it as part of its wire protocol. In those cases, a _TransferCompletionMessage_ message does not need to be sent.
+The `TransferCompletionMessage` is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
+notification by performing it as part of its wire protocol. In those cases, a `TransferCompletionMessage` message does not need to be sent.
 
-### 5. Transfer Termination Message
+### 5. TransferTerminationMessage
 
 ![](./message/diagram/transfer-termination-message.png)
 
@@ -187,7 +186,7 @@ notification by performing it as part of its wire protocol. In those cases, a _T
 
 #### Description
 
-The _TransferTerminationMessage_ is sent by the provider or consumer at any point except a terminal state to indicate the data transfer process should stop and be placed in
+The `TransferTerminationMessage` is sent by the provider or consumer at any point except a terminal state to indicate the data transfer process should stop and be placed in
 a terminal state. If the termination was due to an error, the sender may include error information. 
 
 ## TransferError
@@ -202,8 +201,8 @@ a terminal state. If the termination was due to an error, the sender may include
 
 #### Description
 
-The _TransferError_ is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
+The `TransferError` is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
 
 #### Notes
 
-- A _TransferError_ is different to an error response. A _TransferError_ does not necessarily finish the negotiation but can continue afterwards.
+- A `TransferError` is different to an error response. A `TransferError` does not necessarily finish the negotiation but can continue afterwards.
