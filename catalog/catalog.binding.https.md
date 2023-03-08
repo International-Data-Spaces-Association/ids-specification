@@ -36,7 +36,7 @@ POST https://provider.com/catalog/request
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:CatalogRequest"
   "dspace:filter": {}
 }
@@ -93,7 +93,7 @@ and the HTTP `Link` header. The `Link` header will contain URLs for navigating t
 ```
 Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dcat:Catalog"
   ...
 }
@@ -140,7 +140,7 @@ POST https://provider.com/catalog/request
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:CatalogRequest"
   "@id: "..."
   "dspace:callbackAddress": "https://example.com/endpoint"

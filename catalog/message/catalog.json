@@ -1,5 +1,5 @@
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@id": "urn:uuid:3afeadd8-ed2d-569e-d634-8394a8836d57",
   "@type": "dcat:Catalog",
   "dct:title": "Data Provider A Catalog",
