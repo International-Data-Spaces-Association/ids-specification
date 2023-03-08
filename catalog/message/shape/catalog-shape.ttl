@@ -372,8 +372,193 @@ shapes:CatalogRecordShape
 		sh:path foaf:primaryTopic ;
 		sh:class dcat:Resource ;
         sh:minCount: 1 ;
+        sh:maxCount: 1;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A foaf:primaryTopic property must point to a dcat:Resource."@en ;
 	] ;
+
+.
+
+shapes:ResourceShape
+	a sh:NodeShape ;
+	sh:targetClass dcat:Resource ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dcat:contractPoint ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dcat:contractPoint property must point to a xsd:string field."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dcat:keyword ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dcat:keyword property must point to a xsd:string field."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dcat:landingPage ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dcat:landingPage property must point to a xsd:string field."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dcat:qualifiedRelation ;
+		sh:class dcat:Relationship ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dcat:qualifiedRelation property must point to a dcat:Relationship."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dcat:theme ;
+		sh:class skos:Concept ;
+        sh:minCount: 0 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dcat:theme property must point to a skos:Concept."@en ;
+	] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:accessRights ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:accessRights property must point to a xsd:string field."@en ;
+    ] ;
+
+      sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:conformsTo ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:accessconformsToRights property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:creator ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:creator property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:description ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:description property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:identifier ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:identifier property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:isReferencedBy ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:isReferencedBy property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:issued ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:issued property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:language ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:language property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:license ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:license property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:modified ;
+        sh:datatype xsd:boolean ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:modified property must point to a xsd:boolean field."@en ;
+    ] ;  
+
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:publisher ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:publisher property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:relation ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:relation property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:rights ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:rights property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:title ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:title property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:type ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:type property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path odrl:hasPolicy ;
+        sh:datatype xsd:boolean ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:type property must point to a xsd:boolean field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path prov:qualifiedAttribution ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A prov:qualifiedAttribution property must point to a xsd:boolean field."@en ;
+    ] ;  
 
 .
