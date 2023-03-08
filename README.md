@@ -45,8 +45,8 @@ In this context, the specification provides fundamental technical interoperabili
 Beyond the technical interoperability measures described in this specification, semantic interoperability should also be addressed by the participants. On the perspective of the data space, interoperability needs to be addressed also on the level of trust, on organizational level and on legal level.
 The aspect of cross data space communication is not subject of this document, as this is addressed by the data spaces' organizational and legal agreements.
 
-The interaction of participants in a data space is conducted by the participant agents, so-called Data Connectors, which implement the protocols described above.
-While most interactions take place between data connectors, some interactions with other systems are required.
+The interaction of participants in a data space is conducted by the participant agents, so-called Connectors, which implement the protocols described above.
+While most interactions take place between Connectors, some interactions with other systems are required.
 The figure below provides an overview on the context of this specification.
 
 An Identity Provider realizes the required interfaces and provides required information to implement Trust Framework of a data space.
