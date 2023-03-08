@@ -54,7 +54,7 @@
                 "dct:hasPart": {
                     "type": "array",
                     "items": {
-						"ref": "definitions/Catalog"
+						"ref": "definitions/dcat:Resource"
                     },
                     "minItems": 1
                 },
