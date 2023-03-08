@@ -486,7 +486,7 @@
                     "dcat:packageFormat": {
                         "type": "string"
                     },
-                    "dcat:spatiaIResolutionInMeters": {
+                    "dcat:spatialResolutionInMeters": {
                         "type": "string"
                     },
                     "dcat:temporalResolution": {
