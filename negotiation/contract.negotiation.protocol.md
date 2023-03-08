@@ -81,8 +81,6 @@ The `ContractRequestMessage` is sent by a consumer to initiate a contract negoti
 
 - The dataset id is not technically required but included to avoid an error where the offer is associated with a different data set.
 
-> Comment sba (20.12.2022): Let's use the `offer.target` property for this, and nothing else.
-
 - `callbackAddress` is a URL indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
   UNRECOVERABLE error.
 
