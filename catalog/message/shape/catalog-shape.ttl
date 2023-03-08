@@ -560,7 +560,7 @@ shapes:ResourceShape
         sh:severity sh:Violation ;
         sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A prov:qualifiedAttribution property must point to a xsd:boolean field."@en ;
     ] ;  
-	
+
 .
 
 shapes:RelationshipShape
@@ -584,3 +584,29 @@ shapes:RelationshipShape
 	] ;
 
 .
+
+shapes:ConceptShape
+	a sh:NodeShape ;
+	sh:targetClass skos:Concept ;
+
+    sh:property [
+        a sh:inScheme ;
+        sh:path skos:inScheme ;
+        sh:class dcat:Resource ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ConceptShape): A skos:inScheme property must point to a dcat:Resource."@en ;
+    ] ;
+.
+
+shapes:ConceptSchemeShape
+	a sh:NodeShape ;
+	sh:targetClass skos:ConceptScheme ;
+
+.
+
+shapes:AgentShape
+	a sh:NodeShape ;
+	sh:targetClass foaf:Agent ;
+
+.
+
