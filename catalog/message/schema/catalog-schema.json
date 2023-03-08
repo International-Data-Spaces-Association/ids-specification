@@ -262,12 +262,14 @@
                 } 
              },
              "skos:Concept": {
-                "type": "object"
-             },
-             "skos:ConceptScheme": {
+                "type": "object",
                 "skos:inScheme": {
                     "ref": "definitions/dcat:Resource"
                 }
+             },
+             "skos:ConceptScheme": {
+                "type": "object"
+                
             },
             "foaf:Agent": {
                 "type": "object"

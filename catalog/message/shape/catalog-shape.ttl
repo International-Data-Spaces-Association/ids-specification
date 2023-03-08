@@ -560,7 +560,7 @@ shapes:ResourceShape
         sh:severity sh:Violation ;
         sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A prov:qualifiedAttribution property must point to a xsd:boolean field."@en ;
     ] ;  
-
+	
 .
 
 shapes:RelationshipShape
