@@ -217,9 +217,6 @@
                     "dct:issued": {
                         "type": "string"
                     },
-                    "dct:dscription": {
-                        "type": "string"
-                    },
                     "dct:language": {
                         "type": "string"
                     },
