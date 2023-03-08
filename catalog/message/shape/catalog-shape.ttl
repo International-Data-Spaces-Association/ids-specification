@@ -322,3 +322,58 @@ shapes:CatalogShape
 	] ;
 
 .
+
+shapes:CatalogRecordShape
+	a sh:NodeShape ;
+	sh:targetClass dcat:CatalogRecord ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dct:conformsTo ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:conformsTo property must point to a xsd:string field."@en ;
+	] ;
+
+        sh:property [
+		a sh:PropertyShape ;
+		sh:path dct:description ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:description property must point to a xsd:string field."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dct:issued ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:issued property must point to a xsd:string field."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dct:modified ;
+		sh:datatype xsd:boolean ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:modified property must point to a xsd:boolean field."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dct:title ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:title property must point to a xsd:string field."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path foaf:primaryTopic ;
+		sh:class dcat:Resource ;
+        sh:minCount: 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A foaf:primaryTopic property must point to a dcat:Resource."@en ;
+	] ;
+
+.
