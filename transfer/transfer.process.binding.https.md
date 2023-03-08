@@ -119,7 +119,7 @@ Note that if the location header is not an absolute URL, it must resolve to an a
 #### 2.6.1 POST
 
 The consumer connector can POST a [TransferStartMessage](./message/transfer-start-message.json) to attempt to start a transfer process after it has been suspended. If the transfer
-process state is successfully transitioned, the producer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+process state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 2.7 The provider `transfers/:id/completion` resource
 
@@ -140,7 +140,7 @@ process state is successfully transitioned, the provider must return HTTP code 2
 #### 2.9.1 POST
 
 The consumer connector can POST a [TransferSuspensionMessage](./message/transfer-suspension-message.json) to suspend a transfer process. If the transfer
-process state is successfully transitioned, the producer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+process state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ## 3 Consumer Callback Path Bindings
 

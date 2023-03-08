@@ -34,15 +34,15 @@ Asset transfers are characterized as `push` or `pull` transfers and asset data i
 
 #### Push Transfer
 
-A push transfer is when the producer data plane initiates sending of asset data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
-producer begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
+A push transfer is when the provider data plane initiates sending of asset data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
+provider begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
 
 << TODO: Include example diagram >>
 
 #### Pull Transfer
 
-A pull transfer is when the consumer data plane initiates retrieval of asset data from a producer endpoint. For example, after the consumer has issued an `TransferProcessStart,`
-message, the consumer requests the data from the producer-specified endpoint.
+A pull transfer is when the consumer data plane initiates retrieval of asset data from a provider endpoint. For example, after the consumer has issued an `TransferProcessStart,`
+message, the consumer requests the data from the provider-specified endpoint.
 
 << TODO: Include example diagram >>
 
@@ -57,10 +57,10 @@ non-finite data, a TP will continue indefinitely until either the consumer or pr
 The TP states are:
 
 - **REQUESTED** - An asset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
-- **STARTED** - The asset is available for access by the consumer or the producer has begun pushing the asset to the consumer endpoint.
-- **COMPLETED** - The transfer has been completed by either the consumer or the producer.
-- **SUSPENDED** - The transfer has been suspended by the consumer or the producer.
-- **TERMINATED** - The transfer process has been terminated by the consumer or the producer.
+- **STARTED** - The asset is available for access by the consumer or the provider has begun pushing the asset to the consumer endpoint.
+- **COMPLETED** - The transfer has been completed by either the consumer or the provider.
+- **SUSPENDED** - The transfer has been suspended by the consumer or the provider.
+- **TERMINATED** - The transfer process has been terminated by the consumer or the provider.
 
 ### Transfer Process State Machine
 
