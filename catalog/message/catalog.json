@@ -8,7 +8,7 @@
   "dcat:keyword": [
     "traffic", "government"
   ],
-  "dcat:DataService": [
+  "dcat:service": [
     {
       "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
       "@type": "dcat:DataService",
