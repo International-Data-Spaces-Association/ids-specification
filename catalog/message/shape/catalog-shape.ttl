@@ -1057,5 +1057,162 @@ shapes:DataServiceShape
 .
 
 
+shapes:DistributionShape
+	a sh:NodeShape ;
+	sh:targetClass dcat:Distribution ;
 
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:accessService ;
+        sh:class dcat:Dataset ;
+        sh:minCount 0;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:accessService property must point to a dcat:Distribution."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:accessURL ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:accessURL property must point to a xsd:string field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:byteSize ;
+        sh:datatype xsd:integer ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:accessURL property must point to a xsd:integer field."@en ;
+    ] ;  
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:compressFormat ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:compressFormat property must point to a xsd:string field."@en ;
+    ] ; 
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:downloadURL ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:downloadURL property must point to a xsd:string field."@en ;
+    ] ; 
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:mediaType ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:mediaType property must point to a xsd:string field."@en ;
+    ] ; 
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:packageFormat ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:packageFormat property must point to a xsd:string field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:spatialResolutionInMeters ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:spatialResolutionInMeters property must point to a xsd:string field."@en ;
+    ] ; 
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dcat:temporalResolution ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dcat:temporalResolution property must point to a xsd:string field."@en ;
+    ] ; 
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:accessRights ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:accessRights property must point to a xsd:string field."@en ;
+    ] ; 
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:conformsTo ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:conformsTo property must point to a xsd:string field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:description ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:description property must point to a xsd:string field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:format ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:format property must point to a xsd:string field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:issued ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:issued property must point to a xsd:string field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:license ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:license property must point to a xsd:string field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:modified ;
+        sh:datatype xsd:boolean ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:modified property must point to a xsd:boolean field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:rights ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:rights property must point to a xsd:string field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path dct:title ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A dct:title property must point to a xsd:string field."@en ;
+    ] ;
+
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path odrl:hasPolicy ;
+        sh:datatype xsd:boolean ;
+        sh:severity sh:Violation ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A odrl:hasPolicy property must point to a xsd:boolean field."@en ;
+    ] ;
+    
+.
 
