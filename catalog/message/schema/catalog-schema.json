@@ -304,9 +304,6 @@
                     "prov:wasGeneratedBy": {
                         "type": "string"
                     },
-                    "dcat:Resource":{
-                        "type": "string"
-                    },
                     "dcat:contactPoint": {
                         "type": "string"
                     },
