@@ -241,7 +241,7 @@
                     "dct:type": {
                         "type": "string"
                     },
-                    "dct:hasPolicy": {
+                    "odrl:hasPolicy": {
                         "type": "boolean"
                     },
                     "prov:qualifiedAttribution": {
