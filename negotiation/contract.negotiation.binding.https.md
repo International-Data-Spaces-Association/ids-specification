@@ -15,7 +15,7 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 2. All request and response messages must use the `application/json` media type.
 
-### 2.2 ContractNegotiationError
+### 2.2 Contract Negotiation Error
 
 In the event of a client request error, the connector must return an appropriate HTTP 4xxx client error code. If an error body is returned it must be
 a [ContractNegotiationError](./message/contract-negotiation-error.json) with the following properties:
@@ -29,7 +29,7 @@ a [ContractNegotiationError](./message/contract-negotiation-error.json) with the
 ### 2.2.1 State transition errors
 
 If a client or provider connector makes a request that results in an invalid contract negotiation state transition as defined by the Contract Negotiation Protocol, it must return
-an HTTP code 400 (Bad Request) with an NegotiationErrorMessage in the response body.
+an HTTP code 400 (Bad Request) with an `ContractNegotiationError` in the response body.
 
 ### 2.3 Authorization
 
@@ -146,7 +146,7 @@ A consumer connector can POST a [ContractNegotiationEventMessage](./message/cont
 provider contract offer. If the negotiation state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not
 required to process it.
 
-If the current contract offer was created by the consumer, the provider must return HTTP code 400 (Bad Request) with an NegotiationErrorMessage in the response body.
+If the current contract offer was created by the consumer, the provider must return HTTP code 400 (Bad Request) with an `NegotiationErrorMessage` in the response body.
 
 ### 2.8 The provider `negotiations/:id/agreement/verification` resource
 

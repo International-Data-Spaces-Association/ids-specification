@@ -50,14 +50,14 @@ request.
 
 #### 2.3.2 OK (200) Response
 
-If the request is successful, the catalog service must return a response body containing a [Catalog](./message/catalog.json) which is a profiled DCAT Catalog type
+If the request is successful, the catalog service must return a response body containing a [Catalog](./message/catalog.json) which is a profiled DCAT `Catalog` type
 described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ### 2.4 The `catalog/datasets/{id}` endpoint
 
 #### 2.3.1 GET
 
-The [DatasetRequestMessage](catalog.protocol.md#21-datasetrequestmessage) corresponds to `GET https://<base>/catalog/datasets/{id}}`:
+The [DatasetRequestMessage](catalog.protocol.md#24-datasetrequestmessage) corresponds to `GET https://<base>/catalog/datasets/{id}}`:
 
 ```
 GET https://provider.com/datasets/{id}
@@ -71,7 +71,7 @@ The `Authorization` header is optional if the catalog service does not require a
 
 #### 2.4.2 OK (200) Response
 
-If the request is successful, the catalog service must return a response body containing a [Dataset](./message/dataset.json) which is a DCAT Dataset type
+If the request is successful, the catalog service must return a response body containing a [Dataset](./message/dataset.json) which is a DCAT `Dataset` type
 described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ## 3 Technical Considerations
@@ -147,5 +147,5 @@ Authorization: ...
 }
 ```
 
-The `CatalogResponseMessage` would be POSTed back to the endpoint. the response message could be posted mutiple times for paginated results and would need to include the
+The `CatalogResponseMessage` would be POSTed back to the endpoint. the response message could be posted multiple times for paginated results and would need to include the
 original `@id` value as a `correlationId` and a property indicating if the contents are complete (or additional responses will be sent).
