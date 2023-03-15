@@ -14,12 +14,12 @@ class "dspace:ContractNegotiation" {
 }
 
 enum dspace:ContractNegotiationState {
-    "dspace:CONSUMER_REQUESTED"
-    "dspace:PROVIDER_OFFERED"
-    "dspace:CONSUMER_AGREED"
-    "dspace:PROVIDER_AGREED"
-    "dspace:CONSUMER_VERIFIED"
-    "dspace:PROVIDER_FINALIZED"
+    "dspace:REQUESTED"
+    "dspace:OFFERED"
+    "dspace:ACCEPTED"
+    "dspace:AGREED"
+    "dspace:VERIFIED"
+    "dspace:FINALIZED"
     "dspace:TERMINATED"
     "..."
 }
