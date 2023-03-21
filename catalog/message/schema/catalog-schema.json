@@ -51,7 +51,7 @@
                 "dct:hasPart": {
                     "type": "array",
                     "items": {
-						"ref": "definitions/dcat:Resource"
+						"ref": "definitions/Resource"
                     },
                     "minItems": 1
                 },
@@ -183,11 +183,11 @@
                         "type": "string"
                     },
                     "foaf:primaryTopic":{
-                        "ref": "definitions/dcat:Resource"
+                        "ref": "definitions/Resource"
                     }
                 }
             },
-            "dcat:Resource":{
+            "Resource":{
                 "type": "object",
                 "properties": {
                     "dcat:contractPoint": {
@@ -200,12 +200,12 @@
                         "type": "string"
                     },
                     "dcat:qualifiedRelation": {
-                        "ref": "definitions/dcat:Relationship"
+                        "ref": "definitions/Relationship"
                     },
                     "dcat:theme": {
                         "type": "array",
                         "items": {
-                            "ref": "definitions/skos:Concept"									
+                            "ref": "definitions/Concept"									
                         },
                         "minItems": 1
                     },
@@ -262,7 +262,7 @@
                     }
                 }
              } ,
-             "dcat:Relationship":{
+             "Relationship":{
                 "type": "object",
                 "const": "dcat:Relationship",
                 "properties": {
@@ -270,31 +270,31 @@
                         "type": "boolean"
                     },
                     "dct:relation":{
-                        "ref": "definitions/dcat:Resource"
+                        "ref": "definitions/Resource"
                     }
                 } 
              },
-             "skos:Concept": {
+             "Concept": {
                 "type": "object",
                 "skos:inScheme": {
-                    "ref": "definitions/dcat:Resource"
+                    "ref": "definitions/Resource"
                 }
              },
-             "skos:ConceptScheme": {
+             "ConceptScheme": {
                 "type": "object"
                 
             },
-            "foaf:Agent": {
+            "Agent": {
                 "type": "object"
             },
              
-            "dcat:Dataset": {
+            "Dataset": {
                 "type": "object",
                 "properties": {
                     "dcat:distribution": {
                         "type": "array",
                         "items": {
-                            "ref": "definitions/dcat:Distribution"
+                            "ref": "definitions/Distribution"
                         },
                         "minItems": 1
                         
@@ -398,7 +398,7 @@
                     "dcat:servesDataset": {
                         "type": "array",
                         "items": {
-                            "ref": "definitions/dcat:Dataset"
+                            "ref": "definitions/Dataset"
                         },
                         "minItems": 1
                     },
@@ -471,7 +471,7 @@
                 }
             },
 
-            "dcat:Distribution": {
+            "Distribution": {
                 "type": "object",
                 "properties": {
                     "dcat:accessService": {
