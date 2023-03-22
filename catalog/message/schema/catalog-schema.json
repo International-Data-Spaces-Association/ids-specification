@@ -46,7 +46,13 @@
                     "minItems": 1
                 },
                 "dcat:themeTaxonomy": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@type": {
+                            "type": "string",
+                            "const": "rdfs:Resource"
+                        }
+                    }
                 },
                 "dct:hasPart": {
                     "type": "array",
@@ -56,22 +62,58 @@
                     "minItems": 1
                 },
                 "foaf:homepage": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dcat:distribution": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/Distribution"
+                    },
+                    "minItems": 1
                 },
                 "dcat:spatialResolutionInMeters": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@type": {
+                            "type": "string",
+                            "const": "xsd:decimal"
+                        },
+                        "@value": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dcat:temporalResolution": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@type": {
+                            "type": "string",
+                            "const": "xsd:duration"
+                        },
+                        "@value": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:accrualPeriodicity": {
                     "type": "string"
                 },
                 "dct:spatial": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@type": {
+                            "type": "string",
+                            "const": "dct:Location"
+                        },
+                        "@value": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:temporal": {
                     "type": "object",
@@ -101,19 +143,38 @@
                     "type": "string"
                 },
                 "dcat:qualifiedRelation": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dcat:theme": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/Concept"									
+                    },
+                    "minItems": 1
                 },
                 "dct:accessRights": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:conformsTo": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:creator": {
-                    "type": "string"
+                    "ref": "definitions/Agent"
                 },
                 "dct:description": {
                     "type": "string"
@@ -137,7 +198,7 @@
                     "type": "boolean"
                 },
                 "dct:publisher": {
-                    "type": "string"
+                    "ref": "definitions/Agent"
                 },
                 "dct:relation": {
                     "type": "string"
@@ -216,7 +277,7 @@
                         "type": "string"
                     },
                     "dct:creator": {
-                        "type": "string"
+                        "ref": "definitions/Agent"
                     },
                     "dct:description": {
                         "type": "string"
@@ -240,7 +301,7 @@
                         "type": "boolean"
                     },
                     "dct:publisher": {
-                        "type": "string"
+                        "ref": "definitions/Agent"
                     },
                     "dct:relation": {
                         "type": "string"
@@ -329,8 +390,12 @@
                     "dcat:qualifiedRelation": {
                         "type": "string"
                     },
-                    "dcat:theme": {
-                        "type": "string"
+                    "dcat:theme":  {
+                        "type": "array",
+                        "items": {
+                            "ref": "definitions/Concept"									
+                        },
+                        "minItems": 1
                     },
                     "dct:accessRights": {
                         "type": "string"
@@ -339,7 +404,7 @@
                         "type": "string"
                     },
                     "dct:creator": {
-                        "type": "string"
+                        "ref": "definitions/Agent"
                     },
                     "dct:description": {
                         "type": "string"
@@ -363,7 +428,7 @@
                         "type": "boolean"
                     },
                     "dct:publisher": {
-                        "type": "string"
+                        "ref": "definitions/Agent"
                     },
                     "dct:relation": {
                         "type": "string"
@@ -414,8 +479,12 @@
                     "dcat:qualifiedRelation": {
                         "type": "string"
                     },
-                    "dcat:theme": {
-                        "type": "string"
+                    "dcat:theme":  {
+                        "type": "array",
+                        "items": {
+                            "ref": "definitions/Concept"									
+                        },
+                        "minItems": 1
                     },
                     "dct:accessRights": {
                         "type": "string"
@@ -424,7 +493,7 @@
                         "type": "string"
                     },
                     "dct:creator": {
-                        "type": "string"
+                        "ref": "definitions/Agent"
                     },
                     "dct:description": {
                         "type": "string"
@@ -448,7 +517,7 @@
                         "type": "boolean"
                     },
                     "dct:publisher": {
-                        "type": "string"
+                        "ref": "definitions/Agent"
                     },
                     "dct:relation": {
                         "type": "string"
@@ -540,9 +609,6 @@
             }			
         
 		},
-        "Dataset": {
-
-        },
         "time": {
             "type": "object",
             "properties": {
