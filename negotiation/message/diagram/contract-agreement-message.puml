@@ -12,6 +12,7 @@ class "dspace:ContractAgreementMessage" {
     dspace:processId : String
     dspace:agreement : odrl:Agreement
     dspace:callbackAddress : xsd:anyURI
+    dspace:timestamp : xsd:dateTime
 }
 
 class odrl:Agreement {
