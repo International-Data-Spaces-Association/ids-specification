@@ -7,31 +7,33 @@
   "dcat:keyword": [
     "traffic"
   ],
-  "odrl:hasPolicy": {
-    "@context": {
-      "@vocab": "https://www.w3.org/TR/odrl-model/"
-    },
-    "@id": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
-    "permission": [
-      {
-        "action": "use",
-        "constraint": [
-          {
-            "leftOperand": {
-              "@value": "spatial"
-            },
-            "rightOperand": {
-              "@value": "EU"
-            },
-            "operator": "EQ"
-          }
-        ],
-        "duty": []
-      }
-    ],
-    "prohibition": [],
-    "obligation": []
-  },
+  "odrl:hasPolicy": [
+    {
+      "@context": {
+        "@vocab": "https://www.w3.org/TR/odrl-model/"
+      },
+      "@id": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
+      "permission": [
+        {
+          "action": "use",
+          "constraint": [
+            {
+              "leftOperand": {
+                "@value": "spatial"
+              },
+              "rightOperand": {
+                "@value": "EU"
+              },
+              "operator": "EQ"
+            }
+          ],
+          "duty": []
+        }
+      ],
+      "prohibition": [],
+      "obligation": []
+    }
+  ],
   "dcat:distribution": [
     {
       "@type": "dcat:Distribution",

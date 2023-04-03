@@ -14,7 +14,8 @@
         "high value data",
         "example"
     ],
-    "odrl:hasPolicy": {
+    "odrl:hasPolicy": [
+      {
         "@type": "odrl:Offer",
         "@id": "https://provider.com/edc/offer/1",
         "odrl:permission": [ {
@@ -28,7 +29,8 @@
         "odrl:prohibition": [ {
             "odrl:action": {"@id": "odrl:distribute"}
         } ]
-    },
+      }
+    ],
     "dcat:distribution": [ {
         "@type": "dcat:Distribution",
         "dct:title" : "Distribution#1",
