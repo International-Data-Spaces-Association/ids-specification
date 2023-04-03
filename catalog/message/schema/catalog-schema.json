@@ -177,46 +177,111 @@
                     "ref": "definitions/Agent"
                 },
                 "dct:description": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:identifier": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:isReferencedBy": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:issued": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:language": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:license": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:modified": {
-                    "type": "boolean"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:publisher": {
                     "ref": "definitions/Agent"
                 },
                 "dct:relation": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:rights": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:title": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "dct:type": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "odrl:hasPolicy": {
-                    "type": "boolean"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "prov:qualifiedAttribution": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    }
                 }
 
 			},
@@ -229,19 +294,44 @@
                         "const": "dcat:CatalogRecord"
                     },
                     "dct:conformsTo": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:description": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:issued": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:modified": {
-                        "type": "boolean"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:title": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "foaf:primaryTopic":{
                         "ref": "definitions/Resource"
@@ -271,55 +361,130 @@
                         "minItems": 1
                     },
                     "dct:accessRights": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:conformsTo": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:creator": {
                         "ref": "definitions/Agent"
                     },
                     "dct:description": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:identifier": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:isReferencedBy": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:issued": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:language": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:license": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:modified": {
-                        "type": "boolean"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:publisher": {
                         "ref": "definitions/Agent"
                     },
                     "dct:relation": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:rights": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:title": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:type": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "odrl:hasPolicy": {
-                        "type": "boolean"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "prov:qualifiedAttribution": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     }
                 }
              } ,
@@ -361,34 +526,84 @@
                         
                     },
                     "dcat:spatialResolutionInMeters": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dcat:temporalResolution": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:accrualPeriodicity": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:spatial": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:temporal": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "prov:wasGeneratedBy": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dcat:contactPoint": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dcat:keyword": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dcat:landingPage": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dcat:qualifiedRelation": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dcat:theme":  {
                         "type": "array",
@@ -398,55 +613,130 @@
                         "minItems": 1
                     },
                     "dct:accessRights": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:conformsTo": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:creator": {
                         "ref": "definitions/Agent"
                     },
                     "dct:description": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:identifier": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:isReferencedBy": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:issued": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:language": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:license": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:modified": {
-                        "type": "boolean"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:publisher": {
                         "ref": "definitions/Agent"
                     },
                     "dct:relation": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:rights": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:title": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dct:type": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "odrl:hasPolicy": {
-                        "type": "boolean"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "prov:qualifiedAttribution": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     }
                 }
             },
@@ -455,10 +745,20 @@
                 "type": "object",
                 "properties": {
                     "dcat:endpointDescription": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dcat:endpointURL": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "dcat:servesDataset": {
                         "type": "array",
