@@ -14,7 +14,7 @@ This document outlines the key elements of the transfer process protocol. The fo
 - An _**Asset**_ is data or a service a provider grants access to.
 - An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ `Asset`.
 
-## Transfer Process  Protocol
+## Transfer Process Protocol
 
 A transfer process (TP) involves two parties, a _provider_ that offers one or more assets under a usage policy and _consumer_ that requests assets. A TP progresses through
 a series of states, which are tracked by the provider and consumer using messages. A TP transitions to a state in response to a message from the counter-party.
@@ -78,9 +78,7 @@ The TP states are:
 
 **Example**: [TransferRequestMessage](./message/transfer-request-message.json)
 
-**Response**: [TransferProcess](./message/transfer-process.json) containing the transfer process id or ERROR.
-
-![](./message/diagram/transfer-process.png)
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [TransferRequestMessage](./message/shape/transfer-request-message-shape.ttl), [TransferRequestMessage JSON Schema](./message/schema/transfer-request-message-schema.json), [TransferProcess Shape](./message/shape/transfer-process-shape.ttl) and the [TransferProcess JSON Schema](./message/schema/transfer-process-schema.json)
 
@@ -103,8 +101,6 @@ Once a transfer process have been created, all associated callback messages must
 
 Providers must include a `correlationId` property in the `TransferProcessMessage` with a value set to the `@id` of the corresponding `TransferRequestMessage`.
 
-#### Notes
-
 - The `dataAddress` contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 - Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
 
@@ -119,7 +115,7 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 **Example**: [TransferStartMessage](./message/transfer-start-message.json)
 
-**Response**: ACK or ERROR.
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [TransferStartMessageShape](./message/shape/transfer-start-message-shape.ttl) and the [TransferStartMessage JSON Schema](./message/schema/transfer-start-message-schema.json)
 
@@ -143,7 +139,7 @@ The `TransferStartMessage` is sent by the provider to indicate the asset transfe
 
 **Example**: [TransferSuspensionMessage](./message/transfer-suspension-message.json)
 
-**Response**: ACK or ERROR.
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [TransferSuspensionMessageShape](./message/shape/transfer-suspension-message-shape.ttl) and the [TransferSuspensionMessage JSON Schema](./message/schema/transfer-suspension-message-schema.json)
 
@@ -161,7 +157,7 @@ The `TransferSuspensionMessage` is sent by the provider or consumer when either 
 
 **Example**: [TransferCompletionMessage](./message/transfer-completion-message.json)
 
-**Response**: ACK or ERROR.
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [TransferCompletionMessageShape](./message/shape/transfer-completion-message-shape.ttl) and the [TransferCompletionMessage JSON Schema](./message/schema/transfer-completion-message-schema.json)
 
@@ -180,7 +176,7 @@ notification by performing it as part of its wire protocol. In those cases, a `T
 
 **Example**: [TransferTerminationMessage](./message/transfer-termination-message.json)
 
-**Response**: ACK or ERROR.
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [TransferTerminationMessageShape](./message/shape/transfer-termination-message-shape.ttl) and the [TransferTerminationMessage JSON Schema](./message/schema/transfer-termination-message-schema.json)
 
@@ -189,11 +185,25 @@ notification by performing it as part of its wire protocol. In those cases, a `T
 The `TransferTerminationMessage` is sent by the provider or consumer at any point except a terminal state to indicate the data transfer process should stop and be placed in
 a terminal state. If the termination was due to an error, the sender may include error information.
 
-## TransferError
+
+## Response Types
+
+### ACK - TransferProcess
+
+![](./message/diagram/transfer-process.png)
+
+**Example**: [TransferProcess](./message/transfer-process.json)
+
+**Schema**: [TransferProcessShape](./message/shape/transfer-process-shape.ttl) and the [TransferProcess JSON Schema](./message/schema/transfer-process-schema.json)
+
+#### Description
+
+The `TransferProcess` is an object returned by a consumer or provider indicating a
+successful state change happened.
+
+### ERROR - TransferError
 
 ![](./message/diagram/transfer-error.png)
-
-**Sent by**: Consumer or Provider
 
 **Example**: [TransferError](./message/transfer-error.json)
 
@@ -202,7 +212,3 @@ a terminal state. If the termination was due to an error, the sender may include
 #### Description
 
 The `TransferError` is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
-
-#### Notes
-
-- A `TransferError` is different to an error response. A `TransferError` does not necessarily finish the negotiation but it can continue afterwards.
