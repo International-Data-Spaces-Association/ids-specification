@@ -41,8 +41,8 @@ provider begins data transmission to an endpoint specified by the consumer using
 
 #### Pull Transfer
 
-A pull transfer is when the consumer data plane initiates retrieval of asset data from a provider endpoint. For example, after the consumer has issued an `TransferProcessStart,`
-message, the consumer requests the data from the provider-specified endpoint.
+A pull transfer is when the consumer data plane initiates retrieval of asset data from a provider endpoint. For example, after the provider has issued an `TransferProcessStart,`
+message, the consumer can request the data from the provider-specified endpoint.
 
 << TODO: Include example diagram >>
 
