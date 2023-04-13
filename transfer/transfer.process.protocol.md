@@ -155,9 +155,9 @@ The `TransferSuspensionMessage` is sent by the provider or consumer when either 
 
 ![](./message/diagram/transfer-completion-message.png)
 
-**Sent by**: 
+**Sent by**: Provider or Consumer
 
-**Resulting State**: 
+**Resulting State**: COMPLETED
 
 **Example**: [TransferCompletionMessage](./message/transfer-completion-message.json)
 
@@ -187,7 +187,7 @@ notification by performing it as part of its wire protocol. In those cases, a `T
 #### Description
 
 The `TransferTerminationMessage` is sent by the provider or consumer at any point except a terminal state to indicate the data transfer process should stop and be placed in
-a terminal state. If the termination was due to an error, the sender may include error information. 
+a terminal state. If the termination was due to an error, the sender may include error information.
 
 ## TransferError
 
@@ -205,4 +205,4 @@ The `TransferError` is an object returned by a consumer or provider indicating a
 
 #### Notes
 
-- A `TransferError` is different to an error response. A `TransferError` does not necessarily finish the negotiation but can continue afterwards.
+- A `TransferError` is different to an error response. A `TransferError` does not necessarily finish the negotiation but it can continue afterwards.
