@@ -14,30 +14,30 @@ This document outlines the key elements of the contract negotiation protocol. Th
 ## Contract Negotiation Protocol
 
 A contract negotiation (CN) involves two parties, a _provider_ that offers one or more assets under a usage contract and _consumer_ that requests assets.
-A CN is uniquly identified through an IRI. Each CN requires a newly generated IRI, which may not be used in a CN after a terminal state has been reached.
+A CN is uniquely identified through an [IRI](https://www.w3.org/International/articles/idn-and-iri/). Each CN requires a newly generated IRI, which may not be used in a CN after a terminal state has been reached.
 A CN progresses through a series of states, which are tracked by the provider and consumer using messages. A CN transitions to a state in response to an acknowledged message from
 the counter-party. Both parties have the same state of the CN. In case the states differ, the CN is terminated and a new CN has to be initiated.
 
 The CN states are:
 
-- **CONSUMER_REQUESTED** - A contract for an asset has been requested by the consumer based on an offer and the provider has sent an ACK response.
-- **PROVIDER_OFFERED** - The provider has sent a contract offer to the consumer and the consumer has sent an ACK response.
-- **CONSUMER_AGREED** - The consumer has accepted the latest contract offer and the provider has sent an ACK response.
-- **PROVIDER_AGREED** - The provider has accepted the latest contract offer, sent an agreement to the consumer, and the consumer has sent an ACK response.
-- **CONSUMER_VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
-- **PROVIDER_FINALIZED** - The provider has sent a finalization message including his own agreement verification to the consumer and the consumer has sent an ACK response. Data is
+- **REQUESTED** - A contract for an asset has been requested by the consumer based on an offer and the provider has sent an ACK response.
+- **OFFERED** - The provider has sent a contract offer to the consumer and the consumer has sent an ACK response.
+- **ACCEPTED** - The consumer has accepted the latest contract offer and the provider has sent an ACK response.
+- **AGREED** - The provider has accepted the latest contract offer, sent an agreement to the consumer, and the consumer has sent an ACK response.
+- **VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
+- **FINALIZED** - The provider has sent a finalization message including his own agreement verification to the consumer and the consumer has sent an ACK response. Data is
   now available to the consumer.
 - **TERMINATED** - The provider or consumer has placed the contract negotiation in a terminated state. A termination message has been sent by either of the participants and the
   other has sent an ACK response. This is a terminal state.
 
 ### Contract Negotiation State Machine
 
-The CN state machine is represented in the following diagram. Note that transitions to the TERMINATED state may occur from any other state and are not shown for simplicity:
+The CN state machine is represented in the following diagram. Note that transitions to the `TERMINATED` state may occur from any other state and are not shown for simplicity:
 
 ![](./contract.negotiation.state.machine.png)
 
 Transitions marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a provider message. Terminal states are final; the state machine may
-not transition to another state. A new CN may be initiated if, for instance, the CN entered the TERMINATED state due to a network issue.
+not transition to another state. A new CN may be initiated if, for instance, the CN entered the `TERMINATED` state due to a network issue.
 
 ## Message Types
 
@@ -58,7 +58,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 **Sent by**: Consumer
 
-**Resulting State**: CONSUMER_REQUESTED, TERMINATED
+**Resulting State**: REQUESTED, TERMINATED
 
 **Example**: [ContractRequestMessage](./message/contract-request-message.json)
 
@@ -69,7 +69,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 #### Description
 
-The _ContractRequestMessage_ is sent by a consumer to initiate a contract negotiation.
+The `ContractRequestMessage` is sent by a consumer to initiate a contract negotiation.
 
 #### Notes
 
@@ -81,8 +81,6 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 - The dataset id is not technically required but included to avoid an error where the offer is associated with a different data set.
 
-> Comment sba (20.12.2022): Let's use the `offer.target` property for this, and nothing else.
-
 - `callbackAddress` is a URL indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
   UNRECOVERABLE error.
 
@@ -93,7 +91,7 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 **Sent by**: Provider
 
-**Resulting State**: PROVIDER_OFFERED, TERMINATED
+**Resulting State**: OFFERED, TERMINATED
 
 **Example**: [ContractOfferMessage](./message/contract-offer-message.json)
 
@@ -103,7 +101,7 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 #### Description
 
-The _ContractOfferMessage_ is sent by a provider to initiate a contract negotiation.
+The `ContractOfferMessage` is sent by a provider to initiate a contract negotiation.
 
 
 ### 3. ContractAgreementMessage
@@ -112,7 +110,7 @@ The _ContractOfferMessage_ is sent by a provider to initiate a contract negotiat
 
 **Sent by**: Provider
 
-**Resulting State**: PROVIDER_AGREED, TERMINATED
+**Resulting State**: AGREED, TERMINATED
 
 **Example**: [ContractAgreementMessage](./message/contract-agreement-message.json)
 
@@ -122,11 +120,11 @@ The _ContractOfferMessage_ is sent by a provider to initiate a contract negotiat
 
 #### Description
 
-The _ContractAgreementMessage_ is sent by a provider when it agrees to a contract. It contains the complete contract agreement with the provider's signature.
+The `ContractAgreementMessage` is sent by a provider when it agrees to a contract. It contains the complete contract agreement with the provider's signature.
 
-A _ContractAgreementMessage_ must contain a `processId`.
+A `ContractAgreementMessage` must contain a `processId`.
 
-A _ContractAgreementMessage_ must contain an ODRL Agreement.
+A `ContractAgreementMessage` must contain an ODRL `Agreement`.
 
 ### 4. ContractAgreementVerificationMessage
 
@@ -135,7 +133,7 @@ A _ContractAgreementMessage_ must contain an ODRL Agreement.
 
 **Sent by**: Consumer
 
-**Resulting State**: CONSUMER_VERIFIED, TERMINATED
+**Resulting State**: VERIFIED, TERMINATED
 
 **Example**: [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json)
 
@@ -145,10 +143,10 @@ A _ContractAgreementMessage_ must contain an ODRL Agreement.
 
 #### Description
 
-The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the acceptance of a contract agreement. A provider responds with an error if the signature can't be
+The `ContractAgreementVerificationMessage` is sent by a consumer to verify the acceptance of a contract agreement. A provider responds with an error if the signature can't be
 validated or is incorrect.
 
-A _ContractAgreementVerificationMessage_ must contain a `processId`.
+A `ContractAgreementVerificationMessage` must contain a `processId`.
 
 ### 5. ContractNegotiationEventMessage
 
@@ -157,7 +155,7 @@ A _ContractAgreementVerificationMessage_ must contain a `processId`.
 
 **Sent by**: Provider or Consumer
 
-**Resulting State**: PROVIDER_FINALIZED, CONSUMER_AGREED, TERMINATED
+**Resulting State**: FINALIZED, ACCEPTED, TERMINATED
 
 **Example**: [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json)
 
@@ -167,15 +165,15 @@ A _ContractAgreementVerificationMessage_ must contain a `processId`.
 
 #### Description
 
-When the _ContractNegotiationEventMessage_ is sent by a provider with an `eventType` property set to `FINALIZED`, a contract agreement has been finalized and the associated asset
-is accessible. The state machine is transitioned to the PROVIDER_FINALIZED state. Other event types may be defined in the future. A consumer responds with an error if the signature
+When the `ContractNegotiationEventMessage` is sent by a provider with an `eventType` property set to `FINALIZED`, a contract agreement has been finalized and the associated asset
+is accessible. The state machine is transitioned to the `FINALIZED` state. Other event types may be defined in the future. A consumer responds with an error if the signature
 can't be validated or is incorrect.
 
-It is an error for a consumer to send a ContractNegotiationEventMessage with an eventType `finalized` to the provider.
+It is an error for a consumer to send a `ContractNegotiationEventMessage` with an eventType `finalized` to the provider.
 
-When the _ContractNegotiationEventMessage_ is sent by a consumer with an `eventType` set to  `ACCEPTED`, the state machine is placed in the CONSUMER_AGREED state.
+When the `ContractNegotiationEventMessage` is sent by a consumer with an `eventType` set to  `ACCEPTED`, the state machine is placed in the `ACCEPTED` state.
 
-It is an error for a provider to send a ContractNegotiationEventMessage with an eventType `ACCEPTED` to the consumer.
+It is an error for a provider to send a `ContractNegotiationEventMessage` with an eventType `ACCEPTED` to the consumer.
 
 Note that contract events are not intended for propagation of agreement state after a contract negotiation has entered a terminal state. It is considered an error for a consumer or
 provider to send a contract negotiation event after the negotiation state machine has entered a terminal state.
@@ -194,7 +192,7 @@ provider to send a contract negotiation event after the negotiation state machin
 
 #### Description
 
-The _ContractNegotiationTerminationMessage_ is sent by a consumer or provider indicating it has cancelled the negotiation sequence. The message can be sent at any state of a negotiation
+The `ContractNegotiationTerminationMessage` is sent by a consumer or provider indicating it has cancelled the negotiation sequence. The message can be sent at any state of a negotiation
 without providing an explanation. Nevertheless, the sender may provide a description to help the receiver.
 
 #### Notes
@@ -202,7 +200,7 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 - A contract negotiation may be terminated for a variety of reasons, for example, an unrecoverable error was encountered or one of the parties no longer wishes to continue. A
   connector's operator may remove terminated contract negotiation resources after it has reached the terminated state.
 
-- If an error is received in response to a ContractNegotiationTerminationMessage, the sending party may choose to ignore the error.
+- If an error is received in response to a `ContractNegotiationTerminationMessage`, the sending party may choose to ignore the error.
 
 ## ContractNegotiationError
 
@@ -216,11 +214,11 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 
 #### Description
 
-The _ContractNegotiationError_ is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
+The `ContractNegotiationError` is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
 
 #### Notes
 
-- A _ContractNegotiationError_ is different to an error response. A _ContractNegotiationError_ does not necessarily finish the negotiation but can continue
+- A `ContractNegotiationError` is different to an error response. A `ContractNegotiationError` does not necessarily finish the negotiation but can continue
   afterwards.
 
 ## Hash and Signature Calculations
@@ -237,7 +235,7 @@ Hash and Signatures are calculated as defined in the [[JWS/CT]](#references) of 
 
 - Adopt JWS/CT, an extension to the JSON Web Signature (JWS) standard.
 - Combines the detached mode of JWS with the JSON Canonicalization Scheme (JCS). Detached mode is when the payload section of the JWS is replaced
-  by an empty string:  XXXX.PAYLOAD.YYYY becomes XXXX..YYYY. Detached mode is described in the JWS spec.
+  by an empty string: `XXXX.PAYLOAD.YYYY` becomes `XXXX..YYYY`. Detached mode is described in the JWS spec.
 - Maintains Signed JSON data in JSON format.
 
 

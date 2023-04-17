@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/Catalog"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/1/0/CatalogSchema",
+	"$id": "https://w3id.org/dspace/schemas/v0.8/CatalogSchema",
 	"definitions": {
 		"Catalog": {
 			"type": "object",
@@ -15,7 +15,8 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/1/0/context.json"
+					"const": "https://w3id.org/dspace/v0.8/context.json",
+					"required": true
 				},
 				"@type": {
 					"type": "string",

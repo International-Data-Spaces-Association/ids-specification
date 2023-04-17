@@ -7,7 +7,7 @@ hide empty description
 
 
 class "dspace:TransferRequestMessage" {
-    @context : "https://w3id.org/dspace/1/0/context.json"
+    @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:TransferRequestMessage"
     dspace:agreementId : String
     dct:format : String

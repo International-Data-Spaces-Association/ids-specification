@@ -59,7 +59,7 @@ be defined in the relevant catalog binding specification.
 The catalog contains all [Asset Entries](#31-asset-entry) which the requester shall see.
 
 
-### 2.3 Catalog Error Message
+### 2.3 CatalogErrorMessage
 
 ![](./message/diagram/catalog-error-message.png)
 
@@ -73,7 +73,7 @@ The catalog contains all [Asset Entries](#31-asset-entry) which the requester sh
 
 #### Description
 
-A Catalog Error Message is used when an error occured after a CatalogRequestMessage and the provider can not provide its catalog to the requester.
+A Catalog Error Message is used when an error occurred after a `CatalogRequestMessage` and the provider can not provide its catalog to the requester.
 
 ### 2.4 DatasetRequestMessage
 
@@ -115,10 +115,10 @@ target attributes. The target of an offer is the asset associated with the conta
 An asset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `AssetTransfer`.
 
-A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit Distribution.
+A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit `Distribution`.
 Offers must NOT contain any target attributes. The target of an offer is the asset entry that contains the distribution.
 
-Support for `hasPolicy` attributes on a Distribution is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
+Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
 message to clients.
 
 ### 3.3 DataService

@@ -15,7 +15,7 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 2. All request and response messages must use the `application/json` media type.
 
-### 2.2 ContractNegotiationError
+### 2.2 Contract Negotiation Error
 
 In the event of a client request error, the connector must return an appropriate HTTP 4xxx client error code. If an error body is returned it must be
 a [ContractNegotiationError](./message/contract-negotiation-error.json) with the following properties:
@@ -29,7 +29,7 @@ a [ContractNegotiationError](./message/contract-negotiation-error.json) with the
 ### 2.2.1 State transition errors
 
 If a client or provider connector makes a request that results in an invalid contract negotiation state transition as defined by the Contract Negotiation Protocol, it must return
-an HTTP code 400 (Bad Request) with an NegotiationErrorMessage in the response body.
+an HTTP code 400 (Bad Request) with an `ContractNegotiationError` in the response body.
 
 ### 2.3 Authorization
 
@@ -52,14 +52,14 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 
 ```
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "dspace:state" :"CONSUMER_REQUESTED"
+  "dspace:state" :"REQUESTED"
 }  
 ```
 
-Predefined states are: `CONSUMER_REQUESTED`, `PROVIDER_OFFERED`, `CONSUMER_AGREED`, `PROVIDER_AGREED`, `CONSUMER_VERIFIED`, `PROVIDER_FINALIZED`, and `TERMINATED`.
+Predefined states are: `REQUESTED`, `OFFERED`, `ACCEPTED`, `AGREED`, `VERIFIED`, `FINALIZED`, and `TERMINATED`.
 
 If the negotiation does not exist or the client is not authorized, the provider connector must return an HTTP 404 (Not Found) response.
 
@@ -67,7 +67,7 @@ If the negotiation does not exist or the client is not authorized, the provider 
 
 #### 2.5.1 POST
 
-A contract negotiation is started and placed in the `CONSUMER_REQUESTED` state when a consumer POSTs
+A contract negotiation is started and placed in the `REQUESTED` state when a consumer POSTs
 a [ContractRequestMessage](./contract.negotiation.protocol.md#1-contractrequestmessage)to `negotiations/request`:
 
 ```
@@ -76,7 +76,7 @@ POST https://connector.provider.com/negotiations/request
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractRequest"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
@@ -100,10 +100,10 @@ the [ContractNegotiation](./message/contract-negotiation.json) message:
 Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "dspace:state" :"CONSUMER_REQUESTED"
+  "dspace:state" :"REQUESTED"
 }
 ```
 
@@ -121,7 +121,7 @@ POST https://connector.provider.com/negotiations/urn:uuid:dcbf434c-eacf-4582-9a0
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.jsonn",
   "@type": "dspace:ContractRequestMessage",
   "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:offer": {
@@ -146,7 +146,7 @@ A consumer connector can POST a [ContractNegotiationEventMessage](./message/cont
 provider contract offer. If the negotiation state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not
 required to process it.
 
-If the current contract offer was created by the consumer, the provider must return HTTP code 400 (Bad Request) with an NegotiationErrorMessage in the response body.
+If the current contract offer was created by the consumer, the provider must return HTTP code 400 (Bad Request) with an `NegotiationErrorMessage` in the response body.
 
 ### 2.8 The provider `negotiations/:id/agreement/verification` resource
 
@@ -161,7 +161,7 @@ POST https://connector.provider.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementVerificationMessage",
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerSignature": {
@@ -200,7 +200,7 @@ POST https://connector.consumer.com/callback/negotiations/urn:uuid:dcbf434c-eacf
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractOfferMessage",
   "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:offer": {
@@ -228,7 +228,7 @@ POST https://connector.consumer.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementMessage",
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:agreement": {
