@@ -31,9 +31,19 @@
 					"required": true
 				},
 				"dspace:timestamp": {
-					"type": "string",
-					"format": "date-time",
-					"required": true
+					"type": "object",
+					"properties": {
+						"@value": {
+							"type": "string",
+							"format": "date-time",
+							"required": true
+						},
+						"@type": {
+							"type": "string",
+							"const": "xsd:dateTime",
+							"required": true
+						}
+					}
 				}
 			}
 		}
