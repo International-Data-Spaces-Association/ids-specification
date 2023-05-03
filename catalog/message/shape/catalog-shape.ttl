@@ -244,9 +244,9 @@ shapes:CatalogShape
     sh:property [
 		a sh:PropertyShape ;
 		sh:path dct:language ;
-		sh:datatype xsd:string ;
+		sh:class rdf:Resource ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:language property must point to a xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:language property must reference an externally defined RDF Resource in the form of an IRI."@en ;
 	] ;
 
     sh:property [
