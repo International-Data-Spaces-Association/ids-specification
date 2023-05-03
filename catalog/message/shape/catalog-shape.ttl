@@ -236,9 +236,9 @@ shapes:CatalogShape
     sh:property [
 		a sh:PropertyShape ;
 		sh:path dct:issued ;
-		sh:datatype xsd:string ;
+		sh:datatype xsd:dateTime ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:issued property must point to a xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:issued property must point to a xsd:dateTime field."@en ;
 	] ;
 
     sh:property [

@@ -148,7 +148,10 @@
                         }
                 },
                 "dcat:keyword": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "dcat:landingPage": {
                     "type": "object",
@@ -209,8 +212,15 @@
                 "dct:issued": {
                     "type": "object",
                     "properties": {
-                        "@id": {
-                            "type": "string"
+                        "@value": {
+                            "type": "string",
+                            "format": "date-time",
+                            "required": true
+                        },
+                        "@type": {
+                            "type": "string",
+                            "const": "xsd:dateTime",
+                            "required": true
                         }
                     }
                 },
