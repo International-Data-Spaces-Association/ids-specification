@@ -307,10 +307,10 @@ shapes:CatalogShape
 
     sh:property [
 		a sh:PropertyShape ;
-		sh:path dct:hasPolicy ;
-		sh:datatype xsd:boolean ;
+		sh:path odrl:hasPolicy ;
+		sh:class odrl:Policy ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dct:hasPolicy property must point to a xsd:boolean field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
 	] ;
 
     sh:property [
@@ -548,9 +548,9 @@ shapes:ResourceShape
     sh:property [
         a sh:PropertyShape ;
         sh:path odrl:hasPolicy ;
-        sh:datatype xsd:boolean ;
+        sh:class odrl:Policy ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): A dct:type property must point to a xsd:boolean field."@en ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (ResourceShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
     ] ;  
 
     sh:property [
@@ -834,9 +834,9 @@ shapes:DatasetShape
     sh:property [
         a sh:PropertyShape ;
         sh:path odrl:hasPolicy ;
-        sh:datatype xsd:boolean ;
+        sh:class odrl:Policy ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DatasetShape): A odrl:hasPolicy property must point to a xsd:boolean field."@en ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DatasetShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
     ] ;   
 
     sh:property [
@@ -1041,10 +1041,10 @@ shapes:DataServiceShape
 
     sh:property [
         a sh:PropertyShape ;
-        sh:path odrl:hasPolicy ;
+        sh:class odrl:Policy ;
         sh:datatype xsd:boolean ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DataServiceShape): A odrl:type property must point to a xsd:boolean field."@en ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DataServiceShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
     ] ; 
 
     sh:property [
@@ -1209,9 +1209,9 @@ shapes:DistributionShape
     sh:property [
         a sh:PropertyShape ;
         sh:path odrl:hasPolicy ;
-        sh:datatype xsd:boolean ;
+        sh:class odrl:Policy ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): A odrl:hasPolicy property must point to a xsd:boolean field."@en ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (DistributionShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
     ] ;
     
 .

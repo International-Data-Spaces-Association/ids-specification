@@ -1039,7 +1039,6 @@
                         "type": "string"
                     },
                     "odrl:hasPolicy": {
-                        "type": "object",
                         "type": "array",
                         "items": {
                             "type": "object",
