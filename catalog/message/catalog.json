@@ -25,7 +25,8 @@
       "dcat:keyword": [
         "traffic"
       ],
-      "odrl:hasPolicy": {
+      "odrl:hasPolicy": [ 
+        {
           "@context": {
             "@vocab": "https://www.w3.org/TR/odrl-model/"
           },
@@ -49,7 +50,8 @@
           ],
           "prohibition": [],
           "obligation": []
-        },
+        }
+      ],
       "dcat:distribution": [
         {
           "@type": "dcat:Distribution",
