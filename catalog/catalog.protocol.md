@@ -108,7 +108,7 @@ An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:D
 An asset entry Dataset must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
 target attributes. The target of an offer is the asset associated with the containing asset entry.
 
-> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`
+> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`, each `Asset Entry` is also an `odrl:Asset` from an ODRL perspective.
 
 ### 3.2 Distributions
 
