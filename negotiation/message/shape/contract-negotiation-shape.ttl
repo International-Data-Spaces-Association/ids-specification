@@ -41,7 +41,7 @@ shapes:ContractNegotiationShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path dspace:negotiationId ;
+		sh:path dspace:correlationId ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;

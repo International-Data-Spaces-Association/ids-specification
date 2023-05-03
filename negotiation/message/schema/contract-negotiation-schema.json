@@ -22,7 +22,7 @@
 					"const": "dspace:ContractNegotiation",
 					"required": true
 				},
-				"dspace:processId": {
+				"dspace:correlationId": {
 					"type": "string",
 					"required": true
 				},
