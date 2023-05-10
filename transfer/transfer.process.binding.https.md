@@ -23,7 +23,6 @@ a [TransferError](./message/transfer-error.json) with the following properties:
 | Field             | Type          | Description                                                         |
 |-------------------|---------------|---------------------------------------------------------------------|
 | processId         | UUID          | The transfer process unique id.                                     |
-| correlationId     | UUID          | The correlation id if sent by the provider; otherwise not included. |
 | code              | string        | An optional implementation-specific error code.                     |
 | reasons           | Array[object] | An optional array of implementation-specific error objects.         |
 
@@ -56,7 +55,7 @@ the [TransferProcess](./message/transfer-process.json):
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "dspace:TransferProcess",
-  "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "dspace:processId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "dspace:state": "REQUESTED"
 } 
 ```
@@ -106,7 +105,7 @@ the [TransferProcess](./message/transfer-process.json) message:
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "dspace:TransferProcess",
-  "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "dspace:processId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "dspace:state": "REQUESTED"
 }
 

@@ -97,9 +97,9 @@ Providers should implement idempotent behavior for `TransferRequestMessage` base
 time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period. If a request for the given `@id` has already been
 received *and* the same consumer sent the original message, the provider should respond with an appropriate `DataAddressMessage`.
 
-Once a transfer process have been created, all associated callback messages must include a `correlationId` set to the `TransferRequestMessage` `@id` value.
+Once a transfer process have been created, all associated callback messages must include a `processId` set to the `TransferRequestMessage` `@id` value.
 
-Providers must include a `correlationId` property in the `TransferProcessMessage` with a value set to the `@id` of the corresponding `TransferRequestMessage`.
+Providers must include a `processId` property in the `TransferProcess` with a value set to the `@id` of the corresponding `TransferRequestMessage`.
 
 - The `dataAddress` contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 - Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
@@ -198,8 +198,7 @@ a terminal state. If the termination was due to an error, the sender may include
 
 #### Description
 
-The `TransferProcess` is an object returned by a consumer or provider indicating a
-successful state change happened.
+The `TransferProcess` is an object returned by a consumer or provider indicating a successful state change happened.
 
 ### ERROR - TransferError
 
