@@ -126,7 +126,7 @@ A `ContractAgreementMessage` must contain a `processId`.
 
 A `ContractAgreementMessage` must contain an ODRL `Agreement`.
 
-A `ContractAgreementMessage` must contain a `dspace:timestamp` property defined as an XSD DateTime type.  
+An `Agreement` must contain a `dspace:timestamp` property defined as an XSD DateTime type.  
 
 ### 4. ContractAgreementVerificationMessage
 

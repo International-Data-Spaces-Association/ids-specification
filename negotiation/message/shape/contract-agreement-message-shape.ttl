@@ -39,14 +39,4 @@ shapes:ContractAgreementMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An odrl:agreement property must point to exactly one odrl:Agreement."@en ;
 	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path dspace:timestamp ;
-		sh:datatype xsd:dateTime ;
-		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:timestamp property must point to exactly one xsd:dateTime."@en ;
-	] ;
 .
