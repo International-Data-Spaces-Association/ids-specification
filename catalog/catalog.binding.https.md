@@ -15,9 +15,9 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 2. All request and response messages must use the `application/json` media type.
 
-### 2.2 CatalogErrorMessage
+### 2.2 CatalogError
 
-In the event of a request error, the catalog service must return an appropriate HTTP code and a [CatalogErrorMessage](./catalog.protocol.md#) in the response body.
+In the event of a request error, the catalog service must return an appropriate HTTP code and a [CatalogError](./catalog.protocol.md#) in the response body.
 
 | Field   | Type          | Description                                                 |
 |---------|---------------|-------------------------------------------------------------|

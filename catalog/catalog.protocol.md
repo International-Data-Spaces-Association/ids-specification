@@ -59,17 +59,17 @@ be defined in the relevant catalog binding specification.
 The catalog contains all [Asset Entries](#31-asset-entry) which the requester shall see.
 
 
-### 2.3 CatalogErrorMessage
+### 2.3 CatalogError
 
-![](./message/diagram/catalog-error-message.png)
+![](./message/diagram/catalog-error.png)
 
 **Sent by**: Consumer or Provider
 
-**Example**: [CatalogErrorMessage](./message/catalog-error-message.json)
+**Example**: [CatalogError](./message/catalog-error.json)
 
 **Response**: OK or ERROR
 
-**Schema**: [CatalogErrorMessageShape](./message/shape/catalog-error-message-shape.ttl) and the [CatalogErrorMessage JSON Schema](./message/schema/catalog-error-message-schema.json)
+**Schema**: [CatalogErrorShape](./message/shape/catalog-error-shape.ttl) and the [CatalogError JSON Schema](./message/schema/catalog-error-schema.json)
 
 #### Description
 

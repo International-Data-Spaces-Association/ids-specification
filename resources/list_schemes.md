@@ -2,7 +2,7 @@
 
 
 ## Catalog
-* [Catalog error schema (json)](./../catalog/message/schema/catalog-error-message-schema.json)
+* [Catalog error schema (json)](./../catalog/message/schema/catalog-error-schema.json)
 * [Catalog message schema (json)](./../catalog/message/schema/catalog-message-schema.json)
 * [Catalog request message schema (json)](./../catalog/message/schema/catalog-request-message-schema.json)
 * [Catalog schema (json)](./../catalog/message/schema/catalog-schema.json)

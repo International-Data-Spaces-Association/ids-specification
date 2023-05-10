@@ -1,15 +1,15 @@
 {
 	"$schema": "https://json-schema.org/draft/2019-09/schema",
-	"title": "CatalogErrorMessageSchema",
+	"title": "CatalogErrorSchema",
 	"type": "object",
 	"allOf": [
 	  {
-		"$ref": "#/definitions/CatalogErrorMessage"
+		"$ref": "#/definitions/CatalogError"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/v0.8/CatalogErrorMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/v0.8/CatalogErrorSchema",
 	"definitions": {
-		"CatalogErrorMessage": {
+		"CatalogError": {
 			"type": "object",
 			"properties": {
 				"@context": {
@@ -19,7 +19,7 @@
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:CatalogErrorMessage",
+					"const": "dspace:CatalogError",
 					"required": true
 				}
 			}

@@ -9,8 +9,8 @@
 ## Catalog
 * [Catalog (png)](./../catalog/message/diagram/catalog.png)
 * [Catalog (source)](./../catalog/message/diagram/catalog.puml)
-* [Catalog error message (png)](./../catalog/message/diagram/catalog-error-message.png)
-* [Catalog error message (source)](./../catalog/message/diagram/catalog-error-message.puml)
+* [Catalog error message (png)](./../catalog/message/diagram/catalog-error.png)
+* [Catalog error message (source)](./../catalog/message/diagram/catalog-error.puml)
 * [Catalog request message (png)](./../catalog/message/diagram/catalog-request-message.png)
 * [Catalog request message (source)](./../catalog/message/diagram/catalog-request-message.puml)
 

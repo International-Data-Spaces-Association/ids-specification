@@ -1,7 +1,7 @@
 # Shapes
 
 ## Catalog
-* [Catalog error shape (ttl)](./../catalog/message/shape/catalog-error-message-shape.ttl)
+* [Catalog error shape (ttl)](./../catalog/message/shape/catalog-error-shape.ttl)
 * [Catalog message shape (ttl)](./../catalog/message/shape/catalog-message-shape.ttl)
 * [Catalog request message shape (ttl)](./../catalog/message/shape/catalog-request-message-shape.ttl)
 * [Catalog shape (ttl)](./../catalog/message/shape/catalog-shape.ttl)
