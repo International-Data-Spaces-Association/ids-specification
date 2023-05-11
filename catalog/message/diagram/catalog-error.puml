@@ -6,9 +6,9 @@
 hide empty description
 
 
-class "dspace:CatalogErrorMessage" {
+class "dspace:CatalogError" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
-    @type : "dspace:CatalogErrorMessage"
+    @type : "dspace:CatalogError"
     dspace:code : String
     dspace:reason : Array
 }
