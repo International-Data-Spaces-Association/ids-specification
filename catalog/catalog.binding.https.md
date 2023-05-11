@@ -15,9 +15,9 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 2. All request and response messages must use the `application/json` media type.
 
-### 2.2 CatalogErrorMessage
+### 2.2 CatalogError
 
-In the event of a request error, the catalog service must return an appropriate HTTP code and a [CatalogErrorMessage](./catalog.protocol.md#) in the response body.
+In the event of a request error, the catalog service must return an appropriate HTTP code and a [CatalogError](./catalog.protocol.md#) in the response body.
 
 | Field   | Type          | Description                                                 |
 |---------|---------------|-------------------------------------------------------------|
@@ -36,7 +36,7 @@ POST https://provider.com/catalog/request
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:CatalogRequest"
   "dspace:filter": {}
 }
@@ -50,14 +50,14 @@ request.
 
 #### 2.3.2 OK (200) Response
 
-If the request is successful, the catalog service must return a response body containing a [Catalog](./message/catalog.json) which is a profiled DCAT Catalog type
+If the request is successful, the catalog service must return a response body containing a [Catalog](./message/catalog.json) which is a profiled DCAT `Catalog` type
 described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ### 2.4 The `catalog/datasets/{id}` endpoint
 
 #### 2.3.1 GET
 
-The [DatasetRequestMessage](catalog.protocol.md#21-datasetrequestmessage) corresponds to `GET https://<base>/catalog/datasets/{id}}`:
+The [DatasetRequestMessage](catalog.protocol.md#24-datasetrequestmessage) corresponds to `GET https://<base>/catalog/datasets/{id}}`:
 
 ```
 GET https://provider.com/datasets/{id}
@@ -71,7 +71,7 @@ The `Authorization` header is optional if the catalog service does not require a
 
 #### 2.4.2 OK (200) Response
 
-If the request is successful, the catalog service must return a response body containing a [Dataset](./message/dataset.json) which is a DCAT Dataset type
+If the request is successful, the catalog service must return a response body containing a [Dataset](./message/dataset.json) which is a DCAT `Dataset` type
 described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ## 3 Technical Considerations
@@ -95,7 +95,7 @@ and the HTTP `Link` header. The `Link` header will contain URLs for navigating t
 ```
 Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dcat:Catalog"
   ...
 }
@@ -142,12 +142,12 @@ POST https://provider.com/catalog/request
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:CatalogRequest"
   "@id: "..."
   "dspace:callbackAddress": "https://example.com/endpoint"
 }
 ```
 
-The `CatalogResponseMessage` would be POSTed back to the endpoint. the response message could be posted mutiple times for paginated results and would need to include the
+The `CatalogResponseMessage` would be POSTed back to the endpoint. the response message could be posted multiple times for paginated results and would need to include the
 original `@id` value as a `correlationId` and a property indicating if the contents are complete (or additional responses will be sent).

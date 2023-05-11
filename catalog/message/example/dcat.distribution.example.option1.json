@@ -1,5 +1,5 @@
 {
-  "@context": "https://w3id.org/dspace/1/0/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@id": "http://provider.com/catalog1/dataset1/",
   "@type": "dcat:Dataset",
   "dct:title": "IDS Dataset Collection",
@@ -89,80 +89,82 @@
       ]
     }
   ],
-  "odrl:hasPolicy": {
-    "@type": "odrl:Offer",
-    "@id": "https://provider.com/connector/offer/1",
-    "odrl:permission": [
-      {
-        "odrl:action": {
-          "@id": "odrl:use"
-        },
-        "odrl:constraint": [
-          {
-            "odrl:leftOperand": "idsc:SECURITY_LEVEL",
-            "odrl:operator": "odrl:eq",
-            "odrl:rightOperand": "idsc:TRUST_PLUS_SECURITY_PROFILE"
-          }
-        ],
-        "odrl:duty": [
-          {
-            "odrl:action": {
-              "@id": "odrl:compensate"
-            },
-            "odrl:constraint": {
-              "odrl:xone": [
-                {
-                  "odrl:and": [
-                    {
-                      "odrl:leftOperand": "dspace:TRANSPORT",
-                      "odrl:operator": "odrl:eq",
-                      "odrl:rightOperand": "dspace:S3"
-                    },
-                    {
-                      "odrl:leftOperand": "odrl:payAmount",
-                      "odrl:operator": "odrl:eq",
-                      "odrl:rightOperand": {
-                        "@type": "xsd:decimal",
-                        "@value": "5.0"
-                      },
-                      "odrl:unit": {
-                        "@id": "http://dbpedia.org/resource/Euro"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "odrl:and": [
-                    {
-                      "odrl:leftOperand": "dspace:TRANSPORT",
-                      "odrl:operator": "odrl:eq",
-                      "odrl:rightOperand": "dspace:HTTP_REST"
-                    },
-                    {
-                      "odrl:leftOperand": "odrl:payAmount",
-                      "odrl:operator": "odrl:eq",
-                      "odrl:rightOperand": {
-                        "@type": "xsd:decimal",
-                        "@value": "2.0"
-                      },
-                      "odrl:unit": {
-                        "@id": "http://dbpedia.org/resource/Euro"
-                      }
-                    }
-                  ]
-                }
-              ]
+  "odrl:hasPolicy": [
+    {
+      "@type": "odrl:Offer",
+      "@id": "https://provider.com/connector/offer/1",
+      "odrl:permission": [
+        {
+          "odrl:action": {
+            "@id": "odrl:use"
+          },
+          "odrl:constraint": [
+            {
+              "odrl:leftOperand": "idsc:SECURITY_LEVEL",
+              "odrl:operator": "odrl:eq",
+              "odrl:rightOperand": "idsc:TRUST_PLUS_SECURITY_PROFILE"
             }
-          }
-        ]
-      }
-    ],
-    "odrl:prohibition": [
-      {
-        "odrl:action": {
-          "@id": "odrl:distribute"
+          ],
+          "odrl:duty": [
+            {
+              "odrl:action": {
+                "@id": "odrl:compensate"
+              },
+              "odrl:constraint": {
+                "odrl:xone": [
+                  {
+                    "odrl:and": [
+                      {
+                        "odrl:leftOperand": "dspace:TRANSPORT",
+                        "odrl:operator": "odrl:eq",
+                        "odrl:rightOperand": "dspace:S3"
+                      },
+                      {
+                        "odrl:leftOperand": "odrl:payAmount",
+                        "odrl:operator": "odrl:eq",
+                        "odrl:rightOperand": {
+                          "@type": "xsd:decimal",
+                          "@value": "5.0"
+                        },
+                        "odrl:unit": {
+                          "@id": "http://dbpedia.org/resource/Euro"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "odrl:and": [
+                      {
+                        "odrl:leftOperand": "dspace:TRANSPORT",
+                        "odrl:operator": "odrl:eq",
+                        "odrl:rightOperand": "dspace:HTTP_REST"
+                      },
+                      {
+                        "odrl:leftOperand": "odrl:payAmount",
+                        "odrl:operator": "odrl:eq",
+                        "odrl:rightOperand": {
+                          "@type": "xsd:decimal",
+                          "@value": "2.0"
+                        },
+                        "odrl:unit": {
+                          "@id": "http://dbpedia.org/resource/Euro"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
         }
-      }
-    ]
-  }
+      ],
+      "odrl:prohibition": [
+        {
+          "odrl:action": {
+            "@id": "odrl:distribute"
+          }
+        }
+      ]
+    }
+  ]
 }

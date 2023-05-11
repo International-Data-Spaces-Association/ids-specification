@@ -1,0 +1,44 @@
+{
+  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@id": "urn:uuid:3afeadd8-ed2d-569e-d634-8394a8836d57",
+  "@type": "dcat:Dataset",
+  "dct:title": "Traffic Data",
+  "dct:description": "Traffic data sample extract",
+  "dcat:keyword": [
+    "traffic"
+  ],
+  "odrl:hasPolicy": [
+    {
+      "@context": {
+        "@vocab": "https://www.w3.org/TR/odrl-model/"
+      },
+      "@id": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
+      "permission": [
+        {
+          "action": "use",
+          "constraint": [
+            {
+              "leftOperand": {
+                "@value": "spatial"
+              },
+              "rightOperand": {
+                "@value": "EU"
+              },
+              "operator": "EQ"
+            }
+          ],
+          "duty": []
+        }
+      ],
+      "prohibition": [],
+      "obligation": []
+    }
+  ],
+  "dcat:distribution": [
+    {
+      "@type": "dcat:Distribution",
+      "dct:format": "dspace:s3+push",
+      "dcat:accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
+    }
+  ]
+}

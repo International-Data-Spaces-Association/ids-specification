@@ -59,21 +59,21 @@ be defined in the relevant catalog binding specification.
 The catalog contains all [Asset Entries](#31-asset-entry) which the requester shall see.
 
 
-### 2.3 Catalog Error Message
+### 2.3 CatalogError
 
-![](./message/diagram/catalog-error-message.png)
+![](./message/diagram/catalog-error.png)
 
 **Sent by**: Consumer or Provider
 
-**Example**: [CatalogErrorMessage](./message/catalog-error-message.json)
+**Example**: [CatalogError](./message/catalog-error.json)
 
 **Response**: OK or ERROR
 
-**Schema**: [CatalogErrorMessageShape](./message/shape/catalog-error-message-shape.ttl) and the [CatalogErrorMessage JSON Schema](./message/schema/catalog-error-message-schema.json)
+**Schema**: [CatalogErrorShape](./message/shape/catalog-error-shape.ttl) and the [CatalogError JSON Schema](./message/schema/catalog-error-schema.json)
 
 #### Description
 
-A Catalog Error Message is used when an error occured after a CatalogRequestMessage and the provider can not provide its catalog to the requester.
+A Catalog Error Message is used when an error occurred after a `CatalogRequestMessage` and the provider can not provide its catalog to the requester.
 
 ### 2.4 DatasetRequestMessage
 
@@ -108,17 +108,17 @@ An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:D
 An asset entry Dataset must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
 target attributes. The target of an offer is the asset associated with the containing asset entry.
 
-> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`
+> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`, each `Asset Entry` is also an `odrl:Asset` from an ODRL perspective.
 
 ### 3.2 Distributions
 
 An asset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `AssetTransfer`.
 
-A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit Distribution.
+A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit `Distribution`.
 Offers must NOT contain any target attributes. The target of an offer is the asset entry that contains the distribution.
 
-Support for `hasPolicy` attributes on a Distribution is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
+Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
 message to clients.
 
 ### 3.3 DataService

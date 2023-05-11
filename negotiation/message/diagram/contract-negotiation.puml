@@ -7,19 +7,19 @@ hide empty description
 
 
 class "dspace:ContractNegotiation" {
-    @context : "https://w3id.org/dspace/1/0/context.json"
+    @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:ContractNegotiation"
     dspace:processId : String
     dspace:state : dspace:ContractNegotiationState
 }
 
 enum dspace:ContractNegotiationState {
-    "dspace:CONSUMER_REQUESTED"
-    "dspace:PROVIDER_OFFERED"
-    "dspace:CONSUMER_AGREED"
-    "dspace:PROVIDER_AGREED"
-    "dspace:CONSUMER_VERIFIED"
-    "dspace:PROVIDER_FINALIZED"
+    "dspace:REQUESTED"
+    "dspace:OFFERED"
+    "dspace:ACCEPTED"
+    "dspace:AGREED"
+    "dspace:VERIFIED"
+    "dspace:FINALIZED"
     "dspace:TERMINATED"
     "..."
 }

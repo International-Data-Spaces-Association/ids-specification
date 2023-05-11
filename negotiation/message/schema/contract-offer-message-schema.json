@@ -7,14 +7,14 @@
 		"$ref": "#/definitions/ContractOfferMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/1/0/ContractOfferMessageSchema",
+	"$id": "https://w3id.org/dspace/schemas/v0.8/ContractOfferMessageSchema",
 	"definitions": {
 		"ContractOfferMessage": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/1/0/context.json",
+					"const": "https://w3id.org/dspace/v0.8/context.json",
 					"required": true
 				},
 				"@type": {
@@ -27,7 +27,7 @@
 					"required": true
 				},
 				"odrl:offer": {
-					"$ref": "https://w3id.org/dspace/schemas/1/0/OfferSchema#definitions/Offer",
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
 					"required": true
 				},
 				"dspace:callbackAddress": {
