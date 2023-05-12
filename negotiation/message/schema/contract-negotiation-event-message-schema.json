@@ -33,10 +33,6 @@
 						"dspace:FINALIZED"
 					],
 					"required": true
-				},
-				"dspace:checksum": {
-					"type": "string",
-					"required": true
 				}
 			}
 		}
