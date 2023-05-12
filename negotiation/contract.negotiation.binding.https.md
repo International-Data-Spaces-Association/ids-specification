@@ -231,7 +231,9 @@ Authorization: ...
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:agreement": {
     "@type": "odrl:Agreement",
-    "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44"
+    "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
+    "dspace:consumerId": "...",
+    "dspace:providerId": "...",
     }
   }
 }

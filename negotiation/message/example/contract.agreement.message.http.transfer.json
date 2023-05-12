@@ -3,6 +3,8 @@
   "@id": "some-id",
   "@type": ["dspace:ContractAgreementMessage"],
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerId": "...",
+  "dspace:providerId": "...",
   "dspace:agreement": {
     "@type": "odrl:Agreement",
     "@id": "some-other-id",

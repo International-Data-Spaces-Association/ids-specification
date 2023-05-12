@@ -19,6 +19,8 @@ class odrl:Agreement {
     @id: String
     odrl:target : xsd:anyURI
     dspace:timestamp : xsd:dateTime
+    dspace:consumerId : String
+    dspace:providerId : String
 }
 
 "dspace:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "odrl:agreement"
