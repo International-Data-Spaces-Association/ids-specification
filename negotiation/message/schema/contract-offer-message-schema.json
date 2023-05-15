@@ -33,10 +33,6 @@
 				"dspace:callbackAddress": {
 					"type" : "string",
 					"required": true
-				},
-				"dspace:checksum": {
-					"type" : "string",
-					"required": true
 				}
 			}
 		}

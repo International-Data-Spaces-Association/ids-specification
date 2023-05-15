@@ -128,8 +128,7 @@ Authorization: ...
     "@type": "odrl:Offer",
     "@id": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
-  },
-  "dspace:checksum": "..."
+  }
 }
 ```
 
@@ -207,8 +206,7 @@ Authorization: ...
     "@type": "odrl:Offer",
     "@id": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
-  },
-  "dspace:checksum": "..."
+  }
 }
 ```
 
@@ -235,8 +233,7 @@ Authorization: ...
     "@type": "odrl:Agreement",
     "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44"
     }
-  },
-  "dspace:checksum": "..."
+  }
 }
 ```
 
