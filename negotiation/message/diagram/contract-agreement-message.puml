@@ -15,9 +15,10 @@ class "dspace:ContractAgreementMessage" {
 }
 
 class odrl:Agreement {
-    @type : "odrl:Agreement",
+    @type : "odrl:Agreement"
     @id: String
     odrl:target : xsd:anyURI
+    dspace:timestamp : xsd:dateTime
 }
 
 "dspace:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "odrl:agreement"
