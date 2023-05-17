@@ -26,10 +26,6 @@
 					"type": "string",
 					"required": true
 				},
-				"dspace:correlationId": {
-					"type": "string",
-					"required": true
-				},
 				"dspace:reason": {
 					"type": "array",
 					"required": false,

@@ -10,7 +10,6 @@ class "dspace:TransferCompletionMessage" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:TransferCompletionMessage"
     dspace:processId : String
-    dspace:correlationId : String
 }
 
 @enduml

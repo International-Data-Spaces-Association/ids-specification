@@ -2,7 +2,6 @@
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:TransferError",
   "dspace:processId": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
-  "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "dspace:code": "...",
   "dspace:reason": [
     {},

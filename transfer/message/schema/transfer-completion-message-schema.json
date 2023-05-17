@@ -25,10 +25,6 @@
 				"dspace:processId": {
 					"type": "string",
 					"required": true
-				},
-				"dspace:correlationId": {
-					"type": "string",
-					"required": true
 				}
 			}
 		}
