@@ -11,7 +11,6 @@
 	"definitions": {
 		"Catalog": {
 			"type": "object",
-            "required":["@context", "@type", "dct:hasPart"],
 			"properties": {
 				"@context": {
 					"type": "string",
@@ -20,7 +19,8 @@
 				},
 				"@type": {
 					"type": "string",
-					"const": "dcat:Catalog"
+					"const": "dcat:Catalog",
+					"required": true
 				},
 				"dcat:catalog": {
                     "type": "array",
@@ -46,7 +46,7 @@
                     },
                     "minItems": 1
                 },
-                "dcat:themeTaxonomy": {
+                "dcat:themeTaxonomy": { # continue here
                     "type": "object",
                     "properties": {
                         "@type": {
@@ -296,8 +296,8 @@
                             "type": "string"
                         }
                     }
-                }
-
+                },
+                "required":["@context", "@type", "dct:hasPart"]
 			},
             "CatalogRecord":{
                 "type": "object",
