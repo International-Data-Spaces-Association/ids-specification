@@ -125,6 +125,11 @@ A `ContractAgreementMessage` must contain an ODRL `Agreement`.
 
 An `Agreement` must contain a `dspace:timestamp` property defined as an XSD DateTime type.  
 
+An `Agreement` must contain a `dspace:consumerId` and `dspace:providerId`. The contents of these
+properties are a dataspace-specific unique identifier of the contract agreement parties. Note that these
+identifiers are not necessarily the same as the identifiers of the participant agents negotiating the
+contract (i.e. the "connectors").
+
 ### 4. ContractAgreementVerificationMessage
 
 

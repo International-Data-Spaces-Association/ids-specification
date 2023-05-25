@@ -54,6 +54,14 @@
 									"required": true
 								}
 							}
+						},
+						"dspace:consumerId": {
+							"type": "string",
+							"required": true
+						},
+						"dspace:providerId": {
+							"type": "string",
+							"required": true
 						}
 					}
 				}
