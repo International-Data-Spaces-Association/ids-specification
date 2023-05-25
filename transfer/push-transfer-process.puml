@@ -1,0 +1,56 @@
+@startuml "push-transfer-process"
+!pragma layout smetana
+
+!include ../common/style/diagram.styles.puml
+
+hide empty description
+
+skinparam defaultTextAlignment center
+
+box Consumer
+participant DataPlane1
+participant ControlPlane1
+end box
+
+box Provider
+participant ControlPlane2
+participant DataPlane2
+end box
+
+activate ControlPlane1
+activate ControlPlane2
+
+ControlPlane1 -> DataPlane1 : provideResources
+activate DataPlane1
+DataPlane1 --> ControlPlane1 : OK
+
+ControlPlane1 -> ControlPlane2 : TransferRequestMessage(dataAddress,accessData)
+ControlPlane2 --> ControlPlane1 : OK
+
+ControlPlane2 -> DataPlane2 : provideResources
+activate DataPlane2
+DataPlane2 --> ControlPlane2 : OK
+
+ControlPlane2 -> ControlPlane1 : TransferStartMessage
+ControlPlane1 --> ControlPlane2 : OK
+
+ControlPlane2 -> DataPlane2 : startTransfer(dataAddress,accessData)
+DataPlane2 -> DataPlane1 : pushData(accessData)
+DataPlane1 --> DataPlane2 : OK
+DataPlane2 --> ControlPlane2 : SUCCESS
+
+ControlPlane2 -> ControlPlane1 : TransferCompletionMessage
+ControlPlane1 --> ControlPlane2 : OK
+
+ControlPlane1 -> DataPlane1 : removeResources
+DataPlane1 --> ControlPlane1 : OK
+deactivate DataPlane1
+
+ControlPlane2 -> DataPlane2 : removeResources
+DataPlane2 --> ControlPlane2 : OK
+deactivate DataPlane2
+
+deactivate ControlPlane1
+deactivate ControlPlane2
+
+@enduml

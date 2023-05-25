@@ -1,0 +1,56 @@
+@startuml "pull-transfer-process"
+!pragma layout smetana
+
+!include ../common/style/diagram.styles.puml
+
+hide empty description
+
+skinparam defaultTextAlignment center
+
+box Consumer
+participant DataPlane1
+participant ControlPlane1
+end box
+
+box Provider
+participant ControlPlane2
+participant DataPlane2
+end box
+
+activate ControlPlane1
+activate ControlPlane2
+
+ControlPlane1 -> DataPlane1 : provideResources
+activate DataPlane1
+DataPlane1 --> ControlPlane1 : OK
+
+ControlPlane1 -> ControlPlane2 : TransferRequestMessage
+ControlPlane2 --> ControlPlane1 : OK
+
+ControlPlane2 -> DataPlane2 : provideResources
+activate DataPlane2
+DataPlane2 --> ControlPlane2 : OK
+
+ControlPlane2 -> ControlPlane1 : TransferStartMessage(dataAddress,accessData)
+ControlPlane1 --> ControlPlane2 : OK
+
+ControlPlane1 -> DataPlane1 : startTransfer(dataAddress,accessData)
+DataPlane1 -> DataPlane2 : pullData(accessData)
+DataPlane2 --> DataPlane1 : DATA
+DataPlane1 --> ControlPlane1 : SUCCESS
+
+ControlPlane1 -> ControlPlane2 : TransferCompletionMessage
+ControlPlane2 --> ControlPlane1 : OK
+
+ControlPlane2 -> DataPlane2 : removeResources
+DataPlane2 --> ControlPlane2 : OK
+deactivate DataPlane2
+
+ControlPlane1 -> DataPlane1 : removeResources
+DataPlane1 --> ControlPlane1 : OK
+deactivate DataPlane1
+
+deactivate ControlPlane1
+deactivate ControlPlane2
+
+@enduml
