@@ -5,6 +5,7 @@
 * [Dataspace Protocol v0.8](./README.md)
 * [Terminology](./model/terminology.md)
 * [Information Model](./model/model.md)
+* [Security](./model/security.md)
 
 ## Catalog
 

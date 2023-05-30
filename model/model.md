@@ -21,11 +21,10 @@ Note that all relationships are multiplicities unless specified.
   third-party identity provider. Note that a participant agent is a logical construct and does not necessarily correspond to a single runtime process.
   It is the responsibility of adopters of this standard to consider security threats like session hijacking. Protection can be accomplished by means like binding of
   `verifiable presentations` to public keys of their holder, used by transport protocol encryption.
-- An `Identity Provider` is a trust anchor that generates `ID tokens` used to verify the identity of a `Participant Agent`. Multiple identity providers may operate in
-  a dataspace. The identity standard used by a provider is not defined but could be, for example, _OAuth2_ or _Decentralized Identifiers using did:web_. An identity provider may 
+- An `Identity Provider` is a trust anchor that generates `ID tokens` used to verify the identity of a `Participant Agent`. Multiple identity providers may operate in a dataspace.
+  The identity standard used by a provider is not defined but could be, for example, _OAuth2_ or _Decentralized Identifiers using did:web_. An identity provider may 
   be a third-party or a participant itself (for example, in the case of decentralized identifiers).
-  It is the responsibility of adopters of this standard to consider security threats like session hijacking. Protection can be accomplished by means like binding of `ID tokens` to
-  public keys of their holder, used by transport protocol encryption.
+  For security considerations regarding these tokens, see [Security](./security.md).
 - A `Credential Issuer` issues _verifiable credentials_ used by participant agents to allow access to assets and verify usage control.
 
 The diagram below depicts the relationships between `ParticipantAgent` types:

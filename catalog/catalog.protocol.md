@@ -170,11 +170,10 @@ It is expected (although not required) that catalog services implement access co
 The catalog service may require consumers to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
 catalog binding specification.
 
-This specification does not define the contents of the security tokens, though it is the responsibility of adopters to consider relevant security threats like session hijacking.
-Protection can be accomplished by means like binding of security tokens to public keys of their holder, used by transport protocol encryption.
+This specification does not define the contents of security tokens, though security considerations mentioned in section [Security](../model/security.md) apply.
 
-It is expected different security mechanisms may be used such as [OAuth2 2.1](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-06)
-or [did:web](https://w3c-ccg.github.io/did-method-web/).
+It is expected different security mechanisms may be used such as [OAuth2 2.1](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-06) or 
+[did:web](https://w3c-ccg.github.io/did-method-web/).
 
 ### 4.4 Catalog Brokers
 
