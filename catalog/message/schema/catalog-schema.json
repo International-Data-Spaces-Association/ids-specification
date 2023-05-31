@@ -1,238 +1,101 @@
 {
-	"$schema": "https://json-schema.org/draft/2019-09/schema",
-	"title": "CatalogSchema",
-	"type": "object",
-	"allOf": [
-	  {
-		"$ref": "#/definitions/Catalog"
-	  }
-	],
-	"$id": "https://w3id.org/dspace/schemas/v0.8/CatalogSchema",
-	"definitions": {
-		"Catalog": {
-			"type": "object",
-			"properties": {
-				"@context": {
-					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
-				},
-				"@type": {
-					"type": "string",
-					"const": "dcat:Catalog",
-					"required": true
-				},
-				"dcat:catalog": {
-                    "type": "array",
-                    "items": {
-						"ref": "definitions/Catalog"
-                    },
-                    "minItems": 1
-				},
-				"dcat:dataset": {
-                    "type": "array",
-                    "items": {
-                        "ref": "definitions/Dataset"
-                    },
-                    "minItems": 1
-				},
-				"dcat:record": {
-                    "ref": "definitions/CatalogRecord"                    
-				},
-                "dcat:service": {
-                    "type": "array",
-                    "items": {
-						"ref": "definitions/DataService"
-                    },
-                    "minItems": 1
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "title": "CatalogSchema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "#/definitions/Catalog"
+        }
+    ],
+    "$id": "https://w3id.org/dspace/schemas/v0.8/CatalogSchema",
+    "definitions": {
+        "Catalog": {
+            "type": "object",
+            "allOf": [
+                {
+                    "ref": "definitions/DataSet"
                 },
-                "dcat:themeTaxonomy": { # continue here
-                    "type": "object",
+                {
+                    "ref": "definitions/Resource"
+                },
+                {
                     "properties": {
+                        "@context": {
+                            "type": "string",
+                            "const": "https://w3id.org/dspace/v0.8/context.json",
+                            "required": true
+                        },
                         "@type": {
                             "type": "string",
-                            "const": "rdfs:Resource"
-                        }
-                    }
-                },
-                "dct:hasPart": {
-                    "type": "array",
-                    "items": {
-						"ref": "definitions/Resource"
-                    },
-                    "minItems": 1
-                },
-                "foaf:homepage": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "dcat:distribution": {
-                    "type": "array",
-                    "items": {
-                        "ref": "definitions/Distribution"
-                    },
-                    "minItems": 1
-                },
-                "dcat:spatialResolutionInMeters": {
-                    "type": "object",
-                    "properties": {
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:decimal"
+                            "const": "dcat:Catalog",
+                            "required": true
                         },
-                        "@value": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "dcat:temporalResolution": {
-                    "type": "object",
-                    "properties": {
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:duration"
+                        "dcat:catalog": {
+                            "type": "array",
+                            "items": {
+                                "ref": "definitions/Catalog"
+                            },
+                            "minItems": 1
                         },
-                        "@value": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "dct:accrualPeriodicity": {
-                    "type": "string"
-                },
-                "dct:spatial": {
-                    "type": "object",
-                    "properties": {
-                        "@type": {
-                            "type": "string",
-                            "const": "dct:Location"
+                        "dcat:dataset": {
+                            "type": "array",
+                            "items": {
+                                "ref": "definitions/Dataset"
+                            },
+                            "minItems": 1
                         },
-                        "@value": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "dct:temporal": {
-                    "type": "object",
-                    "properties": {
-                        "@type": {
-                            "type": "string",
-                            "const": "dcterms:PeriodOfTime"
+                        "dcat:record": {
+                            "ref": "definitions/CatalogRecord"
                         },
-                        "dcat:startDate": {
-                            "ref": "definitions/time"
+                        "dcat:service": {
+                            "type": "array",
+                            "items": {
+                                "ref": "definitions/DataService"
+                            },
+                            "minItems": 1
                         },
-                        "dcat:endDate": {
-                            "ref": "definitions/time"
+                        "dcat:themeTaxonomy": {
+                            "ref": "definitions/Reference"
+                        },
+                        "dct:hasPart": {
+                            "type": "array",
+                            "items": {
+                                "ref": "definitions/Resource"
+                            },
+                            "minItems": 1
+                        },
+                        "foaf:homepage": {
+                            "ref": "definitions/Reference"
                         }
                     }
-                },
-                "prov:wasGeneratedBy": {
-                    "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                },
-                "dcat:contactPoint": {
-                    "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                },
-                "dcat:keyword": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "dcat:landingPage": {
-                    "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                },
-                "dcat:qualifiedRelation": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "dcat:theme": {
-                    "type": "array",
-                    "items": {
-                        "ref": "definitions/Concept"									
-                    },
-                    "minItems": 1
-                },
-                "dct:accessRights": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
+                }
+            ],
+            "required": [
+                "@context",
+                "@type",
+                "dct:hasPart"
+            ]
+        },
+        "CatalogRecord": {
+            "type": "object",
+            "required": [
+                "foaf:primaryTopiy"
+            ],
+            "properties": {
+                "@type": {
+                    "type": "string",
+                    "const": "dcat:CatalogRecord"
                 },
                 "dct:conformsTo": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "dct:creator": {
-                    "ref": "definitions/Agent"
+                    "ref": "definitions/Reference"
                 },
                 "dct:description": {
-                    "type": "string"
-                },
-                "dct:identifier": {
-                    "type": "string"
-                },
-                "dct:isReferencedBy": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/Multilanguage"
                     }
                 },
                 "dct:issued": {
-                    "type": "object",
-                    "properties": {
-                        "@value": {
-                            "type": "string",
-                            "format": "date-time",
-                            "required": true
-                        },
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:dateTime",
-                            "required": true
-                        }
-                    }
-                },
-                "dct:language": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "dct:license": {
                     "type": "object",
                     "properties": {
                         "@id": {
@@ -248,824 +111,263 @@
                         }
                     }
                 },
+                "dct:title": {
+                    "type": "string"
+                },
+                "foaf:primaryTopic": {
+                    "ref": "definitions/Resource"
+                }
+            }
+        },
+        "Resource": {
+            "type": "object",
+            "properties": {
+                "dcat:contractPoint": {
+                    "ref": "definitions/Reference"
+                },
+                "dcat:keyword": {
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/Multilanguage"
+                    }
+                },
+                "dcat:landingPage": {
+                    "ref": "definitions/Reference"
+                },
+                "dcat:qualifiedRelation": {
+                    "ref": "definitions/Relationship"
+                },
+                "dcat:theme": {
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/Reference"
+                    },
+                    "minItems": 1
+                },
+                "dct:conformsTo": {
+                    "ref": "definitions/Reference"
+                },
+                "dct:creator": {
+                    "ref": "definitions/Reference"
+                },
+                "dct:description": {
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/Multilanguage"
+                    }
+                },
+                "dct:identifier": {
+                    "type": "string"
+                },
+                "dct:isReferencedBy": {
+                    "ref": "definitions/Reference"
+                },
+                "dct:issued": {
+                    "ref": "definitions/time"
+                },
+                "dct:language": {
+                    "ref": "definitions/Reference"
+                },
+                "dct:license": {
+                    "ref": "definitions/Reference"
+                },
+                "dct:modified": {
+                    "ref": "definitions/time"
+                },
                 "dct:publisher": {
-                    "ref": "definitions/Agent"
+                    "ref": "definitions/Reference"
                 },
                 "dct:relation": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "dct:rights": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
+                    "ref": "definitions/Reference"
                 },
                 "dct:title": {
                     "type": "string"
                 },
                 "dct:type": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
+                    "ref": "definitions/Reference"
                 },
                 "odrl:hasPolicy": {
                     "type": "array",
                     "items": {
-                        "type": "object",
-						"properties": {
-							"@id": {
-								"type": "string"
-							}
-						}
-                    }
-                },
-                "prov:qualifiedAttribution": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "required":["@context", "@type", "dct:hasPart"]
-			},
-            "CatalogRecord":{
-                "type": "object",
-                "required":["foaf:primaryTopiy"],
-                "properties": {
-                    "@type": {
-                        "type": "string",
-                        "const": "dcat:CatalogRecord"
-                    },
-                    "dct:conformsTo": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:description": {
-                        "type": "string"
-                    },
-                    "dct:issued": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:modified": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:title": {
-                        "type": "string"
-                    },
-                    "foaf:primaryTopic":{
-                        "ref": "definitions/Resource"
+                        "ref": "../../../negotiation/message/schema/contract-schema.json#/definitions/Policy"
                     }
                 }
-            },
-            "Resource":{
-                "type": "object",
-                "properties": {
-                    "dcat:contractPoint": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:keyword": {
-                        "type": "string"
-                    },
-                    "dcat:landingPage": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:qualifiedRelation": {
-                        "ref": "definitions/Relationship"
-                    },
-                    "dcat:theme": {
-                        "type": "array",
-                        "items": {
-                            "ref": "definitions/Concept"									
-                        },
-                        "minItems": 1
-                    },
-                    "dct:accessRights": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:conformsTo": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:creator": {
-                        "ref": "definitions/Agent"
-                    },
-                    "dct:description": {
-                        "type": "string"
-                    },
-                    "dct:identifier": {
-                        "type": "string"
-                    },
-                    "dct:isReferencedBy": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:issued": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:language": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:license": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:modified": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:publisher": {
-                        "ref": "definitions/Agent"
-                    },
-                    "dct:relation": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:rights": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:title": {
-                        "type": "string" 
-                    },
-                    "dct:type": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "odrl:hasPolicy": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "@id": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "prov:qualifiedAttribution": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                }
-             } ,
-             "Relationship":{
-                "type": "object",
-                "const": "dcat:Relationship",
-                "properties": {
-                    "dcat:hadRole": {
-                        "type": "boolean"
-                    },
-                    "dct:relation":{
-                        "ref": "definitions/Resource"
-                    }
-                } 
-             },
-             "Concept": {
-                "type": "object",
-                "skos:inScheme": {
+            }
+        },
+        "Dataset": {
+            "type": "object",
+            "allOf": [
+                {
                     "ref": "definitions/Resource"
-                }
-             },
-             "ConceptScheme": {
-                "type": "object"
-                
-            },
-            "Agent": {
-                "type": "object"
-            },
-             
-            "Dataset": {
-                "type": "object",
-                "properties": {
-                    "dcat:distribution": {
-                        "type": "array",
-                        "items": {
-                            "ref": "definitions/Distribution"
-                        },
-                        "minItems": 1
-                        
-                    },
-                    "dcat:spatialResolutionInMeters": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:temporalResolution": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:accrualPeriodicity": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:spatial": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:temporal": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "prov:wasGeneratedBy": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:contactPoint": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:keyword": {
-                        "type": "string"
-                    },
-                    "dcat:landingPage": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:qualifiedRelation": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:theme":  {
-                        "type": "array",
-                        "items": {
-                            "ref": "definitions/Concept"									
-                        },
-                        "minItems": 1
-                    },
-                    "dct:accessRights": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:conformsTo": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:creator": {
-                        "ref": "definitions/Agent"
-                    },
-                    "dct:description": {
-                        "type": "string"
-                    },
-                    "dct:identifier": {
-                        "type": "string"
-                    },
-                    "dct:isReferencedBy": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:issued": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:language": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:license": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:modified": {
-                        "type": "string"  
-                    },
-                    "dct:publisher": {
-                        "ref": "definitions/Agent"
-                    },
-                    "dct:relation": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:rights": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:title": {
-                        "type": "string"
-                    },
-                    "dct:type": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "odrl:hasPolicy": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "@id": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "prov:qualifiedAttribution": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                }
-            },
-
-            "DataService":{
-                "type": "object",
-                "properties": {
-                    "dcat:endpointDescription": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:endpointURL": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:servesDataset": {
-                        "type": "array",
-                        "items": {
-                            "ref": "definitions/Dataset"
-                        },
-                        "minItems": 1
-                    },
-                    "dcat:contactPoint": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:keyword": {
-                        "type": "string"
-                    },
-                    "dcat:landingPage": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:qualifiedRelation": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:theme":  {
-                        "type": "array",
-                        "items": {
-                            "ref": "definitions/Concept"									
-                        },
-                        "minItems": 1
-                    },
-                    "dct:accessRights": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:conformsTo": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:creator": {
-                        "ref": "definitions/Agent"
-                    },
-                    "dct:description": {
-                        "type": "string"
-                    },
-                    "dct:identifier": {
-                        "type": "string"
-                    },
-                    "dct:isReferencedBy": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:issued": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:language": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:license": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:modified": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:publisher": {
-                        "ref": "definitions/Agent"
-                    },
-                    "dct:relation": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:rights": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:title": {
-                        "type": "string"
-                    },
-                    "dct:type": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "odrl:hasPolicy": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "@id": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "prov:qualifiedAttribution": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                }
-            },
-
-            "Distribution": {
-                "type": "object",
-                "properties": {
-                    "dcat:accessService": {
-                        "type": "array",
-                        "items": {
-                            "ref": "definitions/DataService"
-                        },
-                        "minItems": 1
-                    },
-                    "dcat:accessURL": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:byteSize": {
-                        "type": "object",
-                        "properties": {
-                            "@type": {
-                                "type": "string",
-                                "const": "xsd:decimal"
+                },
+                {
+                    "properties": {
+                        "dcat:distribution": {
+                            "type": "array",
+                            "items": {
+                                "ref": "definitions/Distribution"
                             },
-                            "@value": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:compressFormat": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:downloadURL": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:mediaType": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:packageFormat": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:spatialResolutionInMeters": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dcat:temporalResolution": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:accessRights": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:conformsTo": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:description": {
-                        "type": "string"
-                    },
-                    "dct:format": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:issued": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:license": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:modified": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:rights": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "dct:title": {
-                        "type": "string"
-                    },
-                    "odrl:hasPolicy": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "@id": {
-                                    "type": "string"
-                                }
-                            }
+                            "minItems": 1
+                        },
+                        "dcat:spatialResolutionInMeters": {
+                            "ref": "definitions/Reference"
+                        },
+                        "dcat:temporalResolution": {
+                            "ref": "definitions/duration"
+                        },
+                        "dct:accrualPeriodicity": {
+                            "ref": "definitions/Reference"
+                        },
+                        "dct:spatial": {
+                            "ref": "definitions/Reference"
+                        },
+                        "dct:temporal": {
+                            "ref": "definitions/Reference"
+                        },
+                        "prov:wasGeneratedBy": {
+                            "ref": "definitions/Reference"
                         }
                     }
                 }
-
-            }			
-        
-		},
-        "time": {
+            ]
+        },
+        "DataService": {
             "type": "object",
             "properties": {
-                "@type": {
-                    "type": "string",
-                    "const": "xsd:date"
+                "dcat:endpointDescription": {
+                    "ref": "definitions/Reference"
                 },
-                "@value": {
-                    "type": "string",
-                    "pattern": "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+                "dcat:endpointURL": {
+                    "ref": "definitions/Reference"
+                },
+                "dcat:servesDataset": {
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/Dataset"
+                    },
+                    "minItems": 1
+                }
+            }
+        },
+        "Distribution": {
+            "type": "object",
+            "properties": {
+                "dcat:accessService": {
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/DataService"
+                    },
+                    "minItems": 1
+                },
+                "dcat:accessURL": {
+                    "ref": "definitions/Reference"
+                },
+                "dcat:byteSize": {
+                    "ref": "definitions/decimal"
+                },
+                "dcat:compressFormat": {
+                    "ref": "definitions/Reference"
+                },
+                "dcat:downloadURL": {
+                    "ref": "definitions/Reference"
+                },
+                "dcat:mediaType": {
+                    "ref": "definitions/Reference"
+                },
+                "dcat:packageFormat": {
+                    "ref": "definitions/Reference"
+                },
+                "dcat:spatialResolutionInMeters": {
+                    "ref": "definitions/decimal"
+                },
+                "dcat:temporalResolution": {
+                    "ref": "definitions/duration"
+                },
+                "dct:conformsTo": {
+                    "ref": "definitions/Reference"
+                },
+                "dct:description": {
+                    "type": "array",
+                    "items": {
+                        "ref": "definitions/Multilanguage"
+                    }
+                },
+                "dct:format": {
+                    "ref": "definitions/Reference"
+                },
+                "dct:issued": {
+                    "ref": "definitions/time"
+                },
+                "dct:modified": {
+                    "ref": "definitions/time"
+                },
+                "dct:title": {
+                    "type": "string"
+                },
+                "odrl:hasPolicy": {
+                    "type": "array",
+                    "items": {
+                        "ref": "../../../negotiation/message/schema/contract-schema.json#/definitions/Policy"
+                    }
                 }
             }
         }
-	}
+    },
+    "time": {
+        "type": "object",
+        "properties": {
+            "@type": {
+                "type": "string",
+                "const": "xsd:date"
+            },
+            "@value": {
+                "type": "string",
+                "pattern": "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+            }
+        }
+    },
+    "duration": {
+        "type": "object",
+        "properties": {
+            "@type": {
+                "type": "string",
+                "const": "xsd:duration"
+            },
+            "@value": {
+                "type": "string",
+                "pattern": "^(-?)P(?=.)((\\d+)Y)?((\\d+)M)?((\\d+)D)?(T(?=.)((\\d+)H)?((\\d+)M)?(\\d*(\\.\\d+)?S)?)?$"
+            }
+        }
+    },
+    "decimal": {
+        "type": "object",
+        "properties": {
+            "@type": {
+                "type": "string",
+                "const": "xsd:decimal"
+            },
+            "@value": {
+                "type": "string"
+            }
+        }
+    },
+    "Reference": {
+        "type": "object",
+        "properties": {
+            "@id": {
+                "type": "string"
+            }
+        }
+    },
+    "Multilanguage": {
+        "type": "object",
+        "properties": {
+            "@value": {
+                "type": "string"
+            },
+            "@language": {
+                "type": "string"
+            }
+        }
+    }
 }
