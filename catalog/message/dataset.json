@@ -1,42 +1,51 @@
 {
-  "@context":  "https://w3id.org/dspace/1/0/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@id": "urn:uuid:3afeadd8-ed2d-569e-d634-8394a8836d57",
   "@type": "dcat:Dataset",
   "dct:title": "Traffic Data",
-  "dct:description": "Traffic data sample extract",
+  "dct:description": [
+    {
+      "@value": "Traffic data sample extract",
+      "@language": "en"
+    }
+  ],
   "dcat:keyword": [
-    "traffic"
+    {
+      "@value": "traffic",
+      "@language": "en"
+    }
   ],
   "odrl:hasPolicy": {
     "@context": {
       "@vocab": "https://www.w3.org/TR/odrl-model/"
     },
     "@id": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
-    "permission": [
+    "odrl:permission": [
       {
-        "action": "use",
-        "constraint": [
+        "odrl:action": "odrl:use",
+        "odrl:constraint": [
           {
-            "leftOperand": {
-              "@value": "spatial"
+            "odrl:leftOperand": "odrl:spatial",
+            "odrl:rightOperand": {
+              "@id": "_:EU"
             },
-            "rightOperand": {
-              "@value": "EU"
-            },
-            "operator": "EQ"
+            "odrl:operator": "odrl:eq"
           }
-        ],
-        "duty": []
+        ]
       }
-    ],
-    "prohibition": [],
-    "obligation": []
+    ]
   },
   "dcat:distribution": [
     {
       "@type": "dcat:Distribution",
-      "dct:format": "dspace:s3+push",
-      "dcat:accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
+      "dct:format": {
+        "@id": "dspace:s3+push"
+      },
+      "dcat:accessService": [
+        {
+          "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
+        }
+      ]
     }
   ]
 }
