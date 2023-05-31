@@ -191,7 +191,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "../../../negotiation/message/schema/contract-schema.json#/definitions/Policy"
-                    }
+                    },
+                    "minItems": 1
                 }
             }
         },
@@ -309,7 +310,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "../../../negotiation/message/schema/contract-schema.json#/definitions/Policy"
-                    }
+                    },
+                    "minItems": 1
                 }
             }
         },
