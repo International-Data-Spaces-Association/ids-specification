@@ -1,0 +1,371 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "title": "PolicySchema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "#/definitions/Policy"
+        }
+    ],
+    "$id": "https://w3id.org/dspace/schemas/0/8/PolicySchema",
+    "definitions": {
+        "Policy": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Offer"
+                },
+                {
+                    "$ref": "#/definitions/Agreement"
+                }
+            ]
+        },
+        "PolicyClass": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/AbstractPolicyRule"
+                },
+                {
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        },
+                        "odrl:profile": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Reference"
+                            }
+                        },
+                        "odrl:permission": {
+                            "$ref": "#/definitions/Permission"
+                        },
+                        "odrl:obligation": {
+                            "$ref": "#/definitions/Duty"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            ]
+        },
+        "AbstractPolicyRule": {
+            "properties": {
+                "odrl:assigner": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "odrl:assignee": {
+                    "$ref": "#/definitions/Reference"
+                }
+            }
+        },
+        "Offer": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PolicyClass"
+                },
+                {
+                    "properties": {
+                        "@type": {
+                            "type": "string",
+                            "const": "odrl:Offer"
+                        }
+                    }
+                },
+                {
+                    "anyOf": [
+                        {
+                            "required": [
+                                "odrl:permission"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "odrl:prohibition"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "required": [
+                "@type",
+                "odrl:assigner"
+            ]
+        },
+        "Agreement": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PolicyClass"
+                },
+                {
+                    "properties": {
+                        "@type": {
+                            "type": "string",
+                            "const": "odrl:Agreement"
+                        }
+                    }
+                },
+                {
+                    "anyOf": [
+                        {
+                            "required": [
+                                "odrl:permission"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "odrl:prohibition"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "required": [
+                "@type",
+                "odrl:assigner",
+                "odrl:assignee"
+            ]
+        },
+        "RuleClass": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/AbstractPolicyRule"
+                },
+                {
+                    "properties": {
+                        "odrl:action": {
+                            "$ref": "#/definitions/Action"
+                        },
+                        "odrl:constraint": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Constraint"
+                            },
+                            "minItems": 1
+                        }
+                    }
+                }
+            ],
+            "required": [
+                "odrl:action"
+            ]
+        },
+        "Permission": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/AbstractPolicyRule"
+                },
+                {
+                    "properties": {
+                        "odrl:action": {
+                            "$ref": "#/definitions/Action"
+                        },
+                        "odrl:constraint": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Constraint"
+                            },
+                            "minItems": 1
+                        },
+                        "odrl:duty": {
+                            "$ref": "#/definitions/Duty"
+                        }
+                    },
+                    "required": [
+                        "odrl:action"
+                    ]
+                }
+            ]
+        },
+        "Duty": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/AbstractPolicyRule"
+                },
+                {
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        },
+                        "odrl:action": {
+                            "$ref": "#/definitions/Action"
+                        },
+                        "odrl:constraint": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Constraint"
+                            }
+                        }
+                    },
+                    "required": [
+                        "odrl:action"
+                    ]
+                }
+            ]
+        },
+        "Action": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string",
+                    "enum": [
+                        "http://www.w3.org/ns/odrl/2/delete",
+                        "http://www.w3.org/ns/odrl/2/execute",
+                        "http://creativecommons.org/ns#SourceCode",
+                        "http://www.w3.org/ns/odrl/2/anonymize",
+                        "http://www.w3.org/ns/odrl/2/extract",
+                        "http://www.w3.org/ns/odrl/2/read",
+                        "http://www.w3.org/ns/odrl/2/index",
+                        "http://www.w3.org/ns/odrl/2/compensate",
+                        "http://www.w3.org/ns/odrl/2/sell",
+                        "http://www.w3.org/ns/odrl/2/derive",
+                        "http://www.w3.org/ns/odrl/2/ensureExclusivity",
+                        "http://www.w3.org/ns/odrl/2/annotate",
+                        "http://creativecommons.org/ns#Reproduction",
+                        "http://www.w3.org/ns/odrl/2/translate",
+                        "http://www.w3.org/ns/odrl/2/include",
+                        "http://creativecommons.org/ns#DerivativeWorks",
+                        "http://creativecommons.org/ns#Distribution",
+                        "http://www.w3.org/ns/odrl/2/textToSpeech",
+                        "http://www.w3.org/ns/odrl/2/inform",
+                        "http://www.w3.org/ns/odrl/2/grantUse",
+                        "http://www.w3.org/ns/odrl/2/archive",
+                        "http://www.w3.org/ns/odrl/2/modify",
+                        "http://www.w3.org/ns/odrl/2/aggregate",
+                        "http://www.w3.org/ns/odrl/2/attribute",
+                        "http://www.w3.org/ns/odrl/2/nextPolicy",
+                        "http://www.w3.org/ns/odrl/2/digitize",
+                        "http://creativecommons.org/ns#Attribution",
+                        "http://www.w3.org/ns/odrl/2/install",
+                        "http://www.w3.org/ns/odrl/2/concurrentUse",
+                        "http://www.w3.org/ns/odrl/2/distribute",
+                        "http://www.w3.org/ns/odrl/2/synchronize",
+                        "http://www.w3.org/ns/odrl/2/move",
+                        "http://www.w3.org/ns/odrl/2/obtainConsent",
+                        "http://www.w3.org/ns/odrl/2/print",
+                        "http://creativecommons.org/ns#Notice",
+                        "http://www.w3.org/ns/odrl/2/give",
+                        "http://www.w3.org/ns/odrl/2/uninstall",
+                        "http://creativecommons.org/ns#Sharing",
+                        "http://www.w3.org/ns/odrl/2/reviewPolicy",
+                        "http://www.w3.org/ns/odrl/2/watermark",
+                        "http://www.w3.org/ns/odrl/2/play",
+                        "http://www.w3.org/ns/odrl/2/reproduce",
+                        "http://www.w3.org/ns/odrl/2/transform",
+                        "http://www.w3.org/ns/odrl/2/display",
+                        "http://www.w3.org/ns/odrl/2/stream",
+                        "http://creativecommons.org/ns#ShareAlike",
+                        "http://www.w3.org/ns/odrl/2/acceptTracking",
+                        "http://creativecommons.org/ns#CommericalUse",
+                        "http://www.w3.org/ns/odrl/2/present"
+                    ]
+                }
+            },
+            "required": [
+                "@id"
+            ]
+        },
+        "Constraint": {
+            "type": "object",
+            "properties": {
+                "odrl:rightOperand": {
+                    "$ref": "#/definitions/RightOperand"
+                },
+                "odrl:rightOperandReference": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "odrl:leftOperand": {
+                    "$ref": "#/definitions/LeftOperand"
+                },
+                "odrl:operator": {
+                    "$ref": "#/definitions/Operator"
+                }
+            }
+        },
+        "Operator": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string",
+                    "enum": [
+                        "http://www.w3.org/ns/odrl/2/eq",
+                        "http://www.w3.org/ns/odrl/2/gt",
+                        "http://www.w3.org/ns/odrl/2/gteq",
+                        "http://www.w3.org/ns/odrl/2/hasPart",
+                        "http://www.w3.org/ns/odrl/2/isA",
+                        "http://www.w3.org/ns/odrl/2/isAllOf",
+                        "http://www.w3.org/ns/odrl/2/isAnyOf",
+                        "http://www.w3.org/ns/odrl/2/isNoneOf",
+                        "http://www.w3.org/ns/odrl/2/isPartOf",
+                        "http://www.w3.org/ns/odrl/2/lt",
+                        "https://www.w3.org/TR/odrl-vocab/#term-lteq",
+                        "http://www.w3.org/ns/odrl/2/neq"
+                    ]
+                }
+            }
+        },
+        "RightOperand": {
+            "$ref": "#/definitions/Reference"
+        },
+        "LeftOperand": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string",
+                    "enum": [
+                        "http://www.w3.org/ns/odrl/2/absolutePosition",
+                        "http://www.w3.org/ns/odrl/2/absoluteSize",
+                        "http://www.w3.org/ns/odrl/2/absoluteSpatialPosition",
+                        "http://www.w3.org/ns/odrl/2/absoluteTemporalPosition",
+                        "http://www.w3.org/ns/odrl/2/count",
+                        "http://www.w3.org/ns/odrl/2/dateTime",
+                        "http://www.w3.org/ns/odrl/2/delayPeriod",
+                        "http://www.w3.org/ns/odrl/2/deliveryChannel",
+                        "http://www.w3.org/ns/odrl/2/device",
+                        "http://www.w3.org/ns/odrl/2/elapsedTime",
+                        "http://www.w3.org/ns/odrl/2/event",
+                        "http://www.w3.org/ns/odrl/2/fileFormat",
+                        "http://www.w3.org/ns/odrl/2/industry",
+                        "http://www.w3.org/ns/odrl/2/language",
+                        "http://www.w3.org/ns/odrl/2/media",
+                        "http://www.w3.org/ns/odrl/2/meteredTime",
+                        "http://www.w3.org/ns/odrl/2/payAmount",
+                        "http://www.w3.org/ns/odrl/2/percentage",
+                        "http://www.w3.org/ns/odrl/2/product",
+                        "http://www.w3.org/ns/odrl/2/purpose",
+                        "http://www.w3.org/ns/odrl/2/recipient",
+                        "http://www.w3.org/ns/odrl/2/relativePosition",
+                        "http://www.w3.org/ns/odrl/2/relativeSize",
+                        "http://www.w3.org/ns/odrl/2/relativeSpatialPosition",
+                        "http://www.w3.org/ns/odrl/2/relativeTemporalPosition",
+                        "http://www.w3.org/ns/odrl/2/resolution",
+                        "http://www.w3.org/ns/odrl/2/spatial",
+                        "http://www.w3.org/ns/odrl/2/spatialCoordinates",
+                        "http://www.w3.org/ns/odrl/2/system",
+                        "http://www.w3.org/ns/odrl/2/systemDevice",
+                        "http://www.w3.org/ns/odrl/2/timeInterval",
+                        "http://www.w3.org/ns/odrl/2/unitOfCount",
+                        "http://www.w3.org/ns/odrl/2/version",
+                        "http://www.w3.org/ns/odrl/2/virtualLocation"
+                    ]
+                }
+            }
+        },
+        "Reference": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id"
+            ]
+        }
+    }
+}
