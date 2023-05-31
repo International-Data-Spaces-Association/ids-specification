@@ -13,67 +13,71 @@
             "type": "object",
             "allOf": [
                 {
-                    "ref": "definitions/DataSet"
+                    "$ref": "#/definitions/Dataset"
                 },
                 {
-                    "ref": "definitions/Resource"
+                    "$ref": "#/definitions/Resource"
                 },
                 {
                     "properties": {
                         "@context": {
                             "type": "string",
-                            "const": "https://w3id.org/dspace/v0.8/context.json",
-                            "required": true
+                            "const": "https://w3id.org/dspace/v0.8/context.json"
                         },
                         "@type": {
                             "type": "string",
-                            "const": "dcat:Catalog",
-                            "required": true
-                        },
-                        "dcat:catalog": {
-                            "type": "array",
-                            "items": {
-                                "ref": "definitions/Catalog"
-                            },
-                            "minItems": 1
+                            "const": "dcat:Catalog"
                         },
                         "dcat:dataset": {
                             "type": "array",
                             "items": {
-                                "ref": "definitions/Dataset"
+                                "$ref": "#/definitions/Dataset"
                             },
                             "minItems": 1
                         },
                         "dcat:record": {
-                            "ref": "definitions/CatalogRecord"
+                            "$ref": "#/definitions/CatalogRecord"
                         },
                         "dcat:service": {
                             "type": "array",
                             "items": {
-                                "ref": "definitions/DataService"
+                                "$ref": "#/definitions/DataService"
                             },
                             "minItems": 1
                         },
                         "dcat:themeTaxonomy": {
-                            "ref": "definitions/Reference"
+                            "$ref": "#/definitions/Reference"
                         },
                         "dct:hasPart": {
                             "type": "array",
                             "items": {
-                                "ref": "definitions/Resource"
+                                "$ref": "#/definitions/ResourceChoice"
                             },
                             "minItems": 1
                         },
                         "foaf:homepage": {
-                            "ref": "definitions/Reference"
+                            "$ref": "#/definitions/Reference"
                         }
                     }
                 }
             ],
             "required": [
                 "@context",
-                "@type",
-                "dct:hasPart"
+                "@type"
+            ],
+            "additionalProperties": false
+        },
+        "ResourceChoice": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Catalog"
+                },
+                {
+                    "$ref": "#/definitions/Dataset"
+                },
+                {
+                    "$ref": "#/definitions/DataService"
+                }
             ]
         },
         "CatalogRecord": {
@@ -87,12 +91,12 @@
                     "const": "dcat:CatalogRecord"
                 },
                 "dct:conformsTo": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:description": {
                     "type": "array",
                     "items": {
-                        "ref": "definitions/Multilanguage"
+                        "$ref": "#/definitions/Multilanguage"
                     }
                 },
                 "dct:issued": {
@@ -115,7 +119,7 @@
                     "type": "string"
                 },
                 "foaf:primaryTopic": {
-                    "ref": "definitions/Resource"
+                    "$ref": "#/definitions/Resource"
                 }
             }
         },
@@ -123,73 +127,70 @@
             "type": "object",
             "properties": {
                 "dcat:contractPoint": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:keyword": {
                     "type": "array",
                     "items": {
-                        "ref": "definitions/Multilanguage"
+                        "$ref": "#/definitions/Multilanguage"
                     }
                 },
                 "dcat:landingPage": {
-                    "ref": "definitions/Reference"
-                },
-                "dcat:qualifiedRelation": {
-                    "ref": "definitions/Relationship"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:theme": {
                     "type": "array",
                     "items": {
-                        "ref": "definitions/Reference"
+                        "$ref": "#/definitions/Reference"
                     },
                     "minItems": 1
                 },
                 "dct:conformsTo": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:creator": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:description": {
                     "type": "array",
                     "items": {
-                        "ref": "definitions/Multilanguage"
+                        "$ref": "#/definitions/Multilanguage"
                     }
                 },
                 "dct:identifier": {
                     "type": "string"
                 },
                 "dct:isReferencedBy": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:issued": {
-                    "ref": "definitions/time"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:language": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:license": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:modified": {
-                    "ref": "definitions/time"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:publisher": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:relation": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:title": {
                     "type": "string"
                 },
                 "dct:type": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "odrl:hasPolicy": {
                     "type": "array",
                     "items": {
-                        "ref": "../../../negotiation/message/schema/contract-schema.json#/definitions/Policy"
+                        "$ref": "../../../negotiation/message/schema/contract-schema.json#/definitions/Policy"
                     }
                 }
             }
@@ -198,34 +199,34 @@
             "type": "object",
             "allOf": [
                 {
-                    "ref": "definitions/Resource"
+                    "$ref": "#/definitions/Resource"
                 },
                 {
                     "properties": {
                         "dcat:distribution": {
                             "type": "array",
                             "items": {
-                                "ref": "definitions/Distribution"
+                                "$ref": "#/definitions/Distribution"
                             },
                             "minItems": 1
                         },
                         "dcat:spatialResolutionInMeters": {
-                            "ref": "definitions/Reference"
+                            "$ref": "#/definitions/Reference"
                         },
                         "dcat:temporalResolution": {
-                            "ref": "definitions/duration"
+                            "$ref": "#/definitions/duration"
                         },
                         "dct:accrualPeriodicity": {
-                            "ref": "definitions/Reference"
+                            "$ref": "#/definitions/Reference"
                         },
                         "dct:spatial": {
-                            "ref": "definitions/Reference"
+                            "$ref": "#/definitions/Reference"
                         },
                         "dct:temporal": {
-                            "ref": "definitions/Reference"
+                            "$ref": "#/definitions/Reference"
                         },
                         "prov:wasGeneratedBy": {
-                            "ref": "definitions/Reference"
+                            "$ref": "#/definitions/Reference"
                         }
                     }
                 }
@@ -235,15 +236,15 @@
             "type": "object",
             "properties": {
                 "dcat:endpointDescription": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:endpointURL": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:servesDataset": {
                     "type": "array",
                     "items": {
-                        "ref": "definitions/Dataset"
+                        "$ref": "#/definitions/Dataset"
                     },
                     "minItems": 1
                 }
@@ -255,51 +256,51 @@
                 "dcat:accessService": {
                     "type": "array",
                     "items": {
-                        "ref": "definitions/DataService"
+                        "$ref": "#/definitions/DataService"
                     },
                     "minItems": 1
                 },
                 "dcat:accessURL": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:byteSize": {
-                    "ref": "definitions/decimal"
+                    "$ref": "#/definitions/decimal"
                 },
                 "dcat:compressFormat": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:downloadURL": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:mediaType": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:packageFormat": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dcat:spatialResolutionInMeters": {
-                    "ref": "definitions/decimal"
+                    "$ref": "#/definitions/decimal"
                 },
                 "dcat:temporalResolution": {
-                    "ref": "definitions/duration"
+                    "$ref": "#/definitions/duration"
                 },
                 "dct:conformsTo": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:description": {
                     "type": "array",
                     "items": {
-                        "ref": "definitions/Multilanguage"
+                        "$ref": "#/definitions/Multilanguage"
                     }
                 },
                 "dct:format": {
-                    "ref": "definitions/Reference"
+                    "$ref": "#/definitions/Reference"
                 },
                 "dct:issued": {
-                    "ref": "definitions/time"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:modified": {
-                    "ref": "definitions/time"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:title": {
                     "type": "string"
@@ -307,67 +308,72 @@
                 "odrl:hasPolicy": {
                     "type": "array",
                     "items": {
-                        "ref": "../../../negotiation/message/schema/contract-schema.json#/definitions/Policy"
+                        "$ref": "../../../negotiation/message/schema/contract-schema.json#/definitions/Policy"
                     }
                 }
             }
-        }
-    },
-    "time": {
-        "type": "object",
-        "properties": {
-            "@type": {
-                "type": "string",
-                "const": "xsd:date"
+        },
+        "time": {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "string",
+                    "const": "xsd:date"
+                },
+                "@value": {
+                    "type": "string",
+                    "pattern": "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+                }
             },
-            "@value": {
-                "type": "string",
-                "pattern": "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
-            }
-        }
-    },
-    "duration": {
-        "type": "object",
-        "properties": {
-            "@type": {
-                "type": "string",
-                "const": "xsd:duration"
+            "required": ["@value", "@type"]
+        },
+        "duration": {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "string",
+                    "const": "xsd:duration"
+                },
+                "@value": {
+                    "type": "string",
+                    "pattern": "^(-?)P(?=.)((\\d+)Y)?((\\d+)M)?((\\d+)D)?(T(?=.)((\\d+)H)?((\\d+)M)?(\\d*(\\.\\d+)?S)?)?$"
+                }
             },
-            "@value": {
-                "type": "string",
-                "pattern": "^(-?)P(?=.)((\\d+)Y)?((\\d+)M)?((\\d+)D)?(T(?=.)((\\d+)H)?((\\d+)M)?(\\d*(\\.\\d+)?S)?)?$"
-            }
-        }
-    },
-    "decimal": {
-        "type": "object",
-        "properties": {
-            "@type": {
-                "type": "string",
-                "const": "xsd:decimal"
+            "required": ["@value", "@type"]
+        },
+        "decimal": {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "string",
+                    "const": "xsd:decimal"
+                },
+                "@value": {
+                    "type": "string"
+                }
             },
-            "@value": {
-                "type": "string"
-            }
-        }
-    },
-    "Reference": {
-        "type": "object",
-        "properties": {
-            "@id": {
-                "type": "string"
-            }
-        }
-    },
-    "Multilanguage": {
-        "type": "object",
-        "properties": {
-            "@value": {
-                "type": "string"
+            "required": ["@value", "@type"]
+        },
+        "Reference": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                }
             },
-            "@language": {
-                "type": "string"
-            }
+            "required": ["@id"]
+        },
+        "Multilanguage": {
+            "type": "object",
+            "properties": {
+                "@value": {
+                    "type": "string"
+                },
+                "@language": {
+                    "type": "string"
+                }
+            },
+            "required": ["@value", "@language"]
         }
     }
 }
