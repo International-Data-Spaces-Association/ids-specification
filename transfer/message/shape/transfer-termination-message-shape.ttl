@@ -32,12 +32,12 @@ shapes:TransferTerminationMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path dspace:correlationId ;
+		sh:path dspace:processId ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferTerminationMessageShape): An dspace:correlationId property must point from an dspace:TransferTerminationMessage to exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferTerminationMessageShape): An dspace:processId property must point from an dspace:TransferTerminationMessage to exactly one xsd:string field."@en ;
 	] ;
 
 	sh:property [
@@ -45,7 +45,7 @@ shapes:TransferTerminationMessageShape
 		sh:path dspace:code ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
-		sh:minCount 1 ;
+		sh:minCount 0 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferTerminationMessageShape): An dspace:code property must point from an dspace:TransferTerminationMessage to exactly one entity."@en ;
 	] ;

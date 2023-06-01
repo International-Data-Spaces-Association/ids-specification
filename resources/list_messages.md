@@ -2,7 +2,7 @@
 
 ## Catalog
 * [Catalog (json)](./../catalog/message/catalog.json)
-* [Catalog error message (json)](./../catalog/message/catalog-error-message.json)
+* [Catalog error message (json)](./../catalog/message/catalog-error.json)
 * [Catalog request message (json)](./../catalog/message/catalog-request-message.json)
 * [Dataset (json)](./../catalog/message/dataset.json)
 * [Dataset request message (json)](./../catalog/message/dataset-request-message.json)

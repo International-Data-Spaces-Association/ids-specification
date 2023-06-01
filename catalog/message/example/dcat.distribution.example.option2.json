@@ -27,7 +27,8 @@
         "dspace:transportType": {
             "@id": "dspace:HTTP_REST"
         },
-        "odrl:hasPolicy": {
+        "odrl:hasPolicy": [
+          {
             "@type": "odrl:Offer",
             "@id": "https://provider.com/edc/offer/1",
             "odrl:permission": [ {
@@ -59,7 +60,8 @@
             "odrl:prohibition": [ {
                 "odrl:action": {"@id": "odrl:distribute"}
             } ]
-        },
+          }
+        ],
         "dcat:accessService": [ {
             "@type": [ "dcat:DataService", "dspace:NEGOTIATION_SERVICE" ],
             "dcat:endpointURL": {
@@ -84,7 +86,8 @@
         "dspace:transportType": {
             "@id": "dspace:S3"
         },
-        "odrl:hasPolicy": {
+        "odrl:hasPolicy": [
+          {
             "@type": "odrl:Offer",
             "@id": "https://provider.com/edc/offer/1",
             "odrl:permission": [ {
@@ -116,7 +119,8 @@
             "odrl:prohibition": [ {
                 "odrl:action": {"@id": "odrl:distribute"}
             } ]
-        },
+          }
+        ],
         "dcat:accessService": [ {
             "@type": [ "dcat:DataService", "dspace:NEGOTIATION_SERVICE" ],
             "dcat:endpointURL": {

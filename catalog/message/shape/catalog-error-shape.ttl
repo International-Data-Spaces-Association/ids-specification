@@ -25,9 +25,9 @@ shapes:
 	] ;
 .
 
-shapes:CatalogErrorMessageShape
+shapes:CatalogErrorShape
 	a sh:NodeShape ;
-	sh:targetClass dspace:CatalogErrorMessage ;
+	sh:targetClass dspace:CatalogError ;
 
 
 .

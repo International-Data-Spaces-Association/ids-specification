@@ -49,14 +49,4 @@ shapes:ContractOfferMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-offer-message-shape.ttl> (ContractOfferMessageShape): A dspace:callbackAddress property must point to exactly one xsd:string value."@en ;
 	] ;
-
-	sh:property [
-		a sh:PropertyShape ;
-		sh:path dspace:checksum ;
-		sh:datatype xsd:string ;
-		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-offer-message-shape.ttl> (ContractOfferMessageShape): A dspace:checksum property must point to exactly one xsd:string value."@en ;
-	] ;
 .

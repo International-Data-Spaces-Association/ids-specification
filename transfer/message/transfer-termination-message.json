@@ -3,7 +3,6 @@
   "@id": "urn:uuid:6b9dd9cc-f60c-4253-b031-86755cf25720",
   "@type": "dspace:TransferTerminationMessage",
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "dspace:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "dspace:code": "...",
   "dspace:reason": [
     {},

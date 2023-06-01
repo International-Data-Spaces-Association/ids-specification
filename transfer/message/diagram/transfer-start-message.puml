@@ -10,7 +10,6 @@ class "dspace:TransferStartMessage" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:TransferStartMessage"
     dspace:processId : String
-    dspace:correlationId : String
     dspace:dataAddress : String
 }
 

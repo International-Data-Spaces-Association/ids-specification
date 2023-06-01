@@ -22,7 +22,7 @@
 					"const": "dspace:TransferProcess",
 					"required": true
 				},
-				"dspace:correlationId": {
+				"dspace:processId": {
 					"type": "string",
 					"required": true
 				},

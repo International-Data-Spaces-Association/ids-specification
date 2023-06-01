@@ -26,13 +26,9 @@
 					"type": "string",
 					"required": true
 				},
-				"dspace:correlationId": {
-					"type": "string",
-					"required": true
-				},
 				"dspace:code": {
 					"type": "string",
-					"required": true
+					"required": false
 				},
 				"dspace:reason": {
 					"type": "array",

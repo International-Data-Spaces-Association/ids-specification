@@ -59,17 +59,17 @@ be defined in the relevant catalog binding specification.
 The catalog contains all [Asset Entries](#31-asset-entry) which the requester shall see.
 
 
-### 2.3 CatalogErrorMessage
+### 2.3 CatalogError
 
-![](./message/diagram/catalog-error-message.png)
+![](./message/diagram/catalog-error.png)
 
 **Sent by**: Consumer or Provider
 
-**Example**: [CatalogErrorMessage](./message/catalog-error-message.json)
+**Example**: [CatalogError](./message/catalog-error.json)
 
 **Response**: OK or ERROR
 
-**Schema**: [CatalogErrorMessageShape](./message/shape/catalog-error-message-shape.ttl) and the [CatalogErrorMessage JSON Schema](./message/schema/catalog-error-message-schema.json)
+**Schema**: [CatalogErrorShape](./message/shape/catalog-error-shape.ttl) and the [CatalogError JSON Schema](./message/schema/catalog-error-schema.json)
 
 #### Description
 
@@ -108,7 +108,7 @@ An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:D
 An asset entry Dataset must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
 target attributes. The target of an offer is the asset associated with the containing asset entry.
 
-> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`
+> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`, each `Asset Entry` is also an `odrl:Asset` from an ODRL perspective.
 
 ### 3.2 Distributions
 

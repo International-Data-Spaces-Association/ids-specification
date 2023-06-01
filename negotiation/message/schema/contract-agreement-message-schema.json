@@ -28,7 +28,42 @@
 				},
 				"odrl:agreement": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/AgreementSchema#definitions/Agreement",
-					"required": true
+					"type": "object",
+					"required": true,
+					"properties": {
+						"@type": {
+							"type": "string",
+							"required": true
+						},
+						"@id": {
+							"type": "string",
+							"required": true
+						},
+						"dspace:timestamp": {
+							"type": "object",
+							"required": true,
+							"properties": {
+								"@value": {
+									"type": "string",
+									"format": "date-time",
+									"required": true
+								},
+								"@type": {
+									"type": "string",
+									"const": "xsd:dateTime",
+									"required": true
+								}
+							}
+						},
+						"dspace:consumerId": {
+							"type": "string",
+							"required": true
+						},
+						"dspace:providerId": {
+							"type": "string",
+							"required": true
+						}
+					}
 				}
 			}
 		}

@@ -46,8 +46,6 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 ### Notes
 
 - Concrete wire formats are defined by the protocol binding, e.g. HTTPS.
-- The `OK` and `ERROR` response message types are mapped onto a protocol such as HTTPS. A description of an error might be provided in protocol-dependent forms, e.g. for an HTTPS
-  binding in the request or response body.
 - All policy types (Offer, Agreement) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
   pattern <urn:uuid:{GUID}>.
 - An ODRL Agreement must have a target property containing the asset id.
@@ -62,8 +60,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 **Example**: [ContractRequestMessage](./message/contract-request-message.json)
 
-**Response**: [ContractNegotiation](./message/contract-negotiation.json) containing the negotiation id or ERROR:
-![](./message/diagram/contract-negotiation.png)
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [ContractRequestMessageShape](./message/shape/contract-request-message-shape.ttl), [ContractRequestMessage JSON Schema](./message/schema/contract-request-message-schema.json), [ContractNegotiationShape](./message/shape/contract-negotiation-shape.ttl) and [ContractNegotiation JSON Schema](./message/schema/contract-negotiation-schema.json)
 
@@ -95,7 +92,7 @@ The `ContractRequestMessage` is sent by a consumer to initiate a contract negoti
 
 **Example**: [ContractOfferMessage](./message/contract-offer-message.json)
 
-**Response**: `ContractNegotiation` (see [Section ContractRequestMessage](#1-contractrequestmessage)) containing the negotiation id or ERROR
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [ContractOfferMessageShape](./message/shape/contract-offer-message-shape.ttl) and [ContractOfferMessage JSON Schema](./message/schema/contract-offer-message-schema.json)
 
@@ -114,7 +111,7 @@ The `ContractOfferMessage` is sent by a provider to initiate a contract negotiat
 
 **Example**: [ContractAgreementMessage](./message/contract-agreement-message.json)
 
-**Response**: OK or ERROR
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [ContractAgreementMessageShape](./message/shape/contract-agreement-message-shape.ttl) and [ContractAgreementMessage JSON Schema](./message/schema/contract-agreement-message-schema.json)
 
@@ -125,6 +122,13 @@ The `ContractAgreementMessage` is sent by a provider when it agrees to a contrac
 A `ContractAgreementMessage` must contain a `processId`.
 
 A `ContractAgreementMessage` must contain an ODRL `Agreement`.
+
+An `Agreement` must contain a `dspace:timestamp` property defined as an XSD DateTime type.  
+
+An `Agreement` must contain a `dspace:consumerId` and `dspace:providerId`. The contents of these
+properties are a dataspace-specific unique identifier of the contract agreement parties. Note that these
+identifiers are not necessarily the same as the identifiers of the participant agents negotiating the
+contract (i.e. the "connectors").
 
 ### 4. ContractAgreementVerificationMessage
 
@@ -137,7 +141,7 @@ A `ContractAgreementMessage` must contain an ODRL `Agreement`.
 
 **Example**: [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json)
 
-**Response**: OK or ERROR
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [ContractAgreementVerificationMessageShape](./message/shape/contract-agreement-verification-message-shape.ttl) and the [ContractAgreementVerificationMessage JSON Schema](./message/schema/contract-agreement-verification-message-schema.json)
 
@@ -159,7 +163,7 @@ A `ContractAgreementVerificationMessage` must contain a `processId`.
 
 **Example**: [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json)
 
-**Response**: OK or ERROR
+**Response**: [ACK or ERROR.](#response-types)
 
 **Schema**: [ContractNegotiationEventMessageShape](./message/shape/contract-negotiation-event-message-shape.ttl) and the [ContractNegotiationEventMessage JSON Schema](./message/schema/contract-negotiation-event-message-schema.json)
 
@@ -188,6 +192,8 @@ provider to send a contract negotiation event after the negotiation state machin
 
 **Example**: [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json)
 
+**Response**: [ACK or ERROR.](#response-types)
+
 **Schema**: [ContractNegotiationTerminationMessageShape](./message/shape/contract-negotiation-termination-message-shape.ttl) and the [ContractNegotiationTerminationMessage JSON Schema](./message/schema/contract-negotiation-termination-message-schema.json)
 
 #### Description
@@ -202,7 +208,29 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 
 - If an error is received in response to a `ContractNegotiationTerminationMessage`, the sending party may choose to ignore the error.
 
-## ContractNegotiationError
+## Response Types
+
+### Notes
+
+- The `ACK` and `ERROR` response message types are mapped onto a protocol such as HTTPS. A description of an error might be provided in protocol-dependent forms, e.g. for an HTTPS
+  binding in the request or response body.
+
+### ACK - ContractNegotiation
+
+![](./message/diagram/contract-negotiation.png)
+
+**Sent by**: Consumer or Provider
+
+**Example**: [ContractNegotiation](./message/contract-negotiation.json)
+
+**Schema**: [ContractNegotiationShape](./message/shape/contract-negotiation-shape.ttl) and the [ContractNegotiationErrorMessage JSON Schema](./message/schema/contract-negotiation-schema.json)
+
+#### Description
+
+The `ContractNegotiation` is an object returned by a consumer or provider indicating a
+successful state change happened.
+
+### ERROR - ContractNegotiationError
 
 ![](./message/diagram/contract-negotiation-error.png)
 
@@ -215,11 +243,6 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 #### Description
 
 The `ContractNegotiationError` is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
-
-#### Notes
-
-- A `ContractNegotiationError` is different to an error response. A `ContractNegotiationError` does not necessarily finish the negotiation but can continue
-  afterwards.
 
 ## Hash and Signature Calculations
 
@@ -237,14 +260,3 @@ Hash and Signatures are calculated as defined in the [[JWS/CT]](#references) of 
 - Combines the detached mode of JWS with the JSON Canonicalization Scheme (JCS). Detached mode is when the payload section of the JWS is replaced
   by an empty string: `XXXX.PAYLOAD.YYYY` becomes `XXXX..YYYY`. Detached mode is described in the JWS spec.
 - Maintains Signed JSON data in JSON format.
-
-
-
-
-
-
-
-
-
-
-
