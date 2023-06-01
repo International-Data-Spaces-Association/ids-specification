@@ -78,8 +78,8 @@ described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ### 3.1 Authorization
 
-A catalog service may require authorization. If the catalog service requires authorization, requests must include an HTTP `Authorization` header with a token. The contents of  
-the token are undefined by may be an OAUTH2, Web DID, or other access token type.
+A catalog service may require authorization. If the catalog service requires authorization, requests must include an HTTP `Authorization` header with a token. The semantics of
+such tokens are not part of this specification.
 
 ### 3.2 Versioning
 
