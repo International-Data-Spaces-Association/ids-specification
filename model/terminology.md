@@ -28,7 +28,7 @@ A `CredentialIssuer` is a trusted technology system that issues verifiable crede
 
 ## Observability, Traceability and Audit Logging
 
-`Observability, Traceability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a `Data Space` can be a requirement.
+`Observability, Traceability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a `Dataspace` can be a requirement.
 If a  trusted technology system is required that records and verifies those domain events. This is not in the scope of the current version of the document and is subject of future work.
 
 ## DataspaceRegistrationService
