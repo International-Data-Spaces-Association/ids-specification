@@ -37,7 +37,7 @@ Authorization: ...
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:CatalogRequest"
+  "@type": "dspace:CatalogRequest",
   "dspace:filter": {}
 }
 ```
