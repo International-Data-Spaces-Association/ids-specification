@@ -210,7 +210,7 @@ Authorization: ...
 }
 ```
 
-If the message is successfully processed, consumer provider connector must return and HTTP 200 (OK) response. The response body is not specified and clients are not required to
+If the message is successfully processed, the consumer provider connector must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to
 process it.
 
 ### 3.3 The consumer `negotiations/:id/agreement` resource
