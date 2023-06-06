@@ -46,8 +46,8 @@ elements of the model, i.e. those that are represented in protocol message flows
 A `Catalog` is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following attributes:
 
 - 0..N  `Asset Entries`. Since a catalog may be dynamically generated for a request based on the requesting participant's credentials it is possible for it to contain 0 matching
-  asset entries.  (DCAT PROFILE)
-- 1.N [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where assets may be obtained.  (DCAT PROFILE)
+  asset entries. (DCAT PROFILE)
+- 1..N [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where assets may be obtained. (DCAT PROFILE)
 
 ### 2.2.2 Asset Entry
 
