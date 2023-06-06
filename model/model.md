@@ -12,9 +12,9 @@ The relationships between the primary dataspace entities are defined as follows:
 
 Note that all relationships are multiplicities unless specified.
 
-- A `Dataspace Authority` manges one or more `Dataspaces`. This will include participant registration and may entail mandating business and/or requirements. For example, a
+- A `Dataspace Authority` manages one or more `Dataspaces`. This will include participant registration and may entails mandating business and/or requirements. For example, a
   Dataspace Authority may require participants to obtain some form of business certification. A Dataspace authority may also impose technical requirements such as support for the
-  technical enforcements of specific usage policies.
+  technical enforcement of specific usage policies.
 - A `Participant` is a member of one or more `Dataspaces`. A participant registers `Participant Agents` that perform tasks on its behalf.
 - A `Participant Agent` performs tasks such as publishing a catalog or engaging in an asset transfer. In order to accomplish these tasks, a participant agent may
   use a _**verifiable presentation**_ generated from a _**credential**_ obtained from a third-party issuer. A participant agent may also use an _**ID token**_ issued by a
