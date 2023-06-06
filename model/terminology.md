@@ -26,9 +26,9 @@ An `IdentityProvider` is a trusted technology system that creates, maintains, an
 
 A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a `Participant` and `ParticipantAgents`.
 
-## Observability, Tracability and Audit Logging
+## Observability, Traceability and Audit Logging
 
-`Observability, Tracability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a `Data Space` can be a requirement.
+`Observability, Traceability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a `Data Space` can be a requirement.
 If a  trusted technology system is required that records and verifies those domain events. This is not in the scope of the current version of the document and is subject of future work.
 
 ## DataspaceRegistrationService
@@ -57,11 +57,11 @@ A collection of entries representing `Assets` and their `Offers` that is adverti
 
 ## CatalogService
 
-A `PariticipantAgent` that makes a `Catalog` accessible to `Participants`.
+A `ParticipantAgent` that makes a `Catalog` accessible to `Participants`.
 
 ## Connector (DataService)
 
-A `PariticipantAgent` that produces `Agreements` and manages `Asset` sharing.
+A `ParticipantAgent` that produces `Agreements` and manages `Asset` sharing.
 
 ## Contract Negotiation
 
