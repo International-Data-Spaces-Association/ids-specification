@@ -173,7 +173,7 @@ When the `ContractNegotiationEventMessage` is sent by a provider with an `eventT
 is accessible. The state machine is transitioned to the `FINALIZED` state. Other event types may be defined in the future. A consumer responds with an error if the signature
 can't be validated or is incorrect.
 
-It is an error for a consumer to send a `ContractNegotiationEventMessage` with an eventType `finalized` to the provider.
+It is an error for a consumer to send a `ContractNegotiationEventMessage` with an eventType `FINALIZED` to the provider.
 
 When the `ContractNegotiationEventMessage` is sent by a consumer with an `eventType` set to  `ACCEPTED`, the state machine is placed in the `ACCEPTED` state.
 

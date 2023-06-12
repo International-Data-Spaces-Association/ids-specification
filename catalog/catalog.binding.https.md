@@ -37,7 +37,7 @@ Authorization: ...
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:CatalogRequest"
+  "@type": "dspace:CatalogRequest",
   "dspace:filter": {}
 }
 ```
@@ -132,7 +132,7 @@ the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gz
 
 ### 4.1 Asynchronous Interactions
 
-We may want to specify optional support for asynchronous callbacks for the catalog response. This would require addling a `callbackAddress` property and an `@id` to the request:
+We may want to specify optional support for asynchronous callbacks for the catalog response. This would require adding a `callbackAddress` property and an `@id` to the request:
 
 ```
 POST https://provider.com/catalog/request
