@@ -62,6 +62,7 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 Predefined states are: `REQUESTED`, `OFFERED`, `ACCEPTED`, `AGREED`, `VERIFIED`, `FINALIZED`, and `TERMINATED`.
 
 If the client is not authorized, the provider connector must return an HTTP 401 (Unauthorized) response.
+
 If the negotiation does not exist, the provider connector must return an HTTP 404 (Not Found) response.
 
 ### 2.5 The provider `negotiations/request` resource
