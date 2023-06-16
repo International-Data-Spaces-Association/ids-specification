@@ -20,35 +20,21 @@ end box
 activate ControlPlane1
 activate ControlPlane2
 
-ControlPlane1 -> DataPlane1 : provideResources
-activate DataPlane1
-DataPlane1 --> ControlPlane1 : OK
-
 ControlPlane1 -> ControlPlane2 : TransferRequestMessage
-ControlPlane2 --> ControlPlane1 : OK
+ControlPlane2 --> ControlPlane1 : ACK
 
-ControlPlane2 -> DataPlane2 : provideResources
+ControlPlane2 -> ControlPlane1 : TransferStartMessage(dataAddress)
+ControlPlane1 --> ControlPlane2 : ACK
+
+activate DataPlane1
+DataPlane1 -> DataPlane2 : pullData
 activate DataPlane2
-DataPlane2 --> ControlPlane2 : OK
-
-ControlPlane2 -> ControlPlane1 : TransferStartMessage(dataAddress,accessData)
-ControlPlane1 --> ControlPlane2 : OK
-
-ControlPlane1 -> DataPlane1 : startTransfer(dataAddress,accessData)
-DataPlane1 -> DataPlane2 : pullData(accessData)
-DataPlane2 --> DataPlane1 : DATA
-DataPlane1 --> ControlPlane1 : SUCCESS
+DataPlane2 --> DataPlane1 : data
+deactivate DataPlane2
+deactivate DataPlane1
 
 ControlPlane1 -> ControlPlane2 : TransferCompletionMessage
-ControlPlane2 --> ControlPlane1 : OK
-
-ControlPlane2 -> DataPlane2 : removeResources
-DataPlane2 --> ControlPlane2 : OK
-deactivate DataPlane2
-
-ControlPlane1 -> DataPlane1 : removeResources
-DataPlane1 --> ControlPlane1 : OK
-deactivate DataPlane1
+ControlPlane2 --> ControlPlane1 : ACK
 
 deactivate ControlPlane1
 deactivate ControlPlane2
