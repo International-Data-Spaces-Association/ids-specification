@@ -33,8 +33,8 @@ an HTTP code 400 (Bad Request) with an `TransferError` in the response body.
 
 ### 2.3 Authorization
 
-All requests should use the `Authorizartion` header to include authorization data as specified by an authorization protocol such as [OAuth2](https://www.rfc-editor.org/rfc/rfc6749)
-. The `Authorization` HTTP header is optional if the connector does not require authorization. This specification does not mandate the use of a particular authorization standard.
+All requests should use the `Authorizartion` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP
+header is optional if the connector does not require authorization.
 
 ### 2.4 The provider `transfers` resource
 
