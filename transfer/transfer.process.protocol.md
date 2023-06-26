@@ -37,14 +37,14 @@ Asset transfers are characterized as `push` or `pull` transfers and asset data i
 A push transfer is when the provider data plane initiates sending of asset data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
 provider begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
 
-<< TODO: Include example diagram >>
+![](./push-transfer-process.png)
 
 #### Pull Transfer
 
 A pull transfer is when the consumer data plane initiates retrieval of asset data from a provider endpoint. For example, after the provider has issued an `TransferProcessStart,`
 message, the consumer can request the data from the provider-specified endpoint.
 
-<< TODO: Include example diagram >>
+![](./pull-transfer-process.png)
 
 #### Finite and Non-Finite Asset Data
 
