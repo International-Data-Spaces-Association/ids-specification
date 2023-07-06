@@ -33,7 +33,7 @@ an HTTP code 400 (Bad Request) with an `TransferError` in the response body.
 
 ### 2.3 Authorization
 
-All requests should use the `Authorizartion` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP
+All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP
 header is optional if the connector does not require authorization.
 
 ### 2.4 The provider `transfers` resource
