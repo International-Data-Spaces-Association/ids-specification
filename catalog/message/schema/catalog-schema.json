@@ -16,9 +16,6 @@
                     "$ref": "#/definitions/Dataset"
                 },
                 {
-                    "$ref": "#/definitions/Resource"
-                },
-                {
                     "properties": {
                         "@context": {
                             "type": "string",
@@ -100,20 +97,10 @@
                     }
                 },
                 "dct:issued": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
+                    "$ref": "#/definitions/Multilanguage"
                 },
                 "dct:modified": {
-                    "type": "object",
-                    "properties": {
-                        "@id": {
-                            "type": "string"
-                        }
-                    }
+                    "$ref": "#/definitions/Multilanguage"
                 },
                 "dct:title": {
                     "type": "string"
@@ -210,24 +197,6 @@
                                 "$ref": "#/definitions/Distribution"
                             },
                             "minItems": 1
-                        },
-                        "dcat:spatialResolutionInMeters": {
-                            "$ref": "#/definitions/Reference"
-                        },
-                        "dcat:temporalResolution": {
-                            "$ref": "#/definitions/duration"
-                        },
-                        "dct:accrualPeriodicity": {
-                            "$ref": "#/definitions/Reference"
-                        },
-                        "dct:spatial": {
-                            "$ref": "#/definitions/Reference"
-                        },
-                        "dct:temporal": {
-                            "$ref": "#/definitions/Reference"
-                        },
-                        "prov:wasGeneratedBy": {
-                            "$ref": "#/definitions/Reference"
                         }
                     }
                 }
@@ -235,21 +204,28 @@
         },
         "DataService": {
             "type": "object",
-            "properties": {
-                "dcat:endpointDescription": {
-                    "$ref": "#/definitions/Reference"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
                 },
-                "dcat:endpointURL": {
-                    "$ref": "#/definitions/Reference"
-                },
-                "dcat:servesDataset": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Dataset"
-                    },
-                    "minItems": 1
+                {
+                    "properties": {
+                        "dcat:endpointDescription": {
+                            "$ref": "#/definitions/Reference"
+                        },
+                        "dcat:endpointURL": {
+                            "$ref": "#/definitions/Reference"
+                        },
+                        "dcat:servesDataset": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Dataset"
+                            },
+                            "minItems": 1
+                        }
+                    }
                 }
-            }
+            ]
         },
         "Distribution": {
             "type": "object",
