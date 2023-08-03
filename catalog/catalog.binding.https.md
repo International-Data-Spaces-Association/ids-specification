@@ -60,7 +60,7 @@ described by the [Catalog Protocol Specification](catalog.protocol.md).
 The [DatasetRequestMessage](catalog.protocol.md#24-datasetrequestmessage) corresponds to `GET https://<base>/catalog/datasets/{id}}`:
 
 ```
-GET https://provider.com/datasets/{id}
+GET https://provider.com/catalog/datasets/{id}
 
 Authorization: ...
 
