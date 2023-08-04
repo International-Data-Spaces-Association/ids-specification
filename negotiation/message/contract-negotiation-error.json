@@ -1,14 +1,22 @@
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json",
   "@type": "dspace:ContractNegotiationError",
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:code": "...",
   "dspace:reason": [
-    { "@value": "Catalog not provisioned for this requester.", "@language": "en" },
-    { "some": "other reason"}
+    { 
+      "@value": "Catalog not provisioned for this requester.", 
+      "@language": "en"
+    }
   ],
   "dct:description": [
-    { "@language": "en", "@value": "The parsing of the input parameters failed." },
-    { "@language": "de", "@value": "Das Lesen der Eingabeparameter schlug fehl." }
+    { 
+      "@language": "en", 
+      "@value": "The parsing of the input parameters failed."
+    },
+    {
+      "@language": "de",
+      "@value": "Das Lesen der Eingabeparameter schlug fehl."
+    }
   ]
 }
