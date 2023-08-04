@@ -20,10 +20,10 @@ the counter-party. Both parties have the same state of the CN. In case the state
 
 The CN states are:
 
-- **REQUESTED** - A contract for an asset has been requested by the consumer based on an offer and the provider has sent an ACK response.
+- **REQUESTED** - A contract for an asset has been requested by the consumer and the provider has sent an ACK response.
 - **OFFERED** - The provider has sent a contract offer to the consumer and the consumer has sent an ACK response.
 - **ACCEPTED** - The consumer has accepted the latest contract offer and the provider has sent an ACK response.
-- **AGREED** - The provider has accepted the latest contract offer, sent an agreement to the consumer, and the consumer has sent an ACK response.
+- **AGREED** - The provider has sent an agreement to the consumer, and the consumer has sent an ACK response.
 - **VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
 - **FINALIZED** - The provider has sent a finalization message including his own agreement verification to the consumer and the consumer has sent an ACK response. Data is
   now available to the consumer.
