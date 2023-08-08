@@ -37,7 +37,7 @@ Authorization: ...
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:CatalogRequest",
+  "@type": "dspace:CatalogRequestMessage",
   "dspace:filter": {}
 }
 ```
@@ -141,7 +141,7 @@ Authorization: ...
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:CatalogRequest"
+  "@type": "dspace:CatalogRequestMessage"
   "@id: "..."
   "dspace:callbackAddress": "https://example.com/endpoint"
 }
