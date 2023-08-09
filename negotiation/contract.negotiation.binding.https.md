@@ -191,21 +191,22 @@ be `https://connector.consumer.com/callback/negotiations/:id/offers`.
 
 #### 3.2.1 POST
 
-A contract offer is started and placed in the REQUESTED state when a consumer POSTs a ContractOfferMessageto negotiations/offers:
+A contract offer is started and placed in the REQUESTED state when a consumer POSTs a ContractOfferMessage to negotiations/offers:
 
-
+```
 POST https://connector.provider.com/negotiations/offers
 
 Authorization: ...
 
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:ContractOffer"
+  "@type": "dspace:ContractOfferMessage"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:callbackAddress": "https://..."
 }
+```
 
 The callbackAddress property specifies the base endpoint URL where the client receives messages associated with the contract negotiation. Support for the HTTPS scheme is required. Implementations may optionally support other URL schemes.
 
@@ -215,6 +216,7 @@ The @id is the correlation id that will be used for callback messages.
 
 The provider connector must return an HTTP 201 (Created) response with the location header set to the location of the contract negotiation and a body containing the ContractNegotiation message:
 
+```
 Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
 
 {
@@ -223,6 +225,7 @@ Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:state" :"REQUESTED"
 }
+```
 
 Note that if the location header is not an absolute URL, it must resolve to an address that is relative to the base address of the Offer.
 
