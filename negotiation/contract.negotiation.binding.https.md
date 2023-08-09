@@ -206,6 +206,7 @@ Authorization: ...
   "dspace:offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:callbackAddress": "https://..."
 }
+
 The callbackAddress property specifies the base endpoint URL where the client receives messages associated with the contract negotiation. Support for the HTTPS scheme is required. Implementations may optionally support other URL schemes.
 
 Callback messages will be sent to paths under the base URL as described by this specification. Note that provider connectors should properly handle the cases where a trailing / is included with or absent from the callbackAddress when resolving full URL.
@@ -222,6 +223,7 @@ Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:state" :"REQUESTED"
 }
+
 Note that if the location header is not an absolute URL, it must resolve to an address that is relative to the base address of the Offer.
 
 ### 3.3 The consumer `negotiations/:id/offers` resource
