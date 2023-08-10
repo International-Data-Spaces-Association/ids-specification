@@ -187,11 +187,12 @@ All callback paths are relative to the `callbackAddress` base URL specified in t
 the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `negotiations/:id/offers`, the resolved URL will
 be `https://connector.consumer.com/callback/negotiations/:id/offers`.
 
-### 3.2 The consumer negotiations/offers resource
+### 3.2 The consumer `negotiations/offers` resource
 
 #### 3.2.1 POST
 
-A contract offer is started and placed in the REQUESTED state when a consumer POSTs a ContractOfferMessage to negotiations/offers:
+A contract offer is started and placed in the `OFFERED` state when a provider POSTs a
+[ContractOfferMessage](./message/contract-offer-message.json) to `negotiations/offers`:
 
 ```
 POST https://connector.provider.com/negotiations/offers
@@ -203,18 +204,22 @@ Authorization: ...
   "@type": "dspace:ContractOfferMessage"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
-  "dspace:offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
+  "dspace:offer": {
+    "@type": "odrl:Offer",
+    "@id": "...",
+    "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
+  }
   "dspace:callbackAddress": "https://..."
 }
 ```
 
 The callbackAddress property specifies the base endpoint URL where the client receives messages associated with the contract negotiation. Support for the HTTPS scheme is required. Implementations may optionally support other URL schemes.
 
-Callback messages will be sent to paths under the base URL as described by this specification. Note that provider connectors should properly handle the cases where a trailing / is included with or absent from the callbackAddress when resolving full URL.
+Callback messages will be sent to paths under the base URL as described by this specification. Note that consumer connectors should properly handle the cases where a trailing / is included with or absent from the callbackAddress when resolving full URL.
 
 The @id is the correlation id that will be used for callback messages.
 
-The provider connector must return an HTTP 201 (Created) response with the location header set to the location of the contract negotiation and a body containing the ContractNegotiation message:
+The consumer connector must return an HTTP 201 (Created) response with the location header set to the location of the contract negotiation and a body containing the ContractNegotiation message:
 
 ```
 Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
@@ -223,7 +228,7 @@ Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "dspace:state" :"REQUESTED"
+  "dspace:state" :"OFFERED"
 }
 ```
 
