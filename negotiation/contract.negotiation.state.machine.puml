@@ -11,7 +11,7 @@ state ACCEPTED
 state AGREED
 state VERIFIED
 state FINALIZED
-state TERMINATED $lightRed #$borderRed
+state TERMINATED $lightRed #$borderRed: <color:$darkGray>ContractNegotiationTerminationMessage
 
 [*] --> REQUESTED: C:ContractRequestMessage
 [*] --> OFFERED: P:ContractOfferMessage
