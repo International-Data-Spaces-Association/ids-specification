@@ -18,22 +18,17 @@ state TERMINATED $lightRed #$borderRed
 
 REQUESTED -->  OFFERED: P:ContractOfferMessage
 REQUESTED -->  AGREED: P:ContractAgreementMessage
-REQUESTED --> TERMINATED: C/P:ContractNegotiationTerminationMessage
 
 OFFERED -->  REQUESTED: C:ContractRequestMessage
 OFFERED -->  ACCEPTED: C:ContractNegotiationEventMessage.accepted
-OFFERED -->  TERMINATED: C/P:ContractNegotiationTerminationMessage
 
 ACCEPTED --> AGREED: P:ContractAgreementMessage
-ACCEPTED -> TERMINATED: P:ContractNegotiationTerminationMessage
 
 AGREED --> VERIFIED: C:ContractAgreementVerificationMessage
-AGREED --> TERMINATED: C:ContractNegotiationTerminationMessage
 
 VERIFIED --> FINALIZED: P:ContractNegotiationEventMessage.finalized
-VERIFIED -> TERMINATED: P:ContractNegotiationTerminationMessage
 
-FINALIZED -->[*]
+FINALIZED --> [*]
 
 TERMINATED --> [*]
 
