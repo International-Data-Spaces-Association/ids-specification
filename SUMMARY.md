@@ -28,3 +28,8 @@
 * [Messages](./resources/list_messages.md)
 * [Schemes](./resources/list_schemes.md)
 * [Shapes](./resources/list_shapes.md)
+
+## Best Practices
+
+* [Introduction](./best.practices/README.md)
+* [Related Documents](./best.practices/related.documents.md)
