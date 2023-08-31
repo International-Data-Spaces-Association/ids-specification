@@ -7,7 +7,7 @@ hide empty description
 
 
 class "dspace:ContractNegotiationError" {
-    @context : "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json"
+    @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:ContractNegotiationError"
     dspace:processId : String
     dspace:code : String

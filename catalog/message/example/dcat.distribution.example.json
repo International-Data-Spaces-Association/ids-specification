@@ -1,5 +1,5 @@
 {
-    "@context":  "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json",
+    "@context":  "https://w3id.org/dspace/v0.8/context.json",
     "@id": "http://provider.com/catalog1/dataset1/",
     "@type": "dcat:Dataset",
     "dct:title": "IDS Dataset #1",

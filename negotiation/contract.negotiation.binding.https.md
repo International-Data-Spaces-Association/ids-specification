@@ -52,7 +52,7 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 
 ```
 {
-  "@context": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:state" :"REQUESTED"
@@ -76,7 +76,7 @@ POST https://connector.provider.com/negotiations/request
 Authorization: ...
 
 {
-  "@context": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractRequest"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
@@ -100,7 +100,7 @@ the [ContractNegotiation](./message/contract-negotiation.json) message:
 Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
 
 {
-  "@context": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:state" :"REQUESTED"
@@ -121,7 +121,7 @@ POST https://connector.provider.com/negotiations/urn:uuid:dcbf434c-eacf-4582-9a0
 Authorization: ...
 
 {
-  "@context": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.jsonn",
+  "@context": "https://w3id.org/dspace/v0.8/context.jsonn",
   "@type": "dspace:ContractRequestMessage",
   "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:offer": {
@@ -160,7 +160,7 @@ POST https://connector.provider.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9
 Authorization: ...
 
 {
-  "@context": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementVerificationMessage",
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerSignature": {
@@ -199,7 +199,7 @@ POST https://connector.consumer.com/callback/negotiations/urn:uuid:dcbf434c-eacf
 Authorization: ...
 
 {
-  "@context": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractOfferMessage",
   "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:offer": {
@@ -226,7 +226,7 @@ POST https://connector.consumer.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9
 Authorization: ...
 
 {
-  "@context": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/common/schema/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementMessage",
   "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:agreement": {
