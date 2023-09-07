@@ -57,3 +57,5 @@ A connector will implement additional internal functionalities, like monitoring 
 The same applies for the data, which is transferred between the systems. While this document does not define the transport protocol, the structure, syntax and semantics of the data, a specification for those aspects is required and subject to the agreements of the participants or the data space.
 
 ![Overview on protocol and context](./resources/figures/ProtocolOverview.png)
+
+testing negotiation-subtask-1.1
