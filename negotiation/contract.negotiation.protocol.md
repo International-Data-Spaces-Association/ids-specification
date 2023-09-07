@@ -100,6 +100,9 @@ The `ContractRequestMessage` is sent by a consumer to initiate a contract negoti
 
 The `ContractOfferMessage` is sent by a provider to initiate a contract negotiation.
 
+#### Notes
+
+- The dataset id is not required but can be included when the provider initiates a contract negotiation.
 
 ### 3. ContractAgreementMessage
 
