@@ -20,7 +20,10 @@
 					"type": "string",
 					"const": "dspace:ContractAgreementVerificationMessage"
 				},
-				"dspace:processId": {
+				"dspace:providerPid": {
+					"type": "string"
+				},
+				"dspace:consumerPid": {
 					"type": "string"
 				},
 				"cred:subject": {
@@ -61,7 +64,7 @@
 					"maxItems": 2
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processId", "cred:credentialSubject", "sec:proof" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "cred:credentialSubject", "sec:proof" ]
 		}
 	}
 }

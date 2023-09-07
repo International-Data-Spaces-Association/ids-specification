@@ -22,7 +22,11 @@
 					"const": "dspace:ContractRequestMessage",
 					"required": true
 				},
-				"dspace:processId": {
+				"dspace:providerPid": {
+					"type": "string",
+					"required": false
+				},
+				"dspace:consumerPid": {
 					"type": "string",
 					"required": true
 				},
