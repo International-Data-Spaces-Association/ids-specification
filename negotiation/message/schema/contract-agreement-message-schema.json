@@ -64,6 +64,10 @@
 							"required": true
 						}
 					}
+				},
+				"dspace:callbackAddress": {
+					"type" : "string",
+					"required": true
 				}
 			}
 		}

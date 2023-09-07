@@ -26,8 +26,18 @@
 					"type": "string",
 					"required": true
 				},
-				"dspace:negotiationId": {
+				"dspace:state": {
 					"type": "string",
+					"enum": [
+						"dspace:REQUESTED",
+						"dspace:OFFERED",
+						"dspace:ACCEPTED",
+						"dspace:AGREED",
+						"dspace:VERIFIED",
+						"dspace:FINALIZED",
+						"dspace:TERMINATED",
+						"..."
+					],
 					"required": true
 				}
 			}

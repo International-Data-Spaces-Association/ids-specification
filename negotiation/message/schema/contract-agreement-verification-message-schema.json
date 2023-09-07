@@ -23,13 +23,17 @@
 				"dspace:processId": {
 					"type": "string"
 				},
-				"cred:subject": {
+				"cred:credentialSubject": {
 					"type": "object",
 					"properties": {
+						"@type": {
+							"type": "string",
+							"const": "dspace:ContractAgreementMessage"
+						},
 						"dspace:hash": {
 							"type": "string"
 						},
-						"required": [ "dspace:hash" ]
+						"required": [ "@type", "dspace:hash" ]
 					}
 				},
 				"sec:proof": {

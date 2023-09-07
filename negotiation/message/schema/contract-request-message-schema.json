@@ -28,7 +28,18 @@
 				},
 				"odrl:offer": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
-					"required": true
+					"type": "object",
+					"required": true,
+					"properties": {
+						"@type": {
+							"type": "string",
+							"required": true
+						},
+						"@id": {
+							"type": "string",
+							"required": true
+						}
+					}
 				},
 				"dspace:callbackAddress": {
 					"type" : "string",

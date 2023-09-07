@@ -27,12 +27,12 @@
 					"required": true
 				},
 				"dspace:code": {
-					"type": "string",
-					"required": false
+					"type": "object",
+					"required": true
 				},
 				"dspace:reason": {
 					"type": "array",
-					"required": false,
+					"required": true,
 					"minItems": 1,
 					"items": {
 
