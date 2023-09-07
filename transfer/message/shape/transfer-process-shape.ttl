@@ -31,12 +31,22 @@ shapes:TransferProcessShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path dspace:processId ;
+		sh:path dspace:providerPid ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-process-shape.ttl> (TransferProcessShape): An dspace:processId property must point exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-process-shape.ttl> (TransferProcessShape): An dspace:providerPid property must point exactly one xsd:string field."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:consumerPid ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-process-shape.ttl> (TransferProcessShape): An dspace:consumerPid property must point exactly one xsd:string field."@en ;
 	] ;
 
 	sh:property [
