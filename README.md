@@ -1,7 +1,5 @@
 # Dataspace Protocol - Version 0.8
 
-### Working Draft 1 February 2023
-
 > __NOTE:__ These specifications are working drafts and subject to change.
 
 > __NOTE:__ For GitHub users, The link to the rendered content is https://docs.internationaldataspaces.org/communication-guide-v2-draft/
