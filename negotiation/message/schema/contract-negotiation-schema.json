@@ -29,10 +29,6 @@
 				"dspace:consumerPid": {
 					"type": "string",
 					"required": true
-				},
-				"dspace:negotiationId": {
-					"type": "string",
-					"required": true
 				}
 			}
 		}

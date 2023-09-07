@@ -55,7 +55,6 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiation",
-  "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:state" :"REQUESTED"
@@ -100,12 +99,9 @@ The provider connector must return an HTTP 201 (Created) response with the locat
 the [ContractNegotiation](./message/contract-negotiation.json) message:
 
 ```
-Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
-
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiation"
-  "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:state" :"REQUESTED"
