@@ -30,6 +30,10 @@
 					"type": "string",
 					"required": true
 				},
+				"dspace:dataset": {
+					"type": "string",
+					"required": false
+				},
 				"odrl:offer": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
 					"required": true
