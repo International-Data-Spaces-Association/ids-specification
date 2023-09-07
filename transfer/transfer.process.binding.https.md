@@ -20,11 +20,12 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 In the event of a client request error, the connector must return an appropriate HTTP 4xxx client error code. If an error body is returned it must be
 a [TransferError](./message/transfer-error.json) with the following properties:
 
-| Field             | Type          | Description                                                         |
-|-------------------|---------------|---------------------------------------------------------------------|
-| processId         | UUID          | The transfer process unique id.                                     |
-| code              | string        | An optional implementation-specific error code.                     |
-| reasons           | Array[object] | An optional array of implementation-specific error objects.         |
+| Field       | Type          | Description                                                 |
+|-------------|---------------|-------------------------------------------------------------|
+| consumerPid | UUID          | The transfer process unique id on consumer side.            |
+| providerPid | UUID          | The transfer process unique id on provider side.            |
+| code        | string        | An optional implementation-specific error code.             |
+| reasons     | Array[object] | An optional array of implementation-specific error objects. |
 
 ### 2.2.1 State transition errors
 
@@ -41,7 +42,7 @@ header is optional if the connector does not require authorization.
 #### 2.4.1 GET
 
 ```
-GET https://connector.provider.com/transfers/:id
+GET https://connector.provider.com/transfers/:providerPid
 
 Authorization: ...
 
@@ -53,9 +54,9 @@ the [TransferProcess](./message/transfer-process.json):
 ```
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "dspace:TransferProcess",
-  "dspace:processId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:state": "REQUESTED"
 } 
 ```
@@ -78,8 +79,8 @@ to `transfers/request`:
  
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@id": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "@type": "dspace:TransferRequestMessage",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
   "dct:format": "dspace:s3+push",
   "dataAddress": {},
@@ -98,14 +99,12 @@ The @id is the correlation id that will be used for callback messages.
 The provider connector must return an HTTP 201 (Created) response with the location header set to the location of the transfer process and a body containing
 the [TransferProcess](./message/transfer-process.json) message:
 
- ```
- Location: /transfers/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16
- 
+ ``` 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "dspace:TransferProcess",
-  "dspace:processId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:state": "REQUESTED"
 }
 
@@ -113,28 +112,28 @@ the [TransferProcess](./message/transfer-process.json) message:
 
 Note that if the location header is not an absolute URL, it must resolve to an address that is relative to the base address of the request.
 
-### 2.6 The provider `transfers/:id/start` resource
+### 2.6 The provider `transfers/:providerPid/start` resource
 
 #### 2.6.1 POST
 
 The consumer connector can POST a [TransferStartMessage](./message/transfer-start-message.json) to attempt to start a transfer process after it has been suspended. If the transfer
 process state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
-### 2.7 The provider `transfers/:id/completion` resource
+### 2.7 The provider `transfers/:providerPid/completion` resource
 
 #### 2.7.1 POST
 
 The consumer connector can POST a [TransferCompletionMessage](./message/transfer-completion-message.json) to complete a transfer process. If the transfer
 process state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
-### 2.8 The provider `transfers/:id/termination` resource
+### 2.8 The provider `transfers/:providerPid/termination` resource
 
 #### 2.8.1 POST
 
 The consumer connector can POST a [TransferTerminationMessage](./message/transfer-termination-message.json) to terminate a transfer process. If the transfer
 process state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
-### 2.9 The provider `transfers/:id/suspension` resource
+### 2.9 The provider `transfers/:providerPid/suspension` resource
 
 #### 2.9.1 POST
 
@@ -146,31 +145,31 @@ process state is successfully transitioned, the provider must return HTTP code 2
 ### 3.1 Prerequisites
 
 All callback paths are relative to the `callbackAddress` base URL specified in the `TransferRequestMessage` that initiated a transfer process. For example, if
-the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `transfers/:id/start`, the resolved URL will
-be `https://connector.consumer.com/callback/transfers/:id/start`.
+the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `transfers/:consumerPid/start`, the resolved URL will
+be `https://connector.consumer.com/callback/transfers/:consumerPid/start`.
 
-### 3.2 The consumer `transfers/:id/start` resource
+### 3.2 The consumer `transfers/:consumerPid/start` resource
 
 #### 3.2.1 POST
 
 The provider connector can POST a [TransferStartMessage](./message/transfer-start-message.json) to indicate the start of a transfer process. If the transfer
 process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
-### 3.3 The consumer `transfers/:id/completion` resource
+### 3.3 The consumer `transfers/:consumerPid/completion` resource
 
 #### 3.3.1 POST
 
 The provider connector can POST a [TransferCompletionMessage](./message/transfer-completion-message.json) to complete a transfer process. If the transfer
 process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
-### 3.4 The consumer `transfers/:id/termination` resource
+### 3.4 The consumer `transfers/:consumerPid/termination` resource
 
 #### 3.4.1 POST
 
 The provider connector can POST a [TransferTerminationMessage](./message/transfer-termination-message.json) to terminate a transfer process. If the transfer
 process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
-### 3.5 The consumer `transfers/:id/suspension` resource
+### 3.5 The consumer `transfers/:consumerPid/suspension` resource
 
 #### 3.5.1 POST
 
