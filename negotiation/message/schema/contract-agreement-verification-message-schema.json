@@ -32,9 +32,9 @@
 						},
 						"dspace:hash": {
 							"type": "string"
-						},
-						"required": [ "@type", "dspace:hash" ]
-					}
+						}
+					},
+					"required": [ "@type", "dspace:hash" ]
 				},
 				"sec:proof": {
 					"type": "array",
@@ -58,9 +58,9 @@
 						},
 						"sec:jws": {
 							"type": "string"
-						},
-						"required": [ "@type", "dct:created", "sec:jws"]
+						}
 					},
+					"required": [ "@type", "dct:created", "sec:jws"],
 					"minItems": 0,
 					"maxItems": 2
 				}

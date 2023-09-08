@@ -3,5 +3,5 @@
     "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
     "@type": "dspace:ContractNegotiation",
     "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-    "dspace:state": "REQUESTED"
+    "dspace:state": "dspace:REQUESTED"
   }

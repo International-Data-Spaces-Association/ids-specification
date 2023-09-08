@@ -14,31 +14,27 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractNegotiationTerminationMessage",
-					"required": true
+					"const": "dspace:ContractNegotiationTerminationMessage"
 				},
 				"dspace:processId": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:code": {
-					"type": "object",
-					"required": true
+					"type": "object"
 				},
 				"dspace:reason": {
 					"type": "array",
-					"required": true,
 					"minItems": 1,
 					"items": {
 
 					}
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:processId", "dspace:code", "dspace:reason"]
 		}
 	}
 }

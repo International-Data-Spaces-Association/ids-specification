@@ -14,44 +14,37 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractNegotiationError",
-					"required": true
+					"const": "dspace:ContractNegotiationError"
 				},
 				"dspace:processId": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:code": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:reason": {
 					"type": "array",
 					"minItems": 1,
-					"items": {
-
-					},
-					"required": true
+					"items": {}
 				},
 				"dct:description": {
 					"type": "array",
 					"items": {
 						"@language": {
-							"type": "string",
-							"required": true
+							"type": "string"
 						},
 						"@value": {
-							"type": "string",
-							"required": true
+							"type": "string"
 						}
-					}
+					},
+					"required": [ "@language", "@value"]
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:processId", "dspace:code", "dspace:reason", "dct:description"]
 		}
 	}
 }

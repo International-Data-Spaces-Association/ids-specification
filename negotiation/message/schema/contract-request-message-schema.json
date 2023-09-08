@@ -14,38 +14,36 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractRequestMessage",
-					"required": true
+					"const": "dspace:ContractRequestMessage"
 				},
 				"dspace:processId": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
-				"odrl:offer": {
+				"dspace:offer": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
 					"type": "object",
-					"required": true,
 					"properties": {
 						"@type": {
-							"type": "string",
-							"required": true
+							"type": "string"
 						},
 						"@id": {
-							"type": "string",
-							"required": true
+							"type": "string"
+						},
+						"odrl:target": {
+							"type": "object"
 						}
-					}
+					},
+					"required": [ "@type", "@id", "odrl:target" ]
 				},
 				"dspace:callbackAddress": {
-					"type" : "string",
-					"required": true
+					"type" : "string"
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:processId", "dspace:offer", "dspace:callbackAddress" ]
 		}
 	}
 }
