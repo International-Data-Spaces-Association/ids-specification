@@ -24,7 +24,7 @@
 					"type": "string"
 				},
 				"dspace:code": {
-					"type": "object"
+					"type": "string"
 				},
 				"dspace:reason": {
 					"type": "array",
@@ -34,7 +34,7 @@
 					}
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processId", "dspace:code", "dspace:reason"]
+			"required": [ "@context", "@type", "dspace:processId" ]
 		}
 	}
 }

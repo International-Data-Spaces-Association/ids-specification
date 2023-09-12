@@ -23,7 +23,7 @@
 				"dspace:processId": {
 					"type": "string"
 				},
-				"dspace:offer": {
+				"odrl:offer": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
 					"type": "object",
 					"properties": {
@@ -43,7 +43,7 @@
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processId", "dspace:offer", "dspace:callbackAddress" ]
+			"required": [ "@context", "@type", "dspace:processId", "odrl:offer", "dspace:callbackAddress" ]
 		}
 	}
 }

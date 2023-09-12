@@ -11,7 +11,10 @@
       "@type": "xsd:dateTime"
     },
     "dspace:consumerId": "...",
-    "dspace:providerId": "..."
+    "dspace:providerId": "...",
+    "odrl:permission": {
+      ...
+    }
   },
   "dspace:callbackAddress": "https://......"
 }

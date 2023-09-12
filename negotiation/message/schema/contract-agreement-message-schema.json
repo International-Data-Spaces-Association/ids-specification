@@ -23,7 +23,7 @@
 				"dspace:processId": {
 					"type": "string"
 				},
-				"dspace:agreement": {
+				"odrl:agreement": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/AgreementSchema#definitions/Agreement",
 					"type": "object",
 					"properties": {
