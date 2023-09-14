@@ -41,6 +41,9 @@ Not all dataspace entities have a concrete _technical_ materialization; some ent
 and `Participant Agent` have no representation in the protocol message flows that constitute dataspace interactions. This section outlines the classes that comprise the concrete
 elements of the model, i.e. those that are represented in protocol message flows.
 
+**_Note 1:_**
+The classes and definitions used in the dataspace protocol are reused from different standards and specifications as much as possible, in particular, DCAT and ODRL. As, however, the external definitions allow different interpretations or provide more attributes than required, the dataspace protocol is leveraging _profiles_ of the original definitions rather than the complete original expressiveness. A _profile_ in this sense is a restriction or subset of an external definition, enforcing that every occurance of an externally defined class is always conformant with the original definition. However, not every standard-compliant class might be compliant to the dataspace profile.
+
 ### 2.2.1 Catalog
 
 A `Catalog` is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following attributes:
