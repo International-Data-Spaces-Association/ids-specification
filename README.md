@@ -2,7 +2,12 @@
 
 > __NOTE:__ These specifications are working drafts and subject to change.
 
-> __NOTE:__ For GitHub users, The link to the rendered content is https://docs.internationaldataspaces.org/communication-guide-v2-draft/
+> __NOTE:__ For GitHub users, The link to the rendered content is https://docs.internationaldataspaces.org/dataspace-protocol/
+
+> __NOTE:__ The human-friendly version of this specification in the
+> [IDSA Knowledge base](https://docs.internationaldataspaces.org/dataspace-protocol/)
+> will always show the latest version of the document. The version history and changes
+> are provided via the [GitHub Repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
 
 ## Abstract
 
