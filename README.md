@@ -6,8 +6,14 @@
 
 > __NOTE:__ The human-friendly version of this specification in the
 > [IDSA Knowledge base](https://docs.internationaldataspaces.org/dataspace-protocol/)
-> will always show the latest version of the document. The version history and changes
-> are provided via the [GitHub Repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
+> will always show the latest version of the document.
+> The version history and changes are provided via the [GitHub Repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
+
+## About versions of the Dataspace Protocol
+
+The specification of the Dataspace Protocol is work in progress and subject to change.
+Since [version 0.8](https://github.com/International-Data-Spaces-Association/ids-specification/releases/tag/v0.8) the specification is stable with changes in details.
+All changes made to the specification can be reviewed in the [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
 
 ## Abstract
 
