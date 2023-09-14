@@ -1,4 +1,4 @@
-# Dataspace Protocol - Version 0.8
+# Dataspace Protocol - Working Draft
 
 > __NOTE:__ These specifications are working drafts and subject to change.
 
