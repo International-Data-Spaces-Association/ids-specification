@@ -94,9 +94,7 @@ required. Implementations may optionally support other URL schemes.
 Callback messages will be sent to paths under the base URL as described by this specification. Note that provider connectors should properly handle the cases where a trailing `/`
 is included with or absent from the `callbackAddress` when resolving full URL.
 
-The @id is the correlation id that will be used for callback messages.
-
-The provider connector must return an HTTP 201 (Created) response with the location header set to the location of the transfer process and a body containing
+The provider connector must return an HTTP 201 (Created) response with a body containing
 the [TransferProcess](./message/transfer-process.json) message:
 
  ``` 
@@ -109,8 +107,6 @@ the [TransferProcess](./message/transfer-process.json) message:
 }
 
  ```
-
-Note that if the location header is not an absolute URL, it must resolve to an address that is relative to the base address of the request.
 
 ### 2.6 The provider `transfers/:providerPid/start` resource
 
