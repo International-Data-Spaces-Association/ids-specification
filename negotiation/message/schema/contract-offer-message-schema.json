@@ -22,9 +22,13 @@
 					"const": "dspace:ContractOfferMessage",
 					"required": true
 				},
-				"dspace:processId": {
+				"dspace:providerPid": {
 					"type": "string",
 					"required": true
+				},
+				"dspace:consumerPid": {
+					"type": "string",
+					"required": false
 				},
 				"odrl:offer": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
