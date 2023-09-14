@@ -68,4 +68,14 @@ shapes:TransferRequestMessageShape
 		sh:minCount 1 ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:callbackAddress property must point exactly one xsd:anyURI field."@en ;
 	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:consumerPid ;
+		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:consumerPid property must point exactly one xsd:string field."@en ;
+	] ;
 .
