@@ -15,6 +15,8 @@ The specification of the Dataspace Protocol is work in progress and subject to c
 Since [version 0.8](https://github.com/International-Data-Spaces-Association/ids-specification/releases/tag/v0.8) the specification is stable with changes in details.
 All changes made to the specification can be reviewed in the [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
 
+> __NOTE:__ A versioning scheme beside the commits to the repository is not available but will be provided in the future. 
+
 ## Abstract
 
 The __Dataspace Protocol__ is a set of specifications designed to facilitate interoperable data sharing between entities governed by usage control and based on Web technologies. These specifications
