@@ -20,7 +20,7 @@
 					"type": "string",
 					"const": "dspace:ContractNegotiationError"
 				},
-				"dspace:processId": {
+				"dspace:processPid": {
 					"type": "string"
 				},
 				"dspace:code": {
@@ -44,7 +44,7 @@
 					"required": [ "@language", "@value"]
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processId", "dspace:code", "dspace:reason", "dct:description"]
+			"required": [ "@context", "@type", "dspace:processPid", "dspace:code", "dspace:reason", "dct:description"]
 		}
 	}
 }

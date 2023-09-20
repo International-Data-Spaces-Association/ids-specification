@@ -3,13 +3,19 @@
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "@type": "dspace:ContractRequestMessage",
   "dspace:dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
-  "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:processPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:offer": {
     "@type": "odrl:Offer",
     "@id": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a89",
     "odrl:target": { "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"},
-    "odrl:permission": {
-      ...
+    "dspace:permission": {
+      "@id": "some-permission-id",
+      "odrl:action": { "@id": "odrl:use" },
+      "odrl:constraint": {
+        "odrl:leftOperand": { "@id": "odrl:dateTime" },
+        "odrl:operand": { "@id": "odrl:lteq" },
+        "odrl:rightOperand": { "@value": "2023-12-31T06:00Z", "@type": "xsd:dateTime" }
+      }
     }
   },
   "dspace:callbackAddress": "https://......"

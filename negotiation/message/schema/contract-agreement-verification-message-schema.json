@@ -20,48 +20,11 @@
 					"type": "string",
 					"const": "dspace:ContractAgreementVerificationMessage"
 				},
-				"dspace:processId": {
+				"dspace:processPid": {
 					"type": "string"
-				},
-				"cred:subject": {
-					"type": "object",
-					"properties": {
-						"dspace:hash": {
-							"type": "string"
-						}
-					},
-					"required": [ "dspace:hash" ]
-				},
-				"sec:proof": {
-					"type": "array",
-					"items": {
-						"@type": {
-							"enum": ["sec:EcdsaSecp256k1Signature2019", "sec:EcdsaSecp256k1RecoverySignature2020", "sec:RsaSignature2018", "sec:SchnorrSecp256k1Signature2019", "sec:MerkleProof2019", "sec:Ed25519Signature2020", "sec:JsonWebSignature2020", "sec:BbsBlsSignature2020", "sec:BbsBlsSignatureProof2020" ]
-						},
-						"dct:created" : {
-							"type": "object",
-							"properties": {
-								"@type" : {
-									"type": "string",
-									"const" : "xsd:dateTime"
-								},
-								"@value" : {
-									"type": "string",
-									"const": "todo"
-								}
-							},
-							"required": [ "@type", "@value"]
-						},
-						"sec:jws": {
-							"type": "string"
-						}
-					},
-					"required": [ "@type", "dct:created", "sec:jws"],
-					"minItems": 0,
-					"maxItems": 2
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processId", "cred:credentialSubject", "sec:proof" ]
+			"required": [ "@context", "@type", "dspace:processPid" ]
 		}
 	}
 }

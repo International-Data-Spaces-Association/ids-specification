@@ -2,6 +2,6 @@
     "@context":  "https://w3id.org/dspace/v0.8/context.json",
     "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
     "@type": "dspace:ContractNegotiation",
-    "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+    "dspace:processPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
     "dspace:state": "dspace:REQUESTED"
   }

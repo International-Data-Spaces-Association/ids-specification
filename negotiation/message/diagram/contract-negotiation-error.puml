@@ -9,7 +9,7 @@ hide empty description
 class "dspace:ContractNegotiationError" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:ContractNegotiationError"
-    dspace:processId : String
+    dspace:processPid : String
     dspace:code : String
     dspace:reason : Array
     dct:description : MultilanguageProperty

@@ -20,11 +20,14 @@
 					"type": "string",
 					"const": "dspace:ContractRequestMessage"
 				},
-				"dspace:processId": {
+				"dspace:dataSet": {
 					"type": "string"
 				},
-				"odrl:offer": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
+				"dspace:processPid": {
+					"type": "string"
+				},
+				"dspace:offer": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer",
 					"type": "object",
 					"properties": {
 						"@type": {
@@ -43,7 +46,7 @@
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processId", "odrl:offer", "dspace:callbackAddress" ]
+			"required": [ "@context", "@type", "dspace:dataSet", "dspace:processPid", "dspace:offer", "dspace:callbackAddress" ]
 		}
 	}
 }

@@ -9,7 +9,7 @@ hide empty description
 class "dspace:ContractOfferMessage" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : dspace:ContractOfferMessage
-    dspace:processId : String
+    dspace:processPid : String
     dspace:offer : odrl:Offer
     dspace:callbackAddress : String
 }

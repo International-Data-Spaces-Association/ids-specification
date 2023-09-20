@@ -20,11 +20,11 @@
 					"type": "string",
 					"const": "dspace:ContractAgreementMessage"
 				},
-				"dspace:processId": {
+				"dspace:processPid": {
 					"type": "string"
 				},
-				"odrl:agreement": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/AgreementSchema#definitions/Agreement",
+				"dspace:agreement": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement",
 					"type": "object",
 					"properties": {
 						"@type": {
@@ -63,7 +63,7 @@
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processId", "dspace:agreement", "dspace:callbackAddress"]
+			"required": [ "@context", "@type", "dspace:processPid", "dspace:agreement", "dspace:callbackAddress"]
 		}
 	}
 }
