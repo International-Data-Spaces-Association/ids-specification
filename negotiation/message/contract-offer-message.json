@@ -6,15 +6,17 @@
     "@type": "odrl:Offer",
     "@id": "...",
     "odrl:target": { "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88" },
-    "dspace:permission": {
+    "odrl:assigner": {"@id":"tsdshhs636378"},
+    "odrl:assignee": {"@id": "jashd766"},
+    "odrl:permission": [{
       "@id": "some-permission-id",
-      "odrl:action": { "@id": "odrl:use" },
-      "odrl:constraint": {
-        "odrl:leftOperand": { "@id": "odrl:dateTime" },
+      "odrl:action": "odrl:use" ,
+      "odrl:constraint": [{
+        "odrl:leftOperand": "odrl:dateTime",
         "odrl:operand": { "@id": "odrl:lteq" },
-        "odrl:rightOperand": { "@value": "2023-12-31T06:00Z", "@type": "xsd:dateTime" }
-      }
-    }
+        "odrl:rightOperand": { "@id":"", "@value": "2023-12-31T06:00Z", "@type": "xsd:dateTime" }
+      }]
+    }]
   },
   "dspace:callbackAddress": "https://......"
 }
