@@ -177,7 +177,7 @@
                 "odrl:hasPolicy": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/negotiation/message/schema/contract-schema.json#/definitions/Policy"
+                        "$ref": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/dcat-catalog-schema-and-shape/negotiation/message/schema/contract-schema.json#/definitions/Policy"
                     },
                     "minItems": 1
                 }
@@ -285,7 +285,7 @@
                 "odrl:hasPolicy": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/negotiation/message/schema/contract-schema.json#/definitions/Policy"
+                        "$ref": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/dcat-catalog-schema-and-shape/negotiation/message/schema/contract-schema.json#/definitions/Policy"
                     },
                     "minItems": 1
                 }
