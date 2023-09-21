@@ -21,7 +21,7 @@
 					"const": "dspace:CatalogRequestMessage"
 				},
 				"dspace:filter": {
-                    "type": "object",
+                    "type": "array",
                     "items": {
     					"@type": "string",
                         "const": "dspace:Filter"
