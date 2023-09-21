@@ -1,5 +1,7 @@
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:CatalogRequestMessage",
-  "dspace:filter": []
+  "dspace:filter": [
+    "some-filter"
+  ]
 }

@@ -3,7 +3,9 @@
   "@id": "urn:uuid:3afeadd8-ed2d-569e-d634-8394a8836d57",
   "@type": "dcat:Catalog",
   "dct:title": "Data Provider A Catalog",
-  "dct:description": "A catalog of data items",
+  "dct:description": [
+    "A catalog of data items"
+  ],
   "dct:publisher": "Data Provider A",
   "dcat:keyword": [
     "traffic",
@@ -22,40 +24,38 @@
       "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
       "@type": "dcat:Dataset",
       "dct:title": "Traffic Data",
-      "dct:description": "Traffic data sample extract",
+      "dct:description": [
+        "Traffic data sample extract"
+      ],
       "dcat:keyword": [
         "traffic"
       ],
       "odrl:hasPolicy": [
         {
           "@type": "odrl:Offer",
-          "@id": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
-          "odrl:assigner": {
-            "@id": "http://example.com/Provider"
-          },
+          "odrl:assigner": "http://example.com/Provider",
           "odrl:permission": [
             {
               "odrl:action": "odrl:use",
               "odrl:constraint": [
                 {
                   "odrl:leftOperand": "odrl:spatial",
-                  "odrl:rightOperand": {
-                    "@id": "_:EU"
-                  },
-                  "odrl:operator": "odrl:eq"
+                  "odrl:operator": "odrl:EQ",
+                  "odrl:rightOperand": "odrl:EU"
                 }
-              ]
+              ],
+              "odrl:duty": []
             }
-          ]
+          ],
+          "odrl:prohibition": [],
+          "odrl:obligation": []
         }
       ],
-      "dcat:distribution": [
-        {
-          "@type": "dcat:Distribution",
-          "dct:format": "dspace:s3+push",
-          "dcat:accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
-        }
-      ]
+      "dcat:distribution": {
+        "@type": "dcat:Distribution",
+        "dct:format": "dspace:s3+push",
+        "dcat:accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
+      }
     }
   ]
 }

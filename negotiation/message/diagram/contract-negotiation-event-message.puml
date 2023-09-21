@@ -9,7 +9,8 @@ hide empty description
 class "dspace:ContractNegotiationEventMessage" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:ContractNegotiationEventMessage"
-    dspace:processId : String
+    dspace:providerPid : String
+    dspace:consumerPid : String
     dspace:eventType : dspace:NegotiationEvent
 }
 

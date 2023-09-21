@@ -305,9 +305,7 @@
                 "odrl:neq"
             ]
         },
-        "RightOperand": {
-            "$ref": "#/definitions/Reference"
-        },
+        "RightOperand": {},
         "LeftOperand": {
             "type": "string",
             "enum": [
