@@ -12,16 +12,16 @@ The relationships between the primary dataspace entities are defined as follows:
 
 Note that all relationships are multiplicities unless specified.
 
-- A `Dataspace Authority` manges one or more `Dataspaces`. This will include participant registration and may entail mandating business and/or requirements. For example, a
+- A `Dataspace Authority` manages one or more `Dataspaces`. This will include participant registration and may entail mandating business and/or requirements. For example, a
   Dataspace Authority may require participants to obtain some form of business certification. A Dataspace authority may also impose technical requirements such as support for the
-  technical enforcements of specific usage policies.
+  technical enforcement of specific usage policies.
 - A `Participant` is a member of one or more `Dataspaces`. A participant registers `Participant Agents` that perform tasks on its behalf.
 - A `Participant Agent` performs tasks such as publishing a catalog or engaging in an asset transfer. In order to accomplish these tasks, a participant agent may
   use a _**verifiable presentation**_ generated from a _**credential**_ obtained from a third-party issuer. A participant agent may also use an _**ID token**_ issued by a
   third-party identity provider. Note that a participant agent is a logical construct and does not necessarily correspond to a single runtime process.
 - An `Identity Provider` is a trust anchor that generates `ID tokens` used to verify the identity of a `Participant Agent`. Multiple identity providers may operate in
-  a dataspace. The identity standard used by a provider is not defined but could be, for example, _OAuth2_ or _Decentralized Identifiers using did:web_. An identity provider may be a third-party
-  or a participant itself (for example, in the case of decentralized identifiers).
+  a dataspace. The types and semantics of ID tokens are not part of this specification. An identity provider may be a third-party or a participant itself (for example, in the case
+  of decentralized identifiers).
 - A `Credential Issuer` issues _verifiable credentials_ used by participant agents to allow access to assets and verify usage control.
 
 The diagram below depicts the relationships between `ParticipantAgent` types:
@@ -41,13 +41,16 @@ Not all dataspace entities have a concrete _technical_ materialization; some ent
 and `Participant Agent` have no representation in the protocol message flows that constitute dataspace interactions. This section outlines the classes that comprise the concrete
 elements of the model, i.e. those that are represented in protocol message flows.
 
+**_Note 1:_**
+The classes and definitions used in the dataspace protocol are reused from different standards and specifications as much as possible, in particular, DCAT and ODRL. As, however, the external definitions allow different interpretations or provide more attributes than required, the dataspace protocol is leveraging _profiles_ of the original definitions rather than the complete original expressiveness. A _profile_ in this sense is a restriction or subset of an external definition, enforcing that every occurance of an externally defined class is always conformant with the original definition. However, not every standard-compliant class might be compliant to the dataspace profile.
+
 ### 2.2.1 Catalog
 
 A `Catalog` is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following attributes:
 
 - 0..N  `Asset Entries`. Since a catalog may be dynamically generated for a request based on the requesting participant's credentials it is possible for it to contain 0 matching
-  asset entries.  (DCAT PROFILE)
-- 1.N [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where assets may be obtained.  (DCAT PROFILE)
+  asset entries. (DCAT PROFILE)
+- 1..N [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where assets may be obtained. (DCAT PROFILE)
 
 ### 2.2.2 Asset Entry
 

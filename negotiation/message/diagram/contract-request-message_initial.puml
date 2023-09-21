@@ -1,4 +1,4 @@
-@startuml "contract-offer-message"
+@startuml "contract-request-message"
 !pragma layout smetana
 
 !include ../../../common/style/diagram.styles.puml
@@ -6,10 +6,10 @@
 hide empty description
 
 
-class "dspace:ContractOfferMessage" {
+class "dspace:ContractRequestMessage" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
-    @type : dspace:ContractOfferMessage
-    dspace:providerPid : String
+    @type : dspace:ContractRequestMessage
+    dspace:dataset : String
     dspace:consumerPid : String
     dspace:offer : odrl:Offer
     dspace:callbackAddress : String
@@ -21,6 +21,6 @@ class odrl:Offer {
     odrl:target : xsd:anyURI
 }
 
-"dspace:ContractOfferMessage" "1" *-- "1" "odrl:Offer" : "dspace:offer"
+"dspace:ContractRequestMessage" "1" *-- "1" "odrl:Offer" : "dspace:offer"
 
 @enduml

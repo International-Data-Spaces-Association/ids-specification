@@ -14,37 +14,37 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json"
+					"const": "https://w3id.org/dspace/v0.8/context.json",
+					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractNegotiationError"
+					"const": "dspace:ContractNegotiationError",
+					"required": true
 				},
-				"dspace:processPid": {
-					"type": "string"
+				"dspace:providerPid": {
+					"type": "string",
+					"required": true
 				},
-				"dspace:code": {
-					"type": "string"
+				"dspace:consumerPid": {
+					"type": "string",
+					"required": true
 				},
 				"dspace:reason": {
 					"type": "array",
 					"minItems": 1,
-					"items": {}
+					"items": {
+
+					},
+					"required": false
 				},
 				"dct:description": {
 					"type": "array",
 					"items": {
-						"@language": {
-							"type": "string"
-						},
-						"@value": {
-							"type": "string"
-						}
-					},
-					"required": [ "@language", "@value"]
+						"type": "string"
+					}
 				}
-			},
-			"required": [ "@context", "@type", "dspace:processPid", "dspace:code", "dspace:reason", "dct:description"]
+			}
 		}
 	}
 }

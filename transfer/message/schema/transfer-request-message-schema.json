@@ -70,6 +70,10 @@
                         }
                     },
 					"required": true
+				},
+				"dspace:consumerPid": {
+					"type": "string",
+					"required": true
 				}
 			}
 		}

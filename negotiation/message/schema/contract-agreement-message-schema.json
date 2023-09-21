@@ -14,56 +14,62 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json"
+					"const": "https://w3id.org/dspace/v0.8/context.json",
+					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractAgreementMessage"
+					"const": "dspace:ContractAgreementMessage",
+					"required": true
 				},
-				"dspace:processPid": {
-					"type": "string"
+				"dspace:providerPid": {
+					"type": "string",
+					"required": true
 				},
-				"dspace:agreement": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement",
+				"dspace:consumerPid": {
+					"type": "string",
+					"required": true
+				},
+				"odrl:agreement": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/AgreementSchema#definitions/Agreement",
 					"type": "object",
+					"required": true,
 					"properties": {
 						"@type": {
-							"type": "string"
+							"type": "string",
+							"required": true
 						},
 						"@id": {
-							"type": "string"
-						},
-						"odrl:target": {
-							"type": "object"
+							"type": "string",
+							"required": true
 						},
 						"dspace:timestamp": {
 							"type": "object",
+							"required": true,
 							"properties": {
 								"@value": {
 									"type": "string",
-									"format": "date-time"
+									"format": "date-time",
+									"required": true
 								},
 								"@type": {
 									"type": "string",
-									"const": "xsd:dateTime"
+									"const": "xsd:dateTime",
+									"required": true
 								}
-							},
-							"required": [ "@value", "@type" ]
+							}
 						},
 						"dspace:consumerId": {
-							"type": "string"
+							"type": "string",
+							"required": true
 						},
 						"dspace:providerId": {
-							"type": "string"
+							"type": "string",
+							"required": true
 						}
-					},
-					"required": [ "@type", "@id", "odrl:target", "dspace:timestamp", "dspace:consumerId", "dspace:providerId" ]
-				},
-				"dspace:callbackAddress": {
-					"type" : "string"
+					}
 				}
-			},
-			"required": [ "@context", "@type", "dspace:processPid", "dspace:agreement", "dspace:callbackAddress"]
+			}
 		}
 	}
 }

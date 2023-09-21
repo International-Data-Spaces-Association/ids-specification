@@ -14,39 +14,35 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json"
+					"const": "https://w3id.org/dspace/v0.8/context.json",
+					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractRequestMessage"
+					"const": "dspace:ContractRequestMessage",
+					"required": true
 				},
-				"dspace:dataSet": {
-					"type": "string"
+				"dspace:providerPid": {
+					"type": "string",
+					"required": false
 				},
-				"dspace:processPid": {
-					"type": "string"
+				"dspace:consumerPid": {
+					"type": "string",
+					"required": true
 				},
-				"dspace:offer": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer",
-					"type": "object",
-					"properties": {
-						"@type": {
-							"type": "string"
-						},
-						"@id": {
-							"type": "string"
-						},
-						"odrl:target": {
-							"type": "object"
-						}
-					},
-					"required": [ "@type", "@id", "odrl:target" ]
+				"dspace:dataset": {
+					"type": "string",
+					"required": false
+				},
+				"odrl:offer": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
+					"required": true
 				},
 				"dspace:callbackAddress": {
-					"type" : "string"
+					"type" : "string",
+					"required": true
 				}
-			},
-			"required": [ "@context", "@type", "dspace:dataSet", "dspace:processPid", "dspace:offer", "dspace:callbackAddress" ]
+			}
 		}
 	}
 }

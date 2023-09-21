@@ -37,7 +37,7 @@ Authorization: ...
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:CatalogRequest"
+  "@type": "dspace:CatalogRequestMessage",
   "dspace:filter": {}
 }
 ```
@@ -60,7 +60,7 @@ described by the [Catalog Protocol Specification](catalog.protocol.md).
 The [DatasetRequestMessage](catalog.protocol.md#24-datasetrequestmessage) corresponds to `GET https://<base>/catalog/datasets/{id}}`:
 
 ```
-GET https://provider.com/datasets/{id}
+GET https://provider.com/catalog/datasets/{id}
 
 Authorization: ...
 
@@ -78,8 +78,8 @@ described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ### 3.1 Authorization
 
-A catalog service may require authorization. If the catalog service requires authorization, requests must include an HTTP `Authorization` header with a token. The contents of  
-the token are undefined by may be an OAUTH2, Web DID, or other access token type.
+A catalog service may require authorization. If the catalog service requires authorization, requests must include an HTTP `Authorization` header with a token. The semantics of
+such tokens are not part of this specification.
 
 ### 3.2 Versioning
 
@@ -132,7 +132,7 @@ the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gz
 
 ### 4.1 Asynchronous Interactions
 
-We may want to specify optional support for asynchronous callbacks for the catalog response. This would require addling a `callbackAddress` property and an `@id` to the request:
+We may want to specify optional support for asynchronous callbacks for the catalog response. This would require adding a `callbackAddress` property and an `@id` to the request:
 
 ```
 POST https://provider.com/catalog/request
@@ -141,7 +141,7 @@ Authorization: ...
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:CatalogRequest"
+  "@type": "dspace:CatalogRequestMessage"
   "@id: "..."
   "dspace:callbackAddress": "https://example.com/endpoint"
 }
