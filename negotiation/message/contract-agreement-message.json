@@ -1,20 +1,28 @@
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementMessage",
-  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:processPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:agreement": {
     "@type": "odrl:Agreement",
     "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
+    "odrl:target": { "@id": "urn:uuid:3dd1add4-4d2d-569e-d634-8394a8836d23" },
     "dspace:timestamp": {
       "@value": "2023-01-01T01:00:00Z",
       "@type": "xsd:dateTime"
     },
     "dspace:consumerId": "...",
     "dspace:providerId": "...",
-    "odrl:permission": {
-      ...
-    }
-  }
+    "odrl:assigner": {"@id":"tsdshhs636378"},
+    "odrl:assignee": {"@id": "jashd766"},
+    "odrl:permission": [{
+      "@id": "some-permission-id",
+      "odrl:action": "odrl:use" ,
+      "odrl:constraint": [{
+        "odrl:leftOperand": "odrl:dateTime",
+        "odrl:operand": { "@id": "odrl:lteq" },
+        "odrl:rightOperand": { "@id":"", "@value": "2023-12-31T06:00Z", "@type": "xsd:dateTime" }
+      }]
+    }]
+  },
+  "dspace:callbackAddress": "https://......"
 }
-
-

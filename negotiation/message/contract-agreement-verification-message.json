@@ -1,28 +1,5 @@
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementVerificationMessage",
-  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "cred:credentialSubject": {
-    "@type": "dspace:ContractAgreementMessage",
-    "dspace:hash": "abcdefghijk12345"
-  },
-  "sec:proof": [
-    {
-      "@type": "sec:Ed25519Signature2018",
-      "dct:created": {
-        "@type": "xsd:dateTime",
-        "@value": "2022-11-18T12:00:01Z"
-      },
-      "sec:jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
-      "sec:proofPurpose": "assertionMethod"
-    },{
-      "@type": "sec:Ed25519Signature2018",
-      "dct:created": {
-        "@type": "xsd:dateTime",
-        "@value": "2022-11-18T12:00:01Z"
-      },
-      "sec:jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
-      "sec:proofPurpose": "assertionMethod"
-    }
-  ]
+  "dspace:processPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab"
 }

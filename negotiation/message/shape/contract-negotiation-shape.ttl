@@ -31,12 +31,12 @@ shapes:ContractNegotiationShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path dspace:processId ;
+		sh:path dspace:processPid ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:processId property must point from an dspace:ContractNegotiation to exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:processPid property must point from an dspace:ContractNegotiation to exactly one xsd:string field."@en ;
 	] ;
 
 .

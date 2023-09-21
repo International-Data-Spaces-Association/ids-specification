@@ -1,7 +1,7 @@
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiationError",
-  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:processPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:code": "...",
   "dspace:reason": [
     { "@value": "Catalog not provisioned for this requester.", "@language": "en" },

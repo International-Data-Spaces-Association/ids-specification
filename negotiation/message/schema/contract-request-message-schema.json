@@ -14,27 +14,39 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractRequestMessage",
-					"required": true
+					"const": "dspace:ContractRequestMessage"
 				},
-				"dspace:processId": {
-					"type": "string",
-					"required": true
+				"dspace:dataSet": {
+					"type": "string"
 				},
-				"odrl:offer": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
-					"required": true
+				"dspace:processPid": {
+					"type": "string"
+				},
+				"dspace:offer": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer",
+					"type": "object",
+					"properties": {
+						"@type": {
+							"type": "string"
+						},
+						"@id": {
+							"type": "string"
+						},
+						"odrl:target": {
+							"type": "object"
+						}
+					},
+					"required": [ "@type", "@id", "odrl:target" ]
 				},
 				"dspace:callbackAddress": {
-					"type" : "string",
-					"required": true
+					"type" : "string"
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:dataSet", "dspace:processPid", "dspace:offer", "dspace:callbackAddress" ]
 		}
 	}
 }
