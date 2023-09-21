@@ -21,11 +21,10 @@
 					"const": "dspace:CatalogRequestMessage"
 				},
 				"dspace:filter": {
-                    "type": "array",
-                    "items": {
-    					"@type": "string",
-                        "const": "dspace:Filter"
-                    }
+                    			"type": "array",
+                    			"items": {
+    						"type": "string",
+                    			}
 				}
 			},
 			"required": [ "@context", "@type", "dspace:filter" ]
