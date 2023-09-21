@@ -14,35 +14,29 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractRequestMessage",
-					"required": true
+					"const": "dspace:ContractRequestMessage"
 				},
 				"dspace:providerPid": {
-					"type": "string",
-					"required": false
+					"type": "string"
 				},
 				"dspace:consumerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:dataset": {
-					"type": "string",
-					"required": false
+					"type": "string"
 				},
 				"odrl:offer": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/OfferSchema#definitions/Offer",
-					"required": true
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
 				},
 				"dspace:callbackAddress": {
-					"type" : "string",
-					"required": true
+					"type" : "string"
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:dataSet", "dspace:consumerPid", "dspace:providerPid", "dspace:offer", "dspace:callbackAddress" ]
 		}
 	}
 }

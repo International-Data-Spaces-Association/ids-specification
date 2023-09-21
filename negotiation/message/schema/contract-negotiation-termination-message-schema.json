@@ -14,35 +14,30 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractNegotiationTerminationMessage",
-					"required": true
+					"const": "dspace:ContractNegotiationTerminationMessage"
 				},
 				"dspace:providerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:consumerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:code": {
-					"type": "string",
-					"required": false
+					"type": "string"
 				},
 				"dspace:reason": {
 					"type": "array",
-					"required": false,
 					"minItems": 1,
 					"items": {
 
 					}
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:consumerPid", "dspace:providerPid" ]
 		}
 	}
 }

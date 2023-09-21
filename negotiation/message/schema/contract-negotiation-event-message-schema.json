@@ -14,30 +14,26 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractNegotiationEventMessage",
-					"required": true
+					"const": "dspace:ContractNegotiationEventMessage"
 				},
 				"dspace:providerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:consumerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:eventType": {
 					"type": "string",
 					"enum": [
 						"dspace:ACCEPTED",
 						"dspace:FINALIZED"
-					],
-					"required": true
-				}
+					]
+				},
+				"required": [ "@context", "@type", "dspace:processPid", "dspace:eventType" ]
 			}
 		}
 	}
