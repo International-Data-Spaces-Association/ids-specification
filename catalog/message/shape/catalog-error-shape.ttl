@@ -28,6 +28,23 @@ shapes:
 shapes:CatalogErrorShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:CatalogError ;
-
-
-.
+	sh:property [
+		sh:path dspace:code ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+        sh:path dspace:reason ;
+        sh:node dspace:ReasonShape ;
+    ] .
+	
+shapes:ReasonShape
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:property [
+        sh:path dspace:value ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        sh:path dspace:language ;
+        sh:datatype xsd:string ;
+    ] .
