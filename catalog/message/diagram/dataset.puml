@@ -1,4 +1,4 @@
-@startuml "catalog"
+@startuml "dataset"
 !pragma layout smetana
 
 !include ../../../common/style/diagram.styles.puml
@@ -6,8 +6,8 @@
 hide empty description
 
 
-class dcat:Catalog {
-    @type : "dcat:Catalog",
+class dcat:Dataset {
+    @type : "dcat:Dataset",
     ... # TODO
 }
 

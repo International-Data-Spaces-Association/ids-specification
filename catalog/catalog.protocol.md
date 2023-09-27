@@ -95,6 +95,19 @@ The `DatasetRequestMessage` must have a `dataset` property which contains the id
 The catalog service may require an authorization token. Details for including that token can be found in the relevant catalog binding specification.
 
 
+### 2.5 Dataset
+
+![](./message/diagram/dataset.png)
+
+**Sent by**: Provider
+
+**Example**: [Dataset](./message/dataset.json)
+
+
+**Response**: OK or ERROR
+
+**Schema**: [DatasetShape](./message/shape/dataset-shape.ttl) and the [Dataset JSON Schema](./message/schema/dataset-schema.json)
+
 ## 3 DCAT Vocabulary Mapping
 
 This section describes how the IDS Information Model maps to DCAT resources.

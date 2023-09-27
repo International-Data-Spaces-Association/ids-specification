@@ -25,18 +25,18 @@ shapes:
 	] ;
 .
 
-shapes:ContractAgreementMessageShape
+dspace_shapes:ContractAgreementMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:ContractAgreementMessage ;
-	rdfs:subClassOf shapes:ContractNegotiationMessageShape ;
+	rdfs:subClassOf dspace_shapes:ContractNegotiationMessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path odrl:agreement ;
+		sh:path cred:credentialSubject ;
 		sh:class odrl:Agreement ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An odrl:agreement property must point to exactly one odrl:Agreement."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An cred:credentialSubject property must point to exactly one odrl:Agreement."@en ;
 	] ;
 .

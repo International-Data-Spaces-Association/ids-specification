@@ -25,7 +25,7 @@ shapes:
 	] ;
 .
 
-shapes:ContractNegotiationMessageShape
+dspace_shapes:ContractNegotiationMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:ContractNegotiationMessage ;
 
