@@ -7,13 +7,16 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix cred: <https://www.w3.org/2018/credentials#> .
 @prefix sec: <https://w3id.org/security#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 @prefix dspace: <https://w3id.org/dspace/v0.8/> .
 @prefix dspace_shapes: <https://w3id.org/dspace/shapes/v0.8/> .
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,7 +28,7 @@ shapes:
 	] ;
 .
 
-shapes:CatalogShape
+dspace_shapes:CatalogShape
 	a sh:NodeShape ;
 	sh:targetClass dcat:Catalog ;
 
@@ -323,7 +326,7 @@ shapes:CatalogShape
 
 .
 
-shapes:CatalogRecordShape
+dspace_shapes:CatalogRecordShape
 	a sh:NodeShape ;
 	sh:targetClass dcat:CatalogRecord ;
 
@@ -379,7 +382,7 @@ shapes:CatalogRecordShape
 
 .
 
-shapes:ResourceShape
+dspace_shapes:ResourceShape
 	a sh:NodeShape ;
 	sh:targetClass dcat:Resource ;
 
@@ -563,7 +566,7 @@ shapes:ResourceShape
 
 .
 
-shapes:RelationshipShape
+dspace_shapes:RelationshipShape
 	a sh:NodeShape ;
 	sh:targetClass dcat:Relationship ;
 
@@ -585,7 +588,7 @@ shapes:RelationshipShape
 
 .
 
-shapes:ConceptShape
+dspace_shapes:ConceptShape
 	a sh:NodeShape ;
 	sh:targetClass skos:Concept ;
 
@@ -598,20 +601,20 @@ shapes:ConceptShape
     ] ;
 .
 
-shapes:ConceptSchemeShape
+dspace_shapes:ConceptSchemeShape
 	a sh:NodeShape ;
 	sh:targetClass skos:ConceptScheme ;
 
 .
 
-shapes:AgentShape
+dspace_shapes:AgentShape
 	a sh:NodeShape ;
 	sh:targetClass foaf:Agent ;
 
 .
 
 
-shapes:DataServiceShape
+dspace_shapes:DataServiceShape
 	a sh:NodeShape ;
 	sh:targetClass dcat:DataService ;
 
@@ -818,7 +821,7 @@ shapes:DataServiceShape
 .
 
 
-shapes:DistributionShape
+dspace_shapes:DistributionShape
 	a sh:NodeShape ;
 	sh:targetClass dcat:Distribution ;
 
