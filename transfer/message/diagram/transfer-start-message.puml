@@ -11,7 +11,22 @@ class "dspace:TransferStartMessage" {
     @type : "dspace:TransferStartMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:dataAddress : String
 }
+
+class "dspace:DataAddress" {
+    @type : "dspace:DataAddress"
+    dspace:endpointType : String
+    dspace:endpoint : String
+}
+
+class "dspace:EndpointProperty" {
+    @type : "dspace:EndpointProperty"
+    dspace:name : String
+    dspace:value : String
+}
+
+"dspace:TransferStartMessage" "1" *-- "0..1" "dspace:DataAddress" : "dspace:dataAddress"
+"dspace:DataAddress" "1" *-- "0..*" "dspace:EndpointProperty" : "dspace:endpointProperties"
+
 
 @enduml

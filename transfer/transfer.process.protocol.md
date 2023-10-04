@@ -102,7 +102,7 @@ Once a transfer process have been created, all associated callback messages must
 
 Providers must include a `dspace:consumerPid` and a `dspace:providerPid` property in the `TransferProcess`.
 
-- The `dataAddress` contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
+- The `dataAddress` contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization via the `dspace:endpointProperties` property.
 - Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
 
 
@@ -127,8 +127,7 @@ The `TransferStartMessage` is sent by the provider to indicate the asset transfe
 
 #### Notes
 
-- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
-  temporary authorization token.
+- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset.. It may include a temporary authorization via the `dspace:endpointProperties` property.
 
 ### 3. TransferSuspensionMessage
 
