@@ -2,7 +2,7 @@
 
 ## Overview
 
-* [Dataspace Protocol v0.8](./README.md)
+* [Dataspace Protocol - Working Draft](./README.md)
 * [Terminology](./model/terminology.md)
 * [Information Model](./model/model.md)
 
