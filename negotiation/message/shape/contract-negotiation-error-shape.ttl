@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,11 +25,36 @@ shapes:
 	] ;
 .
 
-shapes:ContractNegotiationErrorShape
+dspace_shapes:ContractNegotiationErrorShape
 	a sh:NodeShape ;
-	rdfs:subClassOf dspace:ContractNegotiationMessageShape ; # TODO: Is a ContractNegotiationError really a Message?
 	sh:targetClass dspace:ContractNegotiationError ;
-
+	rdfs:subClassOf dspace_shapes:ContractNegotiationMessageShape ;
+	
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:processPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:processPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:code ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:code property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:reason ;
+		sh:minCount 1;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:reason property must point zero or more instances of the dspace:ContractNegotiationError class."@en ;
+	] ;
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dct:description ;

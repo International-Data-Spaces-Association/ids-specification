@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,18 +25,78 @@ shapes:
 	] ;
 .
 
-shapes:ContractAgreementMessageShape
+dspace_shapes:ContractAgreementMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:ContractAgreementMessage ;
-	rdfs:subClassOf shapes:ContractNegotiationMessageShape ;
+	rdfs:subClassOf dspace_shapes:ContractNegotiationMessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path odrl:agreement ;
-		sh:class odrl:Agreement ;
+        sh:path dspace:processPid ;
+        sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An odrl:agreement property must point to exactly one odrl:Agreement."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:processPid property must point to exactly one xsd:string value."@en ;
 	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:agreement ;
+		sh:class odrl:Agreement ;
+		sh:node dspace:AgreementShape ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:agreement property must point to exactly one odrl:Agreement class."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:callbackAddress ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:callbackAddress property must point to exactly one xsd:string value."@en ;
+	]
+.
+
+dspace_shapes:AgreementShape
+    a sh:NodeShape ;
+	sh:targetClass dspace:ContractAgreement ;
+    sh:closed true ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:target ;
+        sh:class odrl:targetClass ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An odrl:target property must point to exactly one odrl:targetClass class."@en ;
+	] ;
+    sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:timestamp ;
+        sh:datatype xsd:dateTime ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:timestamp property must point to exactly one xsd:dateTime value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:consumerId ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:consumerId property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:providerId ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:providerId property must point to exactly one xsd:string value."@en ;
+	] 
 .

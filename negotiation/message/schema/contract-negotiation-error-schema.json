@@ -44,7 +44,7 @@
 					"required": [ "@language", "@value"]
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processPid", "dspace:code", "dspace:reason", "dct:description"]
+			"required": [ "@context", "@type", "dspace:processPid", "dspace:code", "dspace:reason"]
 		}
 	}
 }
