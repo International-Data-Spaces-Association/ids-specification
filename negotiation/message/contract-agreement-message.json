@@ -2,28 +2,32 @@
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "@type": "dspace:ContractAgreementMessage",
-  "dspace:processPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "dspace:agreement": {
-    "@type": "odrl:Agreement",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "cred:credentialSubject": {
     "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-    "odrl:target": { "@id": "urn:uuid:3dd1add4-4d2d-569e-d634-8394a8836d23" },
-    "dspace:timestamp": {
-      "@value": "2023-01-01T01:00:00Z",
-      "@type": "xsd:dateTime"
-    },
-    "dspace:consumerId": "...",
-    "dspace:providerId": "...",
-    "odrl:assigner": {"@id":"tsdshhs636378"},
-    "odrl:assignee": {"@id": "jashd766"},
+    "@type": "odrl:Agreement",
+    "odrl:target": "urn:uuid:3dd1add4-4d2d-569e-d634-8394a8836d23",
+    "dspace:timestamp": "2023-01-01T01:00:00Z",
+    "odrl:assigner": "tsdshhs636378",
+    "odrl:assignee": "jashd766",
     "odrl:permission": [{
       "@id": "some-permission-id",
       "odrl:action": "odrl:use" ,
       "odrl:constraint": [{
         "odrl:leftOperand": "odrl:dateTime",
-        "odrl:operand": { "@id": "odrl:lteq" },
+        "odrl:operand": "odrl:lteq",
         "odrl:rightOperand": { "@value": "2023-12-31T06:00Z", "@type": "xsd:dateTime" }
       }]
     }]
   },
+  "sec:proof": [
+    {
+      "@type": "sec:Ed25519Signature2018",
+      "dct:created": "2022-11-18T12:00:01Z",
+      "sec:jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
+      "sec:proofPurpose": "assertionMethod"
+    }
+  ]
   "dspace:callbackAddress": "https://......"
 }

@@ -14,56 +14,30 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json"
+					"const": "https://w3id.org/dspace/v0.8/context.json",
+					"required": true
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:ContractAgreementMessage"
+					"const": "dspace:ContractAgreementMessage",
+					"required": true
 				},
-				"dspace:processPid": {
-					"type": "string"
+				"dspace:providerPid": {
+					"type": "string",
+					"required": true
 				},
-				"dspace:agreement": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement",
-					"type": "object",
-					"properties": {
-						"@type": {
-							"type": "string"
-						},
-						"@id": {
-							"type": "string"
-						},
-						"odrl:target": {
-							"type": "object"
-						},
-						"dspace:timestamp": {
-							"type": "object",
-							"properties": {
-								"@value": {
-									"type": "string",
-									"format": "date-time"
-								},
-								"@type": {
-									"type": "string",
-									"const": "xsd:dateTime"
-								}
-							},
-							"required": [ "@value", "@type" ]
-						},
-						"dspace:consumerId": {
-							"type": "string"
-						},
-						"dspace:providerId": {
-							"type": "string"
-						}
-					},
-					"required": [ "@type", "@id", "odrl:target", "dspace:timestamp", "dspace:consumerId", "dspace:providerId" ]
+				"dspace:consumerPid": {
+					"type": "string",
+					"required": true
+				},
+				"odrl:agreement": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processPid", "dspace:agreement", "dspace:callbackAddress"]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:agreement", "dspace:callbackAddress"]
 		}
 	}
 }

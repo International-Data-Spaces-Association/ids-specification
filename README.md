@@ -1,10 +1,21 @@
-# Dataspace Protocol - Version 0.8
-
-### Working Draft 1 February 2023
+# Dataspace Protocol - Working Draft
 
 > __NOTE:__ These specifications are working drafts and subject to change.
 
-> __NOTE:__ For GitHub users, The link to the rendered content is https://docs.internationaldataspaces.org/communication-guide-v2-draft/
+> __NOTE:__ For GitHub users, The link to the rendered content is https://docs.internationaldataspaces.org/dataspace-protocol/
+
+> __NOTE:__ The human-friendly version of this specification in the
+> [IDSA Knowledge base](https://docs.internationaldataspaces.org/dataspace-protocol/)
+> will always show the latest version of the document.
+> The version history and changes are provided via the [GitHub Repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
+
+## About versions of the Dataspace Protocol
+
+The specification of the Dataspace Protocol is work in progress and subject to change.
+Since [version 0.8](https://github.com/International-Data-Spaces-Association/ids-specification/releases/tag/v0.8) the specification is stable with changes in details.
+All changes made to the specification can be reviewed in the [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
+
+> __NOTE:__ A versioning scheme beside the commits to the repository is not available but will be provided in the future. 
 
 ## Abstract
 

@@ -14,64 +14,29 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:TransferRequestMessage",
-					"required": true
+					"const": "dspace:TransferRequestMessage"
 				},
 				"dspace:agreementId": {
-					"type": "object",
-                    "properties": {
-                        "@value": {
-                            "type": "string",
-                            "required": true
-                        },
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:anyURI",
-                            "required": true
-                        }
-                    },
-					"required": true
+					"type": "string"
 				},
 				"dct:format": {
-                    "type": "string",
-                    "required": true
+                    "type": "string"
 				},
 				"dspace:dataAddress": {
-					"type": "object",
-                    "properties": {
-                        "@value": {
-                            "type": "string",
-                            "required": true
-                        },
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:anyURI",
-                            "required": true
-                        }
-                    },
-					"required": false
+					"type": "string"
 				},
 				"dspace:callbackAddress": {
-					"type": "object",
-                    "properties": {
-                        "@value": {
-                            "type": "string",
-                            "required": true
-                        },
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:anyURI",
-                            "required": true
-                        }
-                    },
-					"required": true
+					"type": "string"
+				},
+				"dspace:consumerPid": {
+					"type": "string"
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:agreementId", "dct:format", "dspace:callbackAddress", "dspace:consumerPid" ]
 		}
 	}
 }

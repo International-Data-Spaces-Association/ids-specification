@@ -1,6 +1,7 @@
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:TransferStartMessage",
-  "dspace:processId": "urn:uuid:24a62493-06eb-45e4-a41c-6de091b51da5",
-  "dspace:dataAddress": {}
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "dspace:dataAddress": ""
 }

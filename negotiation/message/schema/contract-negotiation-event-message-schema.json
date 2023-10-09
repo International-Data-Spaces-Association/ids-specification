@@ -20,7 +20,10 @@
 					"type": "string",
 					"const": "dspace:ContractNegotiationEventMessage"
 				},
-				"dspace:processPid": {
+				"dspace:providerPid": {
+					"type": "string"
+				},
+				"dspace:consumerPid": {
 					"type": "string"
 				},
 				"dspace:eventType": {
@@ -29,9 +32,9 @@
 						"dspace:ACCEPTED",
 						"dspace:FINALIZED"
 					]
-				}
-			},
-			"required": [ "@context", "@type", "dspace:processPid", "dspace:eventType" ]
+				},
+				"required": [ "@context", "@type", "dspace:processPid", "dspace:eventType" ]
+			}
 		}
 	}
 }

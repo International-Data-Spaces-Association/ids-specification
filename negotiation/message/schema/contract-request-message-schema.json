@@ -20,33 +20,23 @@
 					"type": "string",
 					"const": "dspace:ContractRequestMessage"
 				},
-				"dspace:dataSet": {
+				"dspace:providerPid": {
 					"type": "string"
 				},
-				"dspace:processPid": {
+				"dspace:consumerPid": {
 					"type": "string"
 				},
-				"dspace:offer": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer",
-					"type": "object",
-					"properties": {
-						"@type": {
-							"type": "string"
-						},
-						"@id": {
-							"type": "string"
-						},
-						"odrl:target": {
-							"type": "object"
-						}
-					},
-					"required": [ "@type", "@id", "odrl:target" ]
+				"dspace:dataset": {
+					"type": "string"
+				},
+				"odrl:offer": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:dataSet", "dspace:processPid", "dspace:offer", "dspace:callbackAddress" ]
+			"required": [ "@context", "@type", "dspace:dataSet", "dspace:consumerPid", "dspace:providerPid", "dspace:offer", "dspace:callbackAddress" ]
 		}
 	}
 }

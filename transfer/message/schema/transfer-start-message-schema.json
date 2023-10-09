@@ -14,34 +14,23 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:TransferStartMessage",
-					"required": true
+					"const": "dspace:TransferStartMessage"
 				},
-				"dspace:processId": {
-					"type": "string",
-					"required": true
+				"dspace:providerPid": {
+					"type": "string"
+				},
+				"dspace:consumerPid": {
+					"type": "string"
 				},
 				"dspace:dataAddress": {
-					"type": "object",
-                    "properties": {
-                        "@value": {
-                            "type": "string",
-                            "required": true
-                        },
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:anyURI",
-                            "required": true
-                        }
-                    },
-					"required": false
+					"type": "string"
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid" ]
 		}
 	}
 }
