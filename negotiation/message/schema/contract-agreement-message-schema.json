@@ -26,8 +26,7 @@
 					"type": "string"
 				},
 				"dspace:consumerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"odrl:agreement": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement"
