@@ -168,8 +168,7 @@ The discovery protocol adopted by a particular dataspace defines how a consumer 
 
 It is expected (although not required) that catalog services implement access control. A catalog as well as individual catalog _datasets_ may be restricted to trusted parties.
 The catalog service may require consumers to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
-catalog binding specification. In addition, this specification does not define the contents of the security token. It is expected different security mechanisms may be used such
-as [OAuth2 2.1](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-06) or [did:web](https://w3c-ccg.github.io/did-method-web/).
+catalog binding specification. The semantics of such tokens are not part of this specification.
 
 ### 4.4 Catalog Brokers
 

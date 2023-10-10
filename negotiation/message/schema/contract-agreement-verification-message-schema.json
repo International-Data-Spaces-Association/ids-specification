@@ -24,10 +24,14 @@
 					"type": "string"
 				},
 				"dspace:consumerPid": {
+				"dspace:providerPid": {
+					"type": "string"
+				},
+				"dspace:consumerPid": {
 					"type": "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid" ]
+			"required": [ "@context", "@type", "dspace:processPid" ]
 		}
 	}
 }

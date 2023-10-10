@@ -25,29 +25,27 @@ shapes:
 	] ;
 .
 
-shapes:TransferSuspensionMessageShape
+shapes:ContractNegotiationMessageShape
 	a sh:NodeShape ;
-	sh:targetClass dspace:TransferSuspensionMessage ;
-	rdfs:subClassOf dspace:MessageShape ;
+	sh:targetClass dspace:ContractNegotiationMessage ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:providerPid ;
 		sh:datatype xsd:string ;
-		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:providerPid property must point exactly one xsd:string field."@en ;
+		sh:minCount 0 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-message-shape.ttl> (ContractNegotiationMessageShape): An dspace:providerPid property must point to exactly one xsd:string."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:consumerPid ;
 		sh:datatype xsd:string ;
-		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:consumerPid property must point exactly one xsd:string field."@en ;
+		sh:minCount 0 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-message-shape.ttl> (ContractNegotiationMessageShape): An dspace:consumerPid property must point to exactly one xsd:string."@en ;
 	] ;
-
 .

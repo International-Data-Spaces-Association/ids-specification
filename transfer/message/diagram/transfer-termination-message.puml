@@ -9,7 +9,8 @@ hide empty description
 class "dspace:TransferTerminationMessage" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:TransferTerminationMessage"
-    dspace:processId : String
+    dspace:providerPid : String
+    dspace:consumerPid : String
     dspace:code : String
     dspace:reason : Array
 }

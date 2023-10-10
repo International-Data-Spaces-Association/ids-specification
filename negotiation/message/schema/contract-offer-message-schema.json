@@ -26,21 +26,8 @@
 				"dspace:consumerPid": {
 					"type": "string"
 				},
-				"dspace:offer": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer",
-					"type": "object",
-					"properties": {
-						"@type": {
-							"type": "string"
-						},
-						"@id": {
-							"type": "string"
-						},
-						"odrl:target": {
-							"type": "object"
-						}
-					},
-					"required": [ "@type", "@id", "odrl:target" ]
+				"odrl:offer": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"

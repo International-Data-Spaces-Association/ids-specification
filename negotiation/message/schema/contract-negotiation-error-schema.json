@@ -32,19 +32,16 @@
 				"dspace:reason": {
 					"type": "array",
 					"minItems": 1,
-					"items": {}
+					"items": {
+						"type": "string"
+					}
 				},
 				"dct:description": {
 					"type": "array",
+					"minItems": 1,
 					"items": {
-						"@language": {
-							"type": "string"
-						},
-						"@value": {
-							"type": "string"
-						}
-					},
-					"required": [ "@language", "@value"]
+						"type": "string"
+					}
 				}
 			},
 			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:code", "dspace:reason"]

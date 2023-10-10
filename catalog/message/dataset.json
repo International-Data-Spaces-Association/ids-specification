@@ -24,9 +24,7 @@
         "odrl:constraint": [
           {
             "odrl:leftOperand": "odrl:spatial",
-            "odrl:rightOperand": {
-              "@id": "_:EU"
-            },
+            "odrl:rightOperand": "_:EU",
             "odrl:operator": "odrl:eq"
           }
         ]

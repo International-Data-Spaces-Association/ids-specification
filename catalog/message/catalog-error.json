@@ -3,7 +3,9 @@
   "@type": "dspace:CatalogError",
   "dspace:code": "123:A",
   "dspace:reason": [
-    { "@value": "Catalog not provisioned for this requester.", "@language": "en" },
-    { "some": "other reason"}
+    { 
+      "@value": "Catalog not provisioned for this requester.", 
+      "@language": "en"
+    }
   ]
 }

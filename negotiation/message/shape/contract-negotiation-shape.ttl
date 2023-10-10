@@ -36,8 +36,9 @@ dspace_shapes:ContractNegotiationShape
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:providerPid property must point from an dspace:ContractNegotiation to exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:providerPid property must point to exactly one xsd:string."@en ;
 	] ;
+
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:consumerPid ;
@@ -45,7 +46,7 @@ dspace_shapes:ContractNegotiationShape
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:consumerPid property must point from an dspace:ContractNegotiation to exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:consumerPid property must point to exactly one xsd:string."@en ;
 	] ;
 	sh:property [
 		a sh:PropertyShape ;
