@@ -26,9 +26,6 @@
 				"dspace:consumerPid": {
 					"type": "string"
 				},
-				"dspace:dataset": {
-					"type": "string"
-				},
 				"odrl:offer": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
 				},
@@ -36,7 +33,7 @@
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:dataSet", "dspace:providerPid", "dspace:consumerPid", "dspace:offer", "dspace:callbackAddress" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:offer", "dspace:callbackAddress" ]
 		}
 	}
 }

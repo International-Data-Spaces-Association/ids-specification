@@ -56,7 +56,7 @@ dspace_shapes:ContractNegotiationTerminationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
         sh:path dspace:reason ;
-		sh:class dspace_shapes:NegotiationTermination ;
+		sh:class dspace_shapes:NegotiationTermination ; //giving error in shapes validation
 		sh:minCount 1 ;
 	]
 

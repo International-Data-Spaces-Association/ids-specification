@@ -51,10 +51,10 @@ dspace_shapes:ContractNegotiationEventMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:eventType ;
-		sh:class dspace_shapes:NegotiationEvent ;
+		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-event-message-shape.ttl> (ContractNegotiationEventMessageShape): An dspace:eventType property must point from an dspace:ContractNegotiationEventMessage to exactly one dspace:NegotiationEvent."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-event-message-shape.ttl> (ContractNegotiationEventMessageShape): An dspace:eventType property must point to exactly one xsd:string value."@en ;
 	] ;
 .

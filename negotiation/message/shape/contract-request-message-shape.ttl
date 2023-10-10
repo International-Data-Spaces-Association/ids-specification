@@ -32,15 +32,6 @@ dspace_shapes:ContractRequestMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path dspace:dataSet ;
-		sh:datatype xsd:string ;
-		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-request-message-shape.ttl> (ContractRequestMessageShape): An dspace:dataSet property must point to exactly one xsd:string value."@en ;
-	] ;
-	sh:property [
-		a sh:PropertyShape ;
 		sh:path dspace:providerPid ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;

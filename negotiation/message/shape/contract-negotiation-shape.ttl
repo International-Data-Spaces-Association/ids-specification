@@ -51,10 +51,11 @@ dspace_shapes:ContractNegotiationShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:state ;
+		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:state property must point zero or more instances of the dspace:ContractNegotiation class."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:state property must point to exactly one xsd:string."@en ;
 	] 
 
 .
