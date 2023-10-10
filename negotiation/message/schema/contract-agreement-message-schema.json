@@ -20,7 +20,10 @@
 					"type": "string",
 					"const": "dspace:ContractAgreementMessage"
 				},
-				"dspace:processPid": {
+				"dspace:providerPid": {
+					"type": "string"
+				},
+				"dspace:consumerPid": {
 					"type": "string"
 				},
 				"dspace:agreement": {
@@ -63,7 +66,7 @@
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processPid", "dspace:agreement", "dspace:callbackAddress"]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:agreement", "dspace:callbackAddress"]
 		}
 	}
 }

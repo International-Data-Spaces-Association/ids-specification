@@ -32,20 +32,29 @@ dspace_shapes:ContractNegotiationEventMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-        sh:path dspace:processPid ;
+        sh:path dspace:providerPid ;
         sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-event-message-shape.ttl> (ContractNegotiationEventMessageShape): An dspace:processPid property must point to exactly one xsd:string value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-event-message-shape.ttl> (ContractNegotiationEventMessageShape): An dspace:providerPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:consumerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-event-message-shape.ttl> (ContractNegotiationEventMessageShape): An dspace:consumerPid property must point to exactly one xsd:string value."@en ;
 	] ;
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:eventType ;
-		sh:datatype xsd:string ;
+		sh:class dspace_shapes:NegotiationEvent ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-event-message-shape.ttl> (ContractNegotiationEventMessageShape): An dspace:eventType property must point to exactly one xsd:string value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-event-message-shape.ttl> (ContractNegotiationEventMessageShape): An dspace:eventType property must point from an dspace:ContractNegotiationEventMessage to exactly one dspace:NegotiationEvent."@en ;
 	] ;
 .

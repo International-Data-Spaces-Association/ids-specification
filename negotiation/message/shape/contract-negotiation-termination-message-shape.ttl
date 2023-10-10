@@ -32,12 +32,21 @@ dspace_shapes:ContractNegotiationTerminationMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-        sh:path dspace:processPid ;
+        sh:path dspace:providerPid ;
         sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-termination-message-shape.ttl> (ContractNegotiationTerminationMessageShape): An dspace:processPid property must point to exactly one xsd:string value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-termination-message-shape.ttl> (ContractNegotiationTerminationMessageShape): An dspace:providerPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:consumerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-termination-message-shape.ttl> (ContractNegotiationTerminationMessageShape): An dspace:consumerPid property must point to exactly one xsd:string value."@en ;
 	] ;
 	sh:property [
 		a sh:PropertyShape ;
@@ -47,7 +56,7 @@ dspace_shapes:ContractNegotiationTerminationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
         sh:path dspace:reason ;
-		sh:class dspace_shapes:ContractNegotiationTerminationMessage ;
+		sh:class dspace_shapes:NegotiationTermination ;
 		sh:minCount 1 ;
 	]
 

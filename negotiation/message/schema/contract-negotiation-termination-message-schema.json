@@ -20,7 +20,10 @@
 					"type": "string",
 					"const": "dspace:ContractNegotiationTerminationMessage"
 				},
-				"dspace:processPid": {
+				"dspace:providerPid": {
+					"type": "string"
+				},
+				"dspace:consumerPid": {
 					"type": "string"
 				},
 				"dspace:code": {
@@ -34,7 +37,7 @@
 					}
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processPid" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid" ]
 		}
 	}
 }

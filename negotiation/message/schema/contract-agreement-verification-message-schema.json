@@ -20,11 +20,14 @@
 					"type": "string",
 					"const": "dspace:ContractAgreementVerificationMessage"
 				},
-				"dspace:processPid": {
+				"dspace:providerPid": {
+					"type": "string"
+				},
+				"dspace:consumerPid": {
 					"type": "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:processPid" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid" ]
 		}
 	}
 }

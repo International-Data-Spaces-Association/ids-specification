@@ -32,12 +32,21 @@ dspace_shapes:ContractNegotiationErrorShape
 	
 	sh:property [
 		a sh:PropertyShape ;
-        sh:path dspace:processPid ;
+        sh:path dspace:providerPid ;
         sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:processPid property must point to exactly one xsd:string value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:providerPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:consumerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:consumerPid property must point to exactly one xsd:string value."@en ;
 	] ;
 	sh:property [
 		a sh:PropertyShape ;
@@ -51,9 +60,10 @@ dspace_shapes:ContractNegotiationErrorShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:reason ;
+		sh:class dspace_shapes:NegotiationError ;
 		sh:minCount 1;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:reason property must point zero or more instances of the dspace:ContractNegotiationError class."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:reason property must point zero or more instances of the dspace:NegotiationError class."@en ;
 	] ;
 	sh:property [
 		a sh:PropertyShape ;
