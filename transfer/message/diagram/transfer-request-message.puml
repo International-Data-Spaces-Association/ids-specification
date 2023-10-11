@@ -12,7 +12,7 @@ class "dspace:TransferRequestMessage" {
     dspace:consumerPid : String
     dspace:agreementId : String
     dct:format : String
-    dspace:dataAddress : String
+    dspace:dataAddress : DataAddress
     dspace:callbackAddress : String
 }
 

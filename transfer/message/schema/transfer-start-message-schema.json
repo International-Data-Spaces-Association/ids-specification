@@ -27,7 +27,7 @@
 					"type": "string"
 				},
 				"dspace:dataAddress": {
-					"type": "string"
+					"type": "object"
 				}
 			},
 			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid" ]

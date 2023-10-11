@@ -11,7 +11,7 @@ class "dspace:TransferStartMessage" {
     @type : "dspace:TransferStartMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:dataAddress : String
+    dspace:dataAddress : DataAddress
 }
 
 @enduml

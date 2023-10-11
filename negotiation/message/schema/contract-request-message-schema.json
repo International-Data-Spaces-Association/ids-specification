@@ -33,7 +33,7 @@
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:offer", "dspace:callbackAddress" ]
+			"required": [ "@context", "@type", "dspace:consumerPid", "dspace:offer", "dspace:callbackAddress" ]
 		}
 	}
 }

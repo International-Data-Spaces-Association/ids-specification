@@ -27,7 +27,7 @@
                     "type": "string"
 				},
 				"dspace:dataAddress": {
-					"type": "string"
+					"type": "object"
 				},
 				"dspace:callbackAddress": {
 					"type": "string"
