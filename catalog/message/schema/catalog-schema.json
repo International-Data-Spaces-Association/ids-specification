@@ -183,25 +183,6 @@
                 }
             }
         },
-        "Dataset": {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/Resource"
-                },
-                {
-                    "properties": {
-                        "dcat:distribution": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Distribution"
-                            },
-                            "minItems": 1
-                        }
-                    }
-                }
-            ]
-        },
         "DataService": {
             "type": "object",
             "allOf": [
@@ -219,7 +200,7 @@
                         "dcat:servesDataset": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Dataset"
+                                "$ref": "https://w3id.org/dspace/schemas/v0.8/dataset-schema.json#/definitions/Dataset"
                             },
                             "minItems": 1
                         }
