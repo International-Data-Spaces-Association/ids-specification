@@ -11,11 +11,11 @@ class "dspace:TransferProcess" {
     @type : "dspace:TransferProcess"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:state : dspace:TransferState
+    dspace:state : dspace:State
 }
 
 
-enum dspace:TransferState {
+enum dspace:State {
     "dspace:REQUESTED"
     "dspace:STARTED"
     "dspace:TERMINATED"
@@ -23,6 +23,6 @@ enum dspace:TransferState {
     "dspace:SUSPENDED"
 }
 
-"dspace:TransferProcess" "1" *-- "1" "dspace:TransferState" : "dspace:transferState"
+"dspace:TransferProcess" "1" *-- "1" "dspace:state" : "dspace:state"
 
 @enduml
