@@ -51,7 +51,15 @@ dspace_shapes:ContractNegotiationShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:state ;
-		sh:datatype xsd:string ;
+		sh:in ( 
+			dspace:REQUESTED
+			dspace:OFFERED
+			dspace:ACCEPTED
+			dspace:AGREED
+			dspace:VERIFIED
+			dspace:FINALIZED
+			dspace:TERMINATED
+		) ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
