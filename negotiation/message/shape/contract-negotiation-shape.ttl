@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,7 +25,7 @@ shapes:
 	] ;
 .
 
-shapes:ContractNegotiationShape
+dspace_shapes:ContractNegotiationShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:ContractNegotiation ;
 
@@ -48,5 +48,14 @@ shapes:ContractNegotiationShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:consumerPid property must point to exactly one xsd:string."@en ;
 	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:state ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-shape.ttl> (ContractNegotiationShape): An dspace:state property must point to exactly one xsd:string."@en ;
+	] 
 
 .

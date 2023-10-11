@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,11 +25,29 @@ shapes:
 	] ;
 .
 
-shapes:ContractOfferMessageShape
+dspace_shapes:ContractOfferMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:ContractOfferMessage ;
-	rdfs:subClassOf dspace:ContractNegotiationMessageShape ;
+	rdfs:subClassOf dspace_shapes:ContractNegotiationMessageShape ;
 
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:providerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-offer-message-shape.ttl> (ContractOfferMessageShape): An dspace:providerPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:consumerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-offer-message-shape.ttl> (ContractOfferMessageShape): An dspace:consumerPid property must point to exactly one xsd:string value."@en ;
+	] ;
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:offer ;

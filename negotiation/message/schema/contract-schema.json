@@ -60,10 +60,10 @@
         "AbstractPolicyRule": {
             "properties": {
                 "odrl:assigner": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 },
                 "odrl:assignee": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 }
             }
         },

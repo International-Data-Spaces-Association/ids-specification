@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,16 +25,51 @@ shapes:
 	] ;
 .
 
-shapes:ContractNegotiationErrorShape
+dspace_shapes:ContractNegotiationErrorShape
 	a sh:NodeShape ;
-	rdfs:subClassOf dspace:ContractNegotiationMessageShape ; # TODO: Is a ContractNegotiationError really a Message?
 	sh:targetClass dspace:ContractNegotiationError ;
-
+	rdfs:subClassOf dspace_shapes:ContractNegotiationMessageShape ;
+	
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:providerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:providerPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:consumerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:consumerPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:code ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:code property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:reason ;
+		sh:datatype rdf:langString ;
+		sh:minCount 1;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:reason property must point zero or more rdf:langString values."@en ;
+	] ;
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dct:description ;
 		sh:datatype rdf:langString ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): A dct:description property must point from an dspace:ContractNegotiationError to zero or more rdf:langString values."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): A dct:description property must point zero or more rdf:langString values."@en ;
 	]
 .

@@ -31,9 +31,9 @@
 					"properties": {
 						"dspace:hash": {
 							"type": "string"
-						},
-						"required": [ "dspace:hash" ]
-					}
+						}
+					},
+					"required": [ "dspace:hash" ]
 				},
 				"sec:proof": {
 					"type": "array",

@@ -32,9 +32,9 @@
 						"dspace:ACCEPTED",
 						"dspace:FINALIZED"
 					]
-				},
-				"required": [ "@context", "@type", "dspace:processPid", "dspace:eventType" ]
-			}
+				}
+			},
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:eventType" ]
 		}
 	}
 }

@@ -32,12 +32,10 @@
 				"dspace:reason": {
 					"type": "array",
 					"minItems": 1,
-					"items": {
-
-					}
+					"items": {}
 				}
 			},
-			"required": [ "@context", "@type", "dspace:consumerPid", "dspace:providerPid" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid" ]
 		}
 	}
 }

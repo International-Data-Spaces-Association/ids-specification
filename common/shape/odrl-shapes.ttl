@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,7 +25,7 @@ shapes:
 	] ;
 .
 
-shapes:OfferShape
+dspace_shapes:OfferShape
 	a sh:NodeShape ;
 	sh:targetClass odrl:Offer ;
 
@@ -37,5 +37,31 @@ shapes:OfferShape
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/odrl-shape.ttl> (OfferShape): An odrl:target property must point to exactly one xsd:anyURI."@en ;
+	] ;
+.
+
+
+dspace_shapes:AgreementShape
+    a sh:NodeShape ;
+	sh:targetClass odrl:Agreement ;
+    sh:closed true ;
+
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path odrl:target ;
+        	sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/odrl-shape.ttl> (AgreementShape): An odrl:target property must point to exactly one identifier in the form of an xsd:string."@en ;
+	] ;
+    sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:timestamp ;
+        sh:datatype xsd:dateTime ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/odrl-shape.ttl> (AgreementShape): An dspace:timestamp property must point to exactly one xsd:dateTime value."@en ;
 	] ;
 .
