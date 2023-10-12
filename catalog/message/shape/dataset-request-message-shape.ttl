@@ -32,10 +32,10 @@ dspace_shapes:DatasetRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:dataset ;
-		sh:class xsd:string ;
+		sh:class dcat:Dataset ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-request-message-shape.ttl> (DatasetRequestMessage): An dspace:dataset property must point to one xsd:string class."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-request-message-shape.ttl> (DatasetRequestMessage): An dspace:dataset property must point to one dcat:Dataset."@en ;
 	] ;
 .

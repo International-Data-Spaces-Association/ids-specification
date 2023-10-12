@@ -40,7 +40,7 @@
 					"minItems": 1
 				}
 			},
-			"required": [ "@context", "@type", "dspace:code", "dspace:reason" ]
+			"required": [ "@context", "@type" ]
 		}
 	}
 }

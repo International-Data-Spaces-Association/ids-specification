@@ -97,10 +97,10 @@
                     }
                 },
                 "dct:issued": {
-                    "$ref": "#/definitions/Multilanguage"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:modified": {
-                    "$ref": "#/definitions/Multilanguage"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:title": {
                     "type": "string"
@@ -113,7 +113,7 @@
         "Resource": {
             "type": "object",
             "properties": {
-                "dcat:contractPoint": {
+                "dcat:contactPoint": {
                     "$ref": "#/definitions/Reference"
                 },
                 "dcat:keyword": {
@@ -163,7 +163,7 @@
                     "$ref": "#/definitions/time"
                 },
                 "dct:publisher": {
-                    "$ref": "#/definitions/Reference"
+                    "@type": "string"
                 },
                 "dct:relation": {
                     "$ref": "#/definitions/Reference"
@@ -172,7 +172,7 @@
                     "type": "string"
                 },
                 "dct:type": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 },
                 "odrl:hasPolicy": {
                     "type": "array",
@@ -195,7 +195,7 @@
                             "$ref": "#/definitions/Reference"
                         },
                         "dcat:endpointURL": {
-                            "$ref": "#/definitions/Reference"
+                            "type": "string"
                         },
                         "dcat:servesDataset": {
                             "type": "array",
@@ -252,7 +252,7 @@
                     }
                 },
                 "dct:format": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 },
                 "dct:issued": {
                     "$ref": "#/definitions/time"
