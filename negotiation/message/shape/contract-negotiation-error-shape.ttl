@@ -53,7 +53,6 @@ dspace_shapes:ContractNegotiationErrorShape
         sh:path dspace:code ;
         sh:datatype xsd:string ;
 		sh:maxCount 1 ;
-		sh:minCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-error-shape.ttl> (ContractNegotiationErrorShape): An dspace:code property must point to exactly one xsd:string value."@en ;
 	] ;
