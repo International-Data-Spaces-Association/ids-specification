@@ -62,7 +62,7 @@ shapes:TransferProcessShape
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-process-shape.ttl> (TransferProcessShape): An dspace:state property must point exactly one dspace:State entity."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-process-shape.ttl> (TransferProcessShape): An dspace:state property must point exactly one dspace:TransferState entity."@en ;
 	] ;
 
 .

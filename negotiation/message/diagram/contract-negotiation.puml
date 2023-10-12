@@ -11,10 +11,10 @@ class "dspace:ContractNegotiation" {
     @type : "dspace:ContractNegotiation"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:state : dspace:ContractNegotiationState
+    dspace:state : dspace:NegotiationState
 }
 
-enum dspace:ContractNegotiationState {
+enum dspace:NegotiationState {
     "dspace:REQUESTED"
     "dspace:OFFERED"
     "dspace:ACCEPTED"
@@ -25,6 +25,6 @@ enum dspace:ContractNegotiationState {
     "..."
 }
 
-"dspace:ContractNegotiation" "1" *-- "1" "dspace:ContractNegotiationState" : "dspace:contractNegotiationState"
+"dspace:ContractNegotiation" "1" *-- "1" "dspace:NegotiationState" : "dspace:state"
 
 @enduml
