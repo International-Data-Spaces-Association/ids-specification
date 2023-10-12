@@ -27,7 +27,7 @@
 					}
 				}
 			},
-			"required": [ "@context", "@type", "dspace:filter" ]
+			"required": [ "@context", "@type"]
 		}
 	}
 }
