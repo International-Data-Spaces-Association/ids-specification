@@ -22,12 +22,11 @@
 				},
 				"dspace:filter": {
 					"type": "array",
-					"items": {
-						"type": "string"
-					}
+					"minItems": 1,
+					"items": {}
 				}
 			},
-			"required": [ "@context", "@type", "dspace:filter" ]
+			"required": [ "@context", "@type"]
 		}
 	}
 }
