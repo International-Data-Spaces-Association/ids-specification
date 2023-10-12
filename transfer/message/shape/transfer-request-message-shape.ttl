@@ -56,7 +56,7 @@ shapes:TransferRequestMessageShape
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 0 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:dataAddress property must point zero or one dspace:DataAddress object."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:dataAddress property must point zero or one dspace:DataAddress field."@en ;
 	] ;
 
 	sh:property [
