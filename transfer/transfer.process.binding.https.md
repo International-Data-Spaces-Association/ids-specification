@@ -85,7 +85,7 @@ to `transfers/request`:
   "dct:format": "dspace:S3_AWS_PUSH",
   "dspace:dataAddress": {
     "@type": "dspace:DataAddress",
-    "dspace:endpointType": "dspace-types:HTTP",
+    "dspace:endpointType": "https://w3id.org/idsa/v4.1/HTTP",
     "dspace:endpoint": "http://example.com",
     "dspace:endpointProperties": [
       {
