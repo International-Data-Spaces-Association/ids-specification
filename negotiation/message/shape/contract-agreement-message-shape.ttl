@@ -58,6 +58,10 @@ dspace_shapes:ContractAgreementMessageShape
 	] ;
 	sh:property [
 		a sh:PropertyShape ;
+		sh:path dspace:signature ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
         sh:path dspace:callbackAddress ;
         sh:datatype xsd:string ;
 		sh:maxCount 1 ;

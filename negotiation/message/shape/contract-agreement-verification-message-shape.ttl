@@ -48,4 +48,33 @@ dspace_shapes:ContractAgreementVerificationMessageShape
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A dspace:consumerPid property must point to exactly one xsd:string value."@en ;
 	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:referencedContractAgreementMessage ;
+        sh:node [
+			a sh:NodeShape ;
+			sh:property [
+				a sh:PropertyShape ;
+				sh:path dspace:digest ;
+				sh:datatype xsd:string ;
+				sh:maxCount 1 ;
+				sh:minCount 1 ;
+				sh:severity sh:Violation ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A ContractAgreementVerificationMessage requires a dspace:referencedContractAgreementMessage which has exactly one dspace:digest property pointing to exactly one xsd:string value."@en ;
+			] ;
+			sh:property [
+				a sh:PropertyShape ;
+				sh:path dspace:algorithm ;
+				sh:datatype xsd:string ;
+				sh:maxCount 1 ;
+				sh:minCount 1 ;
+				sh:severity sh:Violation ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A ContractAgreementVerificationMessage requires a dspace:referencedContractAgreementMessage which has exactly one dspace:algorithm property pointing to exactly one xsd:string value."@en ;
+			] ;
+		] ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A dspace:consumerPid property must point to exactly one xsd:string value."@en ;
+	] ;
 .
