@@ -49,11 +49,6 @@ dspace_shapes:AgreementShape
     sh:property [
 		a sh:PropertyShape ;
 		sh:path odrl:target ;
-        	sh:datatype xsd:string ;
-		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/odrl-shape.ttl> (AgreementShape): An odrl:target property must point to exactly one identifier in the form of an xsd:string."@en ;
 	] ;
     sh:property [
 		a sh:PropertyShape ;

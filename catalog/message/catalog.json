@@ -25,7 +25,10 @@
       "@type": "dcat:Dataset",
       "dct:title": "Traffic Data",
       "dct:description": [
-        "Traffic data sample extract"
+        {
+          "@value": "Traffic data sample extract",
+          "@language": "en"
+        }
       ],
       "dcat:keyword": [
         "traffic"

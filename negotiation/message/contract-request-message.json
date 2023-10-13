@@ -5,10 +5,9 @@
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:offer": {
     "odrl:target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
-    "odrl:assigner": "tsdshhs636378",
-    "odrl:assignee": "jashd766",
+    "odrl:assigner": "urn:tsdshhs636378",
+    "odrl:assignee": "urn:jashd766",
     "odrl:permission": [{
-      "@id": "some-permission-id",
       "odrl:action": "odrl:use" ,
       "odrl:constraint": [{
         "odrl:leftOperand": "odrl:dateTime",
