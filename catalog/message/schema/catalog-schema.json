@@ -79,9 +79,6 @@
         },
         "CatalogRecord": {
             "type": "object",
-            "required": [
-                "foaf:primaryTopiy"
-            ],
             "properties": {
                 "@type": {
                     "type": "string",
@@ -97,10 +94,10 @@
                     }
                 },
                 "dct:issued": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:modified": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:title": {
                     "type": "string"
@@ -151,7 +148,7 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dct:issued": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:language": {
                     "$ref": "#/definitions/Reference"
@@ -160,10 +157,10 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dct:modified": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:publisher": {
-                    "@type": "string"
+                    "type": "string"
                 },
                 "dct:relation": {
                     "$ref": "#/definitions/Reference"
@@ -222,7 +219,7 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dcat:byteSize": {
-                    "$ref": "#/definitions/decimal"
+                    "type": "string"
                 },
                 "dcat:compressFormat": {
                     "$ref": "#/definitions/Reference"
@@ -255,10 +252,10 @@
                     "type": "string"
                 },
                 "dct:issued": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:modified": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:title": {
                     "type": "string"

@@ -52,7 +52,7 @@ be defined in the relevant catalog binding specification.
 
 **Response**: OK or ERROR
 
-**Schema**: [CatalogShape](./message/shape/catalog-shape.ttl) and the [Catalog JSON Schema](./message/schema/catalog-schema.json)
+**Schema**: [CatalogShape](./message/shape/dcat-shapes.ttl) and the [Catalog JSON Schema](./message/schema/catalog-schema.json)
 
 #### Description
 
@@ -106,7 +106,7 @@ The catalog service may require an authorization token. Details for including th
 
 **Response**: OK or ERROR
 
-**Schema**: [DatasetShape](./message/shape/dataset-shape.ttl) and the [Dataset JSON Schema](./message/schema/dataset-schema.json)
+**Schema**: [DatasetShape](./message/shape/dcat-shapes.ttl) and the [Dataset JSON Schema](./message/schema/dataset-schema.json)
 
 ## 3 DCAT Vocabulary Mapping
 
