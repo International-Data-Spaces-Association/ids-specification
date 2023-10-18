@@ -26,7 +26,7 @@
 				"dspace:consumerPid": {
 					"type": "string"
 				},
-				"dspace:referencedContractAgreementMessage": {
+				"dspace:hashedMessage": {
 					"type": "object",
 					"properties": {
 						"dspace:digest": {
@@ -40,7 +40,7 @@
 				}
 
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:referencedContractAgreementMessage" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:hashedMessage" ]
 		}
 	}
 }

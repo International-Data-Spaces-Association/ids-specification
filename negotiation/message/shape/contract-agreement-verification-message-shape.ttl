@@ -50,7 +50,7 @@ dspace_shapes:ContractAgreementVerificationMessageShape
 	] ;
 	sh:property [
 		a sh:PropertyShape ;
-        sh:path dspace:referencedContractAgreementMessage ;
+        sh:path dspace:hashedMessage ;
         sh:node [
 			a sh:NodeShape ;
 			sh:property [
@@ -60,7 +60,7 @@ dspace_shapes:ContractAgreementVerificationMessageShape
 				sh:maxCount 1 ;
 				sh:minCount 1 ;
 				sh:severity sh:Violation ;
-				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A ContractAgreementVerificationMessage requires a dspace:referencedContractAgreementMessage which has exactly one dspace:digest property pointing to exactly one xsd:string value."@en ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A ContractAgreementVerificationMessage requires a dspace:hashedMessage which has exactly one dspace:digest property pointing to exactly one xsd:string value."@en ;
 			] ;
 			sh:property [
 				a sh:PropertyShape ;
@@ -69,12 +69,12 @@ dspace_shapes:ContractAgreementVerificationMessageShape
 				sh:maxCount 1 ;
 				sh:minCount 1 ;
 				sh:severity sh:Violation ;
-				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A ContractAgreementVerificationMessage requires a dspace:referencedContractAgreementMessage which has exactly one dspace:algorithm property pointing to exactly one xsd:string value."@en ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A ContractAgreementVerificationMessage requires a dspace:hashedMessage which has exactly one dspace:algorithm property pointing to exactly one xsd:string value."@en ;
 			] ;
 		] ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A dspace:consumerPid property must point to exactly one xsd:string value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A dspace:hashedMessage property must point to exactly one hashed message object."@en ;
 	] ;
 .
