@@ -26,7 +26,7 @@
 				"dspace:consumerPid": {
 					"type": "string"
 				},
-				"dspace:transferState": {
+				"dspace:state": {
 					"type": "string",
 					"enum": [
 						"dspace:REQUESTED",
@@ -37,7 +37,7 @@
 					]
 				}
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:consumerPid", "dspace:transferState" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:consumerPid", "dspace:state" ]
 		}
 	}
 }
