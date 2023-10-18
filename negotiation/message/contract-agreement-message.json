@@ -8,8 +8,8 @@
     "@type": "odrl:Agreement",
     "odrl:target": "urn:uuid:3dd1add4-4d2d-569e-d634-8394a8836d23",
     "dspace:timestamp": "2023-01-01T01:00:00Z",
-    "odrl:assigner": "urn:tsdshhs636378",
-    "odrl:assignee": "urn:jashd766",
+    "dspace:providerId": "urn:tsdshhs636378",
+    "dspace:consumerId": "urn:jashd766",
     "odrl:permission": [{
       "odrl:action": "odrl:use" ,
       "odrl:constraint": [{

@@ -19,6 +19,7 @@ class "dspace:ContractAgreementMessage" {
 class odrl:Agreement {
     @type : "odrl:Agreement"
     @id: String
+    dspace:timestamp : xsd:dateTime
     ...
 }
 

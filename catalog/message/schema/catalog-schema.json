@@ -274,7 +274,7 @@
             "properties": {
                 "@type": {
                     "type": "string",
-                    "const": "xsd:date"
+                    "const": "xsd:dateTime"
                 },
                 "@value": {
                     "type": "string",

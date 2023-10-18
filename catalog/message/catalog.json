@@ -36,7 +36,7 @@
       "odrl:hasPolicy": [
         {
           "@type": "odrl:Offer",
-          "odrl:assigner": "http://example.com/Provider",
+          "dspace:providerId": "http://example.com/Provider",
           "odrl:permission": [
             {
               "odrl:action": "odrl:use",
