@@ -34,11 +34,11 @@ dspace_shapes:TransferRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:agreementId ;
-		sh:datatype xsd:string ;
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:agreementId property must point exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:agreementId property must point exactly one referenced Resource field."@en ;
 	] ;
 
 	sh:property [
