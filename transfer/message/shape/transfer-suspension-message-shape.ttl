@@ -55,7 +55,7 @@ dspace_shapes:TransferSuspensionMessageShape
 		sh:path dspace:code ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
-		sh:minCount 1 ;
+		sh:minCount 0;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:code property must point to exactly one xsd:string."@en ;
 	] ;
@@ -63,8 +63,10 @@ dspace_shapes:TransferSuspensionMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:reason ;
+		sh:maxCount 1 ;
+		sh:minCount 0;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:reason property must point from an dspace:TransferError to exactly one dspace:TerminationCode."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:reason property must point to exactly one entity."@en ;
 	] ;
 
 .
