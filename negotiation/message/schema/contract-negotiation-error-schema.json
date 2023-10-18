@@ -47,7 +47,7 @@
 					"required": [ "@language", "@value"]
 				}
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:reason"]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid"]
 		}
 	}
 }
