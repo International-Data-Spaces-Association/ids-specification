@@ -44,7 +44,6 @@ dspace_shapes:OfferShape
 dspace_shapes:AgreementShape
     a sh:NodeShape ;
 	sh:targetClass odrl:Agreement ;
-    sh:closed true ;
 
     sh:property [
 		a sh:PropertyShape ;
@@ -58,5 +57,23 @@ dspace_shapes:AgreementShape
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/odrl-shape.ttl> (AgreementShape): An dspace:timestamp property must point to exactly one xsd:dateTime value."@en ;
+	] ;
+    sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:providerId ;
+        sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/odrl-shape.ttl> (AgreementShape): An dspace:providerId property must point to exactly one Provider Node."@en ;
+	] ;
+    sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:consumerId ;
+        sh:nodeKind sh:IRI ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/odrl-shape.ttl> (AgreementShape): An dspace:consumerId property must point to exactly one Consumer Node."@en ;
 	] ;
 .
