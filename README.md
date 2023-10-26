@@ -60,7 +60,7 @@ The same applies for the data, which is transferred between the systems. While t
 
 ## Best Practices
 
-The Dataspace Protocol is under development and the working group is active on this draft, reviewed and improved the content multiple times. During the process several aspects were discussed, which are not considered relevant for the specification itself, but important to be documented as support for the users of this specification as best practices. The [Best Practices](./best.practices/README.md) are non-normative.
+The Dataspace Protocol is under development and the working group is active on this draft, reviewed and improved the content multiple times. During the process several aspects were discussed, which are not considered part of the normative specification, but important to be documented as support for the users of this specification as best practices. The [Best Practices](./best.practices/README.md) are non-normative.
 
 Users of this specification are invited to provide feedback such as, but not limited to:
 
