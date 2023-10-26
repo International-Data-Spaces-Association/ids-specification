@@ -68,3 +68,16 @@ A connector will implement additional internal functionalities, like monitoring 
 The same applies for the data, which is transferred between the systems. While this document does not define the transport protocol, the structure, syntax and semantics of the data, a specification for those aspects is required and subject to the agreements of the participants or the data space.
 
 ![Overview on protocol and context](./resources/figures/ProtocolOverview.png)
+
+## Best Practices
+
+The Dataspace Protocol is under development and the working group is active on this draft, reviewed and improved the content multiple times. During the process several aspects were discussed, which are not considered part of the normative specification, but important to be documented as support for the users of this specification as best practices. The [Best Practices](./best.practices/README.md) are non-normative.
+
+Users of this specification are invited to provide feedback such as, but not limited to:
+
+* What information is missing?
+* What information, including examples, would you like to see?
+* What did you like in this document?
+
+Please provide your feedback as Issue in our [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/issues).
+
