@@ -1,10 +1,5 @@
 # Dataspace Protocol Best Practices
 
-**Latest published version:** [https://docs.internationaldataspaces.org/dataspace-protocol/](https://docs.internationaldataspaces.org/dataspace-protocol/)
-
-**GitHub:** [https://github.com/International-Data-Spaces-Association/ids-specification](https://github.com/International-Data-Spaces-Association/ids-specification/)
-
-**Feedback:** [via GitHub Issues](https://github.com/International-Data-Spaces-Association/ids-specification/issues)
 
 ## Abstract
 
@@ -18,11 +13,7 @@ The key words *MAY*, *MUST*, and *MUST NOT* in this document are to be interpret
 
 ## Introduction
 
-The [***Dataspace Protocol***](../README.md) is a set of specifications designed to facilitate interoperable data sharing between entities governed by usage control and based on Web technologies. These specifications
-define the schemas and protocols required for entities to publish data, negotiate usage agreements, and access data as part of a federation of technical systems termed a
-***dataspace***.
-
-The Dataspace Protocol is under development and the working group is active on this draft, reviewed and improved the content multiple times. During the process several aspects were discussed, which are not considered relevant for the specification itself, but important to be documented as support for the users of this specification as best practices. The in this document are non-normative.
+The Dataspace Protocol is under development and the working group is active on this draft. We have reviewed and improved the content multiple times. During the process several aspects were discussed, which are not considered to be part of the specification itself, but important to be documented as support for the users of this specification as best practices. The examples in this document are non-normative.
 
 > Users of this specification are invited to provide feedback such as, but not limited to:
 >
