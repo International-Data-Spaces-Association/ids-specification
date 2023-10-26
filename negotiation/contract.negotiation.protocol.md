@@ -58,7 +58,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 **Resulting State**: REQUESTED, TERMINATED
 
-**Example**: [ContractRequestMessage](./message/contract-request-message.json)
+**Example**: [Initiating ContractRequestMessage](./message/contract-request-message_initial.json), [ContractRequestMessage](./message/contract-request-message.json)
 
 **Response**: [ACK or ERROR.](#response-types)
 
@@ -66,13 +66,13 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 #### Description
 
-The `ContractRequestMessage` is sent by a consumer to initiate a contract negotiation.
+The `ContractRequestMessage` is sent by a consumer to initiate a contract negotiation or to respond to a `ContractOfferMessage` sent by a provider.
 
 #### Notes
 
-- The consumer must include an `offer` property, which itself must have a `@id` property. If the message includes a `processId` property, the request will be associated with an existing contract
-  negotiation and a consumer offer will be created using either the `offer` or `offer.@id` properties. If the message does not include a `processId`, a new contract negotiation
-  will be created using either the `offer` or `offer.@id` properties and the provider selects an appropriate `processId`.
+- The consumer must include an `offer` property, which itself must have a `@id` property. If the message includes a `providerPid` property, the request will be associated with an existing contract
+  negotiation and a consumer offer will be created using either the `offer` or `offer.@id` properties. If the message does not include a `providerPid`, a new contract negotiation
+  will be created on provider side using either the `offer` or `offer.@id` properties and the provider selects an appropriate `providerPid`.
 
 - An `offer.@id` will generally refer to an offer contained in a catalog. If the provider is not aware of the `offer.@id` value, it must respond with an error message.
 
@@ -90,7 +90,7 @@ The `ContractRequestMessage` is sent by a consumer to initiate a contract negoti
 
 **Resulting State**: OFFERED, TERMINATED
 
-**Example**: [ContractOfferMessage](./message/contract-offer-message.json)
+**Example**: [Initiating ContractOfferMessage](./message/contract-offer-message_initial.json), [ContractOfferMessage](./message/contract-offer-message.json)
 
 **Response**: [ACK or ERROR.](#response-types)
 
@@ -98,8 +98,16 @@ The `ContractRequestMessage` is sent by a consumer to initiate a contract negoti
 
 #### Description
 
-The `ContractOfferMessage` is sent by a provider to initiate a contract negotiation.
+The `ContractOfferMessage` is sent by a provider to initiate a contract negotiation or to respond to a `ContractRequestMessage` sent by a consumer.
 
+### Notes
+
+If the message includes a `consumerPid` property, the request will be associated with an existing contract negotiation. If the message does not include a `consumerPid`, a new contract negotiation
+will be created on consumer side and the consumer selects an appropriate `consumerPid`.
+
+#### Notes
+
+- The dataset id is not required but can be included when the provider initiates a contract negotiation.
 
 ### 3. ContractAgreementMessage
 
@@ -119,7 +127,7 @@ The `ContractOfferMessage` is sent by a provider to initiate a contract negotiat
 
 The `ContractAgreementMessage` is sent by a provider when it agrees to a contract. It contains the complete contract agreement with the provider's signature.
 
-A `ContractAgreementMessage` must contain a `processId`.
+A `ContractAgreementMessage` must contain a `consumerPid` and a `providerPid`.
 
 A `ContractAgreementMessage` must contain an ODRL `Agreement`.
 
@@ -150,7 +158,7 @@ contract (i.e. the "connectors").
 The `ContractAgreementVerificationMessage` is sent by a consumer to verify the acceptance of a contract agreement. A provider responds with an error if the signature can't be
 validated or is incorrect.
 
-A `ContractAgreementVerificationMessage` must contain a `processId`.
+A `ContractAgreementVerificationMessage` must contain a `consumerPid` and a `providerPid`.
 
 ### 5. ContractNegotiationEventMessage
 
@@ -182,6 +190,8 @@ It is an error for a provider to send a `ContractNegotiationEventMessage` with a
 Note that contract events are not intended for propagation of agreement state after a contract negotiation has entered a terminal state. It is considered an error for a consumer or
 provider to send a contract negotiation event after the negotiation state machine has entered a terminal state.
 
+A `ContractNegotiationEventMessage` must contain a `consumerPid` and a `providerPid`.
+
 ### 6. ContractNegotiationTerminationMessage
 
 ![](./message/diagram/contract-negotiation-termination-message.png)
@@ -200,6 +210,8 @@ provider to send a contract negotiation event after the negotiation state machin
 
 The `ContractNegotiationTerminationMessage` is sent by a consumer or provider indicating it has cancelled the negotiation sequence. The message can be sent at any state of a negotiation
 without providing an explanation. Nevertheless, the sender may provide a description to help the receiver.
+
+A `ContractNegotiationTerminationMessage` must contain a `consumerPid` and a `providerPid`.
 
 #### Notes
 
@@ -227,8 +239,7 @@ without providing an explanation. Nevertheless, the sender may provide a descrip
 
 #### Description
 
-The `ContractNegotiation` is an object returned by a consumer or provider indicating a
-successful state change happened.
+The `ContractNegotiation` is an object returned by a consumer or provider indicating a successful state change happened.
 
 ### ERROR - ContractNegotiationError
 

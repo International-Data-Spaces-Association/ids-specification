@@ -88,20 +88,21 @@ The `TransferRequestMessage` is sent by a consumer to initiate a transfer proces
 
 #### Notes
 
+- The `consumerPid` property refers to the transfer id on consumer side.
 - The `agreementId` property refers to an existing contract agreement between the consumer and provider.
 - The `dct:format` property is a format specified by a `Distribution` for the `Asset` associated with the agreement. This is generally obtained from the provider `Catalog`.
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
 
-Providers should implement idempotent behavior for `TransferRequestMessage` based on the value of `@id`. Providers may choose to implement idempotent behavior for a certain period of
-time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period. If a request for the given `@id` has already been
+Providers should implement idempotent behavior for `TransferRequestMessage` based on the value of `dspace:consumerPid`. Providers may choose to implement idempotent behavior for a certain period of
+time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period. If a request for the given `dspace:consumerPid` has already been
 received *and* the same consumer sent the original message, the provider should respond with an appropriate `DataAddressMessage`.
 
-Once a transfer process have been created, all associated callback messages must include a `processId` set to the `TransferRequestMessage` `@id` value.
+Once a transfer process have been created, all associated callback messages must include a `dspace:consumerPid` and `dspace:providerPid`.
 
-Providers must include a `processId` property in the `TransferProcess` with a value set to the `@id` of the corresponding `TransferRequestMessage`.
+Providers must include a `dspace:consumerPid` and a `dspace:providerPid` property in the `TransferProcess`.
 
-- The `dataAddress` contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
+- The `dataAddress` contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization via the `dspace:endpointProperties` property.
 - Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
 
 
@@ -126,8 +127,7 @@ The `TransferStartMessage` is sent by the provider to indicate the asset transfe
 
 #### Notes
 
-- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
-  temporary authorization token.
+- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset.. It may include a temporary authorization via the `dspace:endpointProperties` property.
 
 ### 3. TransferSuspensionMessage
 

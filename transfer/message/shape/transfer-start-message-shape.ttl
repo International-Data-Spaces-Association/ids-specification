@@ -32,22 +32,32 @@ shapes:TransferStartMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path dspace:processId ;
+		sh:path dspace:providerPid ;
 		sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:providerPid property must point exactly one xsd:string field."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:consumerPid ;
+		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:processId property must point from an dspace:TransferStartMessage to exactly one xsd:string field."@en ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:consumerPid property must point exactly one xsd:string field."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:dataAddress ;
-		sh:datatype xsd:anyURI ;
+		sh:datatype dspace:DataAddress ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:dataAddress property must point from an dspace:TransferStartMessage to exactly one xsd:anyURI field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:dataAddress property must point from an dspace:TransferStartMessage to exactly one dspace:DataAddress field."@en ;
 	] ;
 
 .

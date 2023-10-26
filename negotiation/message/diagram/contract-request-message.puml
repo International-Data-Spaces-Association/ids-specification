@@ -9,8 +9,8 @@ hide empty description
 class "dspace:ContractRequestMessage" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : dspace:ContractRequestMessage
-    dspace:dataset : String
-    dspace:processId : String
+    dspace:providerPid : String
+    dspace:consumerPid : String
     dspace:offer : odrl:Offer
     dspace:callbackAddress : String
 }

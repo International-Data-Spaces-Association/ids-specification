@@ -9,8 +9,24 @@ hide empty description
 class "dspace:TransferStartMessage" {
     @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dspace:TransferStartMessage"
-    dspace:processId : String
-    dspace:dataAddress : String
+    dspace:providerPid : String
+    dspace:consumerPid : String
 }
+
+class "dspace:DataAddress" {
+    @type : "dspace:DataAddress"
+    dspace:endpointType : String
+    dspace:endpoint : String
+}
+
+class "dspace:EndpointProperty" {
+    @type : "dspace:EndpointProperty"
+    dspace:name : String
+    dspace:value : String
+}
+
+"dspace:TransferStartMessage" "1" *-- "0..1" "dspace:DataAddress" : "dspace:dataAddress"
+"dspace:DataAddress" "1" *-- "0..*" "dspace:EndpointProperty" : "dspace:endpointProperties"
+
 
 @enduml

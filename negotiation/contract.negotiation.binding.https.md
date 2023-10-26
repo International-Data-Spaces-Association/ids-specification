@@ -20,11 +20,12 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 In the event of a client request error, the connector must return an appropriate HTTP 4xx client error code. If an error body is returned it must be
 a [ContractNegotiationError](./message/contract-negotiation-error.json) with the following properties:
 
-| Field         | Type          | Description                                                 |
-|---------------|---------------|-------------------------------------------------------------|
-| processId     | UUID          | The contract negotiation unique id.                         |
-| code          | string        | An optional implementation-specific error code.             |
-| reasons       | Array[object] | An optional array of implementation-specific error objects. |
+| Field       | Type          | Description                                                 |
+|-------------|---------------|-------------------------------------------------------------|
+| consumerPid | UUID          | The contract negotiation unique id on consumer side.        |
+| providerPid | UUID          | The contract negotiation unique id on provider side.        |
+| code        | string        | An optional implementation-specific error code.             |
+| reasons     | Array[object] | An optional array of implementation-specific error objects. |
 
 ### 2.2.1 State transition errors
 
@@ -33,7 +34,7 @@ an HTTP code 400 (Bad Request) with an `ContractNegotiationError` in the respons
 
 ### 2.3 Authorization
 
-All requests should use the `Authorizartion` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP
+All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP
 header is optional if the connector does not require authorization.
 
 ### 2.4 The provider `negotiations` resource
@@ -41,7 +42,7 @@ header is optional if the connector does not require authorization.
 #### 2.4.1 GET
 
 ```
-GET https://connector.provider.com/negotiations/:id
+GET https://connector.provider.com/negotiations/:providerPid
 
 Authorization: ...
 
@@ -53,8 +54,9 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 ```
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:ContractNegotiation"
-  "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "@type": "dspace:ContractNegotiation",
+  "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:state" :"REQUESTED"
 }  
 ```
@@ -68,7 +70,7 @@ If the negotiation does not exist or the client is not authorized, the provider 
 #### 2.5.1 POST
 
 A contract negotiation is started and placed in the `REQUESTED` state when a consumer POSTs
-a [ContractRequestMessage](./contract.negotiation.protocol.md#1-contractrequestmessage)to `negotiations/request`:
+a [ContractRequestMessage](./message/contract-request-message_initial.json) to `negotiations/request`:
 
 ```
 POST https://connector.provider.com/negotiations/request
@@ -78,7 +80,7 @@ Authorization: ...
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractRequest"
-  "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:callbackAddress": "https://..."
@@ -91,29 +93,24 @@ required. Implementations may optionally support other URL schemes.
 Callback messages will be sent to paths under the base URL as described by this specification. Note that provider connectors should properly handle the cases where a trailing `/`
 is included with or absent from the `callbackAddress` when resolving full URL.
 
-The @id is the correlation id that will be used for callback messages.
-
-The provider connector must return an HTTP 201 (Created) response with the location header set to the location of the contract negotiation and a body containing
-the [ContractNegotiation](./message/contract-negotiation.json) message:
+The provider connector must return an HTTP 201 (Created) response with a body containing
+the [ContractNegotiation](./message/contract-negotiation.json):
 
 ```
-Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
-
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractNegotiation"
-  "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:state" :"REQUESTED"
 }
 ```
 
-Note that if the location header is not an absolute URL, it must resolve to an address that is relative to the base address of the request.
-
-### 2.6 The provider `negotiations/:id/request` resource
+### 2.6 The provider `negotiations/:providerPid/request` resource
 
 #### 2.6.1 POST
 
-A consumer may make an offer by POSTing a [ContractRequestMessage](./message/contract-request-message.json) to `negotiations/:id/request`:
+A consumer may make an offer by POSTing a [ContractRequestMessage](./message/contract-request-message.json) to `negotiations/:providerPid/request`:
 
 ```
 POST https://connector.provider.com/negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3/offers
@@ -123,7 +120,8 @@ Authorization: ...
 {
   "@context": "https://w3id.org/dspace/v0.8/context.jsonn",
   "@type": "dspace:ContractRequestMessage",
-  "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:offer": {
     "@type": "odrl:Offer",
     "@id": "...",
@@ -132,22 +130,22 @@ Authorization: ...
 }
 ```
 
-The consumer must include the `processId`. The consumer must include either the `offer` or `offerId` property.
+The consumer must include the `providerPid` and `consumerPid`. The consumer must include either the `offer` or `offerId` property.
 
 If the message is successfully processed, the provider connector must return and HTTP 200 (OK) response. The response body is not specified and clients are not required to process
 it.
 
-### 2.7 The provider `negotiations/:id/events` resource
+### 2.7 The provider `negotiations/:providerPid/events` resource
 
 #### 2.7.1 POST
 
-A consumer connector can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to `negotiations/:id/events` to accept the current
+A consumer connector can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to `negotiations/:providerPid/events` to accept the current
 provider contract offer. If the negotiation state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not
 required to process it.
 
 If the current contract offer was created by the consumer, the provider must return HTTP code 400 (Bad Request) with an `NegotiationErrorMessage` in the response body.
 
-### 2.8 The provider `negotiations/:id/agreement/verification` resource
+### 2.8 The provider `negotiations/:providerPid/agreement/verification` resource
 
 #### 2.8.1 POST
 
@@ -162,7 +160,8 @@ Authorization: ...
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementVerificationMessage",
-  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:consumerSignature": {
     "timestamp": 121212,
     "hash": "...",
@@ -172,7 +171,7 @@ Authorization: ...
 
 ```
 
-### 2.9 The provider `negotiations/:id/termination` resource
+### 2.9 The provider `negotiations/:providerPid/termination` resource
 
 #### 2.9.1 POST
 
@@ -184,24 +183,67 @@ state is successfully transitioned, the provider must return HTTP code 200 (OK).
 ### 3.1 Prerequisites
 
 All callback paths are relative to the `callbackAddress` base URL specified in the `ContractRequestMessage` that initiated a contract negotiation. For example, if
-the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `negotiations/:id/offers`, the resolved URL will
-be `https://connector.consumer.com/callback/negotiations/:id/offers`.
+the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `negotiations/:consumerPid/offers`, the resolved URL will
+be `https://connector.consumer.com/callback/negotiations/:consumerPid/offers`.
 
-### 3.2 The consumer `negotiations/:id/offers` resource
+### 3.2 The consumer `negotiations/offers` resource
 
 #### 3.2.1 POST
 
-A provider may make an offer by POSTing a [ContractOfferMessage](./message/contract-offer-message.json) to the `negotiations/:id/offers` callback:
+A contract offer is started and placed in the `OFFERED` state when a provider POSTs a
+[ContractOfferMessage](./message/contract-offer-message_initial.json) to `negotiations/offers`:
 
 ```
-POST https://connector.consumer.com/callback/negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3/offers
+POST https://connector.provider.com/negotiations/offers
+
+Authorization: ...
+
+{
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:ContractOfferMessage"
+  "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+  "dspace:offer": {
+    "@type": "odrl:Offer",
+    "@id": "...",
+    "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
+  }
+  "dspace:callbackAddress": "https://..."
+}
+```
+
+The `callbackAddress` property specifies the base endpoint URL where the client receives messages associated with the contract negotiation. Support for the HTTPS scheme is required. Implementations may optionally support other URL schemes.
+
+Callback messages will be sent to paths under the base URL as described by this specification. Note that consumer connectors should properly handle the cases where a trailing / is included with or absent from the callbackAddress when resolving full URL.
+
+The consumer connector must return an HTTP 201 (Created) response with a body containing the `ContractNegotiation`:
+
+```
+{
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:ContractNegotiation"
+  "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "dspace:state" :"OFFERED"
+}
+```
+
+### 3.3 The consumer `negotiations/:consumerPid/offers` resource
+
+#### 3.3.1 POST
+
+A provider may make an offer by POSTing a [ContractOfferMessage](./message/contract-offer-message.json) to the `negotiations/:consumerPid/offers` callback:
+
+```
+POST https://connector.consumer.com/callback/negotiations/urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833/offers
 
 Authorization: ...
 
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractOfferMessage",
-  "dspace:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:offer": {
     "@type": "odrl:Offer",
     "@id": "...",
@@ -213,22 +255,23 @@ Authorization: ...
 If the message is successfully processed, the consumer provider connector must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to
 process it.
 
-### 3.3 The consumer `negotiations/:id/agreement` resource
+### 3.4 The consumer `negotiations/:consumerPid/agreement` resource
 
-#### 3.3.1 POST
+#### 3.4.1 POST
 
-The provider connector can POST a [ContractAgreementMessage](./message/contract-agreement-message.json) to the `negotiations/:id/agreement` callback to create an agreement. If the
+The provider connector can POST a [ContractAgreementMessage](./message/contract-agreement-message.json) to the `negotiations/:consumerPid/agreement` callback to create an agreement. If the
 negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
-POST https://connector.consumer.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab/agreement
+POST https://connector.consumer.com/negotiations/urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833/agreement
 
 Authorization: ...
 
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementMessage",
-  "dspace:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:agreement": {
     "@type": "odrl:Agreement",
     "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
@@ -239,17 +282,17 @@ Authorization: ...
 }
 ```
 
-### 3.4 The consumer `negotiations/:id/events` resource
+### 3.5 The consumer `negotiations/:consumerPid/events` resource
 
-#### 3.4.1 POST
+#### 3.5.1 POST
 
-A provider can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to the `negotiations/:id/events` callback with an `eventType`
+A provider can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to the `negotiations/:consumerPid/events` callback with an `eventType`
 of `FINALIZED` to finalize a contract agreement. If the negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not
 specified and clients are not required to process it. 
 
-### 3.5 The consumer `negotiations/:id/termination` resource
+### 3.6 The consumer `negotiations/:consumerPid/termination` resource
 
-#### 3.5.1 POST
+#### 3.6.1 POST
 
 The provider connector can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a negotiation. If the negotiation
 state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.

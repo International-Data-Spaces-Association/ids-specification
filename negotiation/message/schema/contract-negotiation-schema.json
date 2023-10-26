@@ -22,11 +22,11 @@
 					"const": "dspace:ContractNegotiation",
 					"required": true
 				},
-				"dspace:processId": {
+				"dspace:providerPid": {
 					"type": "string",
 					"required": true
 				},
-				"dspace:negotiationId": {
+				"dspace:consumerPid": {
 					"type": "string",
 					"required": true
 				}
