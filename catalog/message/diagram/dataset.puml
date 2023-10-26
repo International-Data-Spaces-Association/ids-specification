@@ -1,0 +1,14 @@
+@startuml "dataset"
+!pragma layout smetana
+
+!include ../../../common/style/diagram.styles.puml
+
+hide empty description
+
+
+class dcat:Dataset {
+    @type : "dcat:Dataset",
+    ... # TODO
+}
+
+@enduml

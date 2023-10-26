@@ -53,7 +53,7 @@ shapes:TransferStartMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:dataAddress ;
-		sh:datatype dspace:DataAddress ;
+		sh:class dspace:DataAddress ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;

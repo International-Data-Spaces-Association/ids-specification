@@ -52,7 +52,7 @@ shapes:DataAddressShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:endpointProperties ;
-		sh:datatype dspace:EndpointProperty ;
+		sh:class dspace:EndpointProperty ;
 		sh:minCount 0 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-data-address-shape.ttl> (TransferErrorShape): An dspace:endpointProperties property must point to zero or more dspace:EndpointProperty."@en ;
@@ -70,7 +70,7 @@ shapes:EndpointPropertyShape
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:name property must point exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (EndpointPropertyShape): An dspace:name property must point exactly one xsd:string field."@en ;
 	] ;
 
 	sh:property [
@@ -80,6 +80,6 @@ shapes:EndpointPropertyShape
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:value property must point exactly one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (EndpointPropertyShape): An dspace:value property must point exactly one xsd:string field."@en ;
 	] ;
 .

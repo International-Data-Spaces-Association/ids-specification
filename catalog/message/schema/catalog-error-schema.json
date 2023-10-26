@@ -14,15 +14,33 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:CatalogError",
-					"required": true
+					"const": "dspace:CatalogError"
+				},
+				"dspace:code": {
+					"type": "string"
+				},
+				"dspace:reason": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"@value": {
+								"type": "string"
+							},
+							"@language": {
+								"type": "string"
+							}
+						},
+						"required": ["@value", "@language"]
+					},
+					"minItems": 1
 				}
-			}
+			},
+			"required": [ "@context", "@type" ]
 		}
 	}
 }

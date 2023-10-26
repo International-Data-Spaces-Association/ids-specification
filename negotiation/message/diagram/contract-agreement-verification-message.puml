@@ -11,35 +11,14 @@ class "dspace:ContractAgreementVerificationMessage" {
     @type : "dspace:ContractAgreementVerificationMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
-    cred:credentialSubject : dspace:ContractAgreementMessage
-    sec:proof : sec:Proof
+    dspace:hashedMessage : HashedMessage
 }
 
-class dspace:ContractAgreementMessage {
-    @type : "dspace:ContractAgreementMessage"
-    dspace:hash : String
+class HashedMessage {
+    dspace:digest : String
+    dspace:algorithm : String
 }
 
-class sec:Proof {
-    @type : Signature
-    dct:created : xsd:dateTime
-    sec:jws : String
-}
-
-enum Signature {
-    sec:EcdsaSecp256k1Signature2019
-    sec:EcdsaSecp256k1RecoverySignature2020
-    sec:RsaSignature2018
-    sec:SchnorrSecp256k1Signature2019
-    sec:MerkleProof2019
-    sec:Ed25519Signature2020
-    sec:JsonWebSignature2020
-    sec:BbsBlsSignature2020
-    sec:BbsBlsSignatureProof2020
-}
-
-"dspace:ContractAgreementVerificationMessage" "1" *-- "1" "dspace:ContractAgreementMessage" : "cred:credentialSubject"
-"dspace:ContractAgreementVerificationMessage" "1" *-- "0..2" "sec:Proof" : "sec:proof"
-"sec:Proof" "1" *-- "1" Signature : @type
+"dspace:ContractAgreementVerificationMessage" "1" *-- "1" "HashedMessage" : "dspace:hashedMessage"
 
 @enduml

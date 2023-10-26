@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,9 +25,14 @@ shapes:
 	] ;
 .
 
-shapes:CatalogErrorShape
+dspace_shapes:CatalogErrorShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:CatalogError ;
-
-
-.
+	sh:property [
+		sh:path dspace:code ;
+		sh:datatype xsd:string ;
+	] ;
+	sh:property [
+        sh:path dspace:reason ;
+        sh:datatype rdf:langString ;
+    ] .

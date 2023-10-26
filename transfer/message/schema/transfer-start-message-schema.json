@@ -14,21 +14,17 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:TransferStartMessage",
-					"required": true
+					"const": "dspace:TransferStartMessage"
 				},
 				"dspace:providerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:consumerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				},
 				"dspace:dataAddress": {
 					"type": "object",
@@ -62,10 +58,11 @@
 								"required": ["@type", "dspace:name", "dspace:value"]
 							}
 						}
-          },
+          			},
 					"required": ["@type", "dspace:endpointType", "dspace:endpoint"]
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid" ]
 		}
 	}
 }

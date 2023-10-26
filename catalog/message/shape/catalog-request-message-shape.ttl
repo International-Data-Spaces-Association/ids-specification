@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,15 +25,12 @@ shapes:
 	] ;
 .
 
-shapes:CatalogRequestMessageShape
+dspace_shapes:CatalogRequestMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:CatalogRequestMessage ;
-
+	
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:filter ;
-		sh:class dspace:Filter ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-request-message-shape.ttl> (CatalogRequestMessageShape): An dspace:filter property must point zero or more instances of the dspace:Filter class."@en ;
 	] ;
 .

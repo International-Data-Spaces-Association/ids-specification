@@ -12,16 +12,15 @@ class "dspace:ContractAgreementMessage" {
     dspace:providerPid : String
     dspace:consumerPid : String
     dspace:agreement : odrl:Agreement
+    dspace:signature: Object
     dspace:callbackAddress : xsd:anyURI
 }
 
 class odrl:Agreement {
     @type : "odrl:Agreement"
     @id: String
-    odrl:target : xsd:anyURI
     dspace:timestamp : xsd:dateTime
-    dspace:consumerId : String
-    dspace:providerId : String
+    ...
 }
 
 "dspace:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "odrl:agreement"

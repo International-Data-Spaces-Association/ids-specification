@@ -5,14 +5,14 @@
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:code": "...",
   "dspace:reason": [
-    { 
-      "@value": "Catalog not provisioned for this requester.", 
+    {
+      "@value": "Catalog not provisioned for this requester.",
       "@language": "en"
     }
   ],
   "dct:description": [
-    { 
-      "@language": "en", 
+    {
+      "@language": "en",
       "@value": "The parsing of the input parameters failed."
     },
     {

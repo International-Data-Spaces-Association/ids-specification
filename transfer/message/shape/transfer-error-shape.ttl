@@ -55,9 +55,16 @@ shapes:TransferErrorShape
 		sh:path dspace:code ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
-		sh:minCount 1 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:code property must point from an dspace:TransferError to exactly one dspace:TerminationCode."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:reason ;
+		sh:datatype rdf:langString ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:reason property must point to rdf:langString values."@en ;
 	] ;
 
 .
