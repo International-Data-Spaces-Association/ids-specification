@@ -17,14 +17,41 @@
                 },
                 {
                     "properties": {
+                        "@context": {
+                            "type": "string",
+                            "const": "https://w3id.org/dspace/v0.8/context.json"
+                        },
+                        "@type": {
+                            "type": "string",
+                            "const": "dcat:Dataset"
+                        },
+                        "dct:title": {
+                            "type": "string"
+                        },
+                        "dct:description": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dcat:keyword": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "odrl:hasPolicy": {
+                            "$ref": "https://w3id.org/dspace/schemas/v0.8/dataset-schema.json#/definitions/Policy"
+                        },
                         "dcat:distribution": {
                             "type": "array",
                             "items": {
-                                "$ref": "https://w3id.org/dspace/schemas/v0.8/catalog-schema.json#/definitions/Distribution"
-                            },
-                            "minItems": 1
+                                "type": "object"
+                            }
                         }
-                    }
+                    },
+                    "required": [ "@context", "@id", "@type", "dct:title", "dct:description" ]
                 }
             ]
         }

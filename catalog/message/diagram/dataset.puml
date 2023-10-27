@@ -7,8 +7,20 @@ hide empty description
 
 
 class dcat:Dataset {
-    @type : "dcat:Dataset",
-    ... # TODO
+    @context : "https://w3id.org/dspace/v0.8/context.json"
+    @type : "dcat:Dataset"
+    dct:title : String
+    dct:description : MultilanguageProperty
+    dcat:keyword : Array
+    odrl:hasPolicy : odrl:Offer
+    dcat:distribution : Array
 }
+
+class "MultilanguageProperty" {
+    @language : BCP47 Language-Tag
+    @value: String
+}
+
+"dcat:Dataset" "1" *-- "*" "MultilanguageProperty" : "dct:description"
 
 @enduml
