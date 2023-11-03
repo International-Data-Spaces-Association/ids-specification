@@ -51,7 +51,7 @@
                             }
                         }
                     },
-                    "required": [ "@context", "@id", "@type", "dct:title", "dct:description" ]
+                    "required": [ "@context", "@id", "@type" ]
                 }
             ]
         }
