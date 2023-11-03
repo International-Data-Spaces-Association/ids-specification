@@ -27,7 +27,7 @@
 					"type": "array"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:code", "dspace:reason" ]
+			"required": [ "@context", "@type" ]
 		}
 	}
 }
