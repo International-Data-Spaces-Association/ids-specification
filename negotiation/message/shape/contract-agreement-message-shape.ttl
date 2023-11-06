@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -32,11 +32,42 @@ dspace_shapes:ContractAgreementMessageShape
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path cred:credentialSubject ;
-		sh:class odrl:Agreement ;
+        sh:path dspace:providerPid ;
+        sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An cred:credentialSubject property must point to exactly one odrl:Agreement."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:providerPid property must point to exactly one xsd:string value."@en ;
 	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:consumerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:consumerPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:agreement ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:class odrl:Agreement ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:agreement property must point to exactly one odrl:Agreement class."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:signature ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:callbackAddress ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:callbackAddress property must point to exactly one xsd:string value."@en ;
+	]
 .

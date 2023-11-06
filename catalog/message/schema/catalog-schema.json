@@ -58,10 +58,7 @@
                     }
                 }
             ],
-            "required": [
-                "@context",
-                "@type"
-            ],
+            "required": [ "@context", "@type" ],
             "additionalProperties": false
         },
         "ResourceChoice": {
@@ -95,7 +92,7 @@
                     "items": {
                         "$ref": "#/definitions/Multilanguage"
                     }
-                },
+                },  
                 "dct:issued": {
                     "type": "string",
                     "const": "xsd:dateTime"
@@ -232,7 +229,7 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dcat:downloadURL": {
-                    "tpe": "string"
+                    "type": "string"
                 },
                 "dcat:mediaType": {
                     "$ref": "#/definitions/Reference"

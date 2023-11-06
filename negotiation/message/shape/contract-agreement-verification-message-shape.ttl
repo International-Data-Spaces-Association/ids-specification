@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,28 +25,56 @@ shapes:
 	] ;
 .
 
-shapes:ContractAgreementVerificationMessageShape
+dspace_shapes:ContractAgreementVerificationMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:ContractAgreementVerificationMessage ;
-	rdfs:subClassOf shapes:ContractNegotiationMessageShape ;
+	rdfs:subClassOf dspace_shapes:ContractNegotiationMessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path cred:credentialSubject ;
-		sh:class dspace:ContractAgreementMessage ; # TODO: Having the ContractAgreementMessage class(!) here but only with the property dspace:hash is a bad idea, not safe for the schema engine.
+        sh:path dspace:providerPid ;
+        sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): An cred:credentialSubject property must point to exactly one dspace:ContractAgreementMessage."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A dspace:providerPid property must point to exactly one xsd:string value."@en ;
 	] ;
-
 	sh:property [
 		a sh:PropertyShape ;
-		sh:path sec:proof ;
-		sh:class sec:Proof ;
-		sh:maxCount 2 ;
-		sh:minCount 0 ;
+        sh:path dspace:consumerPid ;
+        sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): An sec:proof property must point to zero, one, or two sec:Proof classes."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A dspace:consumerPid property must point to exactly one xsd:string value."@en ;
+	] ;
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:hashedMessage ;
+        sh:node [
+			a sh:NodeShape ;
+			sh:property [
+				a sh:PropertyShape ;
+				sh:path dspace:digest ;
+				sh:datatype xsd:string ;
+				sh:maxCount 1 ;
+				sh:minCount 1 ;
+				sh:severity sh:Violation ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A ContractAgreementVerificationMessage requires a dspace:hashedMessage which has exactly one dspace:digest property pointing to exactly one xsd:string value."@en ;
+			] ;
+			sh:property [
+				a sh:PropertyShape ;
+				sh:path dspace:algorithm ;
+				sh:datatype xsd:string ;
+				sh:maxCount 1 ;
+				sh:minCount 1 ;
+				sh:severity sh:Violation ;
+				sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A ContractAgreementVerificationMessage requires a dspace:hashedMessage which has exactly one dspace:algorithm property pointing to exactly one xsd:string value."@en ;
+			] ;
+		] ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-verification-message-shape.ttl> (ContractAgreementVerificationMessageShape): A dspace:hashedMessage property must point to exactly one hashed message object."@en ;
 	] ;
 .

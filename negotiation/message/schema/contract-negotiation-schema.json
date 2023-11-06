@@ -37,9 +37,9 @@
 						"dspace:FINALIZED",
 						"dspace:TERMINATED"
 					]
-				},
-				"required": [ "@context", "@type", "dspace:processPid", "dspace:state" ]
-			}
+				}
+			},
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:state" ]
 		}
 	}
 }

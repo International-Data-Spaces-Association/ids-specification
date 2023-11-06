@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;

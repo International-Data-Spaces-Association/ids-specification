@@ -32,18 +32,22 @@
 				"dspace:reason": {
 					"type": "array",
 					"minItems": 1,
-					"items": {
-
-					}
+					"items": {}
 				},
 				"dct:description": {
 					"type": "array",
 					"items": {
-						"type": "string"
-					}
+						"@language": {
+							"type": "string"
+						},
+						"@value": {
+							"type": "string"
+						}
+					},
+					"required": [ "@language", "@value"]
 				}
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:code", "dspace:reason", "dct:description"]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid"]
 		}
 	}
 }

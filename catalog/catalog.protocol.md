@@ -52,7 +52,7 @@ be defined in the relevant catalog binding specification.
 
 **Response**: OK or ERROR
 
-**Schema**: [CatalogShape](./message/shape/catalog-shape.ttl) and the [Catalog JSON Schema](./message/schema/catalog-schema.json)
+**Schema**: [CatalogShape](./message/shape/dcat-shapes.ttl) and the [Catalog JSON Schema](./message/schema/catalog-schema.json)
 
 #### Description
 

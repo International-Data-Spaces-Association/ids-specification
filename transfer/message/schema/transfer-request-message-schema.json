@@ -14,68 +14,61 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json",
-					"required": true
+					"const": "https://w3id.org/dspace/v0.8/context.json"
 				},
 				"@type": {
 					"type": "string",
-					"const": "dspace:TransferRequestMessage",
-					"required": true
+					"const": "dspace:TransferRequestMessage"
 				},
 				"dspace:agreementId": {
-					"type": "object",
-                    "properties": {
-                        "@value": {
-                            "type": "string",
-                            "required": true
-                        },
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:anyURI",
-                            "required": true
-                        }
-                    },
-					"required": true
+					"type": "string"
 				},
 				"dct:format": {
-                    "type": "string",
-                    "required": true
+                    "type": "string"
 				},
 				"dspace:dataAddress": {
 					"type": "object",
                     "properties": {
-                        "@value": {
-                            "type": "string",
-                            "required": true
-                        },
                         "@type": {
                             "type": "string",
-                            "const": "xsd:anyURI",
-                            "required": true
+                            "const": "dspace:DataAddress"
+                        },
+                        "dspace:endpointType": {
+                            "type": "string"
+                        },
+                        "dspace:endpoint": {
+                            "type": "string"
+                        },
+                        "dspace:endpointProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "@type": {
+                                        "type": "string",
+                                        "const": "dspace:EndpointProperty"
+                                    },
+                                    "dspace:name": {
+                                        "type": "string"
+                                    },
+                                    "dspace:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["@type", "dspace:name", "dspace:value"]
+                            }
                         }
                     },
-					"required": false
+                    "required": ["@type", "dspace:endpointType", "dspace:endpoint"]
 				},
 				"dspace:callbackAddress": {
-					"type": "object",
-                    "properties": {
-                        "@value": {
-                            "type": "string",
-                            "required": true
-                        },
-                        "@type": {
-                            "type": "string",
-                            "const": "xsd:anyURI",
-                            "required": true
-                        }
-                    },
-					"required": true
+					"type": "string"
 				},
 				"dspace:consumerPid": {
-					"type": "string",
-					"required": true
+					"type": "string"
 				}
-			}
+			},
+			"required": [ "@context", "@type", "dspace:agreementId", "dct:format", "dspace:callbackAddress", "dspace:consumerPid" ]
 		}
 	}
 }

@@ -12,6 +12,7 @@ class "dspace:ContractAgreementMessage" {
     dspace:providerPid : String
     dspace:consumerPid : String
     dspace:agreement : odrl:Agreement
+    dspace:signature: Object
     dspace:callbackAddress : xsd:anyURI
 }
 

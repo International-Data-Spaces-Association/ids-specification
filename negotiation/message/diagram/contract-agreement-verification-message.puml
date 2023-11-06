@@ -14,9 +14,9 @@ class "dspace:ContractAgreementVerificationMessage" {
     cred:credentialSubject : dspace:ContractAgreementMessage
 }
 
-class dspace:ContractAgreementMessage {
-    @type : "dspace:ContractAgreementMessage"
-    dspace:hash : String
+class HashedMessage {
+    dspace:digest : String
+    dspace:algorithm : String
 }
 
 @enduml

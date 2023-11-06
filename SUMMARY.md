@@ -2,7 +2,7 @@
 
 ## Overview
 
-* [Dataspace Protocol v0.8](./README.md)
+* [Dataspace Protocol - Working Draft](./README.md)
 * [Terminology](./model/terminology.md)
 * [Information Model](./model/model.md)
 
@@ -28,3 +28,8 @@
 * [Messages](./resources/list_messages.md)
 * [Schemes](./resources/list_schemes.md)
 * [Shapes](./resources/list_shapes.md)
+
+## Best Practices
+
+* [Introduction](./best.practices/README.md)
+* [Related Documents](./best.practices/related.documents.md)
