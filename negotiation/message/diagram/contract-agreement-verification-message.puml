@@ -11,12 +11,14 @@ class "dspace:ContractAgreementVerificationMessage" {
     @type : "dspace:ContractAgreementVerificationMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
-    cred:credentialSubject : dspace:ContractAgreementMessage
+    dspace:hashedMessage : HashedMessage
 }
 
 class HashedMessage {
     dspace:digest : String
     dspace:algorithm : String
 }
+
+"dspace:ContractAgreementVerificationMessage" "1" *-- "1" "HashedMessage" : "dspace:hashedMessage"
 
 @enduml
