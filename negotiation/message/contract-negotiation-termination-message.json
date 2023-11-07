@@ -8,9 +8,6 @@
     {
       "@value": "License model does not fit.",
       "@language": "en"
-    },
-    {
-      "@id": "http://example.org/INCOMPATIBLE_LICENSE"
     }
   ]
 }

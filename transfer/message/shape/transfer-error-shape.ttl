@@ -55,7 +55,6 @@ dspace_shapes:TransferErrorShape
 		sh:path dspace:code ;
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
-		sh:minCount 0 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:code property must point to exactly one xsd:string field."@en ;
 	] ;
@@ -67,6 +66,14 @@ dspace_shapes:TransferErrorShape
 		sh:minCount 0 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:reason property must point to exactly one entity."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:reason ;
+		sh:datatype rdf:langString ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:reason property must point to rdf:langString values."@en ;
 	] ;
 
 .

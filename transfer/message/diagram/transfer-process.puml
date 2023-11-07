@@ -23,6 +23,6 @@ enum dspace:TransferState {
     "dspace:SUSPENDED"
 }
 
-"dspace:TransferProcess" "1" *-- "1" "dspace:TransferState" : "dspace:transferState"
+"dspace:TransferProcess" "1" *-- "1" "dspace:TransferState" : "dspace:state"
 
 @enduml

@@ -53,7 +53,13 @@ dspace_shapes:TransferProcessShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:state ;
-		sh:class dspace:TransferState ;
+		sh:in ( 
+			dspace:REQUESTED
+			dspace:STARTED
+			dspace:TERMINATED
+			dspace:COMPLETED
+			dspace:SUSPENDED
+		) ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;

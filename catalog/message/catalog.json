@@ -25,7 +25,10 @@
       "@type": "dcat:Dataset",
       "dct:title": "Traffic Data",
       "dct:description": [
-        "Traffic data sample extract"
+        {
+          "@value": "Traffic data sample extract",
+          "@language": "en"
+        }
       ],
       "dcat:keyword": [
         "traffic"
@@ -33,7 +36,7 @@
       "odrl:hasPolicy": [
         {
           "@type": "odrl:Offer",
-          "odrl:assigner": "http://example.com/Provider",
+          "dspace:providerId": "http://example.com/Provider",
           "odrl:permission": [
             {
               "odrl:action": "odrl:use",

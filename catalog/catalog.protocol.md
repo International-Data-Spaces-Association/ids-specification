@@ -52,7 +52,7 @@ be defined in the relevant catalog binding specification.
 
 **Response**: OK or ERROR
 
-**Schema**: [CatalogShape](./message/shape/catalog-shape.ttl) and the [Catalog JSON Schema](./message/schema/catalog-schema.json)
+**Schema**: [CatalogShape](./message/shape/dcat-shapes.ttl) and the [Catalog JSON Schema](./message/schema/catalog-schema.json)
 
 #### Description
 
@@ -94,6 +94,19 @@ The `DatasetRequestMessage` must have a `dataset` property which contains the id
 
 The catalog service may require an authorization token. Details for including that token can be found in the relevant catalog binding specification.
 
+
+### 2.5 Dataset
+
+![](./message/diagram/dataset.png)
+
+**Sent by**: Provider
+
+**Example**: [Dataset](./message/dataset.json)
+
+
+**Response**: OK or ERROR
+
+**Schema**: [DatasetShape](./message/shape/dcat-shapes.ttl) and the [Dataset JSON Schema](./message/schema/dataset-schema.json)
 
 ## 3 DCAT Vocabulary Mapping
 

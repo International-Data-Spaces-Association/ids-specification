@@ -97,10 +97,10 @@
                     }
                 },
                 "dct:issued": {
-                    "$ref": "#/definitions/Multilanguage"
+                    "type": "string"
                 },
                 "dct:modified": {
-                    "$ref": "#/definitions/Multilanguage"
+                    "type": "string"
                 },
                 "dct:title": {
                     "type": "string"
@@ -113,7 +113,7 @@
         "Resource": {
             "type": "object",
             "properties": {
-                "dcat:contractPoint": {
+                "dcat:contactPoint": {
                     "$ref": "#/definitions/Reference"
                 },
                 "dcat:keyword": {
@@ -151,7 +151,7 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dct:issued": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:language": {
                     "$ref": "#/definitions/Reference"
@@ -160,10 +160,10 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dct:modified": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:publisher": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 },
                 "dct:relation": {
                     "$ref": "#/definitions/Reference"
@@ -172,7 +172,7 @@
                     "type": "string"
                 },
                 "dct:type": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 },
                 "odrl:hasPolicy": {
                     "type": "array",
@@ -214,12 +214,12 @@
                             "$ref": "#/definitions/Reference"
                         },
                         "dcat:endpointURL": {
-                            "$ref": "#/definitions/Reference"
+                            "type": "string"
                         },
                         "dcat:servesDataset": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Dataset"
+                                "$ref": "https://w3id.org/dspace/schemas/v0.8/dataset-schema.json#/definitions/Dataset"
                             },
                             "minItems": 1
                         }
@@ -241,7 +241,7 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dcat:byteSize": {
-                    "$ref": "#/definitions/decimal"
+                    "type": "string"
                 },
                 "dcat:compressFormat": {
                     "$ref": "#/definitions/Reference"
@@ -271,13 +271,13 @@
                     }
                 },
                 "dct:format": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 },
                 "dct:issued": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:modified": {
-                    "$ref": "#/definitions/time"
+                    "type": "string"
                 },
                 "dct:title": {
                     "type": "string"
@@ -296,7 +296,7 @@
             "properties": {
                 "@type": {
                     "type": "string",
-                    "const": "xsd:date"
+                    "const": "xsd:dateTime"
                 },
                 "@value": {
                     "type": "string",

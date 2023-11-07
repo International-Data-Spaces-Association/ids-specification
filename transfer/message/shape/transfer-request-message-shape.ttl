@@ -54,11 +54,11 @@ dspace_shapes:TransferRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:dataAddress ;
-		sh:datatype xsd:string ;
+		sh:class dspace:DataAddress ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 0 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:dataAddress property must point zero or one xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:dataAddress property must point zero or one dspace:DataAddress field."@en ;
 	] ;
 
 	sh:property [
