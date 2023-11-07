@@ -63,7 +63,6 @@ dspace_shapes:TransferTerminationMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:reason ;
-		sh:maxCount 1 ;
 		sh:minCount 0 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferTerminationMessageShape): An dspace:reason property must point to exactly one entity."@en ;
