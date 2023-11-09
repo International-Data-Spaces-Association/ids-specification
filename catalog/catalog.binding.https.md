@@ -138,6 +138,9 @@ path hierarchy:
 
 The contents of the response is a JSON object defined by individual trust specifications and not defined here.
 
+Note that if multiple connectors are hosted under the same base URL, a path segment appended to the base well-known URL can be used, for example,
+`https://example.com/.well-known/dspace-trust/connector1.`
+
 ## 5 Notes
 
 ### 5.1 Asynchronous Interactions
