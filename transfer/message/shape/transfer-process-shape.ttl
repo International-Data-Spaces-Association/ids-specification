@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,9 +25,10 @@ shapes:
 	] ;
 .
 
-shapes:TransferProcessShape
+dspace_shapes:TransferProcessShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferProcess ;
+	rdfs:subClassOf dspace_shapes:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;

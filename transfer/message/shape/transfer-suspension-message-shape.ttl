@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,10 +25,10 @@ shapes:
 	] ;
 .
 
-shapes:TransferSuspensionMessageShape
+dspace_shapes:TransferSuspensionMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferSuspensionMessage ;
-	rdfs:subClassOf dspace:MessageShape ;
+	rdfs:subClassOf dspace_shapes:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -48,6 +48,24 @@ shapes:TransferSuspensionMessageShape
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:consumerPid property must point exactly one xsd:string field."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:code ;
+		sh:datatype xsd:string ;
+		sh:maxCount 1 ;
+		sh:minCount 0;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:code property must point to exactly one xsd:string."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:reason ;
+		sh:minCount 0;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:reason property must point to one or more entity."@en ;
 	] ;
 
 .

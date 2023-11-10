@@ -37,7 +37,7 @@
 					]
 				}
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:consumerPid", "dspace:state" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:state" ]
 		}
 	}
 }

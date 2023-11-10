@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,10 +25,10 @@ shapes:
 	] ;
 .
 
-shapes:TransferTerminationMessageShape
+dspace_shapes:TransferTerminationMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferTerminationMessage ;
-	rdfs:subClassOf dspace:MessageShape ;
+	rdfs:subClassOf dspace_shapes:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -58,6 +58,14 @@ shapes:TransferTerminationMessageShape
 		sh:minCount 0 ;
 		sh:severity sh:Violation ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferTerminationMessageShape): An dspace:code property must point from an dspace:TransferTerminationMessage to exactly one entity."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+		sh:path dspace:reason ;
+		sh:minCount 0 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-termination-message-shape.ttl> (TransferTerminationMessageShape): An dspace:reason property must point to exactly one entity."@en ;
 	] ;
 
 .
