@@ -26,14 +26,17 @@
 				"dspace:consumerPid": {
 					"type": "string"
 				},
-				"odrl:agreement": {
+				"cred:credentialSubject": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement"
+				},
+				"sec:proof": {
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/sec-schema.json#/definitions/Proof"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:agreement", "dspace:callbackAddress"]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "cred:credentialSubject", "sec:proof", "dspace:callbackAddress"]
 		}
 	}
 }
