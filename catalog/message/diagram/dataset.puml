@@ -21,6 +21,6 @@ class "MultilanguageProperty" {
     @value: String
 }
 
-"dcat:Dataset" "1" *-- "*" "MultilanguageProperty" : "dct:description"
+"dcat:Dataset" "0" *-- "*" "MultilanguageProperty" : "dct:description"
 
 @enduml

@@ -94,12 +94,10 @@
                     }
                 },  
                 "dct:issued": {
-                    "type": "string",
-                    "const": "xsd:dateTime"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:modified": {
-                    "type": "boolean",
-                    "const": "xsd:boolean"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:title": {
                     "type": "string"
@@ -150,8 +148,7 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dct:issued": {
-                    "type": "string",
-                    "const": "xsd:dateTime"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:language": {
                     "$ref": "#/definitions/Reference"
@@ -160,8 +157,7 @@
                     "$ref": "#/definitions/Reference"
                 },
                 "dct:modified": {
-                    "type": "boolean",
-                    "const": "xsd:boolean"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:publisher": {
                     "type": "string"
@@ -256,12 +252,10 @@
                     "type": "string"
                 },
                 "dct:issued": {
-                    "type": "string",
-                    "const": "xsd:dateTime"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:modified": {
-                    "type": "boolean",
-                    "const": "xsd:boolean"
+                    "$ref": "#/definitions/time"
                 },
                 "dct:title": {
                     "type": "string"
