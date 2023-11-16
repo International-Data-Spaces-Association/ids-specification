@@ -183,6 +183,13 @@ It is expected (although not required) that catalog services implement access co
 The catalog service may require consumers to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
 catalog binding specification. The semantics of such tokens are not part of this specification.
 
+#### 4.3.1 The Proof Metadata Endpoint
+
+When a catalog contains protected _datasets_ the provider has two options: include all _datasets_ in the catalog response and restrict access when a contract is negotiated; 
+or, require one or more proofs when the catalog request is made and filter the _datasets_ accordingly. The latter option requires a mechanism for clients to discover 
+the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a catalog request is outside the scope of the 
+Dataspace Protocol Specifications. However, binding specifications should define a proof data endpoint for obtaining this information.  
+
 ### 4.4 Catalog Brokers
 
 A dataspace may include _**catalog brokers**_. A catalog broker is a consumer that has trusted access to 1..N upstream catalog services and advertises their respective catalogs as

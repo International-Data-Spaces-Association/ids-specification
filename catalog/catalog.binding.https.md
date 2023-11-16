@@ -128,9 +128,22 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
 Catalog services MAY compress responses to a catalog request by setting the `Content-Encoding` header to `gzip` as described in
 the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gzip-coding).
 
-## 4 Notes
+## 4 The Well-Known Proof Metadata Endpoint
 
-### 4.1 Asynchronous Interactions
+When an implementation supports protected _datasets_, it may offer a proof metadata endpoint clients can use to determine proof requirements. If the implementation
+offers a proof data endpoint, it must use the `dspace-trust` [Well-Known Uniform Resource Identifier](https://www.rfc-editor.org/rfc/rfc8615.html) at the top of the 
+path hierarchy:
+
+`/.well-known/dspace-trust`
+
+The contents of the response is a JSON object defined by individual trust specifications and not defined here.
+
+Note that if multiple connectors are hosted under the same base URL, a path segment appended to the base well-known URL can be used, for example,
+`https://example.com/.well-known/dspace-trust/connector1.`
+
+## 5 Notes
+
+### 5.1 Asynchronous Interactions
 
 We may want to specify optional support for asynchronous callbacks for the catalog response. This would require adding a `callbackAddress` property and an `@id` to the request:
 
