@@ -188,7 +188,7 @@ catalog binding specification. The semantics of such tokens are not part of this
 When a catalog contains protected _datasets_ the provider has two options: include all _datasets_ in the catalog response and restrict access when a contract is negotiated; 
 or, require one or more proofs when the catalog request is made and filter the _datasets_ accordingly. The latter option requires a mechanism for clients to discover 
 the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a catalog request is outside the scope of the 
-Dataspace Specifications. However, binding specifications should define a proof data endpoint for obtaining this information.  
+Dataspace Protocol Specifications. However, binding specifications should define a proof data endpoint for obtaining this information.  
 
 ### 4.4 Catalog Brokers
 
