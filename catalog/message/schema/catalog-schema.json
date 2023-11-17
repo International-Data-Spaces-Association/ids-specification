@@ -77,7 +77,7 @@
         "CatalogRecord": {
             "type": "object",
             "required": [
-                "foaf:primaryTopiy"
+                "foaf:primaryTopic"
             ],
             "properties": {
                 "@type": {

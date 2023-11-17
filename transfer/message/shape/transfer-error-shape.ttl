@@ -62,9 +62,9 @@ dspace_shapes:TransferErrorShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:reason ;
-		sh:minCount 1 ;
+		sh:minCount 0 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:reason property must point to one or more entity."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:reason property must point to zero or more entity."@en ;
 	] ;
 
 .
