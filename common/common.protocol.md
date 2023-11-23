@@ -18,6 +18,8 @@ In any way, a Connector must respond to a respective request by providing a JSON
 }
 ```
 
-This data object must comply to the [JSON Schema](schema/version-schema.json) and the [SHACL Shape](shape/version-shape.ttl).
+This data object must comply to the [JSON Schema](schema/version-schema.json) and the [SHACL Shape](shape/version-shape.ttl). The value of the `version` attribute follows the [Semantic Versioning 2.0.0](https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string) and thereby has a numeric order on major, minor, and patch versions.
 
 The requesting Connector, the one that has received the message with the protocol versions, then must select the according endpoints of the sending Connector as well as configure its own client socket accordingly to the selected version. If the Connector can't identify a matching Dataspace Protocol Version, it must terminate the communication. 
+
+If different minor versions are supported by a Connector, at least the highest minor version must be declared. Due to the semantic versioning, Connectors with the same major but differing minor versions can nevertheless understand that they can communicate based on the highest shared minor version. For instance, Connector A with highest supported version `1.3.0` and Connector B with `1.1.0` can leverage the features of the Dataspace Protocol version `1.1.0`, as any higher minor version (e.g. `1.3.0`) must always be compliant to any lower minor version (e.g. `1.1.0`).
