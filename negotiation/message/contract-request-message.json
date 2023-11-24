@@ -1,15 +1,13 @@
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "@type": "dspace:ContractRequestMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:offer": {
     "odrl:target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
-    "odrl:assigner": "tsdshhs636378",
-    "odrl:assignee": "jashd766",
+    "dspace:providerId": "urn:tsdshhs636378",
+    "dspace:consumerId": "urn:jashd766",
     "odrl:permission": [{
-      "@id": "some-permission-id",
       "odrl:action": "odrl:use" ,
       "odrl:constraint": [{
         "odrl:leftOperand": "odrl:dateTime",
