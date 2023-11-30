@@ -125,7 +125,7 @@ will be created on consumer side and the consumer selects an appropriate `consum
 
 #### Description
 
-The `ContractAgreementMessage` is sent by a provider when it agrees to a contract. It contains the complete contract agreement with the provider's signature.
+The `ContractAgreementMessage` is sent by a provider when it agrees to a contract. It contains the complete contract agreement.
 
 A `ContractAgreementMessage` must contain a `consumerPid` and a `providerPid`.
 
@@ -155,7 +155,7 @@ contract (i.e. the "connectors").
 
 #### Description
 
-The `ContractAgreementVerificationMessage` is sent by a consumer to verify the acceptance of a contract agreement. A provider responds with an error if the signature can't be
+The `ContractAgreementVerificationMessage` is sent by a consumer to verify the acceptance of a contract agreement. A provider responds with an error if the contract cannot be
 validated or is incorrect.
 
 A `ContractAgreementVerificationMessage` must contain a `consumerPid` and a `providerPid`.
@@ -178,8 +178,8 @@ A `ContractAgreementVerificationMessage` must contain a `consumerPid` and a `pro
 #### Description
 
 When the `ContractNegotiationEventMessage` is sent by a provider with an `eventType` property set to `FINALIZED`, a contract agreement has been finalized and the associated asset
-is accessible. The state machine is transitioned to the `FINALIZED` state. Other event types may be defined in the future. A consumer responds with an error if the signature
-can't be validated or is incorrect.
+is accessible. The state machine is transitioned to the `FINALIZED` state. Other event types may be defined in the future. A consumer responds with an error if the contract
+cannot be validated or is incorrect.
 
 It is an error for a consumer to send a `ContractNegotiationEventMessage` with an eventType `FINALIZED` to the provider.
 
@@ -255,19 +255,3 @@ The `ContractNegotiation` is an object returned by a consumer or provider indica
 
 The `ContractNegotiationError` is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
 
-## Hash and Signature Calculations
-
-Hash and Signatures are calculated as defined in the [[JWS/CT]](#references) of ...
-
-## References
-
-- [[JCS] JSON Canonicalization Scheme](https://www.ietf.org/archive/id/draft-jordan-jws-ct-08.html)
-- [[JWS/CT] JWS Clear Text JSON Signature Option](https://www.ietf.org/archive/id/draft-jordan-jws-ct-08.html)
-- [[JWS] JSON Web Signature](https://www.rfc-editor.org/rfc/rfc7797.html)
-
-## JWS Clear Text JSON Signature Option
-
-- Adopt JWS/CT, an extension to the JSON Web Signature (JWS) standard.
-- Combines the detached mode of JWS with the JSON Canonicalization Scheme (JCS). Detached mode is when the payload section of the JWS is replaced
-  by an empty string: `XXXX.PAYLOAD.YYYY` becomes `XXXX..YYYY`. Detached mode is described in the JWS spec.
-- Maintains Signed JSON data in JSON format.
