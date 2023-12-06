@@ -6,6 +6,11 @@
 * [Terminology](./model/terminology.md)
 * [Information Model](./model/model.md)
 
+## Common Functionalities
+
+* [Specification](./common/common.protocol.md)
+* [Binding: HTTPS](./common/common.binding.https.md)
+
 ## Catalog
 
 * [Specification](./catalog/catalog.protocol.md)
