@@ -11,7 +11,6 @@ class "dspace:TransferProcess" {
     @type : "dspace:TransferProcess"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:state : dspace:TransferState
 }
 
 

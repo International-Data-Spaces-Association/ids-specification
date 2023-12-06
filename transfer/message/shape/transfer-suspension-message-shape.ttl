@@ -28,7 +28,6 @@ shapes:
 shapes:TransferSuspensionMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferSuspensionMessage ;
-	rdfs:subClassOf dspace:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -48,6 +47,14 @@ shapes:TransferSuspensionMessageShape
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:consumerPid property must point exactly one xsd:string field."@en ;
+	] ;
+
+	sh:property [
+		a sh:PropertyShape ;
+        sh:path dspace:code ;
+        sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-suspension-message-shape.ttl> (TransferSuspensionMessageShape): An dspace:code property must point to an xsd:string value."@en ;
 	] ;
 
 .
