@@ -6,7 +6,7 @@ This document outlines the key elements of the transfer process protocol. The fo
 
 - A _**message type**_ defines the structure of a _message_.
 - A _**message**_  is an instantiation of a _message type_.
-- The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine (TP-SM).
+- The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine.
 - A _**transfer process (TP)**_ is an instantiation of the CNP-TP.
 - A _**provider**_ is a participant agent that offers an asset.
 - A _**consumer**_ is a participant agent that requests access to an offered asset.
@@ -16,7 +16,7 @@ This document outlines the key elements of the transfer process protocol. The fo
 
 ## Transfer Process Protocol
 
-A transfer process (TP) involves two parties, a _provider_ that offers one or more assets under a usage policy and _consumer_ that requests assets. A TP progresses through
+A transfer process involves two parties, a _provider_ that offers one or more assets under a usage policy and _consumer_ that requests assets. A TP progresses through
 a series of states, which are tracked by the provider and consumer using messages. A TP transitions to a state in response to a message from the counter-party.
 
 ### Connector Components: Control and Data Planes
