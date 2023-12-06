@@ -140,25 +140,3 @@ The contents of the response is a JSON object defined by individual trust specif
 
 Note that if multiple connectors are hosted under the same base URL, a path segment appended to the base well-known URL can be used, for example,
 `https://example.com/.well-known/dspace-trust/connector1.`
-
-## 5 Notes
-
-### 5.1 Asynchronous Interactions
-
-We may want to specify optional support for asynchronous callbacks for the catalog response. This would require adding a `callbackAddress` property and an `@id` to the request:
-
-```
-POST https://provider.com/catalog/request
-
-Authorization: ...
-
-{
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:CatalogRequestMessage"
-  "@id: "..."
-  "dspace:callbackAddress": "https://example.com/endpoint"
-}
-```
-
-The `CatalogResponseMessage` would be POSTed back to the endpoint. the response message could be posted multiple times for paginated results and would need to include the
-original `@id` value as a `correlationId` and a property indicating if the contents are complete (or additional responses will be sent).
