@@ -162,11 +162,6 @@ Authorization: ...
   "@type": "dspace:ContractAgreementVerificationMessage",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
-  "dspace:consumerSignature": {
-    "timestamp": 121212,
-    "hash": "...",
-    "signature": ""
-  }
 }
 
 ```

@@ -6,6 +6,5 @@
   "dspace:hashedMessage": {
       "dspace:digest": "some-hash",
       "dspace:algorithm": "SHA-384"
-  },
-  "dspace:signature": {}
+  }
 }
