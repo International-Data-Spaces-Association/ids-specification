@@ -20,10 +20,10 @@ the counter-party. Both parties have the same state of the CN. In case the state
 
 The CN states are:
 
-- **REQUESTED** - A contract for an asset has been requested by the consumer based on an offer and the provider has sent an ACK response.
+- **REQUESTED** - A contract for an asset has been requested by the consumer and the provider has sent an ACK response.
 - **OFFERED** - The provider has sent a contract offer to the consumer and the consumer has sent an ACK response.
 - **ACCEPTED** - The consumer has accepted the latest contract offer and the provider has sent an ACK response.
-- **AGREED** - The provider has accepted the latest contract offer, sent an agreement to the consumer, and the consumer has sent an ACK response.
+- **AGREED** - The provider has sent an agreement to the consumer, and the consumer has sent an ACK response.
 - **VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
 - **FINALIZED** - The provider has sent a finalization message including his own agreement verification to the consumer and the consumer has sent an ACK response. Data is
   now available to the consumer.
@@ -38,6 +38,21 @@ The CN state machine is represented in the following diagram. Note that transiti
 
 Transitions marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a provider message. Terminal states are final; the state machine may
 not transition to another state. A new CN may be initiated if, for instance, the CN entered the `TERMINATED` state due to a network issue.
+
+Following table gives non-normative examples of transitions:
+
+| Origin State               | Actor  | Message                | Target State | Non-normative Example                                                                                                                                                                                                                                                                                                                    |
+|----------------------------|--------|-------------------------------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| INIT                       | C      | ContractRequestMessage                    | REQUESTED    | The consumer requests a contract, without previous direct interaction with provider, e.g. through the usage of a central cataloging system, which provides all necessary information about the provider, to directly request a data contract.                                                                                            |
+| INIT                       | P      | ContractOfferMessage                      | OFFERED      | The provider sends a contract offer directly to a consumer without previous interaction, e.g. because the provider knows about desired data (e.g., consumer placed a search for data request in a catalog) or consumer/provider are in an existing business relationship and provider wants to ship information to its business partner. |
+| REQUESTED                  | P      | ContractOfferMessage                      | OFFERED      | The provider sends an offering for a requested resource.                                                                                                                                                                                                                                                                                 |
+| REQUESTED                  | P      | ContractAgreementMessage                  | AGREED       | The provider sends a contract agreement after a successful validation of the consumer's contract request.                                                                                           |
+| OFFERED                    | C      | ContractRequestMessage                    | REQUESTED    | The consumer declines the offered contract and might sent a counter offer to the provider.                                                                                                                                                                                                                                               |
+| OFFERED                    | C      | ContractNegotiationEventMessage:accepted  | ACCEPTED     | The consumer accepts to comply with the defined details in the contract.                                                                                                                                                                                                                                                                 |
+| ACCEPTED                   | P      | ContractAgreementMessage                  | AGREED       | The provider sends a provider-signed contract agreement to the consumer.                                                                                                                                                                                                                                                                 |
+| AGREED                     | C      | ContractAgreementVerificationMessage      | VERIFIED     | The consumer sends a both-sides signed contract agreement to the provider.                                                                                                                                                                                                                                                               |
+| VERIFIED                   | P      | ContractNegotiationEventMessage:finalized | FINALIZED    | The provider assures the consumer to have received the signed agreement.                                                                                                                                                                                                                                                                 |
+| \*/{TERMINATED, FINALIZED} | {C, P} | ContractNegotiationTerminationMessage     | FINALIZED    | The provider or consumer is not willing to continue any further negotiation process. This might happen e.g. in the case the provider doesnt want to place any offer (i.e. data) to the consumer.                                                                                                                                         |
 
 ## Message Types
 
