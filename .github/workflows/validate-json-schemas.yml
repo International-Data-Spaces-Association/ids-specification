@@ -1,0 +1,37 @@
+name: Validate JSON
+on: 
+  push:
+    branches:
+      - main
+      - shapes-and-schemas-subtask
+      
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate JSON Schema
+        uses: walbo/validate-json@v1.1.0
+        with:
+          files: negotiation/message/contract-agreement-message.json
+
+          # optional, defaults to `$schema` in your JSON file
+          schema: schemas/contract-agreement-message-schema.json
+
+          # optional, default: draft-04
+          schema-version: draft-04
+
+          # optional, default: false
+          print-valid-files: false
+
+          # optional, default: false
+          fail-on-missing-schema: false
+
+          # optional, default: true
+          strict: true
+
+          # optional, default: false
+          allow-matching-properties: false
+
+          # optional, default: true
+          allow-union-types: true
