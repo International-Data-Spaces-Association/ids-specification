@@ -28,7 +28,7 @@ A `Credential Issuer` is a trusted technology system that issues verifiable cred
 
 ## Observability, Traceability and Audit Logging
 
-`Observability, Traceability and Audit Logging` of transactions, e.g. [Contract Negotiation](#contract-negotiation), `Data Transfer` and enforcement of access policies or usage policies, in a [Dataspace](#dataspace) can be a requirement.
+`Observability, Traceability and Audit Logging` of transactions, e.g. [Contract Negotiation](#contract-negotiation), [Transfer Process](#transfer-process) and enforcement of access policies or usage policies, in a [Dataspace](#dataspace) can be a requirement.
 If a  trusted technology system is required that records and verifies those domain events. This is not in the scope of the current version of the document and is subject of future work.
 
 ## Dataspace Registration Service
@@ -67,6 +67,6 @@ A [Participant Agent](#participant-agent) that produces [Agreements](#agreement)
 
 A set of interactions between a provider [Connector](#connector--data-service-) and consumer [Connector](#connector--data-service-) that establish an [Agreement](#agreement).
 
-## Dataset Transfer
+## Transfer Process
 
 A set of interactions between a provider [Connector](#connector--data-service-) and consumer [Connector](#connector--data-service-) that give access to a [Dataset](#dataset) under the terms of an `[Agreement](#agreement).

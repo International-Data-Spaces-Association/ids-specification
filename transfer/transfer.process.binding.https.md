@@ -22,14 +22,14 @@ a [TransferError](./message/transfer-error.json) with the following properties:
 
 | Field       | Type          | Description                                                 |
 |-------------|---------------|-------------------------------------------------------------|
-| consumerPid | UUID          | The transfer process unique id on consumer side.            |
-| providerPid | UUID          | The transfer process unique id on provider side.            |
+| consumerPid | UUID          | The [Transfer Process](../model/terminology.md#transfer-process) unique id on consumer side.            |
+| providerPid | UUID          | The [Transfer Process](../model/terminology.md#transfer-process) unique id on provider side.            |
 | code        | string        | An optional implementation-specific error code.             |
 | reasons     | Array[object] | An optional array of implementation-specific error objects. |
 
 ### 2.2.1 State transition errors
 
-If a client or provider [Connector](../model/terminology.md#connector--data-service-) makes a request that results in an invalid transfer process state transition as defined by the Transfer Process Protocol, it must return
+If a client or provider [Connector](../model/terminology.md#connector--data-service-) makes a request that results in an invalid [Transfer Process](../model/terminology.md#transfer-process) state transition as defined by the Transfer Process Protocol, it must return
 an HTTP code 400 (Bad Request) with an `TransferError` in the response body.
 
 ### 2.3 Authorization
@@ -48,7 +48,7 @@ Authorization: ...
 
 ```
 
-If the transfer process is found and the client is authorized, the provider [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 200 (OK) response and a body containing
+If the [Transfer Process](./transfer.process.protocol.md#ack---transferprocess) is found and the client is authorized, the provider [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 200 (OK) response and a body containing
 the [TransferProcess](./message/transfer-process.json):
 
 ```
@@ -63,13 +63,13 @@ the [TransferProcess](./message/transfer-process.json):
 
 Predefined states are: `REQUESTED`, `STARTED`, `SUSPENDED`, `REQUESTED`, `COMPLETED`, and `TERMINATED`.
 
-If the transfer process does not exist or the client is not authorized, the provider [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 404 (Not Found) response.
+If the [Transfer Process](./transfer.process.protocol.md#ack---transferprocess) does not exist or the client is not authorized, the provider [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 404 (Not Found) response.
 
 ### 2.5 The provider `transfers/request` resource
 
 #### 2.5.1 POST
 
-A transfer process is started and placed in the `REQUESTED` state when a consumer POSTs a [TransferRequestMessage](./transfer.process.protocol.md#1-transferrequestmessage)
+A [Transfer Process](../model/terminology.md#transfer-process) is started and placed in the `REQUESTED` state when a consumer POSTs a [TransferRequestMessage](./transfer.process.protocol.md#1-transferrequestmessage)
 to `transfers/request`:
 
  ```
@@ -99,7 +99,7 @@ to `transfers/request`:
 }
  ```
 
-The `callbackAddress` property specifies the base endpoint `URL` where the client receives messages associated with the transfer process. Support for the `HTTPS` scheme is
+The `callbackAddress` property specifies the base endpoint `URL` where the client receives messages associated with the [Transfer Process](../model/terminology.md#transfer-process). Support for the `HTTPS` scheme is
 required. Implementations may optionally support other URL schemes.
 
 Callback messages will be sent to paths under the base URL as described by this specification. Note that provider [Connectors](../model/terminology.md#connector--data-service-) should properly handle the cases where a trailing `/`
@@ -151,7 +151,7 @@ process state is successfully transitioned, the provider must return HTTP code 2
 
 ### 3.1 Prerequisites
 
-All callback paths are relative to the `callbackAddress` base URL specified in the `TransferRequestMessage` that initiated a transfer process. For example, if
+All callback paths are relative to the `callbackAddress` base URL specified in the `TransferRequestMessage` that initiated a [Transfer Process](../model/terminology.md#transfer-process). For example, if
 the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `transfers/:consumerPid/start`, the resolved URL will
 be `https://connector.consumer.com/callback/transfers/:consumerPid/start`.
 
@@ -159,26 +159,26 @@ be `https://connector.consumer.com/callback/transfers/:consumerPid/start`.
 
 #### 3.2.1 POST
 
-The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferStartMessage](./message/transfer-start-message.json) to indicate the start of a transfer process. If the transfer
-process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferStartMessage](./message/transfer-start-message.json) to indicate the start of a [Transfer Process](../model/terminology.md#transfer-process). If the [transfer
+process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 3.3 The consumer `transfers/:consumerPid/completion` resource
 
 #### 3.3.1 POST
 
-The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferCompletionMessage](./message/transfer-completion-message.json) to complete a transfer process. If the transfer
-process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferCompletionMessage](./message/transfer-completion-message.json) to complete a transfer process. If the [transfer
+process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 3.4 The consumer `transfers/:consumerPid/termination` resource
 
 #### 3.4.1 POST
 
-The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferTerminationMessage](./message/transfer-termination-message.json) to terminate a transfer process. If the transfer
-process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferTerminationMessage](./message/transfer-termination-message.json) to terminate a transfer process. If the [transfer
+process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 3.5 The consumer `transfers/:consumerPid/suspension` resource
 
 #### 3.5.1 POST
 
-The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferSuspensionMessage](./message/transfer-suspension-message.json) to suspend a transfer process. If the transfer
-process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 
+The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferSuspensionMessage](./message/transfer-suspension-message.json) to suspend a transfer process. If the [transfer
+process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 

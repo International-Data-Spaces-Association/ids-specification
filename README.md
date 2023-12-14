@@ -30,19 +30,19 @@ The __Dataspace Protocol__ defines how this metadata is provisioned:
 
 1. How [Datasets](./model/terminology.md#dataset) are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
 2. How [Agreements](./model/terminology.md#agreement) that govern data usage are syntactically expressed and electronically negotiated.
-3. How [Datasets](./model/terminology.md#dataset) are accessed using data transfer protocols.
+3. How [Datasets](./model/terminology.md#dataset) are accessed using transfer process protocols.
 
 These specifications build on protocols located in the [ISO OSI   model (ISO/IEC 7498-1:1994)](https://www.iso.org/standard/20269.html) layers, like HTTPS.
 The purpose of this specification is to define interactions between systems independent of such protocols, but describing how to implement it in an unambiguous and extensible way.
 To do so, the messages that are exchanged during the process are described in this specification and the states and their transitions are specified as state machines, based on the key terms and concepts of a [Dataspace](./model/terminology.md#dataspace).
-On this foundation the binding to data transfer protocols, like HTTPS, is described.
+On this foundation the binding to transfer process protocols, like HTTPS, is described.
 
 The specifications are organized into the following documents:
 
 * __*Dataspace Model*__ and __*Dataspace Terminology*__ documents that define key terms.
 * __*Catalog Protocol*__ and __*Catalog HTTPS Binding*__ documents that define how DCAT Catalogs are published and accessed as HTTPS endpoints respectively.
 * __*Contract Negotiation Protocol*__ and __*Contract Negotiation HTTPS Binding*__ documents that define how [Contract Negotiations](./model/terminology.md#contract-negotiation) are conducted and requested via HTTPS endpoints.
-* __*Transfer Process Protocol*__ and __*Transfer Process HTTPS Binding*__ documents that define how transfer processes using a given data transfer protocol are governed via HTTPS
+* __*Transfer Process Protocol*__ and __*Transfer Process HTTPS Binding*__ documents that define how [Transfer Processes](./model/terminology.md#transfer-process) using a given data transfer protocol are governed via HTTPS
   endpoints.
 
 This specification does not cover the data transfer process as such.
