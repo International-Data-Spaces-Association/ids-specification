@@ -8,29 +8,35 @@ hide empty description
 skinparam defaultTextAlignment center
 
 box Consumer
-participant Connector1
+participant DataPlane1
+participant ControlPlane1
 end box
 
 box Provider
-participant Connector2
+participant ControlPlane2
+participant DataPlane2
 end box
 
-activate Connector1
-activate Connector2
+activate ControlPlane1
+activate ControlPlane2
 
-Connector1 -> Connector2 : TransferRequestMessage
-Connector2 --> Connector1 : ACK
+ControlPlane1 -> ControlPlane2 : TransferRequestMessage
+ControlPlane2 --> ControlPlane1 : ACK
 
-Connector2 -> Connector1 : TransferStartMessage(dataAddress)
-Connector1 --> Connector2 : ACK
+ControlPlane2 -> ControlPlane1 : TransferStartMessage(dataAddress)
+ControlPlane1 --> ControlPlane2 : ACK
 
-Connector1 -> Connector2 : pullData
-Connector2 --> Connector1 : data
+activate DataPlane1
+DataPlane1 -> DataPlane2 : pullData
+activate DataPlane2
+DataPlane2 --> DataPlane1 : data
+deactivate DataPlane2
+deactivate DataPlane1
 
-Connector1 -> Connector2 : TransferCompletionMessage
-Connector2 --> Connector1 : ACK
+ControlPlane1 -> ControlPlane2 : TransferCompletionMessage
+ControlPlane2 --> ControlPlane1 : ACK
 
-deactivate Connector1
-deactivate Connector2
+deactivate ControlPlane1
+deactivate ControlPlane2
 
 @enduml
