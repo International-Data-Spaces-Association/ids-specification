@@ -22,6 +22,13 @@ a series of states, which are controlled by the provider and consumer using mess
 A TP is managed by a `Connector`. The connector serves as a coordinating technical entity that
 receives counter-party messages and manages its local state of the TP. It may as well also operate the hosting of the `Assets`, or control their offering through another system.
 
+### Connector Components: Control and Data Planes
+A TP is managed by a `Connector`. The connector consists of two logical components, a `Control Plane` and a `Data Plane`. The control plane serves as a coordinating layer that
+receives counter-party messages and manages the TP state. The data plane performs the actual transfer of asset data using a wire protocol. Both participants run control and data
+planes.
+
+It is important to note that the control and data planes are logical constructs. Implementations may choose to deploy both components within a single process or across
+heterogeneous clusters.
 
 ### Asset Transfer Types
 
@@ -29,14 +36,14 @@ Asset transfers are characterized as `push` or `pull` transfers and asset data i
 
 #### Push Transfer
 
-A push transfer is when the provider connector initiates the sending of an asset to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
+A push transfer is when the provider data plane initiates sending of asset data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
 provider begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
 
 ![](./push-transfer-process.png)
 
 #### Pull Transfer
 
-A pull transfer is when the consumer connector initiates retrieval of asset data from a provider endpoint. For example, after the provider has issued an `TransferProcessStart,`
+A pull transfer is when the consumer data plane initiates retrieval of asset data from a provider endpoint. For example, after the provider has issued an `TransferProcessStart,`
 message, the consumer can request the data from the provider-specified endpoint.
 
 ![](./pull-transfer-process.png)
