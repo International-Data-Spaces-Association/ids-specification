@@ -60,7 +60,7 @@ The interaction of [Participants](./model/terminology.md#participant) in a [Data
 While most interactions take place between Connectors, some interactions with other systems are required.
 The figure below provides an overview on the context of this specification.
 
-An Identity Provider realizes the required interfaces and provides required information to implement Trust Framework of a [Dataspace](./model/terminology.md#dataspace).
+An [Identity Provider](./model/terminology.md#identity-provider) realizes the required interfaces and provides required information to implement Trust Framework of a [Dataspace](./model/terminology.md#dataspace).
 The validation of the identity of a given [Participant Agent](./model/terminology.md#participant-agent) and the validation of additional claims is the fundamental mechanism. The structure and content of such claims and identity may vary between different [Dataspaces](./model/terminology.md#dataspace), as well as the structure of such an Identity Provider, e.g. a centralized system, a decentralized system or a federated system.
 
 A connector will implement additional internal functionalities, like monitoring or Policy Engines, as appropriate. It is not covered by this specification, if a connector implements such or how.

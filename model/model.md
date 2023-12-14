@@ -18,9 +18,9 @@ Note that all relationships are multiplicities unless specified.
 - A [Participant](./terminology.md#participant) is a member of one or more [Dataspaces](./terminology.md#dataspace). A [Participant](./terminology.md#participant) registers [Participant Agents](./terminology.md#participant-agent) that perform tasks on its behalf.
 - A [Participant Agents](./terminology.md#participant-agent) performs tasks such as publishing a catalog or engaging in a dataset transfer. In order to accomplish these tasks, a [Participant Agents](./terminology.md#participant-agent) may
   use a _**verifiable presentation**_ generated from a _**credential**_ obtained from a third-party issuer. A [Participant Agents](./terminology.md#participant-agent) may also use an _**ID token**_ issued by a
-  third-party identity provider. Note that a [Participant Agents](./terminology.md#participant-agent) is a logical construct and does not necessarily correspond to a single runtime process.
-- An `Identity Provider` is a trust anchor that generates `ID tokens` used to verify the identity of a [Participant Agents](./terminology.md#participant-agent). Multiple identity providers may operate in
-  a [Dataspace](./terminology.md#dataspace). The types and semantics of ID tokens are not part of this specification. An identity provider may be a third-party or a [Participant](./terminology.md#participant) itself (for example, in the case
+  third-party [Identity Provider](./terminology.md#identity-provider). Note that a [Participant Agents](./terminology.md#participant-agent) is a logical construct and does not necessarily correspond to a single runtime process.
+- An [Identity Provider](./terminology.md#identity-provider) is a trust anchor that generates `ID tokens` used to verify the identity of a [Participant Agents](./terminology.md#participant-agent). Multiple identity providers may operate in
+  a [Dataspace](./terminology.md#dataspace). The types and semantics of ID tokens are not part of this specification. An [Identity Provider](./terminology.md#identity-provider) may be a third-party or a [Participant](./terminology.md#participant) itself (for example, in the case
   of decentralized identifiers).
 - A `Credential Issuer` issues _verifiable credentials_ used by [Participant Agents](./terminology.md#participant-agent) to allow access to datasets and verify usage control.
 

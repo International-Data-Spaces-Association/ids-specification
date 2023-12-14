@@ -18,9 +18,9 @@ A `Participant` is a [Dataspace](#dataspace) member that provides and/or consume
 
 A `Participant Agent` is a technology system that performs operations on behalf of a [Participant](#participant).
 
-## IdentityProvider
+## Identity Provider
 
-An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and [Participant Agents](#participant-agent).
+An `Identity Provider` is a trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and [Participant Agents](#participant-agent).
 
 ## CredentialIssuer
 
