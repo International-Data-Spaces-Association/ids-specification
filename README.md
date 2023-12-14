@@ -63,7 +63,7 @@ The figure below provides an overview on the context of this specification.
 An [Identity Provider](./model/terminology.md#identity-provider) realizes the required interfaces and provides required information to implement Trust Framework of a [Dataspace](./model/terminology.md#dataspace).
 The validation of the identity of a given [Participant Agent](./model/terminology.md#participant-agent) and the validation of additional claims is the fundamental mechanism. The structure and content of such claims and identity may vary between different [Dataspaces](./model/terminology.md#dataspace), as well as the structure of such an Identity Provider, e.g. a centralized system, a decentralized system or a federated system.
 
-A connector will implement additional internal functionalities, like monitoring or Policy Engines, as appropriate. It is not covered by this specification, if a connector implements such or how.
+A connector will implement additional internal functionalities, like monitoring or policy engines, as appropriate. It is not covered by this specification, if a connector implements such or how.
 
 The same applies for the data, which is transferred between the systems. While this document does not define the transport protocol, the structure, syntax and semantics of the data, a specification for those aspects is required and subject to the agreements of the [Participants](./model/terminology.md#participant) or the [Dataspace](./model/terminology.md#dataspace).
 

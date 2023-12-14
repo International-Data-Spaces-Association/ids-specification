@@ -16,7 +16,7 @@ This document outlines the key elements of the transfer process protocol. The fo
 
 ## Transfer Process Protocol
 
-A transfer process (TP) involves two parties, a _provider_ that offers one or more [Datasets](../model/terminology.md#dataset) under a usage policy and _consumer_ that requests [Datasets](../model/terminology.md#dataset). A TP progresses through
+A transfer process (TP) involves two parties, a _provider_ that offers one or more [Datasets](../model/terminology.md#dataset) under a [Usage Policy](../model/terminology.md#policy) and _consumer_ that requests [Datasets](../model/terminology.md#dataset). A TP progresses through
 a series of states, which are tracked by the provider and consumer using messages. A TP transitions to a state in response to a message from the counter-party.
 
 ### Connector Components: Control and Data Planes

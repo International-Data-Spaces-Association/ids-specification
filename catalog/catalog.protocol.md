@@ -118,7 +118,7 @@ A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.
 
 #### 3.1.1 odrl:hasPolicy
 
-A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
+A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
 target attributes. The target of an offer is the associated [Dataset](../model/terminology.md#dataset).
 
 > Note: As `odrl:hasPolicy rdfs:domain odrl:Asset`, each [Dataset](../model/terminology.md#dataset) is also an `odrl:Asset` from an ODRL perspective.
@@ -128,7 +128,7 @@ target attributes. The target of an offer is the associated [Dataset](../model/t
 A [Dataset](../model/terminology.md#dataset) may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `TransferProcess`.
 
-A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the [Dataset](../model/terminology.md#dataset) and this explicit `Distribution`.
+A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset) and this explicit `Distribution`.
 Offers must NOT contain any target attributes. The target of an offer is the [Dataset](../model/terminology.md#dataset) that contains the distribution.
 
 Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error

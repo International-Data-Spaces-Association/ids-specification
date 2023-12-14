@@ -46,7 +46,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 ### Notes
 
 - Concrete wire formats are defined by the protocol binding, e.g. HTTPS.
-- All policy types (Offer, Agreement) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
+- All [Policy](../model/terminology.md#policy) types (Offer, Agreement) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
   pattern <urn:uuid:{GUID}>.
 - An ODRL Agreement must have a target property containing the [Dataset](../model/terminology.md#dataset) id.
 

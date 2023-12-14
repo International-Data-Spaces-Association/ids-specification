@@ -41,15 +41,15 @@ Data or a technical service that can be shared by a [Participant](#participant).
 
 ## Policy
 
-A set of rules, duties, and obligations that define the terms of use for a [Dataset](#dataset).
+A set of rules, duties, and obligations that define the terms of use for a [Dataset](#dataset). Also referred to as `Usage Policy`.
 
 ## Offer
 
-A concrete `Policy` associated with a specific [Dataset](#dataset).
+A concrete [Policy](#policy) associated with a specific [Dataset](#dataset).
 
 ## Agreement
 
-A concrete `Policy` associated with a specific [Dataset](#dataset) that has been signed by both the provider and consumer [Participants](#participant).
+A concrete [Policy](#policy) associated with a specific [Dataset](#dataset) that has been signed by both the provider and consumer [Participants](#participant).
 
 ## Catalog
 
