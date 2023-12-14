@@ -28,7 +28,7 @@ The diagram below depicts the relationships between [Participant Agent](./termin
 
 ![](./m.participant.entities.png)
 
-- A `CatalogService` is a [Participant Agent](./terminology.md#participant-agent) that makes a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) available to other [Participants](./terminology.md#participant).
+- A [Catalog Service](./terminology.md#catalog-service) is a [Participant Agent](./terminology.md#participant-agent) that makes a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) available to other [Participants](./terminology.md#participant).
 - A [Catalog](./terminology.md#catalog) contains one or more [Datasets](../model/terminology.md#dataset), which are [DCAT Datasets](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset). A [Catalog](./terminology.md#catalog) also contains **_at least one_**
   [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where [Datasets](../model/terminology.md#dataset) may be obtained.
 - A [Dataset](../model/terminology.md#dataset) has **_at least one_** [Offer](./terminology.md#offer), which is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) describing the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset).

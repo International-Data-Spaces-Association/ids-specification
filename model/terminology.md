@@ -55,7 +55,7 @@ A concrete [Policy](#policy) associated with a specific [Dataset](#dataset) that
 
 A collection of entries representing [Datasets](#dataset) and their [Offers](#offer) that is advertised by a provider [Participant](#participant).
 
-## CatalogService
+## Catalog Service
 
 A [Participant Agent](#participant-agent) that makes a [Catalog](#catalog) accessible to [Participants](#participant).
 
