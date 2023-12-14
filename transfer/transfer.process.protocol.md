@@ -8,47 +8,47 @@ This document outlines the key elements of the transfer process protocol. The fo
 - A _**message**_  is an instantiation of a _message type_.
 - The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine (TP-SM).
 - A _**transfer process (TP)**_ is an instantiation of the CNP-TP.
-- A _**provider**_ is a participant agent that offers an asset.
-- A _**consumer**_ is a participant agent that requests access to an offered asset.
-- A _**Connector**_ is a `PariticipantAgent` that produces `Agreements` and manages `Asset` sharing.
-- An _**Asset**_ is data or a service a provider grants access to.
-- An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ `Asset`.
+- A _**provider**_ is a participant agent that offers a dataset.
+- A _**consumer**_ is a participant agent that requests access to an offered dataset.
+- A _**Connector**_ is a `PariticipantAgent` that produces `Agreements` and manages `Dataset` sharing.
+- An _**Dataset**_ is data or a service a provider grants access to.
+- An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ `Dataset`.
 
 ## Transfer Process Protocol
 
-A transfer process (TP) involves two parties, a _provider_ that offers one or more assets under a usage policy and _consumer_ that requests assets. A TP progresses through
+A transfer process (TP) involves two parties, a _provider_ that offers one or more datasets under a usage policy and _consumer_ that requests datasets. A TP progresses through
 a series of states, which are tracked by the provider and consumer using messages. A TP transitions to a state in response to a message from the counter-party.
 
 ### Connector Components: Control and Data Planes
 
 A TP is managed by a `Connector`. The connector consists of two logical components, a `Control Plane` and a `Data Plane`. The control plane serves as a coordinating layer that
-receives counter-party messages and manages the TP state. The data plane performs the actual transfer of asset data using a wire protocol. Both participants run control and data
+receives counter-party messages and manages the TP state. The data plane performs the actual transfer of data using a wire protocol. Both participants run control and data
 planes.
 
 It is important to note that the control and data planes are logical constructs. Implementations may choose to deploy both components within a single process or across
 heterogeneous clusters.
 
-### Asset Transfer Types
+### Dataset Transfer Types
 
-Asset transfers are characterized as `push` or `pull` transfers and asset data is either `finite` or `non-finite`. This section describes the difference between these types.
+Dataset transfers are characterized as `push` or `pull` transfers and it's data is either `finite` or `non-finite`. This section describes the difference between these types.
 
 #### Push Transfer
 
-A push transfer is when the provider data plane initiates sending of asset data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
+A push transfer is when the provider data plane initiates sending of data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
 provider begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
 
 ![](./push-transfer-process.png)
 
 #### Pull Transfer
 
-A pull transfer is when the consumer data plane initiates retrieval of asset data from a provider endpoint. For example, after the provider has issued an `TransferProcessStart,`
+A pull transfer is when the consumer data plane initiates retrieval of data from a provider endpoint. For example, after the provider has issued an `TransferProcessStart,`
 message, the consumer can request the data from the provider-specified endpoint.
 
 ![](./pull-transfer-process.png)
 
-#### Finite and Non-Finite Asset Data
+#### Finite and Non-Finite Data
 
-Asset data may be `finite` or `non-finite.` Finite data is data that is defined by a finite set, for example, machine learning data or images . After finite data transmission has
+Data may be `finite` or `non-finite.` Finite data is data that is defined by a finite set, for example, machine learning data or images. After finite data transmission has
 finished, the transfer process is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example streams or an API endpoint. With
 non-finite data, a TP will continue indefinitely until either the consumer or provider explicitly terminates the transmission.
 
@@ -56,8 +56,8 @@ non-finite data, a TP will continue indefinitely until either the consumer or pr
 
 The TP states are:
 
-- **REQUESTED** - An asset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
-- **STARTED** - The asset is available for access by the consumer or the provider has begun pushing the asset to the consumer endpoint.
+- **REQUESTED** - A dataset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
+- **STARTED** - The dataset is available for access by the consumer or the provider has begun pushing the data to the consumer endpoint.
 - **COMPLETED** - The transfer has been completed by either the consumer or the provider.
 - **SUSPENDED** - The transfer has been suspended by the consumer or the provider.
 - **TERMINATED** - The transfer process has been terminated by the consumer or the provider.
@@ -90,7 +90,7 @@ The `TransferRequestMessage` is sent by a consumer to initiate a transfer proces
 
 - The `consumerPid` property refers to the transfer id on consumer side.
 - The `agreementId` property refers to an existing contract agreement between the consumer and provider.
-- The `dct:format` property is a format specified by a `Distribution` for the `Asset` associated with the agreement. This is generally obtained from the provider `Catalog`.
+- The `dct:format` property is a format specified by a `Distribution` for the `Dataset` associated with the agreement. This is generally obtained from the provider `Catalog`.
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
 
@@ -102,7 +102,7 @@ Once a transfer process have been created, all associated callback messages must
 
 Providers must include a `dspace:consumerPid` and a `dspace:providerPid` property in the `TransferProcess`.
 
-- The `dataAddress` contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization via the `dspace:endpointProperties` property.
+- The `dataAddress` contains a transport-specific endpoint address for pushing the data. It may include a temporary authorization via the `dspace:endpointProperties` property.
 - Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
 
 
@@ -123,11 +123,11 @@ Providers must include a `dspace:consumerPid` and a `dspace:providerPid` propert
 
 #### Description
 
-The `TransferStartMessage` is sent by the provider to indicate the asset transfer has been initiated.
+The `TransferStartMessage` is sent by the provider to indicate the dataset transfer has been initiated.
 
 #### Notes
 
-- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset.. It may include a temporary authorization via the `dspace:endpointProperties` property.
+- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the dataset. It may include a temporary authorization via the `dspace:endpointProperties` property.
 
 ### 3. TransferSuspensionMessage
 
@@ -163,7 +163,7 @@ The `TransferSuspensionMessage` is sent by the provider or consumer when either 
 
 #### Description
 
-The `TransferCompletionMessage` is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
+The `TransferCompletionMessage` is sent by the provider or consumer when a dataset transfer has completed. Note that some data plane implementations may optimize completion
 notification by performing it as part of its wire protocol. In those cases, a `TransferCompletionMessage` message does not need to be sent.
 
 ### 5. TransferTerminationMessage
