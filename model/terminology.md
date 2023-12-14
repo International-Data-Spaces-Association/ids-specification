@@ -6,9 +6,9 @@ This and the following section defines the core concepts, entities, and relation
 
 A `Dataspace` is a set of technical services that facilitate interoperable `Dataset` sharing between entities.
 
-## DataspaceAuthority
+## Dataspace Authority
 
-A `DataspaceAuthority` is an entity that manages a [Dataspace](#dataspace).
+A `Dataspace Authority` is an entity that manages a [Dataspace](#dataspace).
 
 ## Participant
 

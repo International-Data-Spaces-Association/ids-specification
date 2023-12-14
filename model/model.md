@@ -12,8 +12,8 @@ The relationships between the primary [Dataspace](./terminology.md#dataspace) en
 
 Note that all relationships are multiplicities unless specified.
 
-- A Dataspace Authority manages one or more [Dataspaces](./terminology.md#dataspace). This will include participant registration and may entail mandating business and/or requirements. For example, a
-  Dataspace Authority may require participants to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the
+- A [Dataspace Authority](./terminology.md#dataspace-authority) manages one or more [Dataspaces](./terminology.md#dataspace). This will include participant registration and may entail mandating business and/or requirements. For example, a
+  [Dataspace Authority](./terminology.md#dataspace-authority) may require participants to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the
   technical enforcement of specific usage policies.
 - A `Participant` is a member of one or more [Dataspaces](./terminology.md#dataspace). A participant registers `Participant Agents` that perform tasks on its behalf.
 - A `Participant Agent` performs tasks such as publishing a catalog or engaging in a dataset transfer. In order to accomplish these tasks, a participant agent may
@@ -37,8 +37,8 @@ The diagram below depicts the relationships between `ParticipantAgent` types:
 
 ## 2.2 Classes
 
-Not all [Dataspace](./terminology.md#dataspace) entities have a concrete _technical_ materialization; some entities may exist as purely logical constructs. For example, a `Dataspace Authority`
-and `Participant Agent` have no representation in the protocol message flows that constitute [Dataspace](./terminology.md#dataspace) interactions. This section outlines the classes that comprise the concrete
+Not all [Dataspace](./terminology.md#dataspace) entities have a concrete _technical_ materialization; some entities may exist as purely logical constructs. For example, a [Dataspace Authority](./terminology.md#dataspace-authority)
+and `Participant Agent` have no representation in the protocol message flows that constitute [dataspace](./terminology.md#dataspace) interactions. This section outlines the classes that comprise the concrete
 elements of the model, i.e. those that are represented in protocol message flows.
 
 **_Note 1:_**
