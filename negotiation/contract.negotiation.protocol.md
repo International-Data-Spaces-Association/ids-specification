@@ -136,7 +136,7 @@ An [Agreement](../model/terminology.md#agreement) must contain a `dspace:timesta
 An [Agreement](../model/terminology.md#agreement) must contain a `dspace:consumerId` and `dspace:providerId`. The contents of these
 properties are a [Dataspace](../model/terminology.md#dataspace)-specific unique identifier of the [Agreement](../model/terminology.md#agreement) parties. Note that these
 identifiers are not necessarily the same as the identifiers of the [Participant Agents](../model/terminology.md#participant-agent) negotiating the
-contract (i.e. the [Connector](../model/terminology.md#connector--data-service-)).
+contract (i.e. the [Connectors](../model/terminology.md#connector--data-service-)).
 
 ### 4. ContractAgreementVerificationMessage
 
