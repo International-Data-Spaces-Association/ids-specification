@@ -4,7 +4,7 @@ This and the following section defines the core concepts, entities, and relation
 
 ## Dataspace
 
-A `Dataspace` is a set of technical services that facilitate interoperable asset sharing between entities.
+A `Dataspace` is a set of technical services that facilitate interoperable `Dataset` sharing between entities.
 
 ## DataspaceAuthority
 
@@ -12,7 +12,7 @@ A `DataspaceAuthority` is an entity that manages a `Dataspace`.
 
 ## Participant
 
-A `Participant` is a `Dataspace` member that provides and/or consumes assets.
+A `Participant` is a `Dataspace` member that provides and/or consumes `Datasets`.
 
 ## ParticipantAgent
 
@@ -35,25 +35,25 @@ If a  trusted technology system is required that records and verifies those doma
 
 A `DataspaceRegistrationService` is a technology system that maintains the state of `Participants` in a `Dataspace`.
 
-## Asset
+## Dataset
 
 Data or a technical service that can be shared by a `Participant`.
 
 ## Policy
 
-A set of rules, duties, and obligations that define the terms of use for an `Asset`.
+A set of rules, duties, and obligations that define the terms of use for a `Dataset`.
 
 ## Offer
 
-A concrete `Policy` associated with a specific `Asset`.
+A concrete `Policy` associated with a specific `Dataset`.
 
 ## Agreement
 
-A concrete `Policy` associated with a specific `Asset` that has been signed by both the provider and consumer `Participants`.
+A concrete `Policy` associated with a specific `Dataset` that has been signed by both the provider and consumer `Participants`.
 
 ## Catalog
 
-A collection of entries representing `Assets` and their `Offers` that is advertised by a provider `Participant`.
+A collection of entries representing `Datasets` and their `Offers` that is advertised by a provider `Participant`.
 
 ## CatalogService
 
@@ -61,12 +61,12 @@ A `ParticipantAgent` that makes a `Catalog` accessible to `Participants`.
 
 ## Connector (DataService)
 
-A `ParticipantAgent` that produces `Agreements` and manages `Asset` sharing.
+A `ParticipantAgent` that produces `Agreements` and manages `Dataset` sharing.
 
 ## Contract Negotiation
 
 A set of interactions between a provider `Connector` and consumer `Connector` that establish an `Agreement`.
 
-## Asset Transfer
+## Dataset Transfer
 
-A set of interactions between a provider `Connector` and consumer `Connector` that give access to an `Asset` under the terms of an `Agreement`.
+A set of interactions between a provider `Connector` and consumer `Connector` that give access to a `Dataset` under the terms of an `Agreement`.
