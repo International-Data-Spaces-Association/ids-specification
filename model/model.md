@@ -32,7 +32,7 @@ The diagram below depicts the relationships between [Participant Agent](./termin
 - A [Catalog](./terminology.md#catalog) contains one or more [Datasets](./terminology.md#dataset), which are [DCAT Datasets](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset). A [Catalog](./terminology.md#catalog) also contains **_at least one_**
   [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a [Connector](./terminology.md#connector--data-service-) where [Datasets](./terminology.md#dataset) may be obtained.
 - A [Dataset](./terminology.md#dataset) has **_at least one_** [Offer](./terminology.md#offer), which is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) describing the [Usage Policy](./terminology.md#policy) associated with the [Dataset](./terminology.md#dataset).
-- A [Connector](./terminology.md#connector--data-service-) is a [Participant Agent](./terminology.md#participant-agent) that performs `Contract Negotiation` and `Transfer Process` operations with another [Connector](./terminology.md#connector--data-service-). An outcome of a `ContractNegotiation` may
+- A [Connector](./terminology.md#connector--data-service-) is a [Participant Agent](./terminology.md#participant-agent) that performs [Contract Negotiation](./terminology.md#contract-negotiation) and `Transfer Process` operations with another [Connector](./terminology.md#connector--data-service-). An outcome of a `ContractNegotiation` may
   be the production of an [Agreement](./terminology.md#agreement), which is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) defining the [Usage Policy](./terminology.md#policy) agreed to for a [Dataset](./terminology.md#dataset).
 
 ## 2.2 Classes
@@ -59,7 +59,7 @@ A [Dataset](./terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/
 - 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the [Usage Policy](./terminology.md#policy) associated with the [Dataset](./terminology.md#dataset). **_Offers must NOT contain any target attributes. The
   target of an [Offer](./terminology.md#offer) is the associated [Dataset](./terminology.md#dataset)._** (ODRL PROFILE)
 - 1..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where the distribution
-  is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `TransferProcess`. (DCAT PROFILE)
+  is obtained. Specifically, a `DataService` specifies the endpoint for initiating a [Contract Negotiation](./terminology.md#contract-negotiation) and `TransferProcess`. (DCAT PROFILE)
 
 ### 2.2.3 Offer
 
