@@ -38,7 +38,7 @@ The diagram below depicts the relationships between `ParticipantAgent` types:
 ## 2.2 Classes
 
 Not all [Dataspace](./terminology.md#dataspace) entities have a concrete _technical_ materialization; some entities may exist as purely logical constructs. For example, a [Dataspace Authority](./terminology.md#dataspace-authority)
-and `Participant Agent` have no representation in the protocol message flows that constitute [dataspace](./terminology.md#dataspace) interactions. This section outlines the classes that comprise the concrete
+and `Participant Agent` have no representation in the protocol message flows that constitute [Dataspace](./terminology.md#dataspace) interactions. This section outlines the classes that comprise the concrete
 elements of the model, i.e. those that are represented in protocol message flows.
 
 **_Note 1:_**
