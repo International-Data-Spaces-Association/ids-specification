@@ -6,9 +6,9 @@ This document outlines the catalog protocol. The following terms are used:
 
 - A _**message type**_ defines the structure of a _message_.
 - A _**message**_  is an instantiation of a _message type_.
-- A _**catalog**_ is a [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/) offered by a _provider_
-- a _**catalog service**_ is a provider participant agent that advertises offered assets
-- A _**consumer**_ is a participant agent that requests access to an offered asset.
+- A _**catalog**_ is a [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/) offered by a _provider_.
+- a _**catalog service**_ is a provider participant agent that advertises offered datasets.
+- A _**consumer**_ is a participant agent that requests access to an offered datasets.
 
 The catalog protocol defines a how a `Catalog` is requested from a catalog service by a consumer using an abstract message exchange format. The concrete message exchange wire
 format is defined in binding specifications.
@@ -56,7 +56,7 @@ be defined in the relevant catalog binding specification.
 
 #### Description
 
-The catalog contains all [Asset Entries](#31-asset-entry) which the requester shall see.
+The catalog contains all [Datasets](#31-dataset) which the requester shall see.
 
 
 ### 2.3 CatalogError
@@ -112,24 +112,24 @@ The catalog service may require an authorization token. Details for including th
 
 This section describes how the IDS Information Model maps to DCAT resources.
 
-### 3.1 Asset Entry
+### 3.1 Dataset
 
-An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
+A `Dataset` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
 #### 3.1.1 odrl:hasPolicy
 
-An asset entry Dataset must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
-target attributes. The target of an offer is the asset associated with the containing asset entry.
+A `Dataset` must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset. Offers must NOT contain any
+target attributes. The target of an offer is the associated dataset.
 
-> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`, each `Asset Entry` is also an `odrl:Asset` from an ODRL perspective.
+> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `dspace:Dataset isA dcat:Dataset`, each `Dataset` is also an `odrl:Asset` from an ODRL perspective.
 
 ### 3.2 Distributions
 
-An asset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
-the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `AssetTransfer`.
+A dataset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
+the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `TransferProcess`.
 
-A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit `Distribution`.
-Offers must NOT contain any target attributes. The target of an offer is the asset entry that contains the distribution.
+A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset and this explicit `Distribution`.
+Offers must NOT contain any target attributes. The target of an offer is the dataset that contains the distribution.
 
 Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
 message to clients.
