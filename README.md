@@ -20,7 +20,7 @@ All changes made to the specification can be reviewed in the [GitHub repository]
 ## Abstract
 
 The __Dataspace Protocol__ is a set of specifications designed to facilitate interoperable data sharing between entities governed by usage control and based on Web technologies. These specifications
-define the schemas and protocols required for entities to publish data, negotiate usage agreements, and access data as part of a federation of technical systems termed a
+define the schemas and protocols required for entities to publish data, negotiate [Agreements](./model/terminology.md#agreement), and access data as part of a federation of technical systems termed a
 [Dataspace](./model/terminology.md#dataspace).
 
 ## Introduction
@@ -29,7 +29,7 @@ Sharing data between autonomous entities requires the provision of metadata to f
 The __Dataspace Protocol__ defines how this metadata is provisioned:
 
 1. How [Datasets](./model/terminology.md#dataset) are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
-2. How contract agreements that govern data usage are syntactically expressed and electronically negotiated.
+2. How [Agreements](./model/terminology.md#agreement) that govern data usage are syntactically expressed and electronically negotiated.
 3. How [Datasets](./model/terminology.md#dataset) are accessed using data transfer protocols.
 
 These specifications build on protocols located in the [ISO OSI   model (ISO/IEC 7498-1:1994)](https://www.iso.org/standard/20269.html) layers, like HTTPS.

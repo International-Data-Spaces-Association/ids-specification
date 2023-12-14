@@ -33,7 +33,7 @@ The diagram below depicts the relationships between [Participant Agent](./termin
   [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where [Datasets](../model/terminology.md#dataset) may be obtained.
 - A [Dataset](../model/terminology.md#dataset) has **_at least one_** [Offer](./terminology.md#offer), which is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) describing the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset).
 - A `Connector` is a [Participant Agent](./terminology.md#participant-agent) that performs `Contract Negotiation` and `Transfer Process` operations with another connector. An outcome of a `ContractNegotiation` may
-  be the production of an `Agreement`, which is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) defining the [Usage Policy](../model/terminology.md#policy) agreed to for a [Dataset](../model/terminology.md#dataset).
+  be the production of an [Agreement](./terminology.md#agreement), which is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) defining the [Usage Policy](../model/terminology.md#policy) agreed to for a [Dataset](../model/terminology.md#dataset).
 
 ## 2.2 Classes
 
@@ -71,7 +71,7 @@ An [Offer](./terminology.md#offer) is an [ODRL Offer](https://www.w3.org/TR/odrl
 
 ## 2.2.4 Agreement
 
-An `Agreement` is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) with the following attributes:
+An [Agreement](./terminology.md#agreement) is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) with the following attributes:
 
-- The `Agreement` class must include one `target` attribute that is the UUID of the [Dataset](../model/terminology.md#dataset) the agreement is associated with. An agreement is therefore associated with **EXACTLY
+- The [Agreement](./terminology.md#agreement) class must include one `target` attribute that is the UUID of the [Dataset](../model/terminology.md#dataset) the [Agreement](./terminology.md#agreement) is associated with. An [Agreement](./terminology.md#agreement) is therefore associated with **EXACTLY
   ONE** [Dataset](../model/terminology.md#dataset). (ODRL PROFILE)

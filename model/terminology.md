@@ -61,12 +61,12 @@ A [Participant Agent](#participant-agent) that makes a `Catalog` accessible to [
 
 ## Connector (DataService)
 
-A [Participant Agent](#participant-agent) that produces `Agreements` and manages [Dataset](#dataset) sharing.
+A [Participant Agent](#participant-agent) that produces [Agreements](#agreement) and manages [Dataset](#dataset) sharing.
 
 ## Contract Negotiation
 
-A set of interactions between a provider `Connector` and consumer `Connector` that establish an `Agreement`.
+A set of interactions between a provider `Connector` and consumer `Connector` that establish an [Agreement](#agreement).
 
 ## Dataset Transfer
 
-A set of interactions between a provider `Connector` and consumer `Connector` that give access to a [Dataset](#dataset) under the terms of an `Agreement`.
+A set of interactions between a provider `Connector` and consumer `Connector` that give access to a [Dataset](#dataset) under the terms of an `[Agreement](#agreement).

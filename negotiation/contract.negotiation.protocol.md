@@ -23,9 +23,9 @@ The CN states are:
 - **REQUESTED** - A contract for a [Dataset](../model/terminology.md#dataset) has been requested by the consumer based on an [Offer](../model/terminology.md#offer) and the provider has sent an ACK response.
 - **OFFERED** - The provider has sent an [Offer](../model/terminology.md#offer) to the consumer and the consumer has sent an ACK response.
 - **ACCEPTED** - The consumer has accepted the latest [Offer](../model/terminology.md#offer) and the provider has sent an ACK response.
-- **AGREED** - The provider has accepted the latest [Offer](../model/terminology.md#offer), sent an agreement to the consumer, and the consumer has sent an ACK response.
-- **VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
-- **FINALIZED** - The provider has sent a finalization message including his own agreement verification to the consumer and the consumer has sent an ACK response. Data is
+- **AGREED** - The provider has accepted the latest [Offer](../model/terminology.md#offer), sent an [Agreement](../model/terminology.md#agreement) to the consumer, and the consumer has sent an ACK response.
+- **VERIFIED** - The consumer has sent an [Agreement](../model/terminology.md#agreement) verification to the provider and the provider has sent an ACK response.
+- **FINALIZED** - The provider has sent a finalization message including his own [Agreement](../model/terminology.md#agreement) verification to the consumer and the consumer has sent an ACK response. Data is
   now available to the consumer.
 - **TERMINATED** - The provider or consumer has placed the contract negotiation in a terminated state. A termination message has been sent by either of the [Participants](../model/terminology.md#participant) and the
   other has sent an ACK response. This is a terminal state.
@@ -46,7 +46,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 ### Notes
 
 - Concrete wire formats are defined by the protocol binding, e.g. HTTPS.
-- All [Policy](../model/terminology.md#policy) types ([Offer](../model/terminology.md#offer), Agreement) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
+- All [Policy](../model/terminology.md#policy) types ([Offer](../model/terminology.md#offer), [Agreement](../model/terminology.md#agreement)) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
   pattern <urn:uuid:{GUID}>.
 - An ODRL Agreement must have a target property containing the [Dataset](../model/terminology.md#dataset) id.
 
@@ -125,16 +125,16 @@ will be created on consumer side and the consumer selects an appropriate `consum
 
 #### Description
 
-The `ContractAgreementMessage` is sent by a provider when it agrees to a contract. It contains the complete contract agreement.
+The `ContractAgreementMessage` is sent by a provider when it agrees to a contract. It contains the complete [Agreement](../model/terminology.md#agreement).
 
 A `ContractAgreementMessage` must contain a `consumerPid` and a `providerPid`.
 
 A `ContractAgreementMessage` must contain an ODRL `Agreement`.
 
-An `Agreement` must contain a `dspace:timestamp` property defined as an XSD DateTime type.  
+An [Agreement](../model/terminology.md#agreement) must contain a `dspace:timestamp` property defined as an XSD DateTime type.  
 
-An `Agreement` must contain a `dspace:consumerId` and `dspace:providerId`. The contents of these
-properties are a [Dataspace](../model/terminology.md#dataspace)-specific unique identifier of the contract agreement parties. Note that these
+An [Agreement](../model/terminology.md#agreement) must contain a `dspace:consumerId` and `dspace:providerId`. The contents of these
+properties are a [Dataspace](../model/terminology.md#dataspace)-specific unique identifier of the [Agreement](../model/terminology.md#agreement) parties. Note that these
 identifiers are not necessarily the same as the identifiers of the [Participant Agents](../model/terminology.md#participant-agent) negotiating the
 contract (i.e. the "connectors").
 
@@ -155,7 +155,7 @@ contract (i.e. the "connectors").
 
 #### Description
 
-The `ContractAgreementVerificationMessage` is sent by a consumer to verify the acceptance of a contract agreement. A provider responds with an error if the contract cannot be
+The `ContractAgreementVerificationMessage` is sent by a consumer to verify the acceptance of an [Agreement](../model/terminology.md#agreement). A provider responds with an error if the contract cannot be
 validated or is incorrect.
 
 A `ContractAgreementVerificationMessage` must contain a `consumerPid` and a `providerPid`.
@@ -177,7 +177,7 @@ A `ContractAgreementVerificationMessage` must contain a `consumerPid` and a `pro
 
 #### Description
 
-When the `ContractNegotiationEventMessage` is sent by a provider with an `eventType` property set to `FINALIZED`, a contract agreement has been finalized and the associated [Dataset](../model/terminology.md#dataset)
+When the `ContractNegotiationEventMessage` is sent by a provider with an `eventType` property set to `FINALIZED`, an [Agreement](../model/terminology.md#agreement) has been finalized and the associated [Dataset](../model/terminology.md#dataset)
 is accessible. The state machine is transitioned to the `FINALIZED` state. Other event types may be defined in the future. A consumer responds with an error if the contract
 cannot be validated or is incorrect.
 
@@ -187,7 +187,7 @@ When the `ContractNegotiationEventMessage` is sent by a consumer with an `eventT
 
 It is an error for a provider to send a `ContractNegotiationEventMessage` with an eventType `ACCEPTED` to the consumer.
 
-Note that contract events are not intended for propagation of agreement state after a contract negotiation has entered a terminal state. It is considered an error for a consumer or
+Note that contract events are not intended for propagation of [Agreement](../model/terminology.md#agreement) state after a contract negotiation has entered a terminal state. It is considered an error for a consumer or
 provider to send a contract negotiation event after the negotiation state machine has entered a terminal state.
 
 A `ContractNegotiationEventMessage` must contain a `consumerPid` and a `providerPid`.

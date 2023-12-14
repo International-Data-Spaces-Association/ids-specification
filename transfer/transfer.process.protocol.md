@@ -10,7 +10,7 @@ This document outlines the key elements of the transfer process protocol. The fo
 - A _**transfer process (TP)**_ is an instantiation of the CNP-TP.
 - A _**provider**_ is a [Participant Agent](../model/terminology.md#participant-agent) that offers a [Dataset](../model/terminology.md#dataset).
 - A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered [Dataset](../model/terminology.md#dataset).
-- A _**Connector**_ is a [Participant Agent](../model/terminology.md#participant-agent) that produces `Agreements` and manages [Dataset](../model/terminology.md#dataset) sharing.
+- A _**Connector**_ is a [Participant Agent](../model/terminology.md#participant-agent) that produces [Agreements](../model/terminology.md#agreement) and manages [Dataset](../model/terminology.md#dataset) sharing.
 - A _**Dataset**_ is data or a service a provider grants access to.
 - An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ [Dataset](../model/terminology.md#dataset).
 
@@ -56,7 +56,7 @@ non-finite data, a TP will continue indefinitely until either the consumer or pr
 
 The TP states are:
 
-- **REQUESTED** - A [Dataset](../model/terminology.md#dataset) has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
+- **REQUESTED** - A [Dataset](../model/terminology.md#dataset) has been requested under an [Agreement](../model/terminology.md#agreement) by the consumer and the provider has sent an ACK response.
 - **STARTED** - The [Dataset](../model/terminology.md#dataset) is available for access by the consumer or the provider has begun pushing the data to the consumer endpoint.
 - **COMPLETED** - The transfer has been completed by either the consumer or the provider.
 - **SUSPENDED** - The transfer has been suspended by the consumer or the provider.
@@ -89,8 +89,8 @@ The `TransferRequestMessage` is sent by a consumer to initiate a transfer proces
 #### Notes
 
 - The `consumerPid` property refers to the transfer id on consumer side.
-- The `agreementId` property refers to an existing contract agreement between the consumer and provider.
-- The `dct:format` property is a format specified by a `Distribution` for the [Dataset](../model/terminology.md#dataset) associated with the agreement. This is generally obtained from the provider `Catalog`.
+- The `agreementId` property refers to an existing [Agreement](../model/terminology.md#agreement) between the consumer and provider.
+- The `dct:format` property is a format specified by a `Distribution` for the [Dataset](../model/terminology.md#dataset) associated with the [Agreement](../model/terminology.md#agreement). This is generally obtained from the provider `Catalog`.
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
 

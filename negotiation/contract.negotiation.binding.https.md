@@ -149,7 +149,7 @@ If the current [Offer](../model/terminology.md#offer) was created by the consume
 
 #### 2.8.1 POST
 
-The consumer connector can POST a [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json) to verify an agreement. If the negotiation state is
+The consumer connector can POST a [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json) to verify an [Agreement](../model/terminology.md#agreement). If the negotiation state is
 successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
@@ -254,7 +254,7 @@ process it.
 
 #### 3.4.1 POST
 
-The provider connector can POST a [ContractAgreementMessage](./message/contract-agreement-message.json) to the `negotiations/:consumerPid/agreement` callback to create an agreement. If the
+The provider connector can POST a [ContractAgreementMessage](./message/contract-agreement-message.json) to the `negotiations/:consumerPid/agreement` callback to create an [Agreement](../model/terminology.md#agreement). If the
 negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
@@ -282,7 +282,7 @@ Authorization: ...
 #### 3.5.1 POST
 
 A provider can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to the `negotiations/:consumerPid/events` callback with an `eventType`
-of `FINALIZED` to finalize a contract agreement. If the negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not
+of `FINALIZED` to finalize an [Agreement](../model/terminology.md#agreement). If the negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not
 specified and clients are not required to process it. 
 
 ### 3.6 The consumer `negotiations/:consumerPid/termination` resource
