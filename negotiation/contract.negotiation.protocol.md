@@ -8,8 +8,8 @@ This document outlines the key elements of the contract negotiation protocol. Th
 - A _**message**_  is an instantiation of a _message type_.
 - The _**contract negotiation protocol**_ is the set of allowable message type sequences and is defined as a state machine (CNP-SM).
 - A _**contract negotiation (CN)**_ is an instantiation of the CNP-SM.
-- A _**provider**_ is a participant agent that offers a dataset.
-- A _**consumer**_ is a participant agent that requests access to an offered dataset.
+- A _**provider**_ is a [Participant Agent](../model/terminology.md#participant-agent) that offers a dataset.
+- A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered dataset.
 
 ## Contract Negotiation Protocol
 
@@ -135,7 +135,7 @@ An `Agreement` must contain a `dspace:timestamp` property defined as an XSD Date
 
 An `Agreement` must contain a `dspace:consumerId` and `dspace:providerId`. The contents of these
 properties are a [Dataspace](../model/terminology.md#dataspace)-specific unique identifier of the contract agreement parties. Note that these
-identifiers are not necessarily the same as the identifiers of the participant agents negotiating the
+identifiers are not necessarily the same as the identifiers of the [Participant Agents](../model/terminology.md#participant-agent) negotiating the
 contract (i.e. the "connectors").
 
 ### 4. ContractAgreementVerificationMessage

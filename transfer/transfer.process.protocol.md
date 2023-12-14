@@ -8,9 +8,9 @@ This document outlines the key elements of the transfer process protocol. The fo
 - A _**message**_  is an instantiation of a _message type_.
 - The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine (TP-SM).
 - A _**transfer process (TP)**_ is an instantiation of the CNP-TP.
-- A _**provider**_ is a participant agent that offers a dataset.
-- A _**consumer**_ is a participant agent that requests access to an offered dataset.
-- A _**Connector**_ is a `PariticipantAgent` that produces `Agreements` and manages `Dataset` sharing.
+- A _**provider**_ is a [Participant Agent](../model/terminology.md#participant-agent) that offers a dataset.
+- A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered dataset.
+- A _**Connector**_ is a [Participant Agent](../model/terminology.md#participant-agent) that produces `Agreements` and manages `Dataset` sharing.
 - An _**Dataset**_ is data or a service a provider grants access to.
 - An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ `Dataset`.
 

@@ -14,17 +14,17 @@ A `Dataspace Authority` is an entity that manages a [Dataspace](#dataspace).
 
 A `Participant` is a [Dataspace](#dataspace) member that provides and/or consumes `Datasets`.
 
-## ParticipantAgent
+## Participant Agent
 
-A `ParticipantAgent` is a technology system that performs operations on behalf of a [Participant](#participant).
+A `Participant Agent` is a technology system that performs operations on behalf of a [Participant](#participant).
 
 ## IdentityProvider
 
-An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and `ParticipantAgents`.
+An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and [Participant Agents](#participant-agent).
 
 ## CredentialIssuer
 
-A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a [Participant](#participant) and `ParticipantAgents`.
+A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a [Participant](#participant) and [Participant Agents](#participant-agent).
 
 ## Observability, Traceability and Audit Logging
 
@@ -57,11 +57,11 @@ A collection of entries representing `Datasets` and their `Offers` that is adver
 
 ## CatalogService
 
-A `ParticipantAgent` that makes a `Catalog` accessible to [Participants](#participant).
+A [Participant Agent](#participant-agent) that makes a `Catalog` accessible to [Participants](#participant).
 
 ## Connector (DataService)
 
-A `ParticipantAgent` that produces `Agreements` and manages `Dataset` sharing.
+A [Participant Agent](#participant-agent) that produces `Agreements` and manages `Dataset` sharing.
 
 ## Contract Negotiation
 
