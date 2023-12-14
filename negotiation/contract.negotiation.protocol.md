@@ -74,7 +74,7 @@ The `ContractRequestMessage` is sent by a consumer to initiate a contract negoti
   negotiation and a consumer [Offer](../model/terminology.md#offer) will be created using either the `offer` or `offer.@id` properties. If the message does not include a `providerPid`, a new contract negotiation
   will be created on provider side using either the `offer` or `offer.@id` properties and the provider selects an appropriate `providerPid`.
 
-- An `offer.@id` will generally refer to an [Offer](../model/terminology.md#offer) contained in a catalog. If the provider is not aware of the `offer.@id` value, it must respond with an error message.
+- An `offer.@id` will generally refer to an [Offer](../model/terminology.md#offer) contained in a [Catalog](../model/terminology.md#catalog). If the provider is not aware of the `offer.@id` value, it must respond with an error message.
 
 - The [Dataset](../model/terminology.md#dataset) id is not technically required but included to avoid an error where the [Offer](../model/terminology.md#offer) is associated with a different data set.
 

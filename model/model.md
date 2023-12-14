@@ -16,7 +16,7 @@ Note that all relationships are multiplicities unless specified.
   [Dataspace Authority](./terminology.md#dataspace-authority) may require [Participants](./terminology.md#participant) to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the
   technical enforcement of specific usage policies.
 - A [Participant](./terminology.md#participant) is a member of one or more [Dataspaces](./terminology.md#dataspace). A [Participant](./terminology.md#participant) registers [Participant Agents](./terminology.md#participant-agent) that perform tasks on its behalf.
-- A [Participant Agents](./terminology.md#participant-agent) performs tasks such as publishing a catalog or engaging in a [Dataset](../model/terminology.md#dataset) transfer. In order to accomplish these tasks, a [Participant Agents](./terminology.md#participant-agent) may
+- A [Participant Agents](./terminology.md#participant-agent) performs tasks such as publishing a [Catalog](./terminology.md#catalog) or engaging in a [Dataset](../model/terminology.md#dataset) transfer. In order to accomplish these tasks, a [Participant Agents](./terminology.md#participant-agent) may
   use a _**verifiable presentation**_ generated from a _**credential**_ obtained from a third-party [Credential Issuer](./terminology.md#credential-issuer). A [Participant Agents](./terminology.md#participant-agent) may also use an _**ID token**_ issued by a
   third-party [Identity Provider](./terminology.md#identity-provider). Note that a [Participant Agents](./terminology.md#participant-agent) is a logical construct and does not necessarily correspond to a single runtime process.
 - An [Identity Provider](./terminology.md#identity-provider) is a trust anchor that generates `ID tokens` used to verify the identity of a [Participant Agents](./terminology.md#participant-agent). Multiple identity providers may operate in
@@ -29,7 +29,7 @@ The diagram below depicts the relationships between [Participant Agent](./termin
 ![](./m.participant.entities.png)
 
 - A `CatalogService` is a [Participant Agent](./terminology.md#participant-agent) that makes a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) available to other [Participants](./terminology.md#participant).
-- A `Catalog` contains one or more [Datasets](../model/terminology.md#dataset), which are [DCAT Datasets](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset). A `Catalog` also contains **_at least one_**
+- A [Catalog](./terminology.md#catalog) contains one or more [Datasets](../model/terminology.md#dataset), which are [DCAT Datasets](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset). A [Catalog](./terminology.md#catalog) also contains **_at least one_**
   [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where [Datasets](../model/terminology.md#dataset) may be obtained.
 - A [Dataset](../model/terminology.md#dataset) has **_at least one_** [Offer](./terminology.md#offer), which is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) describing the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset).
 - A `Connector` is a [Participant Agent](./terminology.md#participant-agent) that performs `Contract Negotiation` and `Transfer Process` operations with another connector. An outcome of a `ContractNegotiation` may
@@ -46,9 +46,9 @@ The classes and definitions used in the Dataspace Protocol are reused from diffe
 
 ### 2.2.1 Catalog
 
-A `Catalog` is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following attributes:
+A [Catalog](./terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following attributes:
 
-- 0..N [Datasets](../model/terminology.md#dataset). Since a catalog may be dynamically generated for a request based on the requesting [Participant's](./terminology.md#participant) credentials it is possible for it to contain 0 matching
+- 0..N [Datasets](../model/terminology.md#dataset). Since a [Catalog](./terminology.md#catalog) may be dynamically generated for a request based on the requesting [Participant's](./terminology.md#participant) credentials it is possible for it to contain 0 matching
   [Datasets](../model/terminology.md#dataset). (DCAT PROFILE)
 - 1..N [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where [Datasets](../model/terminology.md#dataset) may be obtained. (DCAT PROFILE)
 

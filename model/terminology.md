@@ -57,7 +57,7 @@ A collection of entries representing [Datasets](#dataset) and their [Offers](#of
 
 ## CatalogService
 
-A [Participant Agent](#participant-agent) that makes a `Catalog` accessible to [Participants](#participant).
+A [Participant Agent](#participant-agent) that makes a [Catalog](#catalog) accessible to [Participants](#participant).
 
 ## Connector (DataService)
 

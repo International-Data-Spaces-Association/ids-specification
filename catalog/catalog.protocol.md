@@ -10,7 +10,7 @@ This document outlines the catalog protocol. The following terms are used:
 - a _**catalog service**_ is a provider [Participant Agent](../model/terminology.md#participant-agent) that advertises offered [Datasets](../model/terminology.md#dataset).
 - A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered [Datasets](../model/terminology.md#dataset).
 
-The catalog protocol defines a how a `Catalog` is requested from a catalog service by a consumer using an abstract message exchange format. The concrete message exchange wire
+The catalog protocol defines a how a [Catalog](../model/terminology.md#catalog) is requested from a catalog service by a consumer using an abstract message exchange format. The concrete message exchange wire
 format is defined in binding specifications.
 
 ## 2 Message Types
@@ -32,7 +32,7 @@ Future IDS specifications may define additional optional serialization formats.
 
 #### Description
 
-The `CatalogRequestMessage` is message sent by a consumer to a catalog service. The catalog service must respond with a `Catalog,` which is a
+The `CatalogRequestMessage` is message sent by a consumer to a catalog service. The catalog service must respond with a [Catalog](../model/terminology.md#catalog), which is a
 valid instance of a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
 The `CatalogRequestMessage` may have a `filter` property which contains an implementation-specific query or filter expression type supported by the catalog service.
@@ -56,7 +56,7 @@ be defined in the relevant catalog binding specification.
 
 #### Description
 
-The catalog contains all [Datasets](#31-dataset) which the requester shall see.
+The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#31-dataset) which the requester shall see.
 
 
 ### 2.3 CatalogError
@@ -73,7 +73,7 @@ The catalog contains all [Datasets](#31-dataset) which the requester shall see.
 
 #### Description
 
-A Catalog Error Message is used when an error occurred after a `CatalogRequestMessage` and the provider can not provide its catalog to the requester.
+A Catalog Error Message is used when an error occurred after a `CatalogRequestMessage` and the provider can not provide its [Catalog](../model/terminology.md#catalog) to the requester.
 
 ### 2.4 DatasetRequestMessage
 
@@ -165,9 +165,9 @@ contents of `dcat:servesDataset`.
 
 ### 4.1 Queries and Filter Expressions
 
-A _**catalog service**_ may support catalog queries or filter expressions as an implementation-specific feature. However, it is expected that query capabilities will be implemented
+A _**catalog service**_ may support [Catalog](../model/terminology.md#catalog) queries or filter expressions as an implementation-specific feature. However, it is expected that query capabilities will be implemented
 by the consumer against the results of a `CatalogRequestMessage,` as the latter is an RDF vocabulary. Client-side querying can be scaled by periodically crawling provider catalog
-services, caching the results, and executing queries against the locally-stored catalogs.
+services, caching the results, and executing queries against the locally-stored [Catalogs](../model/terminology.md#catalog).
 
 ### 4.2 Replication Protocol
 
@@ -179,25 +179,25 @@ The discovery protocol adopted by a particular [Dataspace](../model/terminology.
 
 ### 4.3 Security
 
-It is expected (although not required) that catalog services implement access control. A catalog as well as individual [Datasets](../model/terminology.md#dataset) may be restricted to trusted parties.
+It is expected (although not required) that catalog services implement access control. A [Catalog](../model/terminology.md#catalog) as well as individual [Datasets](../model/terminology.md#dataset) may be restricted to trusted parties.
 The catalog service may require consumers to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
 catalog binding specification. The semantics of such tokens are not part of this specification.
 
 #### 4.3.1 The Proof Metadata Endpoint
 
-When a catalog contains protected [Datasets](../model/terminology.md#dataset) the provider has two options: include all [Datasets](../model/terminology.md#dataset) in the catalog response and restrict access when a contract is negotiated; 
-or, require one or more proofs when the catalog request is made and filter the [Datasets](../model/terminology.md#dataset) accordingly. The latter option requires a mechanism for clients to discover 
-the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a catalog request is outside the scope of the 
+When a [Catalog](../model/terminology.md#catalog) contains protected [Datasets](../model/terminology.md#dataset) the provider has two options: include all [Datasets](../model/terminology.md#dataset) in the [Catalog](../model/terminology.md#catalog) response and restrict access when a contract is negotiated; 
+or, require one or more proofs when the [Catalog](../model/terminology.md#catalog) request is made and filter the [Datasets](../model/terminology.md#dataset) accordingly. The latter option requires a mechanism for clients to discover 
+the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a [Catalog](../model/terminology.md#catalog) request is outside the scope of the 
 Dataspace Protocol Specifications. However, binding specifications should define a proof data endpoint for obtaining this information.  
 
 ### 4.4 Catalog Brokers
 
-A [Dataspace](../model/terminology.md#dataspace) may include _**catalog brokers**_. A catalog broker is a consumer that has trusted access to 1..N upstream catalog services and advertises their respective catalogs as
+A [Dataspace](../model/terminology.md#dataspace) may include _**catalog brokers**_. A catalog broker is a consumer that has trusted access to 1..N upstream catalog services and advertises their respective [Catalogs](../model/terminology.md#catalog) as
 a single catalog service. The broker is expected to honor upstream access control requirements.
 
 ## 5 DCAT and ODRL Profiles
 
-The catalog is a DCAT catalog with the following restrictions:
+The [Catalog](../model/terminology.md#catalog) is a DCAT catalog with the following restrictions:
 
 1. Each ODRL `Offer` must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context.
 2. Each ODRL `Offer` must NOT include an explicit `target` attribute. 

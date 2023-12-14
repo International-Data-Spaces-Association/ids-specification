@@ -10,7 +10,7 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 ### 2.1 Prerequisites
 
-1. The `<base>` notation indicates the base URL for a catalog service endpoint. For example, if the base catalog URL is `api.example.com`, the URL `https://<base>/catalog/request`
+1. The `<base>` notation indicates the base URL for a catalog service endpoint. For example, if the base [Catalog](../model/terminology.md#catalog) URL is `api.example.com`, the URL `https://<base>/catalog/request`
    will map to `https//api.example.com/catalog/request`.
 
 2. All request and response messages must use the `application/json` media type.
@@ -45,7 +45,7 @@ Authorization: ...
 The `Authorization` header is optional if the catalog service does not require authorization. If present, the contents of the `Authorization` header are detailed in the
 [Authorization section](#31-authorization).
 
-The `filter` property is optional. If present, the `filter` property can contain an implementation-specific filter expression or query to be executed as part of the catalog
+The `filter` property is optional. If present, the `filter` property can contain an implementation-specific filter expression or query to be executed as part of the [Catalog](../model/terminology.md#catalog)
 request.
 
 #### 2.3.2 OK (200) Response
@@ -125,7 +125,7 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
 
 ### 3.4 Compression
 
-Catalog services MAY compress responses to a catalog request by setting the `Content-Encoding` header to `gzip` as described in
+Catalog services MAY compress responses to a [Catalog](../model/terminology.md#catalog) request by setting the `Content-Encoding` header to `gzip` as described in
 the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gzip-coding).
 
 ## 4 The Well-Known Proof Metadata Endpoint
