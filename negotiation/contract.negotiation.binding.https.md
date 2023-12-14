@@ -10,14 +10,14 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 ### 2.1 Prerequisites
 
-1. The `<base>` notation indicates the base URL for a connector endpoint. For example, if the base connector URL is `connector.example.com`, the
+1. The `<base>` notation indicates the base URL for a [Connector](../model/terminology.md#connector--data-service-) endpoint. For example, if the base [Connector](../model/terminology.md#connector--data-service-) URL is `connector.example.com`, the
    URL `https://<base>/negotiation/request` will map to `https//connector.example.com/negotiation/request`.
 
 2. All request and response messages must use the `application/json` media type.
 
 ### 2.2 Contract Negotiation Error
 
-In the event of a client request error, the connector must return an appropriate HTTP 4xx client error code. If an error body is returned it must be
+In the event of a client request error, the [Connector](../model/terminology.md#connector--data-service-) must return an appropriate HTTP 4xx client error code. If an error body is returned it must be
 a [ContractNegotiationError](./message/contract-negotiation-error.json) with the following properties:
 
 | Field       | Type          | Description                                                 |
@@ -29,13 +29,13 @@ a [ContractNegotiationError](./message/contract-negotiation-error.json) with the
 
 ### 2.2.1 State transition errors
 
-If a client or provider connector makes a request that results in an invalid contract negotiation state transition as defined by the Contract Negotiation Protocol, it must return
+If a client or provider [Connector](../model/terminology.md#connector--data-service-) makes a request that results in an invalid contract negotiation state transition as defined by the Contract Negotiation Protocol, it must return
 an HTTP code 400 (Bad Request) with an `ContractNegotiationError` in the response body.
 
 ### 2.3 Authorization
 
 All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP
-header is optional if the connector does not require authorization.
+header is optional if the [Connector](../model/terminology.md#connector--data-service-) does not require authorization.
 
 ### 2.4 The provider `negotiations` resource
 
@@ -48,7 +48,7 @@ Authorization: ...
 
 ```
 
-If the negotiation is found and the client is authorized, the provider connector must return an HTTP 200 (OK) response and a body containing
+If the negotiation is found and the client is authorized, the provider [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 200 (OK) response and a body containing
 the [ContractNegotiation](./message/contract-negotiation.json):
 
 ```
@@ -63,7 +63,7 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 
 Predefined states are: `REQUESTED`, `OFFERED`, `ACCEPTED`, `AGREED`, `VERIFIED`, `FINALIZED`, and `TERMINATED`.
 
-If the negotiation does not exist or the client is not authorized, the provider connector must return an HTTP 404 (Not Found) response.
+If the negotiation does not exist or the client is not authorized, the provider [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 404 (Not Found) response.
 
 ### 2.5 The provider `negotiations/request` resource
 
@@ -90,10 +90,10 @@ Authorization: ...
 The `callbackAddress` property specifies the base endpoint `URL` where the client receives messages associated with the contract negotiation. Support for the `HTTPS` scheme is
 required. Implementations may optionally support other URL schemes.
 
-Callback messages will be sent to paths under the base URL as described by this specification. Note that provider connectors should properly handle the cases where a trailing `/`
+Callback messages will be sent to paths under the base URL as described by this specification. Note that provider [Connectors](../model/terminology.md#connector--data-service-) should properly handle the cases where a trailing `/`
 is included with or absent from the `callbackAddress` when resolving full URL.
 
-The provider connector must return an HTTP 201 (Created) response with a body containing
+The provider [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 201 (Created) response with a body containing
 the [ContractNegotiation](./message/contract-negotiation.json):
 
 ```
@@ -132,14 +132,14 @@ Authorization: ...
 
 The consumer must include the `providerPid` and `consumerPid`. The consumer must include either the `offer` or `offerId` property.
 
-If the message is successfully processed, the provider connector must return and HTTP 200 (OK) response. The response body is not specified and clients are not required to process
+If the message is successfully processed, the provider [Connector](../model/terminology.md#connector--data-service-) must return and HTTP 200 (OK) response. The response body is not specified and clients are not required to process
 it.
 
 ### 2.7 The provider `negotiations/:providerPid/events` resource
 
 #### 2.7.1 POST
 
-A consumer connector can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to `negotiations/:providerPid/events` to accept the current
+A consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to `negotiations/:providerPid/events` to accept the current
 provider [Offer](../model/terminology.md#offer). If the negotiation state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not
 required to process it.
 
@@ -149,7 +149,7 @@ If the current [Offer](../model/terminology.md#offer) was created by the consume
 
 #### 2.8.1 POST
 
-The consumer connector can POST a [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json) to verify an [Agreement](../model/terminology.md#agreement). If the negotiation state is
+The consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json) to verify an [Agreement](../model/terminology.md#agreement). If the negotiation state is
 successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
@@ -170,7 +170,7 @@ Authorization: ...
 
 #### 2.9.1 POST
 
-The consumer connector can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a negotiation. If the negotiation
+The consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a negotiation. If the negotiation
 state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ## 3 Consumer Callback Path Bindings
@@ -209,9 +209,9 @@ Authorization: ...
 
 The `callbackAddress` property specifies the base endpoint URL where the client receives messages associated with the contract negotiation. Support for the HTTPS scheme is required. Implementations may optionally support other URL schemes.
 
-Callback messages will be sent to paths under the base URL as described by this specification. Note that consumer connectors should properly handle the cases where a trailing / is included with or absent from the callbackAddress when resolving full URL.
+Callback messages will be sent to paths under the base URL as described by this specification. Note that consumer [Connectors](../model/terminology.md#connector--data-service-) should properly handle the cases where a trailing / is included with or absent from the callbackAddress when resolving full URL.
 
-The consumer connector must return an HTTP 201 (Created) response with a body containing the `ContractNegotiation`:
+The consumer [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 201 (Created) response with a body containing the `ContractNegotiation`:
 
 ```
 {
@@ -247,14 +247,14 @@ Authorization: ...
 }
 ```
 
-If the message is successfully processed, the consumer provider connector must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to
+If the message is successfully processed, the consumer provider [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to
 process it.
 
 ### 3.4 The consumer `negotiations/:consumerPid/agreement` resource
 
 #### 3.4.1 POST
 
-The provider connector can POST a [ContractAgreementMessage](./message/contract-agreement-message.json) to the `negotiations/:consumerPid/agreement` callback to create an [Agreement](../model/terminology.md#agreement). If the
+The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [ContractAgreementMessage](./message/contract-agreement-message.json) to the `negotiations/:consumerPid/agreement` callback to create an [Agreement](../model/terminology.md#agreement). If the
 negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
@@ -289,5 +289,5 @@ specified and clients are not required to process it.
 
 #### 3.6.1 POST
 
-The provider connector can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a negotiation. If the negotiation
+The provider [Connector](../model/terminology.md#connector--data-service-) can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a negotiation. If the negotiation
 state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.

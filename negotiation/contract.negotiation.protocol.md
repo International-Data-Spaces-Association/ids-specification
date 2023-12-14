@@ -136,7 +136,7 @@ An [Agreement](../model/terminology.md#agreement) must contain a `dspace:timesta
 An [Agreement](../model/terminology.md#agreement) must contain a `dspace:consumerId` and `dspace:providerId`. The contents of these
 properties are a [Dataspace](../model/terminology.md#dataspace)-specific unique identifier of the [Agreement](../model/terminology.md#agreement) parties. Note that these
 identifiers are not necessarily the same as the identifiers of the [Participant Agents](../model/terminology.md#participant-agent) negotiating the
-contract (i.e. the "connectors").
+contract (i.e. the [Connector](../model/terminology.md#connector--data-service-)).
 
 ### 4. ContractAgreementVerificationMessage
 
@@ -216,7 +216,7 @@ A `ContractNegotiationTerminationMessage` must contain a `consumerPid` and a `pr
 #### Notes
 
 - A contract negotiation may be terminated for a variety of reasons, for example, an unrecoverable error was encountered or one of the parties no longer wishes to continue. A
-  connector's operator may remove terminated contract negotiation resources after it has reached the terminated state.
+  [Connector's](../model/terminology.md#connector--data-service-) operator may remove terminated contract negotiation resources after it has reached the terminated state.
 
 - If an error is received in response to a `ContractNegotiationTerminationMessage`, the sending party may choose to ignore the error.
 

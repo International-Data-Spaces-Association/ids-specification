@@ -9,5 +9,5 @@ path hierarchy:
 
 The contents of the response is a JSON object defined in the [Dataspace Protocol](./common.protocol.md#exposure-of-dataspace-protocol-versions).
 
-Note that if multiple connectors are hosted under the same base URL, a path segment appended to the base well-known URL can be used, for example,
+Note that if multiple [Connector](../model/terminology.md#connector--data-service-) are hosted under the same base URL, a path segment appended to the base well-known URL can be used, for example,
 `https://example.com/.well-known/dspace-version/connector1.`

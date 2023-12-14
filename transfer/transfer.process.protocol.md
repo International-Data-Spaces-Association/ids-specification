@@ -21,7 +21,7 @@ a series of states, which are tracked by the provider and consumer using message
 
 ### Connector Components: Control and Data Planes
 
-A TP is managed by a `Connector`. The connector consists of two logical components, a `Control Plane` and a `Data Plane`. The control plane serves as a coordinating layer that
+A TP is managed by a [Connector](../model/terminology.md#connector--data-service-). The [Connector](../model/terminology.md#connector--data-service-) consists of two logical components, a `Control Plane` and a `Data Plane`. The control plane serves as a coordinating layer that
 receives counter-party messages and manages the TP state. The data plane performs the actual transfer of data using a wire protocol. Both [Participants](../model/terminology.md#participant) run control and data
 planes.
 

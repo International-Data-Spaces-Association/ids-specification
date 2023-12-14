@@ -136,7 +136,7 @@ message to clients.
 
 ### 3.3 DataService
 
-A DataService may specify an IDS service endpoint such as a `Connector`.
+A DataService may specify an IDS service endpoint such as a [Connector](../model/terminology.md#connector--data-service-).
 
 #### 3.3.1 dspace:dataServiceType
 
@@ -153,7 +153,7 @@ The following table lists well-know IDS endpoint types:
 
 | Value         | Description          |
 |---------------|----------------------|
-| dspace:connector | A Connector endpoint |
+| dspace:connector | A [Connector](../model/terminology.md#connector--data-service-) endpoint |
 |               |                      |
 
 #### 3.3.2 dcat:servesDataset
