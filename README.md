@@ -28,7 +28,7 @@ __*dataspace*__.
 Sharing data between autonomous entities requires the provision of metadata to facilitate the transfer of datasets by making use of a data transfer (or application layer) protocol.
 The __Dataspace Protocol__ defines how this metadata is provisioned:
 
-1. How data datasets are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
+1. How datasets are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
 2. How contract agreements that govern data usage are syntactically expressed and electronically negotiated.
 3. How datasets are accessed using data transfer protocols.
 

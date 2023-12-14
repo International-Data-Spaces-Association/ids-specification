@@ -31,7 +31,7 @@ The diagram below depicts the relationships between `ParticipantAgent` types:
 - A `CatalogService` is a `Participant Agent` that makes a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) available to other participants.
 - A `Catalog` contains one or more `Datasets`, which are [DCAT Datasets](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset). A `Catalog` also contains **_at least one_**
   [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where datasets may be obtained.
-- An `Dataset` has **one** `Offer`, which is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) describing the _usage control policy_ associated with the dataset.
+- A `Dataset` has **one** `Offer`, which is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) describing the _usage control policy_ associated with the dataset.
 - A `Connector` is a `Participant Agent` that performs `Contract Negotiation` and `Transfer Process` operations with another connector. An outcome of a `ContractNegotiation` may
   be the production of an `Agreement`, which is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) defining the _usage control policy_ agreed to for a dataset.
 

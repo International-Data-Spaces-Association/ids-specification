@@ -121,7 +121,7 @@ A `Dataset` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Datase
 A `Dataset` must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset. Offers must NOT contain any
 target attributes. The target of an offer is the associated dataset.
 
-> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `dspace:Dataset isA dcat:Dataset`, each `Dataset` is also an `odrl:Asset` from an ODRL perspective.
+> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset`, each `Dataset` is also an `odrl:Asset` from an ODRL perspective.
 
 ### 3.2 Distributions
 

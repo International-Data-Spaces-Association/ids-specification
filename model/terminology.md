@@ -41,7 +41,7 @@ Data or a technical service that can be shared by a `Participant`.
 
 ## Policy
 
-A set of rules, duties, and obligations that define the terms of use for an `Dataset`.
+A set of rules, duties, and obligations that define the terms of use for a `Dataset`.
 
 ## Offer
 
@@ -69,4 +69,4 @@ A set of interactions between a provider `Connector` and consumer `Connector` th
 
 ## Dataset Transfer
 
-A set of interactions between a provider `Connector` and consumer `Connector` that give access to an `Dataset` under the terms of an `Agreement`.
+A set of interactions between a provider `Connector` and consumer `Connector` that give access to a `Dataset` under the terms of an `Agreement`.
