@@ -4,7 +4,7 @@ This and the following section defines the core concepts, entities, and relation
 
 ## Dataspace
 
-A `Dataspace` is a set of technical services that facilitate interoperable `Dataset` sharing between entities.
+A `Dataspace` is a set of technical services that facilitate interoperable [Dataset](#dataset) sharing between entities.
 
 ## Dataspace Authority
 
@@ -12,7 +12,7 @@ A `Dataspace Authority` is an entity that manages a [Dataspace](#dataspace).
 
 ## Participant
 
-A `Participant` is a [Dataspace](#dataspace) member that provides and/or consumes `Datasets`.
+A `Participant` is a [Dataspace](#dataspace) member that provides and/or consumes [Datasets](#dataset).
 
 ## Participant Agent
 
@@ -31,9 +31,9 @@ A `Credential Issuer` is a trusted technology system that issues verifiable cred
 `Observability, Traceability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a [Dataspace](#dataspace) can be a requirement.
 If a  trusted technology system is required that records and verifies those domain events. This is not in the scope of the current version of the document and is subject of future work.
 
-## DataspaceRegistrationService
+## Dataspace Registration Service
 
-A `DataspaceRegistrationService` is a technology system that maintains the state of [Participants](#participant) in a [Dataspace](#dataspace).
+A `Dataspace Registration Service` is a technology system that maintains the state of [Participants](#participant) in a [Dataspace](#dataspace).
 
 ## Dataset
 
@@ -41,19 +41,19 @@ Data or a technical service that can be shared by a [Participant](#participant).
 
 ## Policy
 
-A set of rules, duties, and obligations that define the terms of use for a `Dataset`.
+A set of rules, duties, and obligations that define the terms of use for a [Dataset](#dataset).
 
 ## Offer
 
-A concrete `Policy` associated with a specific `Dataset`.
+A concrete `Policy` associated with a specific [Dataset](#dataset).
 
 ## Agreement
 
-A concrete `Policy` associated with a specific `Dataset` that has been signed by both the provider and consumer [Participants](#participant).
+A concrete `Policy` associated with a specific [Dataset](#dataset) that has been signed by both the provider and consumer [Participants](#participant).
 
 ## Catalog
 
-A collection of entries representing `Datasets` and their `Offers` that is advertised by a provider [Participant](#participant).
+A collection of entries representing [Datasets](#dataset) and their `Offers` that is advertised by a provider [Participant](#participant).
 
 ## CatalogService
 
@@ -61,7 +61,7 @@ A [Participant Agent](#participant-agent) that makes a `Catalog` accessible to [
 
 ## Connector (DataService)
 
-A [Participant Agent](#participant-agent) that produces `Agreements` and manages `Dataset` sharing.
+A [Participant Agent](#participant-agent) that produces `Agreements` and manages [Dataset](#dataset) sharing.
 
 ## Contract Negotiation
 
@@ -69,4 +69,4 @@ A set of interactions between a provider `Connector` and consumer `Connector` th
 
 ## Dataset Transfer
 
-A set of interactions between a provider `Connector` and consumer `Connector` that give access to a `Dataset` under the terms of an `Agreement`.
+A set of interactions between a provider `Connector` and consumer `Connector` that give access to a [Dataset](#dataset) under the terms of an `Agreement`.

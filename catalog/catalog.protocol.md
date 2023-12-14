@@ -7,8 +7,8 @@ This document outlines the catalog protocol. The following terms are used:
 - A _**message type**_ defines the structure of a _message_.
 - A _**message**_  is an instantiation of a _message type_.
 - A _**catalog**_ is a [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/) offered by a _provider_.
-- a _**catalog service**_ is a provider [Participant Agent](../model/terminology.md#participant-agent) that advertises offered datasets.
-- A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered datasets.
+- a _**catalog service**_ is a provider [Participant Agent](../model/terminology.md#participant-agent) that advertises offered [Datasets](../model/terminology.md#dataset).
+- A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered [Datasets](../model/terminology.md#dataset).
 
 The catalog protocol defines a how a `Catalog` is requested from a catalog service by a consumer using an abstract message exchange format. The concrete message exchange wire
 format is defined in binding specifications.
@@ -81,7 +81,7 @@ A Catalog Error Message is used when an error occurred after a `CatalogRequestMe
 
 **Example**: [DatasetRequestMessage](./message/dataset-request-message.json)
 
-**Response**: [Dataset](#22-catalog) containing the [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
+**Response**: [Dataset](#25-dataset) containing the [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
 
 **Schema**: [DatasetRequestMessageShape](./message/shape/dataset-request-message-shape.ttl) and the [DatasetRequestMessage JSON Schema](./message/schema/dataset-request-message-schema.json)
 
@@ -90,7 +90,7 @@ A Catalog Error Message is used when an error occurred after a `CatalogRequestMe
 The `DatasetRequestMessage` is message sent by a consumer to a catalog service. The catalog service must respond with a `Dataset,` which is a
 valid instance of a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
 
-The `DatasetRequestMessage` must have a `dataset` property which contains the id of the dataset.
+The `DatasetRequestMessage` must have a [Dataset](../model/terminology.md#dataset) property which contains the id of the [Dataset](../model/terminology.md#dataset).
 
 The catalog service may require an authorization token. Details for including that token can be found in the relevant catalog binding specification.
 
@@ -114,22 +114,22 @@ This section describes how the IDS Information Model maps to DCAT resources.
 
 ### 3.1 Dataset
 
-A `Dataset` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
+A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
 #### 3.1.1 odrl:hasPolicy
 
-A `Dataset` must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset. Offers must NOT contain any
-target attributes. The target of an offer is the associated dataset.
+A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
+target attributes. The target of an offer is the associated [Dataset](../model/terminology.md#dataset).
 
-> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset`, each `Dataset` is also an `odrl:Asset` from an ODRL perspective.
+> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset`, each [Dataset](../model/terminology.md#dataset) is also an `odrl:Asset` from an ODRL perspective.
 
 ### 3.2 Distributions
 
-A dataset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
+A [Dataset](../model/terminology.md#dataset) may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `TransferProcess`.
 
-A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset and this explicit `Distribution`.
-Offers must NOT contain any target attributes. The target of an offer is the dataset that contains the distribution.
+A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the [Dataset](../model/terminology.md#dataset) and this explicit `Distribution`.
+Offers must NOT contain any target attributes. The target of an offer is the [Dataset](../model/terminology.md#dataset) that contains the distribution.
 
 Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
 message to clients.
@@ -158,7 +158,7 @@ The following table lists well-know IDS endpoint types:
 
 #### 3.3.2 dcat:servesDataset
 
-Note that the property `dcat:servesDataset` should be omitted from the `DataService` since `DataSets` are included as top-level entries. Clients are not required to process the
+Note that the property `dcat:servesDataset` should be omitted from the `DataService` since [Datasets](../model/terminology.md#dataset) are included as top-level entries. Clients are not required to process the
 contents of `dcat:servesDataset`.
 
 ## 4 Technical Considerations
@@ -179,14 +179,14 @@ The discovery protocol adopted by a particular [Dataspace](../model/terminology.
 
 ### 4.3 Security
 
-It is expected (although not required) that catalog services implement access control. A catalog as well as individual catalog _datasets_ may be restricted to trusted parties.
+It is expected (although not required) that catalog services implement access control. A catalog as well as individual [Datasets](../model/terminology.md#dataset) may be restricted to trusted parties.
 The catalog service may require consumers to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
 catalog binding specification. The semantics of such tokens are not part of this specification.
 
 #### 4.3.1 The Proof Metadata Endpoint
 
-When a catalog contains protected _datasets_ the provider has two options: include all _datasets_ in the catalog response and restrict access when a contract is negotiated; 
-or, require one or more proofs when the catalog request is made and filter the _datasets_ accordingly. The latter option requires a mechanism for clients to discover 
+When a catalog contains protected [Datasets](../model/terminology.md#dataset) the provider has two options: include all [Datasets](../model/terminology.md#dataset) in the catalog response and restrict access when a contract is negotiated; 
+or, require one or more proofs when the catalog request is made and filter the [Datasets](../model/terminology.md#dataset) accordingly. The latter option requires a mechanism for clients to discover 
 the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a catalog request is outside the scope of the 
 Dataspace Protocol Specifications. However, binding specifications should define a proof data endpoint for obtaining this information.  
 
@@ -199,5 +199,5 @@ a single catalog service. The broker is expected to honor upstream access contro
 
 The catalog is a DCAT catalog with the following restrictions:
 
-1. Each ODRL `Offer` must be unique to a dataset since the target of the offer is derived from its enclosing context.
+1. Each ODRL `Offer` must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the offer is derived from its enclosing context.
 2. Each ODRL `Offer` must NOT include an explicit `target` attribute. 

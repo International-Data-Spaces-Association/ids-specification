@@ -130,7 +130,7 @@ the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gz
 
 ## 4 The Well-Known Proof Metadata Endpoint
 
-When an implementation supports protected _datasets_, it may offer a proof metadata endpoint clients can use to determine proof requirements. If the implementation
+When an implementation supports protected [Datasets](../model/terminology.md#dataset), it may offer a proof metadata endpoint clients can use to determine proof requirements. If the implementation
 offers a proof data endpoint, it must use the `dspace-trust` [Well-Known Uniform Resource Identifier](https://www.rfc-editor.org/rfc/rfc8615.html) at the top of the 
 path hierarchy:
 

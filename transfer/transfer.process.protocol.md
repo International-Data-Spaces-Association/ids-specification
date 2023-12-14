@@ -8,15 +8,15 @@ This document outlines the key elements of the transfer process protocol. The fo
 - A _**message**_  is an instantiation of a _message type_.
 - The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine (TP-SM).
 - A _**transfer process (TP)**_ is an instantiation of the CNP-TP.
-- A _**provider**_ is a [Participant Agent](../model/terminology.md#participant-agent) that offers a dataset.
-- A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered dataset.
-- A _**Connector**_ is a [Participant Agent](../model/terminology.md#participant-agent) that produces `Agreements` and manages `Dataset` sharing.
-- An _**Dataset**_ is data or a service a provider grants access to.
-- An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ `Dataset`.
+- A _**provider**_ is a [Participant Agent](../model/terminology.md#participant-agent) that offers a [Dataset](../model/terminology.md#dataset).
+- A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered [Dataset](../model/terminology.md#dataset).
+- A _**Connector**_ is a [Participant Agent](../model/terminology.md#participant-agent) that produces `Agreements` and manages [Dataset](../model/terminology.md#dataset) sharing.
+- A _**Dataset**_ is data or a service a provider grants access to.
+- An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ [Dataset](../model/terminology.md#dataset).
 
 ## Transfer Process Protocol
 
-A transfer process (TP) involves two parties, a _provider_ that offers one or more datasets under a usage policy and _consumer_ that requests datasets. A TP progresses through
+A transfer process (TP) involves two parties, a _provider_ that offers one or more [Datasets](../model/terminology.md#dataset) under a usage policy and _consumer_ that requests [Datasets](../model/terminology.md#dataset). A TP progresses through
 a series of states, which are tracked by the provider and consumer using messages. A TP transitions to a state in response to a message from the counter-party.
 
 ### Connector Components: Control and Data Planes
@@ -30,7 +30,7 @@ heterogeneous clusters.
 
 ### Dataset Transfer Types
 
-Dataset transfers are characterized as `push` or `pull` transfers and it's data is either `finite` or `non-finite`. This section describes the difference between these types.
+[Dataset](../model/terminology.md#dataset) transfers are characterized as `push` or `pull` transfers and it's data is either `finite` or `non-finite`. This section describes the difference between these types.
 
 #### Push Transfer
 
@@ -56,8 +56,8 @@ non-finite data, a TP will continue indefinitely until either the consumer or pr
 
 The TP states are:
 
-- **REQUESTED** - A dataset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
-- **STARTED** - The dataset is available for access by the consumer or the provider has begun pushing the data to the consumer endpoint.
+- **REQUESTED** - A [Dataset](../model/terminology.md#dataset) has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
+- **STARTED** - The [Dataset](../model/terminology.md#dataset) is available for access by the consumer or the provider has begun pushing the data to the consumer endpoint.
 - **COMPLETED** - The transfer has been completed by either the consumer or the provider.
 - **SUSPENDED** - The transfer has been suspended by the consumer or the provider.
 - **TERMINATED** - The transfer process has been terminated by the consumer or the provider.
@@ -90,7 +90,7 @@ The `TransferRequestMessage` is sent by a consumer to initiate a transfer proces
 
 - The `consumerPid` property refers to the transfer id on consumer side.
 - The `agreementId` property refers to an existing contract agreement between the consumer and provider.
-- The `dct:format` property is a format specified by a `Distribution` for the `Dataset` associated with the agreement. This is generally obtained from the provider `Catalog`.
+- The `dct:format` property is a format specified by a `Distribution` for the [Dataset](../model/terminology.md#dataset) associated with the agreement. This is generally obtained from the provider `Catalog`.
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
 
@@ -123,11 +123,11 @@ Providers must include a `dspace:consumerPid` and a `dspace:providerPid` propert
 
 #### Description
 
-The `TransferStartMessage` is sent by the provider to indicate the dataset transfer has been initiated.
+The `TransferStartMessage` is sent by the provider to indicate the [Dataset](../model/terminology.md#dataset) transfer has been initiated.
 
 #### Notes
 
-- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the dataset. It may include a temporary authorization via the `dspace:endpointProperties` property.
+- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the [Dataset](../model/terminology.md#dataset). It may include a temporary authorization via the `dspace:endpointProperties` property.
 
 ### 3. TransferSuspensionMessage
 
@@ -163,7 +163,7 @@ The `TransferSuspensionMessage` is sent by the provider or consumer when either 
 
 #### Description
 
-The `TransferCompletionMessage` is sent by the provider or consumer when a dataset transfer has completed. Note that some data plane implementations may optimize completion
+The `TransferCompletionMessage` is sent by the provider or consumer when a [Dataset](../model/terminology.md#dataset) transfer has completed. Note that some data plane implementations may optimize completion
 notification by performing it as part of its wire protocol. In those cases, a `TransferCompletionMessage` message does not need to be sent.
 
 ### 5. TransferTerminationMessage
