@@ -6,7 +6,7 @@ This document outlines the Catalog Protocol. The following terms are used:
 
 - A _**message type**_ defines the structure of a _message_.
 - A _**message**_  is an instantiation of a _message type_.
-- A _**catalog**_ is a [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/) offered by a _provider_.
+- A _**catalog**_ is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) offered by a _provider_.
 - a _**catalog service**_ is a provider [Participant Agent](../model/terminology.md#participant-agent) that advertises offered [Datasets](../model/terminology.md#dataset).
 - A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered [Datasets](../model/terminology.md#dataset).
 
@@ -26,7 +26,7 @@ Future IDS specifications may define additional optional serialization formats.
 
 **Example**: [CatalogRequestMessage](./message/catalog-request-message.json)
 
-**Response**: [Catalog](#22-catalog) containing the [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
+**Response**: [Catalog](#22-catalog) containing the [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
 **Schema**: [CatalogRequestMessageShape](./message/shape/catalog-request-message-shape.ttl) and the [CatalogRequestMessage JSON Schema](./message/schema/catalog-request-message-schema.json)
 
@@ -110,7 +110,7 @@ The [Catalog Service](../model/terminology.md#catalog-service) may require an au
 
 ## 3 DCAT Vocabulary Mapping
 
-This section describes how the IDS Information Model maps to DCAT resources.
+This section describes how the DSP Information Model maps to DCAT resources.
 
 ### 3.1 Dataset
 
@@ -118,7 +118,7 @@ A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.
 
 #### 3.1.1 odrl:hasPolicy
 
-A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
+A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
 target attributes. The target of an [Offer](../model/terminology.md#offer) is the associated [Dataset](../model/terminology.md#dataset).
 
 > Note: As `odrl:hasPolicy rdfs:domain odrl:Asset`, each [Dataset](../model/terminology.md#dataset) is also an `odrl:Asset` from an ODRL perspective.
@@ -128,7 +128,7 @@ target attributes. The target of an [Offer](../model/terminology.md#offer) is th
 A [Dataset](../model/terminology.md#dataset) may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a [Contract Negotiation](../model/terminology.md#contract-negotiation) and [Transfer Process](../model/terminology.md#transfer-process).
 
-A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset) and this explicit `Distribution`.
+A Distribution may have 0..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset) and this explicit `Distribution`.
 [Offers](../model/terminology.md#offer) must NOT contain any target attributes. The target of an [Offer](../model/terminology.md#offer) is the [Dataset](../model/terminology.md#dataset) that contains the distribution.
 
 Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
@@ -197,7 +197,7 @@ a single [Catalog Service](../model/terminology.md#catalog-service). The broker 
 
 ## 5 DCAT and ODRL Profiles
 
-The [Catalog](../model/terminology.md#catalog) is a DCAT catalog with the following restrictions:
+The [Catalog](../model/terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following restrictions:
 
-1. Each ODRL `Offer` must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context.
-2. Each ODRL `Offer` must NOT include an explicit `target` attribute. 
+1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context.
+2. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must NOT include an explicit `target` attribute. 

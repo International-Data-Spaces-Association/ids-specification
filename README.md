@@ -28,7 +28,7 @@ define the schemas and protocols required for entities to publish data, negotiat
 Sharing data between autonomous entities requires the provision of metadata to facilitate the transfer of [Datasets](./model/terminology.md#dataset) by making use of a data transfer (or application layer) protocol.
 The __Dataspace Protocol__ defines how this metadata is provisioned:
 
-1. How [Datasets](./model/terminology.md#dataset) are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
+1. How [Datasets](./model/terminology.md#dataset) are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
 2. How [Agreements](./model/terminology.md#agreement) that govern data usage are syntactically expressed and electronically negotiated.
 3. How [Datasets](./model/terminology.md#dataset) are accessed using Transfer Process Protocols.
 
@@ -40,7 +40,7 @@ On this foundation the binding to Transfer Process Protocols, like HTTPS, is des
 The specifications are organized into the following documents:
 
 * __*Dataspace Model*__ and __*Dataspace Terminology*__ documents that define key terms.
-* __*Catalog Protocol*__ and __*Catalog HTTPS Binding*__ documents that define how DCAT Catalogs are published and accessed as HTTPS endpoints respectively.
+* __*Catalog Protocol*__ and __*Catalog HTTPS Binding*__ documents that define how [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) are published and accessed as HTTPS endpoints respectively.
 * __*Contract Negotiation Protocol*__ and __*Contract Negotiation HTTPS Binding*__ documents that define how [Contract Negotiations](./model/terminology.md#contract-negotiation) are conducted and requested via HTTPS endpoints.
 * __*Transfer Process Protocol*__ and __*Transfer Process HTTPS Binding*__ documents that define how [Transfer Processes](./model/terminology.md#transfer-process) using a given data transfer protocol are governed via HTTPS
   endpoints.

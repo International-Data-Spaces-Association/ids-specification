@@ -42,7 +42,7 @@ and [Participant Agent](./terminology.md#participant-agent) have no representati
 elements of the model, i.e. those that are represented in protocol message flows.
 
 **_Note 1:_**
-The classes and definitions used in the Dataspace Protocol are reused from different standards and specifications as much as possible, in particular, DCAT and ODRL. As, however, the external definitions allow different interpretations or provide more attributes than required, the dataspace protocol is leveraging _profiles_ of the original definitions rather than the complete original expressiveness. A _profile_ in this sense is a restriction or subset of an external definition, enforcing that every occurance of an externally defined class is always conformant with the original definition. However, not every standard-compliant class might be compliant to the dataspace profile.
+The classes and definitions used in the Dataspace Protocol are reused from different standards and specifications as much as possible, in particular, [DCAT](https://www.w3.org/TR/vocab-dcat-3) and [ODRL](https://www.w3.org/TR/odrl/). As, however, the external definitions allow different interpretations or provide more attributes than required, the dataspace protocol is leveraging _profiles_ of the original definitions rather than the complete original expressiveness. A _profile_ in this sense is a restriction or subset of an external definition, enforcing that every occurance of an externally defined class is always conformant with the original definition. However, not every standard-compliant class might be compliant to the dataspace profile.
 
 ### 2.2.1 Catalog
 
@@ -56,7 +56,7 @@ A [Catalog](./terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/
 
 A [Dataset](./terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
-- 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the [Usage Policy](./terminology.md#policy) associated with the [Dataset](./terminology.md#dataset). **_Offers must NOT contain any target attributes. The
+- 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](./terminology.md#policy) associated with the [Dataset](./terminology.md#dataset). **_Offers must NOT contain any target attributes. The
   target of an [Offer](./terminology.md#offer) is the associated [Dataset](./terminology.md#dataset)._** (ODRL PROFILE)
 - 1..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where the distribution
   is obtained. Specifically, a `DataService` specifies the endpoint for initiating a [Contract Negotiation](./terminology.md#contract-negotiation) and [Transfer Process](./terminology.md#transfer-process). (DCAT PROFILE)

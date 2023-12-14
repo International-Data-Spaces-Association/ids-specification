@@ -48,7 +48,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 - Concrete wire formats are defined by the protocol binding, e.g. HTTPS.
 - All [Policy](../model/terminology.md#policy) types ([Offer](../model/terminology.md#offer), [Agreement](../model/terminology.md#agreement)) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
   pattern <urn:uuid:{GUID}>.
-- An ODRL Agreement must have a target property containing the [Dataset](../model/terminology.md#dataset) id.
+- An [ODRL Agreement](https://www.w3.org/TR/odrl-vocab/#term-Agreement) must have a target property containing the [Dataset](../model/terminology.md#dataset) id.
 
 ### 1. ContractRequestMessage
 
@@ -129,7 +129,7 @@ The `ContractAgreementMessage` is sent by a provider when it agrees to a contrac
 
 A `ContractAgreementMessage` must contain a `consumerPid` and a `providerPid`.
 
-A `ContractAgreementMessage` must contain an ODRL `Agreement`.
+A `ContractAgreementMessage` must contain an [ODRL `Agreement`](https://www.w3.org/TR/odrl-vocab/#term-Agreement).
 
 An [Agreement](../model/terminology.md#agreement) must contain a `dspace:timestamp` property defined as an XSD DateTime type.  
 
