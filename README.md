@@ -30,12 +30,12 @@ The __Dataspace Protocol__ defines how this metadata is provisioned:
 
 1. How [Datasets](./model/terminology.md#dataset) are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
 2. How [Agreements](./model/terminology.md#agreement) that govern data usage are syntactically expressed and electronically negotiated.
-3. How [Datasets](./model/terminology.md#dataset) are accessed using transfer process protocols.
+3. How [Datasets](./model/terminology.md#dataset) are accessed using Transfer Process Protocols.
 
 These specifications build on protocols located in the [ISO OSI   model (ISO/IEC 7498-1:1994)](https://www.iso.org/standard/20269.html) layers, like HTTPS.
 The purpose of this specification is to define interactions between systems independent of such protocols, but describing how to implement it in an unambiguous and extensible way.
 To do so, the messages that are exchanged during the process are described in this specification and the states and their transitions are specified as state machines, based on the key terms and concepts of a [Dataspace](./model/terminology.md#dataspace).
-On this foundation the binding to transfer process protocols, like HTTPS, is described.
+On this foundation the binding to Transfer Process Protocols, like HTTPS, is described.
 
 The specifications are organized into the following documents:
 
@@ -52,7 +52,7 @@ As an implication, the data transfer can be conducted in a separated process if 
 ### Context of this specification
 
 The __Dataspace Protocol__ is used in the context of [Dataspaces](./model/terminology.md#dataspace) as described and defined in the subsequent sections with the purpose to support interoperability.
-In this context, the specification provides fundamental technical interoperability for [Participants](./model/terminology.md#participant) in [Dataspaces](./model/terminology.md#dataspace) and therefore the protocol specified here is required to join any dataspace as specified [here]().
+In this context, the specification provides fundamental technical interoperability for [Participants](./model/terminology.md#participant) in [Dataspaces](./model/terminology.md#dataspace) and therefore the protocol specified here is required to join any [Dataspace](./model/terminology.md#dataspace).
 Beyond the technical interoperability measures described in this specification, semantic interoperability should also be addressed by the [Participants](./model/terminology.md#participant). On the perspective of the [Dataspace](./model/terminology.md#dataspace), interoperability needs to be addressed also on the level of trust, on organizational level and on legal level.
 The aspect of cross [Dataspace](./model/terminology.md#dataspace) communication is not subject of this document, as this is addressed by the [Dataspaces'](./model/terminology.md#dataspace) organizational and legal agreements.
 

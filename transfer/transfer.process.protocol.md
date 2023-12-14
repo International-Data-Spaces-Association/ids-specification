@@ -2,7 +2,7 @@
 
 ## Introduction: Terms
 
-This document outlines the key elements of the transfer process protocol. The following terms are used:
+This document outlines the key elements of the Transfer Process Protocol. The following terms are used:
 
 - A _**message type**_ defines the structure of a _message_.
 - A _**message**_  is an instantiation of a _message type_.

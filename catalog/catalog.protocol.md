@@ -2,7 +2,7 @@
 
 ## 1 Introduction: Terms
 
-This document outlines the catalog protocol. The following terms are used:
+This document outlines the Catalog Protocol. The following terms are used:
 
 - A _**message type**_ defines the structure of a _message_.
 - A _**message**_  is an instantiation of a _message type_.
@@ -10,8 +10,8 @@ This document outlines the catalog protocol. The following terms are used:
 - a _**catalog service**_ is a provider [Participant Agent](../model/terminology.md#participant-agent) that advertises offered [Datasets](../model/terminology.md#dataset).
 - A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered [Datasets](../model/terminology.md#dataset).
 
-The catalog protocol defines a how a [Catalog](../model/terminology.md#catalog) is requested from a [Catalog Service](../model/terminology.md#catalog-service) by a consumer using an abstract message exchange format. The concrete message exchange wire
-format is defined in binding specifications.
+The Catalog Protocol defines a how a [Catalog](../model/terminology.md#catalog) is requested from a [Catalog Service](../model/terminology.md#catalog-service) by a consumer using an abstract message exchange format. The concrete message exchange wire
+format is defined in Catalog Binding Specifications.
 
 ## 2 Message Types
 
@@ -37,8 +37,8 @@ valid instance of a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Cat
 
 The `CatalogRequestMessage` may have a `filter` property which contains an implementation-specific query or filter expression type supported by the [Catalog Service](../model/terminology.md#catalog-service).
 
-The [Catalog Service](../model/terminology.md#catalog-service) may require an authorization token. Details for including that token can be found in the relevant catalog binding specification. Similarly, pagination may
-be defined in the relevant catalog binding specification.
+The [Catalog Service](../model/terminology.md#catalog-service) may require an authorization token. Details for including that token can be found in the relevant Catalog Binding Specification. Similarly, pagination may
+be defined in the relevant Catalog Binding Specification.
 
 
 ### 2.2 Catalog
@@ -92,7 +92,7 @@ valid instance of a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dat
 
 The `DatasetRequestMessage` must have a [Dataset](../model/terminology.md#dataset) property which contains the id of the [Dataset](../model/terminology.md#dataset).
 
-The [Catalog Service](../model/terminology.md#catalog-service) may require an authorization token. Details for including that token can be found in the relevant catalog binding specification.
+The [Catalog Service](../model/terminology.md#catalog-service) may require an authorization token. Details for including that token can be found in the relevant Catalog Binding Specification.
 
 
 ### 2.5 Dataset
@@ -171,7 +171,7 @@ services, caching the results, and executing queries against the locally-stored 
 
 ### 4.2 Replication Protocol
 
-The catalog protocol is designed to be used by federated services without the need for a replication protocol. Each consumer is responsible for issuing requests
+The Catalog Protocol is designed to be used by federated services without the need for a replication protocol. Each consumer is responsible for issuing requests
 to 1..N [Catalog Services](../model/terminology.md#catalog-service), and managing the results. It follows that a specific replication protocol is not needed, or more precisely, each consumer replicates data from catalog
 services by issuing `CatalogRequestMessages`.
 
@@ -181,14 +181,14 @@ The discovery protocol adopted by a particular [Dataspace](../model/terminology.
 
 It is expected (although not required) that [Catalog Services](../model/terminology.md#catalog-service) implement access control. A [Catalog](../model/terminology.md#catalog) as well as individual [Datasets](../model/terminology.md#dataset) may be restricted to trusted parties.
 The [Catalog Service](../model/terminology.md#catalog-service) may require consumers to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
-catalog binding specification. The semantics of such tokens are not part of this specification.
+Catalog Binding Specification. The semantics of such tokens are not part of this specification.
 
 #### 4.3.1 The Proof Metadata Endpoint
 
 When a [Catalog](../model/terminology.md#catalog) contains protected [Datasets](../model/terminology.md#dataset) the provider has two options: include all [Datasets](../model/terminology.md#dataset) in the [Catalog](../model/terminology.md#catalog) response and restrict access when a contract is negotiated; 
 or, require one or more proofs when the [Catalog](../model/terminology.md#catalog) request is made and filter the [Datasets](../model/terminology.md#dataset) accordingly. The latter option requires a mechanism for clients to discover 
 the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a [Catalog](../model/terminology.md#catalog) request is outside the scope of the 
-Dataspace Protocol Specifications. However, binding specifications should define a proof data endpoint for obtaining this information.  
+Dataspace Protocol Specifications. However, Catalog Binding Specifications should define a proof data endpoint for obtaining this information.  
 
 ### 4.4 Catalog Brokers
 
