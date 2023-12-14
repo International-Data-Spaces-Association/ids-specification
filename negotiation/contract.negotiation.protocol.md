@@ -20,10 +20,10 @@ the counter-party. Both parties have the same state of the CN. In case the state
 
 The CN states are:
 
-- **REQUESTED** - A contract for a [Dataset](../model/terminology.md#dataset) has been requested by the consumer based on an offer and the provider has sent an ACK response.
-- **OFFERED** - The provider has sent a contract offer to the consumer and the consumer has sent an ACK response.
-- **ACCEPTED** - The consumer has accepted the latest contract offer and the provider has sent an ACK response.
-- **AGREED** - The provider has accepted the latest contract offer, sent an agreement to the consumer, and the consumer has sent an ACK response.
+- **REQUESTED** - A contract for a [Dataset](../model/terminology.md#dataset) has been requested by the consumer based on an [Offer](../model/terminology.md#offer) and the provider has sent an ACK response.
+- **OFFERED** - The provider has sent an [Offer](../model/terminology.md#offer) to the consumer and the consumer has sent an ACK response.
+- **ACCEPTED** - The consumer has accepted the latest [Offer](../model/terminology.md#offer) and the provider has sent an ACK response.
+- **AGREED** - The provider has accepted the latest [Offer](../model/terminology.md#offer), sent an agreement to the consumer, and the consumer has sent an ACK response.
 - **VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
 - **FINALIZED** - The provider has sent a finalization message including his own agreement verification to the consumer and the consumer has sent an ACK response. Data is
   now available to the consumer.
@@ -46,7 +46,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 ### Notes
 
 - Concrete wire formats are defined by the protocol binding, e.g. HTTPS.
-- All [Policy](../model/terminology.md#policy) types (Offer, Agreement) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
+- All [Policy](../model/terminology.md#policy) types ([Offer](../model/terminology.md#offer), Agreement) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
   pattern <urn:uuid:{GUID}>.
 - An ODRL Agreement must have a target property containing the [Dataset](../model/terminology.md#dataset) id.
 
@@ -71,12 +71,12 @@ The `ContractRequestMessage` is sent by a consumer to initiate a contract negoti
 #### Notes
 
 - The consumer must include an `offer` property, which itself must have a `@id` property. If the message includes a `providerPid` property, the request will be associated with an existing contract
-  negotiation and a consumer offer will be created using either the `offer` or `offer.@id` properties. If the message does not include a `providerPid`, a new contract negotiation
+  negotiation and a consumer [Offer](../model/terminology.md#offer) will be created using either the `offer` or `offer.@id` properties. If the message does not include a `providerPid`, a new contract negotiation
   will be created on provider side using either the `offer` or `offer.@id` properties and the provider selects an appropriate `providerPid`.
 
-- An `offer.@id` will generally refer to an offer contained in a catalog. If the provider is not aware of the `offer.@id` value, it must respond with an error message.
+- An `offer.@id` will generally refer to an [Offer](../model/terminology.md#offer) contained in a catalog. If the provider is not aware of the `offer.@id` value, it must respond with an error message.
 
-- The [Dataset](../model/terminology.md#dataset) id is not technically required but included to avoid an error where the offer is associated with a different data set.
+- The [Dataset](../model/terminology.md#dataset) id is not technically required but included to avoid an error where the [Offer](../model/terminology.md#offer) is associated with a different data set.
 
 - `callbackAddress` is a URL indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
   UNRECOVERABLE error.

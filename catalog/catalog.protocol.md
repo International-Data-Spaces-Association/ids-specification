@@ -119,7 +119,7 @@ A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.
 #### 3.1.1 odrl:hasPolicy
 
 A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
-target attributes. The target of an offer is the associated [Dataset](../model/terminology.md#dataset).
+target attributes. The target of an [Offer](../model/terminology.md#offer) is the associated [Dataset](../model/terminology.md#dataset).
 
 > Note: As `odrl:hasPolicy rdfs:domain odrl:Asset`, each [Dataset](../model/terminology.md#dataset) is also an `odrl:Asset` from an ODRL perspective.
 
@@ -129,7 +129,7 @@ A [Dataset](../model/terminology.md#dataset) may contain 0..N [DCAT Distribution
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `TransferProcess`.
 
 A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset) and this explicit `Distribution`.
-Offers must NOT contain any target attributes. The target of an offer is the [Dataset](../model/terminology.md#dataset) that contains the distribution.
+[Offers](../model/terminology.md#offer) must NOT contain any target attributes. The target of an [Offer](../model/terminology.md#offer) is the [Dataset](../model/terminology.md#dataset) that contains the distribution.
 
 Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
 message to clients.
@@ -199,5 +199,5 @@ a single catalog service. The broker is expected to honor upstream access contro
 
 The catalog is a DCAT catalog with the following restrictions:
 
-1. Each ODRL `Offer` must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the offer is derived from its enclosing context.
+1. Each ODRL `Offer` must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context.
 2. Each ODRL `Offer` must NOT include an explicit `target` attribute. 

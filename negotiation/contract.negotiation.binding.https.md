@@ -110,7 +110,7 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 
 #### 2.6.1 POST
 
-A consumer may make an offer by POSTing a [ContractRequestMessage](./message/contract-request-message.json) to `negotiations/:providerPid/request`:
+A consumer may make an [Offer](../model/terminology.md#offer) by POSTing a [ContractRequestMessage](./message/contract-request-message.json) to `negotiations/:providerPid/request`:
 
 ```
 POST https://connector.provider.com/negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3/offers
@@ -140,10 +140,10 @@ it.
 #### 2.7.1 POST
 
 A consumer connector can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to `negotiations/:providerPid/events` to accept the current
-provider contract offer. If the negotiation state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not
+provider [Offer](../model/terminology.md#offer). If the negotiation state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not
 required to process it.
 
-If the current contract offer was created by the consumer, the provider must return HTTP code 400 (Bad Request) with an `NegotiationErrorMessage` in the response body.
+If the current [Offer](../model/terminology.md#offer) was created by the consumer, the provider must return HTTP code 400 (Bad Request) with an `NegotiationErrorMessage` in the response body.
 
 ### 2.8 The provider `negotiations/:providerPid/agreement/verification` resource
 
@@ -185,7 +185,7 @@ be `https://connector.consumer.com/callback/negotiations/:consumerPid/offers`.
 
 #### 3.2.1 POST
 
-A contract offer is started and placed in the `OFFERED` state when a provider POSTs a
+A contract negotiation is started and placed in the `OFFERED` state when a provider POSTs a
 [ContractOfferMessage](./message/contract-offer-message_initial.json) to `negotiations/offers`:
 
 ```
@@ -227,7 +227,7 @@ The consumer connector must return an HTTP 201 (Created) response with a body co
 
 #### 3.3.1 POST
 
-A provider may make an offer by POSTing a [ContractOfferMessage](./message/contract-offer-message.json) to the `negotiations/:consumerPid/offers` callback:
+A provider may make an [Offer](../model/terminology.md#offer) by POSTing a [ContractOfferMessage](./message/contract-offer-message.json) to the `negotiations/:consumerPid/offers` callback:
 
 ```
 POST https://connector.consumer.com/callback/negotiations/urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833/offers

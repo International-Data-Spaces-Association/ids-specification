@@ -53,7 +53,7 @@ A concrete [Policy](#policy) associated with a specific [Dataset](#dataset) that
 
 ## Catalog
 
-A collection of entries representing [Datasets](#dataset) and their `Offers` that is advertised by a provider [Participant](#participant).
+A collection of entries representing [Datasets](#dataset) and their [Offers](#offer) that is advertised by a provider [Participant](#participant).
 
 ## CatalogService
 
