@@ -1,6 +1,6 @@
 # 1 Terminology
 
-This and the following section defines the core concepts, entities, and relationships that underpin a `Dataspace`.
+This and the following section defines the core concepts, entities, and relationships that underpin a __dataspace__.
 
 ## Dataspace
 
@@ -8,11 +8,11 @@ A `Dataspace` is a set of technical services that facilitate interoperable `Data
 
 ## DataspaceAuthority
 
-A `DataspaceAuthority` is an entity that manages a `Dataspace`.
+A `DataspaceAuthority` is an entity that manages a [Dataspace](#dataspace).
 
 ## Participant
 
-A `Participant` is a `Dataspace` member that provides and/or consumes `Datasets`.
+A `Participant` is a [Dataspace](#dataspace) member that provides and/or consumes `Datasets`.
 
 ## ParticipantAgent
 
@@ -28,12 +28,12 @@ A `CredentialIssuer` is a trusted technology system that issues verifiable crede
 
 ## Observability, Traceability and Audit Logging
 
-`Observability, Traceability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a `Dataspace` can be a requirement.
+`Observability, Traceability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a [Dataspace](#dataspace) can be a requirement.
 If a  trusted technology system is required that records and verifies those domain events. This is not in the scope of the current version of the document and is subject of future work.
 
 ## DataspaceRegistrationService
 
-A `DataspaceRegistrationService` is a technology system that maintains the state of `Participants` in a `Dataspace`.
+A `DataspaceRegistrationService` is a technology system that maintains the state of `Participants` in a [Dataspace](#dataspace).
 
 ## Dataset
 

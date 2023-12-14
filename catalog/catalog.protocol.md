@@ -175,7 +175,7 @@ The catalog protocol is designed to be used by federated services without the ne
 to 1..N catalog services, and managing the results. It follows that a specific replication protocol is not needed, or more precisely, each consumer replicates data from catalog
 services by issuing `CatalogRequestMessages`.
 
-The discovery protocol adopted by a particular dataspace defines how a consumer discovers catalog services.
+The discovery protocol adopted by a particular [Dataspace](../model/terminology.md#dataspace) defines how a consumer discovers catalog services.
 
 ### 4.3 Security
 
@@ -192,7 +192,7 @@ Dataspace Protocol Specifications. However, binding specifications should define
 
 ### 4.4 Catalog Brokers
 
-A dataspace may include _**catalog brokers**_. A catalog broker is a consumer that has trusted access to 1..N upstream catalog services and advertises their respective catalogs as
+A [Dataspace](../model/terminology.md#dataspace) may include _**catalog brokers**_. A catalog broker is a consumer that has trusted access to 1..N upstream catalog services and advertises their respective catalogs as
 a single catalog service. The broker is expected to honor upstream access control requirements.
 
 ## 5 DCAT and ODRL Profiles
