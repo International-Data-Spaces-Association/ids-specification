@@ -27,7 +27,7 @@ The CN states are:
 - **VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
 - **FINALIZED** - The provider has sent a finalization message including his own agreement verification to the consumer and the consumer has sent an ACK response. Data is
   now available to the consumer.
-- **TERMINATED** - The provider or consumer has placed the contract negotiation in a terminated state. A termination message has been sent by either of the participants and the
+- **TERMINATED** - The provider or consumer has placed the contract negotiation in a terminated state. A termination message has been sent by either of the [Participants](../model/terminology.md#participant) and the
   other has sent an ACK response. This is a terminal state.
 
 ### Contract Negotiation State Machine

@@ -52,11 +52,11 @@ As an implication, the data transfer can be conducted in a separated process if 
 ### Context of this specification
 
 The __Dataspace Protocol__ is used in the context of [Dataspaces](./model/terminology.md#dataspace) as described and defined in the subsequent sections with the purpose to support interoperability.
-In this context, the specification provides fundamental technical interoperability for participants in [Dataspaces](./model/terminology.md#dataspace) and therefore the protocol specified here is required to join any dataspace as specified [here]().
-Beyond the technical interoperability measures described in this specification, semantic interoperability should also be addressed by the participants. On the perspective of the [Dataspace](./model/terminology.md#dataspace), interoperability needs to be addressed also on the level of trust, on organizational level and on legal level.
+In this context, the specification provides fundamental technical interoperability for [Participants](./model/terminology.md#participant) in [Dataspaces](./model/terminology.md#dataspace) and therefore the protocol specified here is required to join any dataspace as specified [here]().
+Beyond the technical interoperability measures described in this specification, semantic interoperability should also be addressed by the [Participants](./model/terminology.md#participant). On the perspective of the [Dataspace](./model/terminology.md#dataspace), interoperability needs to be addressed also on the level of trust, on organizational level and on legal level.
 The aspect of cross [Dataspace](./model/terminology.md#dataspace) communication is not subject of this document, as this is addressed by the [Dataspaces'](./model/terminology.md#dataspace) organizational and legal agreements.
 
-The interaction of participants in a [Dataspace](./model/terminology.md#dataspace) is conducted by the participant agents, so-called Connectors, which implement the protocols described above.
+The interaction of [Participants](./model/terminology.md#participant) in a [Dataspace](./model/terminology.md#dataspace) is conducted by the participant agents, so-called Connectors, which implement the protocols described above.
 While most interactions take place between Connectors, some interactions with other systems are required.
 The figure below provides an overview on the context of this specification.
 
@@ -65,7 +65,7 @@ The validation of the identity of a given participant agent and the validation o
 
 A connector will implement additional internal functionalities, like monitoring or Policy Engines, as appropriate. It is not covered by this specification, if a connector implements such or how.
 
-The same applies for the data, which is transferred between the systems. While this document does not define the transport protocol, the structure, syntax and semantics of the data, a specification for those aspects is required and subject to the agreements of the participants or the [Dataspace](./model/terminology.md#dataspace).
+The same applies for the data, which is transferred between the systems. While this document does not define the transport protocol, the structure, syntax and semantics of the data, a specification for those aspects is required and subject to the agreements of the [Participants](./model/terminology.md#participant) or the [Dataspace](./model/terminology.md#dataspace).
 
 ![Overview on protocol and context](./resources/figures/ProtocolOverview.png)
 

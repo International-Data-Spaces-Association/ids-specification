@@ -12,15 +12,15 @@ The relationships between the primary [Dataspace](./terminology.md#dataspace) en
 
 Note that all relationships are multiplicities unless specified.
 
-- A [Dataspace Authority](./terminology.md#dataspace-authority) manages one or more [Dataspaces](./terminology.md#dataspace). This will include participant registration and may entail mandating business and/or requirements. For example, a
-  [Dataspace Authority](./terminology.md#dataspace-authority) may require participants to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the
+- A [Dataspace Authority](./terminology.md#dataspace-authority) manages one or more [Dataspaces](./terminology.md#dataspace). This will include [Participant](./terminology.md#participant) registration and may entail mandating business and/or requirements. For example, a
+  [Dataspace Authority](./terminology.md#dataspace-authority) may require [Participants](./terminology.md#participant) to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the
   technical enforcement of specific usage policies.
-- A `Participant` is a member of one or more [Dataspaces](./terminology.md#dataspace). A participant registers `Participant Agents` that perform tasks on its behalf.
+- A `Participant` is a member of one or more [Dataspaces](./terminology.md#dataspace). A [Participant](./terminology.md#participant) registers `Participant Agents` that perform tasks on its behalf.
 - A `Participant Agent` performs tasks such as publishing a catalog or engaging in a dataset transfer. In order to accomplish these tasks, a participant agent may
   use a _**verifiable presentation**_ generated from a _**credential**_ obtained from a third-party issuer. A participant agent may also use an _**ID token**_ issued by a
   third-party identity provider. Note that a participant agent is a logical construct and does not necessarily correspond to a single runtime process.
 - An `Identity Provider` is a trust anchor that generates `ID tokens` used to verify the identity of a `Participant Agent`. Multiple identity providers may operate in
-  a [Dataspace](./terminology.md#dataspace). The types and semantics of ID tokens are not part of this specification. An identity provider may be a third-party or a participant itself (for example, in the case
+  a [Dataspace](./terminology.md#dataspace). The types and semantics of ID tokens are not part of this specification. An identity provider may be a third-party or a [Participant](./terminology.md#participant) itself (for example, in the case
   of decentralized identifiers).
 - A `Credential Issuer` issues _verifiable credentials_ used by participant agents to allow access to datasets and verify usage control.
 
@@ -28,7 +28,7 @@ The diagram below depicts the relationships between `ParticipantAgent` types:
 
 ![](./m.participant.entities.png)
 
-- A `CatalogService` is a `Participant Agent` that makes a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) available to other participants.
+- A `CatalogService` is a `Participant Agent` that makes a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) available to other [Participants](./terminology.md#participant).
 - A `Catalog` contains one or more `Datasets`, which are [DCAT Datasets](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset). A `Catalog` also contains **_at least one_**
   [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where datasets may be obtained.
 - A `Dataset` has **_at least one_** `Offer`, which is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) describing the _usage control policy_ associated with the dataset.
@@ -48,7 +48,7 @@ The classes and definitions used in the Dataspace Protocol are reused from diffe
 
 A `Catalog` is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following attributes:
 
-- 0..N  `Datasets`. Since a catalog may be dynamically generated for a request based on the requesting participant's credentials it is possible for it to contain 0 matching
+- 0..N  `Datasets`. Since a catalog may be dynamically generated for a request based on the requesting [Participant's](./terminology.md#participant) credentials it is possible for it to contain 0 matching
   datasets. (DCAT PROFILE)
 - 1..N [DCAT DataService](https://www.w3.org/TR/vocab-dcat-3/#Class:Data_Service) that references a `Connector` where datasets may be obtained. (DCAT PROFILE)
 

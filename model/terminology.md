@@ -16,15 +16,15 @@ A `Participant` is a [Dataspace](#dataspace) member that provides and/or consume
 
 ## ParticipantAgent
 
-A `ParticipantAgent` is a technology system that performs operations on behalf of a `Participant`.
+A `ParticipantAgent` is a technology system that performs operations on behalf of a [Participant](#participant).
 
 ## IdentityProvider
 
-An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a `Participant` and `ParticipantAgents`.
+An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and `ParticipantAgents`.
 
 ## CredentialIssuer
 
-A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a `Participant` and `ParticipantAgents`.
+A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a [Participant](#participant) and `ParticipantAgents`.
 
 ## Observability, Traceability and Audit Logging
 
@@ -33,11 +33,11 @@ If a  trusted technology system is required that records and verifies those doma
 
 ## DataspaceRegistrationService
 
-A `DataspaceRegistrationService` is a technology system that maintains the state of `Participants` in a [Dataspace](#dataspace).
+A `DataspaceRegistrationService` is a technology system that maintains the state of [Participants](#participant) in a [Dataspace](#dataspace).
 
 ## Dataset
 
-Data or a technical service that can be shared by a `Participant`.
+Data or a technical service that can be shared by a [Participant](#participant).
 
 ## Policy
 
@@ -49,15 +49,15 @@ A concrete `Policy` associated with a specific `Dataset`.
 
 ## Agreement
 
-A concrete `Policy` associated with a specific `Dataset` that has been signed by both the provider and consumer `Participants`.
+A concrete `Policy` associated with a specific `Dataset` that has been signed by both the provider and consumer [Participants](#participant).
 
 ## Catalog
 
-A collection of entries representing `Datasets` and their `Offers` that is advertised by a provider `Participant`.
+A collection of entries representing `Datasets` and their `Offers` that is advertised by a provider [Participant](#participant).
 
 ## CatalogService
 
-A `ParticipantAgent` that makes a `Catalog` accessible to `Participants`.
+A `ParticipantAgent` that makes a `Catalog` accessible to [Participants](#participant).
 
 ## Connector (DataService)
 
