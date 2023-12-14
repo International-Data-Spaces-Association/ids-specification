@@ -22,9 +22,9 @@ A `Participant Agent` is a technology system that performs operations on behalf 
 
 An `Identity Provider` is a trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and [Participant Agents](#participant-agent).
 
-## CredentialIssuer
+## Credential Issuer
 
-A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a [Participant](#participant) and [Participant Agents](#participant-agent).
+A `Credential Issuer` is a trusted technology system that issues verifiable credentials for a [Participant](#participant) and [Participant Agents](#participant-agent).
 
 ## Observability, Traceability and Audit Logging
 
