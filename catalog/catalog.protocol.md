@@ -2,7 +2,7 @@
 
 ## 1 Introduction: Terms
 
-This document outlines the catalog protocol. The used terms are defined [here](../model/terminology.md).
+This document outlines the catalog protocol. The used terms are described [here](../model/terminology.md).
 
 The catalog protocol defines how a `Catalog` is requested from a `CatalogService` by a `Consumer` using an abstract message exchange format. The concrete message exchange wire
 format is defined in the binding specifications.

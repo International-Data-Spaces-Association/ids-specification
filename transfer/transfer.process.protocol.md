@@ -14,7 +14,7 @@ A transfer process involves two parties, a _provider_ that offers one or more da
 a series of states, which are controlled by the provider and consumer using messages. A TP transitions to another state as a result of an exchanged message.
 
 A TP is managed by a `Connector`. The connector serves as a coordinating technical entity that
-receives counter-party messages and manages its local state of the TP. It may as well also operate the hosting of the `Assets`, or control their offering through another system.
+receives counter-party messages and manages its local state of the TP. It may as well also operate the hosting of the `Datasets`, or control their offering through another system.
 
 ### Connector Components: Control and Data Planes
 A TP is managed by a `Connector`. The connector consists of two logical components, a `Control Plane` and a `Data Plane`. The control plane serves as a coordinating layer that
