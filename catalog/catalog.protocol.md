@@ -2,21 +2,15 @@
 
 ## 1 Introduction: Terms
 
-This document outlines the catalog protocol. The following terms are used:
+This document outlines the catalog protocol. The used terms are defined [here](../model/terminology.md).
 
-- A _**message type**_ defines the structure of a _message_.
-- A _**message**_  is an instantiation of a _message type_.
-- A _**catalog**_ is a [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/) offered by a _provider_.
-- a _**catalog service**_ is a provider participant agent that advertises offered datasets.
-- A _**consumer**_ is a participant agent that requests access to an offered datasets.
-
-The catalog protocol defines a how a `Catalog` is requested from a catalog service by a consumer using an abstract message exchange format. The concrete message exchange wire
-format is defined in binding specifications.
+The catalog protocol defines how a `Catalog` is requested from a `CatalogService` by a `Consumer` using an abstract message exchange format. The concrete message exchange wire
+format is defined in the binding specifications.
 
 ## 2 Message Types
 
 All messages must be serialized in JSON-LD compact form as specified in the [JSON-LD 1.1 Processing Algorithms and API](https://www.w3.org/TR/json-ld11-api/#compaction-algorithms).
-Future IDS specifications may define additional optional serialization formats.
+Further Dataspace specifications may define additional optional serialization formats.
 
 ### 2.1 CatalogRequestMessage
 

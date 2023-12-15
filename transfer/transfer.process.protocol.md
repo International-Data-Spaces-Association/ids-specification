@@ -4,15 +4,9 @@
 
 This document outlines the key elements of the transfer process protocol. The following terms are used:
 
-- A _**message type**_ defines the structure of a _message_.
-- A _**message**_  is an instantiation of a _message type_.
 - The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine.
-- A _**transfer process (TP)**_ contains all steps necessary to transfer a dataset from the provider to the consumer.
-- A _**provider**_ is a participant agent that offers a dataset.
-- A _**consumer**_ is a participant agent that requests access to an offered dataset.
-- A _**Connector**_ is a `PariticipantAgent` that produces `Agreements` and manages `Dataset` sharing.
-- An _**Asset**_ is data or a service a provider grants access to.
-- An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ `Dataset`.
+- A _**transfer process (TP)**_ contains all steps necessary to transfer an dataset from the provider to the consumer.
+
 
 ## Transfer Process Protocol
 
@@ -69,6 +63,9 @@ The TP states are:
 ![](./transfer-process-state-machine.png)
 
 ## Message Types
+
+All messages must be serialized in JSON-LD compact form as specified in the [JSON-LD 1.1 Processing Algorithms and API](https://www.w3.org/TR/json-ld11-api/#compaction-algorithms).
+Further Dataspace specifications may define additional optional serialization formats.
 
 ### 1. TransferRequestMessage
 

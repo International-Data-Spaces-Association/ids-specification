@@ -2,13 +2,38 @@
 
 This and the following section defines the core concepts, entities, and relationships that underpin a `Dataspace`.
 
+## Agreement
+
+A concrete `Policy` associated with a specific `Dataset` that has been signed by both the provider and consumer `Participants`.
+An `Agreement` is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ `Dataset`.
+
+## Dataset Transfer
+
+A set of interactions between a provider `Connector` and consumer `Connector` that give access to a `Dataset` under the terms of an `Agreement`.
+
+## Consumer
+
+A `Consumer` is a `ParticipantAgent` that requests access to an offered dataset.
+
 ## Dataspace
 
 A `Dataspace` is a set of technical services that facilitate interoperable `Dataset` sharing between entities.
 
+## DataspaceRegistrationService
+
+A `DataspaceRegistrationService` is a technology system that maintains the state of `Participants` in a `Dataspace`.
+
 ## DataspaceAuthority
 
 A `DataspaceAuthority` is an entity that manages a `Dataspace`.
+
+## IdentityProvider
+
+An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a `Participant` and `ParticipantAgents`.
+
+## Provider
+
+A `Provider` is a `ParticipantAgent`
 
 ## Participant
 
@@ -16,24 +41,7 @@ A `Participant` is a `Dataspace` member that provides and/or consumes `Datasets`
 
 ## ParticipantAgent
 
-A `ParticipantAgent` is a technology system that performs operations on behalf of a `Participant`.
-
-## IdentityProvider
-
-An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a `Participant` and `ParticipantAgents`.
-
-## CredentialIssuer
-
-A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a `Participant` and `ParticipantAgents`.
-
-## Observability, Traceability and Audit Logging
-
-`Observability, Traceability and Audit Logging` of transactions, e.g. `Contract Negotiation`, `Data Transfer` and enforcement of access policies or usage policies, in a `Dataspace` can be a requirement.
-If a  trusted technology system is required that records and verifies those domain events. This is not in the scope of the current version of the document and is subject of future work.
-
-## DataspaceRegistrationService
-
-A `DataspaceRegistrationService` is a technology system that maintains the state of `Participants` in a `Dataspace`.
+A `ParticipantAgent` is a technology system that performs operations on behalf of a `Participant` that offers a dataset.
 
 ## Dataset
 
@@ -46,10 +54,6 @@ A set of rules, duties, and obligations that define the terms of use for a `Data
 ## Offer
 
 A concrete `Policy` associated with a specific `Dataset`.
-
-## Agreement
-
-A concrete `Policy` associated with a specific `Dataset` that has been signed by both the provider and consumer `Participants`.
 
 ## Catalog
 
@@ -66,7 +70,3 @@ A `ParticipantAgent` that produces `Agreements` and manages `Dataset` sharing.
 ## Contract Negotiation
 
 A set of interactions between a provider `Connector` and consumer `Connector` that establish an `Agreement`.
-
-## Dataset Transfer
-
-A set of interactions between a provider `Connector` and consumer `Connector` that give access to a `Dataset` under the terms of an `Agreement`.
