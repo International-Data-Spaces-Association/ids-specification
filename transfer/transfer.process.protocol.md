@@ -1,13 +1,13 @@
 # Transfer Process Protocol
 
-## Introduction: Terms
+## 1 Introduction: Terms
 
 This document outlines the key elements of the transfer process protocol. In additiation to the generally defined [concepts](../model/terminology.md), the following terms are used:
 
 - The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine.
 - A _**transfer process (TP)**_ contains all steps necessary to transfer an Asset from the provider to the consumer.
 
-## Transfer Process Protocol
+## 2 Transfer Process Protocol
 
 A transfer process (TP) involves two parties, a _provider_ that offers one or more datasets under a usage policy and _consumer_ that requests datasets. A TP progresses through
 a series of states, which are tracked by the provider and consumer using messages. A TP transitions to a state in response to a message from the counter-party.
@@ -15,7 +15,7 @@ a series of states, which are tracked by the provider and consumer using message
 A TP is managed by a `Connector`. The connector serves as a coordinating technical entity that
 receives counter-party messages and manages its local state of the TP. It may as well also operate the hosting of the `Assets`, or control their offering through another system.
 
-### Connector Components: Control and Data Planes
+### 2.1 Connector Components: Control and Data Planes
 A TP is managed by a `Connector`. The connector consists of two logical components, a `Control Plane` and a `Data Plane`. The control plane serves as a coordinating layer that
 receives counter-party messages and manages the TP state. The data plane performs the actual transfer of data using a wire protocol. Both participants run control and data
 planes.
@@ -23,7 +23,7 @@ planes.
 It is important to note that the control and data planes are logical constructs. Implementations may choose to deploy both components within a single process or across
 heterogeneous clusters.
 
-### Dataset Transfer Types
+### 2.2 Dataset Transfer Types
 
 Dataset transfers are characterized as `push` or `pull` transfers and it's data is either `finite` or `non-finite`. This section describes the difference between these types.
 
@@ -47,7 +47,7 @@ Data may be `finite` or `non-finite.` Finite data is data that is defined by a f
 finished, the transfer process is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example streams or an API endpoint. With
 non-finite data, a TP will continue indefinitely until either the consumer or provider explicitly terminates the transmission.
 
-### Transfer Process States
+### 2.3 Transfer Process States
 
 The TP states are:
 
@@ -57,16 +57,16 @@ The TP states are:
 - **SUSPENDED** - The transfer has been suspended by the consumer or the provider.
 - **TERMINATED** - The transfer process has been terminated by the consumer or the provider.
 
-### Transfer Process State Machine
+### 2.4 Transfer Process State Machine
 
 ![](./transfer-process-state-machine.png)
 
-## Message Types
+## 3 Message Types
 
 All messages must be serialized in JSON-LD compact form as specified in the [JSON-LD 1.1 Processing Algorithms and API](https://www.w3.org/TR/json-ld11-api/#compaction-algorithms).
 Further Dataspace specifications may define additional optional serialization formats.
 
-### 1. TransferRequestMessage
+### 3.1 TransferRequestMessage
 
 ![](./message/diagram/transfer-request-message.png)
 
@@ -104,7 +104,7 @@ Providers must include a `dspace:consumerPid` and a `dspace:providerPid` propert
 - Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
 
 
-### 2. TransferStartMessage
+### 3.2 TransferStartMessage
 
 ![](./message/diagram/transfer-start-message.png)
 
@@ -127,7 +127,7 @@ The `TransferStartMessage` is sent by the provider to indicate the dataset trans
 
 - The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the dataset. It may include a temporary authorization via the `dspace:endpointProperties` property.
 
-### 3. TransferSuspensionMessage
+### 3.3 TransferSuspensionMessage
 
 ![](./message/diagram/transfer-suspension-message.png)
 
@@ -145,7 +145,7 @@ The `TransferStartMessage` is sent by the provider to indicate the dataset trans
 
 The `TransferSuspensionMessage` is sent by the provider or consumer when either of them needs to temporarily suspend the data transfer.
 
-### 4. TransferCompletionMessage
+### 3.4 TransferCompletionMessage
 
 ![](./message/diagram/transfer-completion-message.png)
 
@@ -164,7 +164,7 @@ The `TransferSuspensionMessage` is sent by the provider or consumer when either 
 The `TransferCompletionMessage` is sent by the provider or consumer when a dataset transfer has completed. Note that some data plane implementations may optimize completion
 notification by performing it as part of its wire protocol. In those cases, a `TransferCompletionMessage` message does not need to be sent.
 
-### 5. TransferTerminationMessage
+### 3.5 TransferTerminationMessage
 
 ![](./message/diagram/transfer-termination-message.png)
 
@@ -184,9 +184,9 @@ The `TransferTerminationMessage` is sent by the provider or consumer at any poin
 a terminal state. If the termination was due to an error, the sender may include error information.
 
 
-## Response Types
+## 4 Response Types
 
-### ACK - TransferProcess
+### 4.1 ACK - TransferProcess
 
 ![](./message/diagram/transfer-process.png)
 
@@ -198,7 +198,7 @@ a terminal state. If the termination was due to an error, the sender may include
 
 The `TransferProcess` is an object returned by a consumer or provider indicating a successful state change happened.
 
-### ERROR - TransferError
+### 4.2 ERROR - TransferError
 
 ![](./message/diagram/transfer-error.png)
 

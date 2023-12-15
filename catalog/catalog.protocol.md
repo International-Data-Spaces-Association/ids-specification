@@ -111,7 +111,7 @@ This section describes how the IDS Information Model maps to DCAT resources.
 
 A `Dataset` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
-#### 3.1.1 odrl:hasPolicy
+#### odrl:hasPolicy
 
 A `Dataset` must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset. Offers must NOT contain any
 target attributes. The target of an offer is the associated dataset.
