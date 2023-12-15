@@ -2,21 +2,11 @@
 
 ## 1 Introduction: Terms
 
-This document outlines the catalog protocol. The used terms are defined [here](../model/terminology.md).
+This document outlines the catalog protocol. The used terms are described [here](../model/terminology.md).
 
-<<<<<<< HEAD
 The catalog protocol defines how a `Catalog` is requested from a `CatalogService` by a `Consumer` using an abstract message exchange format. The concrete message exchange wire
 format is defined in the binding specifications.
-=======
-- A _**message type**_ defines the structure of a _message_.
-- A _**message**_  is an instantiation of a _message type_.
-- A _**catalog**_ is a [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/) offered by a _provider_.
-- a _**catalog service**_ is a provider participant agent that advertises offered datasets.
-- A _**consumer**_ is a participant agent that requests access to an offered datasets.
 
-The catalog protocol defines a how a `Catalog` is requested from a catalog service by a consumer using an abstract message exchange format. The concrete message exchange wire
-format is defined in binding specifications.
->>>>>>> main
 
 ## 2 Message Types
 

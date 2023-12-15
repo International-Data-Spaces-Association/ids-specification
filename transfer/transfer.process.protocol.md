@@ -43,15 +43,9 @@ message, the consumer can request the data from the provider-specified endpoint.
 
 #### Finite and Non-Finite Data
 
-<<<<<<< HEAD
-Asset data may be `finite` or `non-finite.` Finite data is data that is defined by a finite set, for example, a machine learning model or an image file. After a finite data transmission has
-finished, the transfer process is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example streams or the exposure of an API endpoint in general. With
-non-finite data, a TP will continue indefinitely until either the consumer or provider explicitly terminates the transmission through the Transfer Process Protocol.
-=======
 Data may be `finite` or `non-finite.` Finite data is data that is defined by a finite set, for example, machine learning data or images. After finite data transmission has
 finished, the transfer process is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example streams or an API endpoint. With
 non-finite data, a TP will continue indefinitely until either the consumer or provider explicitly terminates the transmission.
->>>>>>> main
 
 ### Transfer Process States
 
@@ -131,11 +125,7 @@ The `TransferStartMessage` is sent by the provider to indicate the dataset trans
 
 #### Notes
 
-<<<<<<< HEAD
-- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a temporary authorization via the `dspace:endpointProperties` property.
-=======
 - The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the dataset. It may include a temporary authorization via the `dspace:endpointProperties` property.
->>>>>>> main
 
 ### 3. TransferSuspensionMessage
 
@@ -171,13 +161,8 @@ The `TransferSuspensionMessage` is sent by the provider or consumer when either 
 
 #### Description
 
-<<<<<<< HEAD
-The `TransferCompletionMessage` is sent by the provider or consumer when asset transfer has completed. Note that some data connector implementations may optimize completion
-notification by performing it as part of their wire protocol. In those cases, a `TransferCompletionMessage` message does not need to be sent.
-=======
 The `TransferCompletionMessage` is sent by the provider or consumer when a dataset transfer has completed. Note that some data plane implementations may optimize completion
 notification by performing it as part of its wire protocol. In those cases, a `TransferCompletionMessage` message does not need to be sent.
->>>>>>> main
 
 ### 5. TransferTerminationMessage
 
