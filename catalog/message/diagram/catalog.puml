@@ -7,8 +7,18 @@ hide empty description
 
 
 class dcat:Catalog {
+    @context : "https://w3id.org/dspace/v0.8/context.json"
     @type : "dcat:Catalog",
-    ...
+    dcat:contactPoint : String
+    dcat:theme : Array<String>
+    dct:conformsTo : String
+    foaf:homepage : String
+    dct:creator : String
+    dct:description : MultilanguageText
 }
+
+"dcat:Catalog" "1" *-- "*" "dcat:Dataset" : "dcat:dataset"
+
+"dcat:Catalog" "1" *-- "*" "dcat:DataService" : "dcat:service"
 
 @enduml

@@ -305,14 +305,6 @@ dspace_shapes:CatalogShape
 
     sh:property [
 		a sh:PropertyShape ;
-		sh:path dcat:themeTaxonomy ;
-		sh:datatype xsd:string ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-shape.ttl> (CatalogShape): A dcat:record property must point to a xsd:string field."@en ;
-	] ;
-
-    sh:property [
-		a sh:PropertyShape ;
 		sh:path foaf:homepage ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
