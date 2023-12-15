@@ -29,9 +29,6 @@
 				"dspace:agreement": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement"
 				},
-				"dspace:signature": {
-					"type": "object"
-				},
 				"dspace:callbackAddress": {
 					"type" : "string"
 				}

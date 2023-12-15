@@ -2,20 +2,19 @@
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@id": "http://provider.com/catalog1/dataset1/",
   "@type": "dcat:Dataset",
-  "dct:title": "IDS Dataset Collection",
+  "dct:title": "Dataset Collection",
   "dct:description": [
     {
       "@language": "en",
-      "@value": "This dataset includes all assets which identifiers comply to the pattern 'urn:guid:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}'. A download via a S3 transfer costs 5 EUR, while the HTTP_REST transfer option costs only 2 EUR. The consumer must be a TRUST_PLUS certfified connector. No further distribution is allowed."
+      "@value": "This dataset includes all datasets which identifiers comply to the pattern 'urn:guid:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}'. A download via a S3 transfer costs 5 EUR, while the HTTP_REST transfer option costs only 2 EUR. The consumer must be a TRUST_PLUS certfified connector. No further distribution is allowed."
     },
     {
       "@language": "de",
-      "@value": "Dieses Dataset bezeichnet alle Assets, deren Identifier dem Pattern 'urn:guid:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}' folgen. Ein Transfer via S3 kostet etwa 5 Euro, wohingegen der Transfer via HTTP_RESt nur mit etwa 2 Euro zu Buche schlägt. Der Consumer muss ein TRUST_PLUS zertifizierter Connetor sein. Eine Weiterverbreitung ist nicht gestattet."
+      "@value": "Dieses Dataset bezeichnet alle Datasets, deren Identifier dem Pattern 'urn:guid:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}' folgen. Ein Transfer via S3 kostet etwa 5 Euro, wohingegen der Transfer via HTTP_RESt nur mit etwa 2 Euro zu Buche schlägt. Der Consumer muss ein TRUST_PLUS zertifizierter Connetor sein. Eine Weiterverbreitung ist nicht gestattet."
     }
   ],
   "dcat:keyword": [
     "data space",
-    "data asset",
     "dcat dataset",
     "collection"
   ],
