@@ -13,20 +13,138 @@
             "type": "object",
             "allOf": [
                 {
-                    "$ref": "https://w3id.org/dspace/schemas/v0.8/catalog-schema.json#/definitions/Resource"
-                },
-                {
-                    "properties": {
-                        "dcat:distribution": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "https://w3id.org/dspace/schemas/v0.8/catalog-schema.json#/definitions/Distribution"
-                            },
-                            "minItems": 1
-                        }
-                    }
+                    "$ref": "#/definitions/Resource"
                 }
             ]
+        },
+        "Resource": {
+            "type": "object",
+            "properties": {
+                "dcat:contactPoint": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "dcat:keyword": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Multilanguage"
+                    }
+                },
+                "dcat:theme": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Reference"
+                    },
+                    "minItems": 1
+                },
+                "dct:conformsTo": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "dct:creator": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "dct:description": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Multilanguage"
+                    }
+                },
+                "dct:identifier": {
+                    "type": "string"
+                },
+                "dct:issued": {
+                    "type": "string"
+                },
+                "dct:language": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "dct:license": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "dct:modified": {
+                    "type": "string"
+                },
+                "dct:publisher": {
+                    "type": "string"
+                },
+                "dct:relation": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "dct:title": {
+                    "type": "string"
+                },
+                "dct:type": {
+                    "type": "string"
+                },
+                "odrl:hasPolicy": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/dcat-catalog-schema-and-shape/negotiation/message/schema/contract-schema.json#/definitions/Policy"
+                    },
+                    "minItems": 1
+                }
+            }
+        },
+        "time": {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "string",
+                    "const": "xsd:dateTime"
+                },
+                "@value": {
+                    "type": "string",
+                    "pattern": "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+                }
+            },
+            "required": ["@value", "@type"]
+        },
+        "duration": {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "string",
+                    "const": "xsd:duration"
+                },
+                "@value": {
+                    "type": "string",
+                    "pattern": "^(-?)P(?=.)((\\d+)Y)?((\\d+)M)?((\\d+)D)?(T(?=.)((\\d+)H)?((\\d+)M)?(\\d*(\\.\\d+)?S)?)?$"
+                }
+            },
+            "required": ["@value", "@type"]
+        },
+        "decimal": {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "type": "string",
+                    "const": "xsd:decimal"
+                },
+                "@value": {
+                    "type": "string"
+                }
+            },
+            "required": ["@value", "@type"]
+        },
+        "Reference": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                }
+            },
+            "required": ["@id"]
+        },
+        "Multilanguage": {
+            "type": "object",
+            "properties": {
+                "@value": {
+                    "type": "string"
+                },
+                "@language": {
+                    "type": "string"
+                }
+            },
+            "required": ["@value", "@language"]
         }
     }
 }
