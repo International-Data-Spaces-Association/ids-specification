@@ -4,8 +4,6 @@
 
 This specification defines a RESTful API over HTTPS for the [Transfer Process Protocol](./transfer.process.protocol.md).
 
-The OpenAPI definitions for this specification can be accessed [here](https://app.swaggerhub.com/apis/eclipse-edc-bot/control-api/).
-
 ## 2 Provider Path Bindings
 
 ### 2.1 Prerequisites

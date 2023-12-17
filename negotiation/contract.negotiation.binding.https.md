@@ -4,8 +4,6 @@
 
 This specification defines a RESTful API over HTTPS for the [Contract Negotiation Protocol](./contract.negotiation.protocol.md).
 
-The OpenAPI definitions for this specification can be accessed [here](TBD).
-
 ## 2 Provider Path Bindings
 
 ### 2.1 Prerequisites
