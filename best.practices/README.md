@@ -25,7 +25,7 @@ The Dataspace Protocol is under development and the working group is active on t
 
 The remainder of the document is structured as follows:
 
-* [**Related documents:**](./related.documents.md) provides useful resources for understanding the overarching concepts of **Dataspaces** and other foundational documents.
+* [**Related documents:**](./related.documents.md) provides useful resources for understanding the overarching concepts of [Dataspaces](../model/terminology.md#dataspace) and other foundational documents.
 * [**Extensions:**](./extensions.md) How to extend the Dataspace Protocol.
 * [**Examples:**](./examples.md) Living examples to foster the understanding of the Dataspace Protocol.
 * [**How to create Bindings**](./bindings.md)
