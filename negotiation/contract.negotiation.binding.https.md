@@ -22,7 +22,7 @@ a [ContractNegotiationError](./message/contract-negotiation-error.json) with the
 
 | Field       | Type          | Description                                                                                          |
 |-------------|---------------|------------------------------------------------------------------------------------------------------|
-| consumerPid | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on consumer side. |
+| consumerPid | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on [Consumer](../model/terminology.md#consumer) side. |
 | providerPid | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on [Provider](../model/terminology.md#provider) side.                                                 |
 | code        | string        | An optional implementation-specific error code.                                                      |
 | reasons     | Array[object] | An optional array of implementation-specific error objects.                                          |
@@ -69,7 +69,7 @@ If the [Contract Negotiation](../model/terminology.md#contract-negotiation) does
 
 #### 2.5.1 POST
 
-A [Contract Negotiation](../model/terminology.md#contract-negotiation) is started and placed in the `REQUESTED` state when a consumer POSTs
+A [Contract Negotiation](../model/terminology.md#contract-negotiation) is started and placed in the `REQUESTED` state when a [Consumer](../model/terminology.md#consumer) POSTs
 a [ContractRequestMessage](./message/contract-request-message_initial.json) to `negotiations/request`:
 
 ```
@@ -110,7 +110,7 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 
 #### 2.6.1 POST
 
-A consumer may make an [Offer](../model/terminology.md#offer) by POSTing a [ContractRequestMessage](./message/contract-request-message.json) to `negotiations/:providerPid/request`:
+A [Consumer](../model/terminology.md#consumer) may make an [Offer](../model/terminology.md#offer) by POSTing a [ContractRequestMessage](./message/contract-request-message.json) to `negotiations/:providerPid/request`:
 
 ```
 POST https://connector.provider.com/negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3/offers
@@ -130,7 +130,7 @@ Authorization: ...
 }
 ```
 
-The consumer must include the `providerPid` and `consumerPid`. The consumer must include either the `offer` or `offerId` property.
+The [Consumer](../model/terminology.md#consumer) must include the `providerPid` and `consumerPid`. The [Consumer](../model/terminology.md#consumer) must include either the `offer` or `offerId` property.
 
 If the message is successfully processed, the [Provider](../model/terminology.md#provider) must return and HTTP 200 (OK) response. The response body is not specified and clients are not required to process
 it.
@@ -139,17 +139,17 @@ it.
 
 #### 2.7.1 POST
 
-A consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to `negotiations/:providerPid/events` to accept the current
+A [Consumer](../model/terminology.md#consumer) can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to `negotiations/:providerPid/events` to accept the current
 [Provider's](../model/terminology.md#provider) [Offer](../model/terminology.md#offer). If the [Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation) state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not
 required to process it.
 
-If the current [Offer](../model/terminology.md#offer) was created by the consumer, the [Provider](../model/terminology.md#provider) must return HTTP code 400 (Bad Request) with an `NegotiationErrorMessage` in the response body.
+If the current [Offer](../model/terminology.md#offer) was created by the [Consumer](../model/terminology.md#consumer), the [Provider](../model/terminology.md#provider) must return HTTP code 400 (Bad Request) with an `NegotiationErrorMessage` in the response body.
 
 ### 2.8 The provider `negotiations/:providerPid/agreement/verification` resource
 
 #### 2.8.1 POST
 
-The consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json) to verify an [Agreement](../model/terminology.md#agreement). If the [Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation) state is
+The [Consumer](../model/terminology.md#consumer) can POST a [ContractAgreementVerificationMessage](./message/contract-agreement-verification-message.json) to verify an [Agreement](../model/terminology.md#agreement). If the [Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation) state is
 successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
@@ -170,7 +170,7 @@ Authorization: ...
 
 #### 2.9.1 POST
 
-The consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a [Contract Negotiation](../model/terminology.md#contract-negotiation). If the [Contract Negotiation's](../model/terminology.md#contract-negotiation)
+The [Consumer](../model/terminology.md#consumer) can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a [Contract Negotiation](../model/terminology.md#contract-negotiation). If the [Contract Negotiation's](../model/terminology.md#contract-negotiation)
 state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ## 3 Consumer Callback Path Bindings
@@ -209,9 +209,9 @@ Authorization: ...
 
 The `callbackAddress` property specifies the base endpoint URL where the client receives messages associated with the [Contract Negotiation](../model/terminology.md#contract-negotiation). Support for the HTTPS scheme is required. Implementations may optionally support other URL schemes.
 
-Callback messages will be sent to paths under the base URL as described by this specification. Note that consumer [Connectors](../model/terminology.md#connector--data-service-) should properly handle the cases where a trailing / is included with or absent from the callbackAddress when resolving full URL.
+Callback messages will be sent to paths under the base URL as described by this specification. Note that [Consumers](../model/terminology.md#consumer) should properly handle the cases where a trailing / is included with or absent from the callbackAddress when resolving full URL.
 
-The consumer [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 201 (Created) response with a body containing the [Contract Negotiation](./contract.negotiation.protocol.md#ack---contractnegotiation):
+The [Consumer](../model/terminology.md#consumer) must return an HTTP 201 (Created) response with a body containing the [Contract Negotiation](./contract.negotiation.protocol.md#ack---contractnegotiation):
 
 ```
 {
@@ -247,7 +247,7 @@ Authorization: ...
 }
 ```
 
-If the message is successfully processed, the consumer [Connector](../model/terminology.md#connector--data-service-) must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to
+If the message is successfully processed, the [Consumer](../model/terminology.md#consumer) must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to
 process it.
 
 ### 3.4 The consumer `negotiations/:consumerPid/agreement` resource
@@ -255,7 +255,7 @@ process it.
 #### 3.4.1 POST
 
 The [Provider](../model/terminology.md#provider) can POST a [ContractAgreementMessage](./message/contract-agreement-message.json) to the `negotiations/:consumerPid/agreement` callback to create an [Agreement](../model/terminology.md#agreement). If the
-[Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+[Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ```
 POST https://connector.consumer.com/negotiations/urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833/agreement
@@ -282,7 +282,7 @@ Authorization: ...
 #### 3.5.1 POST
 
 A [Provider](../model/terminology.md#provider) can POST a [ContractNegotiationEventMessage](./message/contract-negotiation-event-message.json) to the `negotiations/:consumerPid/events` callback with an `eventType`
-of `FINALIZED` to finalize an [Agreement](../model/terminology.md#agreement). If the [Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not
+of `FINALIZED` to finalize an [Agreement](../model/terminology.md#agreement). If the [Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not
 specified and clients are not required to process it. 
 
 ### 3.6 The consumer `negotiations/:consumerPid/termination` resource
@@ -290,4 +290,4 @@ specified and clients are not required to process it.
 #### 3.6.1 POST
 
 The [Provider](../model/terminology.md#provider) can POST a [ContractNegotiationTerminationMessage](./message/contract-negotiation-termination-message.json) to terminate a [Contract Negotiation](../model/terminology.md#contract-negotiation). If the [Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation)
-state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.

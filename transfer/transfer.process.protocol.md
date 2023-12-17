@@ -5,13 +5,13 @@
 This document outlines the key elements of the Transfer Process Protocol. The following terms are used:
 
 - The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine.
-- A _**transfer process (TP)**_ contains all steps necessary to transfer an [Dataset](../model/terminology.md#dataset) from the [Provider](../model/terminology.md#provider) to the consumer.
+- A _**transfer process (TP)**_ contains all steps necessary to transfer an [Dataset](../model/terminology.md#dataset) from the [Provider](../model/terminology.md#provider) to the [Consumer](../model/terminology.md#consumer).
 
 
 ## 2 Transfer Process Protocol
 
-A [Transfer Process](../model/terminology.md#transfer-process) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a [Usage Policy](../model/terminology.md#policy) and _consumer_ that requests [Datasets](../model/terminology.md#dataset). A TP progresses through
-a series of states, which are controlled by the [Provider](../model/terminology.md#provider) and consumer using messages. A TP transitions to another state as a result of an exchanged message.
+A [Transfer Process](../model/terminology.md#transfer-process) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a [Usage Policy](../model/terminology.md#policy) and [Consumer](../model/terminology.md#consumer) that requests [Datasets](../model/terminology.md#dataset). A TP progresses through
+a series of states, which are controlled by the [Provider](../model/terminology.md#provider) and [Consumer](../model/terminology.md#consumer) using messages. A TP transitions to another state as a result of an exchanged message.
 
 A TP is managed by a [Connector](../model/terminology.md#connector--data-service-). The [Connector](../model/terminology.md#connector--data-service-) serves as a coordinating technical entity that
 receives counter-party messages and manages its local state of the TP. It may as well also operate the hosting of the [Datasets](../model/terminology.md#dataset), or control their offering through another system.
@@ -30,15 +30,15 @@ heterogeneous clusters.
 
 #### Push Transfer
 
-A push transfer is when the [Provider's](../model/terminology.md#provider) data plane initiates sending of data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
-[Provider](../model/terminology.md#provider) begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
+A push transfer is when the [Provider's](../model/terminology.md#provider) data plane initiates sending of data to a [Consumer](../model/terminology.md#consumer) endpoint. For example, after the [Consumer](../model/terminology.md#consumer) has issued an `TransferRequestMessage,` the
+[Provider](../model/terminology.md#provider) begins data transmission to an endpoint specified by the [Consumer](../model/terminology.md#consumer) using an agreed-upon wire protocol.
 
 ![](./push-transfer-process.png)
 
 #### Pull Transfer
 
-A pull transfer is when the consumer data plane initiates retrieval of data from a [Provider](../model/terminology.md#provider) endpoint. For example, after the [Provider](../model/terminology.md#provider) has issued an `TransferProcessStart,`
-message, the consumer can request the data from the [Provider](../model/terminology.md#provider)-specified endpoint.
+A pull transfer is when the [Consumer](../model/terminology.md#consumer) data plane initiates retrieval of data from a [Provider](../model/terminology.md#provider) endpoint. For example, after the [Provider](../model/terminology.md#provider) has issued an `TransferProcessStart,`
+message, the [Consumer](../model/terminology.md#consumer) can request the data from the [Provider](../model/terminology.md#provider)-specified endpoint.
 
 ![](./pull-transfer-process.png)
 
@@ -46,17 +46,17 @@ message, the consumer can request the data from the [Provider](../model/terminol
 
 Data may be `finite` or `non-finite.` Finite data is data that is defined by a finite set, for example, machine learning data or images. After finite data transmission has
 finished, the [Transfer Process](../model/terminology.md#transfer-process) is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example streams or an API endpoint. With
-non-finite data, a TP will continue indefinitely until either the consumer or [Provider](../model/terminology.md#provider) explicitly terminates the transmission.
+non-finite data, a TP will continue indefinitely until either the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) explicitly terminates the transmission.
 
 ### 2.3 Transfer Process States
 
 The TP states are:
 
-- **REQUESTED** - A [Dataset](../model/terminology.md#dataset) has been requested under an [Agreement](../model/terminology.md#agreement) by the consumer and the [Provider](../model/terminology.md#provider) has sent an ACK response.
-- **STARTED** - The [Dataset](../model/terminology.md#dataset) is available for access by the consumer or the [Provider](../model/terminology.md#provider) has begun pushing the data to the consumer endpoint.
-- **COMPLETED** - The transfer has been completed by either the consumer or the [Provider](../model/terminology.md#provider).
-- **SUSPENDED** - The transfer has been suspended by the consumer or the [Provider](../model/terminology.md#provider).
-- **TERMINATED** - The [Transfer Process](../model/terminology.md#transfer-process) has been terminated by the consumer or the [Provider](../model/terminology.md#provider).
+- **REQUESTED** - A [Dataset](../model/terminology.md#dataset) has been requested under an [Agreement](../model/terminology.md#agreement) by the [Consumer](../model/terminology.md#consumer) and the [Provider](../model/terminology.md#provider) has sent an ACK response.
+- **STARTED** - The [Dataset](../model/terminology.md#dataset) is available for access by the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider) has begun pushing the data to the [Consumer](../model/terminology.md#consumer) endpoint.
+- **COMPLETED** - The transfer has been completed by either the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider).
+- **SUSPENDED** - The transfer has been suspended by the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider).
+- **TERMINATED** - The [Transfer Process](../model/terminology.md#transfer-process) has been terminated by the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider).
 
 ### 2.4 Transfer Process State Machine
 
@@ -71,7 +71,7 @@ Further Dataspace specifications may define additional optional serialization fo
 
 ![](./message/diagram/transfer-request-message.png)
 
-**Sent by**: Consumer
+**Sent by**: [Consumer](../model/terminology.md#consumer)
 
 **Resulting State**: REQUESTED
 
@@ -83,19 +83,19 @@ Further Dataspace specifications may define additional optional serialization fo
 
 #### Description
 
-The `TransferRequestMessage` is sent by a consumer to initiate a [Transfer Process](../model/terminology.md#transfer-process).
+The `TransferRequestMessage` is sent by a [Consumer](../model/terminology.md#consumer) to initiate a [Transfer Process](../model/terminology.md#transfer-process).
 
 #### Notes
 
-- The `consumerPid` property refers to the transfer id of the consumer side.
-- The `agreementId` property refers to an existing contract [Agreement](../model/terminology.md#agreement) between the consumer and [Provider](../model/terminology.md#provider).
+- The `consumerPid` property refers to the transfer id of the [Consumer](../model/terminology.md#consumer) side.
+- The `agreementId` property refers to an existing contract [Agreement](../model/terminology.md#agreement) between the [Consumer](../model/terminology.md#consumer) and [Provider](../model/terminology.md#provider).
 - The `dct:format` property is a format specified by a `Distribution` for the [Dataset](../model/terminology.md#dataset) associated with the [Agreement](../model/terminology.md#agreement). This is generally obtained from the [Provider's](../model/terminology.md#provider) [Catalog](../model/terminology.md#catalog).
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
-- `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the [Provider](../model/terminology.md#provider) MUST return an UNRECOVERABLE error.
+- `callbackAddress` is a URI indicating where messages to the [Consumer](../model/terminology.md#consumer) should be sent. If the address is not understood, the [Provider](../model/terminology.md#provider) MUST return an UNRECOVERABLE error.
 
 [Provider]s(../model/terminology.md#provider) should implement idempotent behavior for `TransferRequestMessage` based on the value of `dspace:consumerPid`. [Providers](../model/terminology.md#provider) may choose to implement idempotent behavior for a certain period of
 time. For example, until a [Transfer Process](../model/terminology.md#transfer-process) has completed and been archived after an implementation-specific expiration period, repeated sending of TransferRequestMessages does not change the state of the TP. If a request for the given `dspace:consumerPid` has already been
-received *and* the same consumer sent the original message again, the [Provider](../model/terminology.md#provider) should respond with an appropriate `TransferStartMessage`.
+received *and* the same [Consumer](../model/terminology.md#consumer) sent the original message again, the [Provider](../model/terminology.md#provider) should respond with an appropriate `TransferStartMessage`.
 
 Once a [Transfer Process](../model/terminology.md#transfer-process) has been created, all associated callback messages must include a `dspace:consumerPid` and `dspace:providerPid`.
 
@@ -132,7 +132,7 @@ The `TransferStartMessage` is sent by the [Provider](../model/terminology.md#pro
 
 ![](./message/diagram/transfer-suspension-message.png)
 
-**Sent by**: [Provider](../model/terminology.md#provider) or Consumer
+**Sent by**: [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer)
 
 **Resulting State**: SUSPENDED
 
@@ -144,13 +144,13 @@ The `TransferStartMessage` is sent by the [Provider](../model/terminology.md#pro
 
 #### Description
 
-The `TransferSuspensionMessage` is sent by the [Provider](../model/terminology.md#provider) or consumer when either of them needs to temporarily suspend the [Transfer Process](../model/terminology.md#transfer-process).
+The `TransferSuspensionMessage` is sent by the [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) when either of them needs to temporarily suspend the [Transfer Process](../model/terminology.md#transfer-process).
 
 ### 3.4 TransferCompletionMessage
 
 ![](./message/diagram/transfer-completion-message.png)
 
-**Sent by**: [Provider](../model/terminology.md#provider) or Consumer
+**Sent by**: [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer)
 
 **Resulting State**: COMPLETED
 
@@ -162,14 +162,14 @@ The `TransferSuspensionMessage` is sent by the [Provider](../model/terminology.m
 
 #### Description
 
-The `TransferCompletionMessage` is sent by the [Provider](../model/terminology.md#provider) or consumer when a data transfer has completed. Note that some connector implementations may optimize completion
+The `TransferCompletionMessage` is sent by the [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) when a data transfer has completed. Note that some connector implementations may optimize completion
 notification by performing it as part of their wire protocol. In those cases, a `TransferCompletionMessage` message does not need to be sent.
 
 ### 3.5 TransferTerminationMessage
 
 ![](./message/diagram/transfer-termination-message.png)
 
-**Sent by**: [Provider](../model/terminology.md#provider) or Consumer
+**Sent by**: [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer)
 
 **Resulting State**: TERMINATED
 
@@ -181,7 +181,7 @@ notification by performing it as part of their wire protocol. In those cases, a 
 
 #### Description
 
-The `TransferTerminationMessage` is sent by the [Provider](../model/terminology.md#provider) or consumer at any point except a terminal state to indicate the [Transfer Process](../model/terminology.md#transfer-process) should stop and be placed in
+The `TransferTerminationMessage` is sent by the [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) at any point except a terminal state to indicate the [Transfer Process](../model/terminology.md#transfer-process) should stop and be placed in
 a terminal state. If the termination was due to an error, the sender may include error information.
 
 
@@ -197,7 +197,7 @@ a terminal state. If the termination was due to an error, the sender may include
 
 #### Description
 
-The `TransferProcess` is an object returned by a consumer or [Provider](../model/terminology.md#provider) indicating a successful state change happened.
+The `TransferProcess` is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating a successful state change happened.
 
 ### 4.2 ERROR - TransferError
 
@@ -209,4 +209,4 @@ The `TransferProcess` is an object returned by a consumer or [Provider](../model
 
 #### Description
 
-The `TransferError` is an object returned by a consumer or [Provider](../model/terminology.md#provider) indicating an error has occurred. It does not cause a state transition.
+The `TransferError` is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating an error has occurred. It does not cause a state transition.

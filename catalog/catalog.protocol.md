@@ -4,7 +4,7 @@
 
 This document outlines the Catalog Protocol. The used terms are described [here](../model/terminology.md).
 
-The Catalog Protocol defines how a [Catalog](../model/terminology.md#catalog) is requested from a [Catalog Service](../model/terminology.md#catalog-service) by a `Consumer` using an abstract message exchange format. The concrete message exchange wire
+The Catalog Protocol defines how a [Catalog](../model/terminology.md#catalog) is requested from a [Catalog Service](../model/terminology.md#catalog-service) by a [Consumer](../model/terminology.md#consumer) using an abstract message exchange format. The concrete message exchange wire
 format is defined in the binding specifications.
 
 ## 2 Message Types
@@ -16,7 +16,7 @@ Further [Dataspace](../model/terminology.md#dataspace) specifications may define
 
 ![](./message/diagram/catalog-request-message.png)
 
-**Sent by**: Consumer
+**Sent by**: [Consumer](../model/terminology.md#consumer)
 
 **Example**: [CatalogRequestMessage](./message/catalog-request-message.json)
 
@@ -26,7 +26,7 @@ Further [Dataspace](../model/terminology.md#dataspace) specifications may define
 
 #### Description
 
-The `CatalogRequestMessage` is message sent by a consumer to a [Catalog Service](../model/terminology.md#catalog-service). The [Catalog Service](../model/terminology.md#catalog-service) must respond with a [Catalog](../model/terminology.md#catalog), which is a
+The `CatalogRequestMessage` is message sent by a [Consumer](../model/terminology.md#consumer) to a [Catalog Service](../model/terminology.md#catalog-service). The [Catalog Service](../model/terminology.md#catalog-service) must respond with a [Catalog](../model/terminology.md#catalog), which is a
 valid instance of a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
 The `CatalogRequestMessage` may have a `filter` property which contains an implementation-specific query or filter expression type supported by the [Catalog Service](../model/terminology.md#catalog-service).
@@ -57,7 +57,7 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#31-datas
 
 ![](./message/diagram/catalog-error.png)
 
-**Sent by**: Consumer or [Provider](../model/terminology.md#provider)
+**Sent by**: [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider)
 
 **Example**: [CatalogError](./message/catalog-error.json)
 
@@ -71,7 +71,7 @@ A Catalog Error Message is used when an error occurred after a `CatalogRequestMe
 
 ### 2.4 DatasetRequestMessage
 
-**Sent by**: Consumer
+**Sent by**: [Consumer](../model/terminology.md#consumer)
 
 **Example**: [DatasetRequestMessage](./message/dataset-request-message.json)
 
@@ -81,7 +81,7 @@ A Catalog Error Message is used when an error occurred after a `CatalogRequestMe
 
 #### Description
 
-The `DatasetRequestMessage` is message sent by a consumer to a [Catalog Service](../model/terminology.md#catalog-service). The [Catalog Service](../model/terminology.md#catalog-service) must respond with a `Dataset,` which is a
+The `DatasetRequestMessage` is message sent by a [Consumer](../model/terminology.md#consumer) to a [Catalog Service](../model/terminology.md#catalog-service). The [Catalog Service](../model/terminology.md#catalog-service) must respond with a `Dataset,` which is a
 valid instance of a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
 
 The `DatasetRequestMessage` must have a [Dataset](../model/terminology.md#dataset) property which contains the id of the [Dataset](../model/terminology.md#dataset).
@@ -160,21 +160,21 @@ contents of `dcat:servesDataset`.
 ### 4.1 Queries and Filter Expressions
 
 A [Catalog Service](../model/terminology.md#catalog-service) may support [Catalog](../model/terminology.md#catalog) queries or filter expressions as an implementation-specific feature. However, it is expected that query capabilities will be implemented
-by the consumer against the results of a `CatalogRequestMessage,` as the latter is an RDF vocabulary. Client-side querying can be scaled by periodically crawling the [Provider's](../model/terminology.md#provider's)
+by the [Consumer](../model/terminology.md#consumer) against the results of a `CatalogRequestMessage,` as the latter is an RDF vocabulary. Client-side querying can be scaled by periodically crawling the [Provider's](../model/terminology.md#provider's)
 [Catalog Services](../model/terminology.md#catalog-service), caching the results, and executing queries against the locally-stored [Catalogs](../model/terminology.md#catalog).
 
 ### 4.2 Replication Protocol
 
-The Catalog Protocol is designed to be used by federated services without the need for a replication protocol. Each consumer is responsible for issuing requests
-to 1..N [Catalog Services](../model/terminology.md#catalog-service), and managing the results. It follows that a specific replication protocol is not needed, or more precisely, each consumer replicates data from catalog
+The Catalog Protocol is designed to be used by federated services without the need for a replication protocol. Each [Consumer](../model/terminology.md#consumer) is responsible for issuing requests
+to 1..N [Catalog Services](../model/terminology.md#catalog-service), and managing the results. It follows that a specific replication protocol is not needed, or more precisely, each [Consumer](../model/terminology.md#consumer) replicates data from catalog
 services by issuing `CatalogRequestMessages`.
 
-The discovery protocol adopted by a particular [Dataspace](../model/terminology.md#dataspace) defines how a consumer discovers [Catalog Services](../model/terminology.md#catalog-service).
+The discovery protocol adopted by a particular [Dataspace](../model/terminology.md#dataspace) defines how a [Consumer](../model/terminology.md#consumer) discovers [Catalog Services](../model/terminology.md#catalog-service).
 
 ### 4.3 Security
 
 It is expected (although not required) that [Catalog Services](../model/terminology.md#catalog-service) implement access control. A [Catalog](../model/terminology.md#catalog) as well as individual [Datasets](../model/terminology.md#dataset) may be restricted to trusted parties.
-The [Catalog Service](../model/terminology.md#catalog-service) may require consumers to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
+The [Catalog Service](../model/terminology.md#catalog-service) may require [Consumers](../model/terminology.md#consumer) to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
 Catalog Binding Specification. The semantics of such tokens are not part of this specification.
 
 #### 4.3.1 The Proof Metadata Endpoint
@@ -186,7 +186,7 @@ Dataspace Protocol Specifications. However, Catalog Binding Specifications shoul
 
 ### 4.4 Catalog Brokers
 
-A [Dataspace](../model/terminology.md#dataspace) may include _**catalog brokers**_. A catalog broker is a consumer that has trusted access to 1..N upstream [Catalog Services](../model/terminology.md#catalog-service) and advertises their respective [Catalogs](../model/terminology.md#catalog) as
+A [Dataspace](../model/terminology.md#dataspace) may include _**catalog brokers**_. A catalog broker is a [Consumer](../model/terminology.md#consumer) that has trusted access to 1..N upstream [Catalog Services](../model/terminology.md#catalog-service) and advertises their respective [Catalogs](../model/terminology.md#catalog) as
 a single [Catalog Service](../model/terminology.md#catalog-service). The broker is expected to honor upstream access control requirements.
 
 ## 5 DCAT and ODRL Profiles

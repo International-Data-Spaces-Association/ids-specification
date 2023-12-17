@@ -22,7 +22,7 @@ a [TransferError](./message/transfer-error.json) with the following properties:
 
 | Field       | Type          | Description                                                 |
 |-------------|---------------|-------------------------------------------------------------|
-| consumerPid | UUID          | The [Transfer Process](../model/terminology.md#transfer-process) unique id on consumer side.            |
+| consumerPid | UUID          | The [Transfer Process](../model/terminology.md#transfer-process) unique id on [Consumer](../model/terminology.md#consumer) side.            |
 | providerPid | UUID          | The [Transfer Process](../model/terminology.md#transfer-process) unique id on [Provider](../model/terminology.md#provider) side.            |
 | code        | string        | An optional implementation-specific error code.             |
 | reasons     | Array[object] | An optional array of implementation-specific error objects. |
@@ -69,7 +69,7 @@ If the [Transfer Process](./transfer.process.protocol.md#ack---transferprocess) 
 
 #### 2.5.1 POST
 
-A [Transfer Process](../model/terminology.md#transfer-process) is started and placed in the `REQUESTED` state when a consumer POSTs a [TransferRequestMessage](./transfer.process.protocol.md#1-transferrequestmessage)
+A [Transfer Process](../model/terminology.md#transfer-process) is started and placed in the `REQUESTED` state when a [Consumer](../model/terminology.md#consumer) POSTs a [TransferRequestMessage](./transfer.process.protocol.md#1-transferrequestmessage)
 to `transfers/request`:
 
  ```
@@ -123,28 +123,28 @@ the [TransferProcess](./message/transfer-process.json) message:
 
 #### 2.6.1 POST
 
-The consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferStartMessage](./message/transfer-start-message.json) to attempt to start a [Transfer Process](../model/terminology.md#transfer-process) after it has been suspended. If the [Transfer
+The [Consumer](../model/terminology.md#consumer) can POST a [TransferStartMessage](./message/transfer-start-message.json) to attempt to start a [Transfer Process](../model/terminology.md#transfer-process) after it has been suspended. If the [Transfer
 Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 2.7 The `transfers/:providerPid/completion` Endpoint (provider-side)
 
 #### 2.7.1 POST
 
-The consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferCompletionMessage](./message/transfer-completion-message.json) to complete a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
+The [Consumer](../model/terminology.md#consumer) can POST a [TransferCompletionMessage](./message/transfer-completion-message.json) to complete a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
 Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 2.8 The `transfers/:providerPid/termination` Endpoint (provider-side)
 
 #### 2.8.1 POST
 
-The consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferTerminationMessage](./message/transfer-termination-message.json) to terminate a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
+The [Consumer](../model/terminology.md#consumer) can POST a [TransferTerminationMessage](./message/transfer-termination-message.json) to terminate a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
 Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 2.9 The `transfers/:providerPid/suspension` Endpoint  (provider-side)
 
 #### 2.9.1 POST
 
-The consumer [Connector](../model/terminology.md#connector--data-service-) can POST a [TransferSuspensionMessage](./message/transfer-suspension-message.json) to suspend a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
+The [Consumer](../model/terminology.md#consumer) can POST a [TransferSuspensionMessage](./message/transfer-suspension-message.json) to suspend a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
 Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ## 3 Consumer Callback Path Bindings
@@ -160,25 +160,25 @@ be `https://connector.consumer.com/callback/transfers/:consumerPid/start`.
 #### 3.2.1 POST
 
 The [Provider](../model/terminology.md#provider) can POST a [TransferStartMessage](./message/transfer-start-message.json) to indicate the start of a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 3.3 The `transfers/:consumerPid/completion` Endpoint (consumer-side)
 
 #### 3.3.1 POST
 
 The [Provider](../model/terminology.md#provider) can POST a [TransferCompletionMessage](./message/transfer-completion-message.json) to complete a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 3.4 The `transfers/:consumerPid/termination` Endpoint (consumer-side)
 
 #### 3.4.1 POST
 
 The [Provider](../model/terminology.md#provider) can POST a [TransferTerminationMessage](./message/transfer-termination-message.json) to terminate a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 3.5 The `transfers/:consumerPid/suspension` Endpoint (consumer-side)
 
 #### 3.5.1 POST
 
 The [Provider](../model/terminology.md#provider) can POST a [TransferSuspensionMessage](./message/transfer-suspension-message.json) to suspend a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 
+Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 

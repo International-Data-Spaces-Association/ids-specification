@@ -21,11 +21,11 @@ A [Participant Agent](#participant-agent) that produces [Agreements](#agreement)
 
 ## Consumer
 
-A `Consumer` is a `ParticipantAgent` that requests access to an offered dataset.
+A `Consumer` is a [Participant Agent](#participant-agent) that requests access to an offered [Dataset](#dataset).
 
 ## Contract Negotiation
 
-A set of interactions between a [Provider's](../model/terminology.md#provider) [Connector](#connector--data-service-) and consumer [Connector](#connector--data-service-) that establish an [Agreement](#agreement).
+A set of interactions between a [Provider](#provider) and [Consumer](#consumer) that establish an [Agreement](#agreement).
 
 ## Dataset
 
@@ -69,4 +69,4 @@ A `Provider` is a [Participant Agent](#participant-agent)
 
 ## Transfer Process
 
-A set of interactions between a [Provider's](../model/terminology.md#provider) [Connector](#connector--data-service-) and consumer [Connector](#connector--data-service-) that give access to a [Dataset](#dataset) under the terms of an `[Agreement](#agreement).
+A set of interactions between a [Provider](#provider) and [Consumer](#consumer) that give access to a [Dataset](#dataset) under the terms of an `[Agreement](#agreement).
