@@ -4,12 +4,12 @@ This and the following section defines the core concepts, entities, and relation
 
 ## Agreement
 
-A concrete [Policy](#policy) associated with a specific [Dataset](#dataset) that has been signed by both the provider and consumer [Participants](#participant).
+A concrete [Policy](#policy) associated with a specific [Dataset](#dataset) that has been signed by both the [Provider](../model/terminology.md#provider) and consumer [Participants](#participant).
 An `Agreement` is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ [Dataset](#dataset).
 
 ## Catalog
 
-A collection of entries representing [Datasets](#dataset) and their [Offers](#offer) that is advertised by a provider [Participant](#participant).
+A collection of entries representing [Datasets](#dataset) and their [Offers](#offer) that is advertised by a [Provider](../model/terminology.md#provider) [Participant](#participant).
 
 ## Catalog Service
 
@@ -25,7 +25,7 @@ A `Consumer` is a `ParticipantAgent` that requests access to an offered dataset.
 
 ## Contract Negotiation
 
-A set of interactions between a provider [Connector](#connector--data-service-) and consumer [Connector](#connector--data-service-) that establish an [Agreement](#agreement).
+A set of interactions between a [Provider's](../model/terminology.md#provider) [Connector](#connector--data-service-) and consumer [Connector](#connector--data-service-) that establish an [Agreement](#agreement).
 
 ## Dataset
 
@@ -65,8 +65,8 @@ A set of rules, duties, and obligations that define the terms of use for a [Data
 
 ## Provider
 
-A `Provider` is a `ParticipantAgent`
+A `Provider` is a [Participant Agent](#participant-agent)
 
 ## Transfer Process
 
-A set of interactions between a provider [Connector](#connector--data-service-) and consumer [Connector](#connector--data-service-) that give access to a [Dataset](#dataset) under the terms of an `[Agreement](#agreement).
+A set of interactions between a [Provider's](../model/terminology.md#provider) [Connector](#connector--data-service-) and consumer [Connector](#connector--data-service-) that give access to a [Dataset](#dataset) under the terms of an `[Agreement](#agreement).

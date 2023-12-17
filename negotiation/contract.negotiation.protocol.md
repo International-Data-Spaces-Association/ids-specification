@@ -13,21 +13,21 @@ This document outlines the key elements of the Contract Negotiation Protocol. Th
 
 ## Contract Negotiation Protocol
 
-A [Contract Negotiation](../model/terminology.md#contract-negotiation) (CN) involves two parties, a _provider_ that offers one or more [Datasets](../model/terminology.md#dataset) under a usage contract and _consumer_ that requests [Datasets](../model/terminology.md#dataset).
+A [Contract Negotiation](../model/terminology.md#contract-negotiation) (CN) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a usage contract and _consumer_ that requests [Datasets](../model/terminology.md#dataset).
 A CN is uniquely identified through an [IRI](https://www.w3.org/International/articles/idn-and-iri/). Each CN requires a newly generated IRI, which may not be used in a CN after a terminal state has been reached.
-A CN progresses through a series of states, which are tracked by the provider and consumer using messages. A CN transitions to a state in response to an acknowledged message from
+A CN progresses through a series of states, which are tracked by the [Provider](../model/terminology.md#provider) and consumer using messages. A CN transitions to a state in response to an acknowledged message from
 the counter-party. Both parties have the same state of the CN. In case the states differ, the CN is terminated and a new CN has to be initiated.
 
 The CN states are:
 
-- **REQUESTED** - A contract for a [Dataset](../model/terminology.md#dataset) has been requested by the consumer based on an [Offer](../model/terminology.md#offer) and the provider has sent an ACK response.
-- **OFFERED** - The provider has sent an [Offer](../model/terminology.md#offer) to the consumer and the consumer has sent an ACK response.
-- **ACCEPTED** - The consumer has accepted the latest [Offer](../model/terminology.md#offer) and the provider has sent an ACK response.
-- **AGREED** - The provider has accepted the latest [Offer](../model/terminology.md#offer), sent an [Agreement](../model/terminology.md#agreement) to the consumer, and the consumer has sent an ACK response.
-- **VERIFIED** - The consumer has sent an [Agreement](../model/terminology.md#agreement) verification to the provider and the provider has sent an ACK response.
-- **FINALIZED** - The provider has sent a finalization message including his own [Agreement](../model/terminology.md#agreement) verification to the consumer and the consumer has sent an ACK response. Data is
+- **REQUESTED** - A contract for a [Dataset](../model/terminology.md#dataset) has been requested by the consumer based on an [Offer](../model/terminology.md#offer) and the [Provider](../model/terminology.md#provider) has sent an ACK response.
+- **OFFERED** - The [Provider](../model/terminology.md#provider) has sent an [Offer](../model/terminology.md#offer) to the consumer and the consumer has sent an ACK response.
+- **ACCEPTED** - The consumer has accepted the latest [Offer](../model/terminology.md#offer) and the [Provider](../model/terminology.md#provider) has sent an ACK response.
+- **AGREED** - The [Provider](../model/terminology.md#provider) has accepted the latest [Offer](../model/terminology.md#offer), sent an [Agreement](../model/terminology.md#agreement) to the consumer, and the consumer has sent an ACK response.
+- **VERIFIED** - The consumer has sent an [Agreement](../model/terminology.md#agreement) verification to the [Provider](../model/terminology.md#provider) and the [Provider](../model/terminology.md#provider) has sent an ACK response.
+- **FINALIZED** - The [Provider](../model/terminology.md#provider) has sent a finalization message including his own [Agreement](../model/terminology.md#agreement) verification to the consumer and the consumer has sent an ACK response. Data is
   now available to the consumer.
-- **TERMINATED** - The provider or consumer has placed the [Contract Negotiation](../model/terminology.md#contract-negotiation) in a terminated state. A termination message has been sent by either of the [Participants](../model/terminology.md#participant) and the
+- **TERMINATED** - The [Provider](../model/terminology.md#provider) or consumer has placed the [Contract Negotiation](../model/terminology.md#contract-negotiation) in a terminated state. A termination message has been sent by either of the [Participants](../model/terminology.md#participant) and the
   other has sent an ACK response. This is a terminal state.
 
 ### Contract Negotiation State Machine
@@ -36,7 +36,7 @@ The CN state machine is represented in the following diagram. Note that transiti
 
 ![](./contract.negotiation.state.machine.png)
 
-Transitions marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a provider message. Terminal states are final; the state machine may
+Transitions marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a [Provider](../model/terminology.md#provider) message. Terminal states are final; the state machine may
 not transition to another state. A new CN may be initiated if, for instance, the CN entered the `TERMINATED` state due to a network issue.
 
 ## Message Types
@@ -66,19 +66,19 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 #### Description
 
-The `ContractRequestMessage` is sent by a consumer to initiate a [Contract Negotiation](../model/terminology.md#contract-negotiation) or to respond to a `ContractOfferMessage` sent by a provider.
+The `ContractRequestMessage` is sent by a consumer to initiate a [Contract Negotiation](../model/terminology.md#contract-negotiation) or to respond to a `ContractOfferMessage` sent by a [Provider](../model/terminology.md#provider).
 
 #### Notes
 
 - The consumer must include an `offer` property, which itself must have a `@id` property. If the message includes a `providerPid` property, the request will be associated with an existing [Contract Negotiation](../model/terminology.md#contract-negotiation)
   and a consumer [Offer](../model/terminology.md#offer) will be created using either the `offer` or `offer.@id` properties. If the message does not include a `providerPid`, a new [Contract Negotiation](../model/terminology.md#contract-negotiation)
-  will be created on provider side using either the `offer` or `offer.@id` properties and the provider selects an appropriate `providerPid`.
+  will be created on [Provider](../model/terminology.md#provider) side using either the `offer` or `offer.@id` properties and the [Provider](../model/terminology.md#provider) selects an appropriate `providerPid`.
 
-- An `offer.@id` will generally refer to an [Offer](../model/terminology.md#offer) contained in a [Catalog](../model/terminology.md#catalog). If the provider is not aware of the `offer.@id` value, it must respond with an error message.
+- An `offer.@id` will generally refer to an [Offer](../model/terminology.md#offer) contained in a [Catalog](../model/terminology.md#catalog). If the [Provider](../model/terminology.md#provider) is not aware of the `offer.@id` value, it must respond with an error message.
 
 - The [Dataset](../model/terminology.md#dataset) id is not technically required but included to avoid an error where the [Offer](../model/terminology.md#offer) is associated with a different data set.
 
-- `callbackAddress` is a URL indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
+- `callbackAddress` is a URL indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the [Provider](../model/terminology.md#provider) MUST return an
   UNRECOVERABLE error.
 
 
@@ -86,7 +86,7 @@ The `ContractRequestMessage` is sent by a consumer to initiate a [Contract Negot
 
 ![](./message/diagram/contract-offer-message.png)
 
-**Sent by**: Provider
+**Sent by**: [Provider](../model/terminology.md#provider)
 
 **Resulting State**: OFFERED, TERMINATED
 
@@ -98,7 +98,7 @@ The `ContractRequestMessage` is sent by a consumer to initiate a [Contract Negot
 
 #### Description
 
-The `ContractOfferMessage` is sent by a provider to initiate a [Contract Negotiation](../model/terminology.md#contract-negotiation) or to respond to a `ContractRequestMessage` sent by a consumer.
+The `ContractOfferMessage` is sent by a [Provider](../model/terminology.md#provider) to initiate a [Contract Negotiation](../model/terminology.md#contract-negotiation) or to respond to a `ContractRequestMessage` sent by a consumer.
 
 ### Notes
 
@@ -107,13 +107,13 @@ will be created on consumer side and the consumer selects an appropriate `consum
 
 #### Notes
 
-- The [Dataset](../model/terminology.md#dataset) id is not required but can be included when the provider initiates a [Contract Negotiation](../model/terminology.md#contract-negotiation).
+- The [Dataset](../model/terminology.md#dataset) id is not required but can be included when the [Provider](../model/terminology.md#provider) initiates a [Contract Negotiation](../model/terminology.md#contract-negotiation).
 
 ### 3. ContractAgreementMessage
 
 ![](./message/diagram/contract-agreement-message.png)
 
-**Sent by**: Provider
+**Sent by**: [Provider](../model/terminology.md#provider)
 
 **Resulting State**: AGREED, TERMINATED
 
@@ -125,7 +125,7 @@ will be created on consumer side and the consumer selects an appropriate `consum
 
 #### Description
 
-The `ContractAgreementMessage` is sent by a provider when it agrees to a contract. It contains the complete [Agreement](../model/terminology.md#agreement).
+The `ContractAgreementMessage` is sent by a [Provider](../model/terminology.md#provider) when it agrees to a contract. It contains the complete [Agreement](../model/terminology.md#agreement).
 
 A `ContractAgreementMessage` must contain a `consumerPid` and a `providerPid`.
 
@@ -155,7 +155,7 @@ contract (i.e. the [Connectors](../model/terminology.md#connector--data-service-
 
 #### Description
 
-The `ContractAgreementVerificationMessage` is sent by a consumer to verify the acceptance of an [Agreement](../model/terminology.md#agreement). A provider responds with an error if the contract cannot be
+The `ContractAgreementVerificationMessage` is sent by a consumer to verify the acceptance of an [Agreement](../model/terminology.md#agreement). A [Provider](../model/terminology.md#provider) responds with an error if the contract cannot be
 validated or is incorrect.
 
 A `ContractAgreementVerificationMessage` must contain a `consumerPid` and a `providerPid`.
@@ -165,7 +165,7 @@ A `ContractAgreementVerificationMessage` must contain a `consumerPid` and a `pro
 
 ![](./message/diagram/contract-negotiation-event-message.png)
 
-**Sent by**: Provider or Consumer
+**Sent by**: [Provider](../model/terminology.md#provider) or Consumer
 
 **Resulting State**: FINALIZED, ACCEPTED, TERMINATED
 
@@ -177,18 +177,18 @@ A `ContractAgreementVerificationMessage` must contain a `consumerPid` and a `pro
 
 #### Description
 
-When the `ContractNegotiationEventMessage` is sent by a provider with an `eventType` property set to `FINALIZED`, an [Agreement](../model/terminology.md#agreement) has been finalized and the associated [Dataset](../model/terminology.md#dataset)
+When the `ContractNegotiationEventMessage` is sent by a [Provider](../model/terminology.md#provider) with an `eventType` property set to `FINALIZED`, an [Agreement](../model/terminology.md#agreement) has been finalized and the associated [Dataset](../model/terminology.md#dataset)
 is accessible. The state machine is transitioned to the `FINALIZED` state. Other event types may be defined in the future. A consumer responds with an error if the contract
 cannot be validated or is incorrect.
 
-It is an error for a consumer to send a `ContractNegotiationEventMessage` with an eventType `FINALIZED` to the provider.
+It is an error for a consumer to send a `ContractNegotiationEventMessage` with an eventType `FINALIZED` to the [Provider](../model/terminology.md#provider).
 
 When the `ContractNegotiationEventMessage` is sent by a consumer with an `eventType` set to  `ACCEPTED`, the state machine is placed in the `ACCEPTED` state.
 
-It is an error for a provider to send a `ContractNegotiationEventMessage` with an eventType `ACCEPTED` to the consumer.
+It is an error for a [Provider](../model/terminology.md#provider) to send a `ContractNegotiationEventMessage` with an eventType `ACCEPTED` to the consumer.
 
 Note that [Contract Negotiation](#ack---contractnegotiation) events are not intended for propagation of [Agreement](../model/terminology.md#agreement) state after a [Contract Negotiation](../model/terminology.md#contract-negotiation) has entered a terminal state. It is considered an error for a consumer or
-provider to send an event after the [Contract Negotiation's](../model/terminology.md#contract-negotiation) state machine has entered a terminal state.
+[Provider](../model/terminology.md#provider) to send an event after the [Contract Negotiation's](../model/terminology.md#contract-negotiation) state machine has entered a terminal state.
 
 A `ContractNegotiationEventMessage` must contain a `consumerPid` and a `providerPid`.
 
@@ -196,7 +196,7 @@ A `ContractNegotiationEventMessage` must contain a `consumerPid` and a `provider
 
 ![](./message/diagram/contract-negotiation-termination-message.png)
 
-**Sent by**: Consumer or Provider
+**Sent by**: Consumer or [Provider](../model/terminology.md#provider)
 
 **Resulting State**: TERMINATED
 
@@ -208,7 +208,7 @@ A `ContractNegotiationEventMessage` must contain a `consumerPid` and a `provider
 
 #### Description
 
-The `ContractNegotiationTerminationMessage` is sent by a consumer or provider indicating it has cancelled the [Contract Negotiation](../model/terminology.md#contract-negotiation) sequence. The message can be sent at any state of a [Contract Negotiation](../model/terminology.md#contract-negotiation)
+The `ContractNegotiationTerminationMessage` is sent by a consumer or [Provider](../model/terminology.md#provider) indicating it has cancelled the [Contract Negotiation](../model/terminology.md#contract-negotiation) sequence. The message can be sent at any state of a [Contract Negotiation](../model/terminology.md#contract-negotiation)
 without providing an explanation. Nevertheless, the sender may provide a description to help the receiver.
 
 A `ContractNegotiationTerminationMessage` must contain a `consumerPid` and a `providerPid`.
@@ -231,7 +231,7 @@ A `ContractNegotiationTerminationMessage` must contain a `consumerPid` and a `pr
 
 ![](./message/diagram/contract-negotiation.png)
 
-**Sent by**: Consumer or Provider
+**Sent by**: Consumer or [Provider](../model/terminology.md#provider)
 
 **Example**: [ContractNegotiation](./message/contract-negotiation.json)
 
@@ -239,13 +239,13 @@ A `ContractNegotiationTerminationMessage` must contain a `consumerPid` and a `pr
 
 #### Description
 
-The `ContractNegotiation` is an object returned by a consumer or provider indicating a successful state change happened.
+The `ContractNegotiation` is an object returned by a consumer or [Provider](../model/terminology.md#provider) indicating a successful state change happened.
 
 ### ERROR - ContractNegotiationError
 
 ![](./message/diagram/contract-negotiation-error.png)
 
-**Sent by**: Consumer or Provider
+**Sent by**: Consumer or [Provider](../model/terminology.md#provider)
 
 **Example**: [NegotiationError](./message/contract-negotiation-error.json)
 
@@ -253,5 +253,5 @@ The `ContractNegotiation` is an object returned by a consumer or provider indica
 
 #### Description
 
-The `ContractNegotiationError` is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
+The `ContractNegotiationError` is an object returned by a consumer or [Provider](../model/terminology.md#provider) indicating an error has occurred. It does not cause a state transition.
 

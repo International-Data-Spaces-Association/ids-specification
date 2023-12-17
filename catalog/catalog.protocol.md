@@ -39,7 +39,7 @@ be defined in the relevant Catalog Binding Specification.
 
 ![](./message/diagram/catalog.png)
 
-**Sent by**: Provider
+**Sent by**: [Provider](../model/terminology.md#provider)
 
 **Example**: [Catalog](./message/catalog.json)
 
@@ -57,7 +57,7 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#31-datas
 
 ![](./message/diagram/catalog-error.png)
 
-**Sent by**: Consumer or Provider
+**Sent by**: Consumer or [Provider](../model/terminology.md#provider)
 
 **Example**: [CatalogError](./message/catalog-error.json)
 
@@ -67,7 +67,7 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#31-datas
 
 #### Description
 
-A Catalog Error Message is used when an error occurred after a `CatalogRequestMessage` and the provider can not provide its [Catalog](../model/terminology.md#catalog) to the requester.
+A Catalog Error Message is used when an error occurred after a `CatalogRequestMessage` and the [Provider](../model/terminology.md#provider) can not provide its [Catalog](../model/terminology.md#catalog) to the requester.
 
 ### 2.4 DatasetRequestMessage
 
@@ -93,7 +93,7 @@ The [Catalog Service](../model/terminology.md#catalog-service) may require an au
 
 ![](./message/diagram/dataset.png)
 
-**Sent by**: Provider
+**Sent by**: [Provider](../model/terminology.md#provider)
 
 **Example**: [Dataset](./message/dataset.json)
 
@@ -160,8 +160,8 @@ contents of `dcat:servesDataset`.
 ### 4.1 Queries and Filter Expressions
 
 A [Catalog Service](../model/terminology.md#catalog-service) may support [Catalog](../model/terminology.md#catalog) queries or filter expressions as an implementation-specific feature. However, it is expected that query capabilities will be implemented
-by the consumer against the results of a `CatalogRequestMessage,` as the latter is an RDF vocabulary. Client-side querying can be scaled by periodically crawling provider catalog
-services, caching the results, and executing queries against the locally-stored [Catalogs](../model/terminology.md#catalog).
+by the consumer against the results of a `CatalogRequestMessage,` as the latter is an RDF vocabulary. Client-side querying can be scaled by periodically crawling the [Provider's](../model/terminology.md#provider's)
+[Catalog Services](../model/terminology.md#catalog-service), caching the results, and executing queries against the locally-stored [Catalogs](../model/terminology.md#catalog).
 
 ### 4.2 Replication Protocol
 
@@ -179,7 +179,7 @@ Catalog Binding Specification. The semantics of such tokens are not part of this
 
 #### 4.3.1 The Proof Metadata Endpoint
 
-When a [Catalog](../model/terminology.md#catalog) contains protected [Datasets](../model/terminology.md#dataset) the provider has two options: include all [Datasets](../model/terminology.md#dataset) in the [Catalog](../model/terminology.md#catalog) response and restrict access when a contract is negotiated; 
+When a [Catalog](../model/terminology.md#catalog) contains protected [Datasets](../model/terminology.md#dataset) the [Provider](../model/terminology.md#provider) has two options: include all [Datasets](../model/terminology.md#dataset) in the [Catalog](../model/terminology.md#catalog) response and restrict access when a contract is negotiated; 
 or, require one or more proofs when the [Catalog](../model/terminology.md#catalog) request is made and filter the [Datasets](../model/terminology.md#dataset) accordingly. The latter option requires a mechanism for clients to discover 
 the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a [Catalog](../model/terminology.md#catalog) request is outside the scope of the 
 Dataspace Protocol Specifications. However, Catalog Binding Specifications should define a proof data endpoint for obtaining this information.  
