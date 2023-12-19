@@ -11,7 +11,7 @@ This specification defines a RESTful API over HTTPS for the [Contract Negotiatio
 1. The `<base>` notation indicates the base URL for a [Connector](../model/terminology.md#connector--data-service-) endpoint. For example, if the base [Connector](../model/terminology.md#connector--data-service-) URL is `connector.example.com`, the
    URL `https://<base>/negotiation/request` will map to `https//connector.example.com/negotiation/request`.
 
-2. All request and response messages must use the `application/json` media type.
+2. All request and response messages must use the `application/json` media type.Derived media types, e.g., `application/ld+json` may be exposed in addition.
 
 ### 2.2 Contract Negotiation Error
 
@@ -23,7 +23,7 @@ a [ContractNegotiationError](./message/contract-negotiation-error.json) with the
 | consumerPid | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on [Consumer](../model/terminology.md#consumer) side. |
 | providerPid | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on [Provider](../model/terminology.md#provider) side.                                                 |
 | code        | string        | An optional implementation-specific error code.                                                      |
-| reasons     | Array[object] | An optional array of implementation-specific error objects.                                          |
+| reason     | Array[object] | An optional array of implementation-specific error objects.                                          |
 
 ### 2.2.1 State transition errors
 
@@ -35,7 +35,7 @@ an HTTP code 400 (Bad Request) with an `ContractNegotiationError` in the respons
 All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP
 header is optional if the [Connector](../model/terminology.md#connector--data-service-) does not require authorization.
 
-### 2.4 The provider `negotiations` resource
+### 2.4 The `negotiations` Endpoint (provider-side)
 
 #### 2.4.1 GET
 
@@ -63,7 +63,7 @@ Predefined states are: `REQUESTED`, `OFFERED`, `ACCEPTED`, `AGREED`, `VERIFIED`,
 
 If the [Contract Negotiation](../model/terminology.md#contract-negotiation) does not exist or the client is not authorized, the [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
 
-### 2.5 The provider `negotiations/request` resource
+### 2.5 The `negotiations/request` Endpoint (provider-side)
 
 #### 2.5.1 POST
 
@@ -104,7 +104,7 @@ the [ContractNegotiation](./message/contract-negotiation.json):
 }
 ```
 
-### 2.6 The provider `negotiations/:providerPid/request` resource
+### 2.6 The `negotiations/:providerPid/request` Endpoint (provider-side)
 
 #### 2.6.1 POST
 
@@ -133,7 +133,7 @@ The [Consumer](../model/terminology.md#consumer) must include the `providerPid` 
 If the message is successfully processed, the [Provider](../model/terminology.md#provider) must return and HTTP 200 (OK) response. The response body is not specified and clients are not required to process
 it.
 
-### 2.7 The provider `negotiations/:providerPid/events` resource
+### 2.7 The `negotiations/:providerPid/events` Endpoint (provider-side)
 
 #### 2.7.1 POST
 
@@ -143,7 +143,7 @@ required to process it.
 
 If the current [Offer](../model/terminology.md#offer) was created by the [Consumer](../model/terminology.md#consumer), the [Provider](../model/terminology.md#provider) must return HTTP code 400 (Bad Request) with an `NegotiationErrorMessage` in the response body.
 
-### 2.8 The provider `negotiations/:providerPid/agreement/verification` resource
+### 2.8 The `negotiations/:providerPid/agreement/verification` Endpoint (provider-side)
 
 #### 2.8.1 POST
 
@@ -164,7 +164,7 @@ Authorization: ...
 
 ```
 
-### 2.9 The provider `negotiations/:providerPid/termination` resource
+### 2.9 The `negotiations/:providerPid/termination` Endpoint (provider-side)
 
 #### 2.9.1 POST
 
@@ -179,7 +179,7 @@ All callback paths are relative to the `callbackAddress` base URL specified in t
 the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `negotiations/:consumerPid/offers`, the resolved URL will
 be `https://connector.consumer.com/callback/negotiations/:consumerPid/offers`.
 
-### 3.2 The consumer `negotiations/offers` resource
+### 3.2 The `negotiations/offers` Endpoint (consumer-side)
 
 #### 3.2.1 POST
 
@@ -221,7 +221,7 @@ The [Consumer](../model/terminology.md#consumer) must return an HTTP 201 (Create
 }
 ```
 
-### 3.3 The consumer `negotiations/:consumerPid/offers` resource
+### 3.3 The `negotiations/:consumerPid/offers` Endpoint (consumer-side)
 
 #### 3.3.1 POST
 
@@ -248,7 +248,7 @@ Authorization: ...
 If the message is successfully processed, the [Consumer](../model/terminology.md#consumer) must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to
 process it.
 
-### 3.4 The consumer `negotiations/:consumerPid/agreement` resource
+### 3.4 The `negotiations/:consumerPid/agreement` Endpoint (consumer-side)
 
 #### 3.4.1 POST
 
@@ -275,7 +275,7 @@ Authorization: ...
 }
 ```
 
-### 3.5 The consumer `negotiations/:consumerPid/events` resource
+### 3.5 The `negotiations/:consumerPid/events` Endpoint (consumer-side)
 
 #### 3.5.1 POST
 
@@ -283,7 +283,7 @@ A [Provider](../model/terminology.md#provider) can POST a [ContractNegotiationEv
 of `FINALIZED` to finalize an [Agreement](../model/terminology.md#agreement). If the [Contract Negotiation's](./contract.negotiation.protocol.md#ack---contractnegotiation) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not
 specified and clients are not required to process it. 
 
-### 3.6 The consumer `negotiations/:consumerPid/termination` resource
+### 3.6 The `negotiations/:consumerPid/termination` Endpoint (consumer-side)
 
 #### 3.6.1 POST
 

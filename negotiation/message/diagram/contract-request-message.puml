@@ -19,6 +19,7 @@ class odrl:Offer {
     @type : odrl:Offer,
     @id: String
     odrl:target : xsd:anyURI
+    ...
 }
 
 "dspace:ContractRequestMessage" "1" *-- "1" "odrl:Offer" : "dspace:offer"

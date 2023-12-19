@@ -47,6 +47,14 @@ A `Dataspace Registration Service` is a technology system that maintains the sta
 
 An `Identity Provider` is a trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and [Participant Agents](#participant-agent).
 
+## Message
+
+A `Message` is an instantiation of a `Message Type`.
+
+## Message Type
+
+A `Message Type` defines the structure and the meaning of a `Message`.
+
 ## Offer
 
 A concrete [Policy](#policy) associated with a specific [Dataset](#dataset).
@@ -69,4 +77,4 @@ A `Provider` is a [Participant Agent](#participant-agent)
 
 ## Transfer Process
 
-A set of interactions between a [Provider](#provider) and [Consumer](#consumer) that give access to a [Dataset](#dataset) under the terms of an `[Agreement](#agreement).
+A set of interactions between a [Provider](#provider) and [Consumer](#consumer) that give access to a [Dataset](#dataset) under the terms of an [Agreement](#agreement).

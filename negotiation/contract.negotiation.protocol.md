@@ -2,18 +2,14 @@
 
 ## Introduction: Terms
 
-This document outlines the key elements of the Contract Negotiation Protocol. The following terms are used:
+This document outlines the key elements of the transfer process protocol. In additiation to the generally defined [concepts](../model/terminology.md), the following terms are used:
 
-- A _**message type**_ defines the structure of a _message_.
-- A _**message**_  is an instantiation of a _message type_.
-- The _**contract negotiation protocol**_ is the set of allowable message type sequences and is defined as a state machine (CNP-SM).
-- A _**contract negotiation (CN)**_ is an instantiation of the CNP-SM.
-- A _**provider**_ is a [Participant Agent](../model/terminology.md#participant-agent) that offers a [Dataset](../model/terminology.md#dataset).
-- A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered [Dataset](../model/terminology.md#dataset).
+- The _**contract negotiation protocol**_ is the set of allowable message type sequences and is defined as a state machine.
+- A _**contract negotiation (CN)**_ is an instantiation of the state machine defined by the contract negotiation protocol.
 
 ## Contract Negotiation Protocol
 
-A [Contract Negotiation](../model/terminology.md#contract-negotiation) (CN) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a usage contract and [Consumer](../model/terminology.md#consumer) that requests [Datasets](../model/terminology.md#dataset).
+A [Contract Negotiation](../model/terminology.md#contract-negotiation) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a usage contract and [Consumer](../model/terminology.md#consumer) that requests [Datasets](../model/terminology.md#dataset).
 A CN is uniquely identified through an [IRI](https://www.w3.org/International/articles/idn-and-iri/). Each CN requires a newly generated IRI, which may not be used in a CN after a terminal state has been reached.
 A CN progresses through a series of states, which are tracked by the [Provider](../model/terminology.md#provider) and [Consumer](../model/terminology.md#consumer) using messages. A CN transitions to a state in response to an acknowledged message from
 the counter-party. Both parties have the same state of the CN. In case the states differ, the CN is terminated and a new CN has to be initiated.
@@ -32,7 +28,7 @@ The CN states are:
 
 ### Contract Negotiation State Machine
 
-The CN state machine is represented in the following diagram. Note that transitions to the `TERMINATED` state may occur from any other state and are not shown for simplicity:
+The CN state machine is represented in the following diagram:
 
 ![](./contract.negotiation.state.machine.png)
 
@@ -45,7 +41,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 ### Notes
 
-- Concrete wire formats are defined by the protocol binding, e.g. HTTPS.
+- Concrete wire formats are defined by the protocol binding, e.g. [Contract Negotiation HTTPS Binding](contract.negotiation.binding.https.md).
 - All [Policy](../model/terminology.md#policy) types ([Offer](../model/terminology.md#offer), [Agreement](../model/terminology.md#agreement)) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
   pattern <urn:uuid:{GUID}>.
 - An [ODRL Agreement](https://www.w3.org/TR/odrl-vocab/#term-Agreement) must have a target property containing the [Dataset](../model/terminology.md#dataset) id.
