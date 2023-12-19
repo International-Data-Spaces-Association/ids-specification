@@ -10,10 +10,7 @@
     }
   ],
   "dcat:keyword": [
-    {
-      "@value": "traffic",
-      "@language": "en"
-    }
+    "traffic"
   ],
   "odrl:hasPolicy": {
     "@type": "odrl:Offer",
@@ -39,7 +36,8 @@
       },
       "dcat:accessService": [
         {
-          "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
+          "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
+          "dcat:endpointURL": "https://provder-a.com/connector"
         }
       ]
     }

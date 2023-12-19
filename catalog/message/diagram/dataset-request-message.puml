@@ -1,0 +1,15 @@
+@startuml "dataset-request-message"
+!pragma layout smetana
+
+!include ../../../common/style/diagram.styles.puml
+
+hide empty description
+
+
+class "dspace:DatasetRequestMessage" {
+    @context : "https://w3id.org/dspace/v0.8/context.json"
+    @type : dspace:DatasetRequestMessage
+    dspace:filter : Object
+}
+
+@enduml

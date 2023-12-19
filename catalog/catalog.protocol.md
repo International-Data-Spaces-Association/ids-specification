@@ -72,6 +72,8 @@ A Catalog Error Message is used when an error occurred after a `CatalogRequestMe
 
 ### 2.4 DatasetRequestMessage
 
+![](./message/diagram/dataset-request-message.png)
+
 **Sent by**: Consumer
 
 **Example**: [DatasetRequestMessage](./message/dataset-request-message.json)
@@ -105,7 +107,7 @@ The catalog service may require an authorization token. Details for including th
 
 ## 3 DCAT Vocabulary Mapping
 
-This section describes how the IDS Information Model maps to DCAT resources.
+This section describes how the Dataspace Protocol classes map to DCAT resources.
 
 ### 3.1 Dataset
 
@@ -116,7 +118,6 @@ A `Dataset` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Datase
 A `Dataset` must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset. Offers must NOT contain any
 target attributes. The target of an offer is the associated dataset.
 
-> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset`, each `Dataset` is also an `odrl:Asset` from an ODRL perspective.
 
 ### 3.2 Distributions
 
@@ -131,20 +132,20 @@ message to clients.
 
 ### 3.3 DataService
 
-A DataService may specify an IDS service endpoint such as a `Connector`.
+A DataService may specify an endpoint supporting the Dataspace Protocol such as a `Connector`.
 
 #### 3.3.1 dspace:dataServiceType
 
-If the DataService refers to an IDS service endpoint, it must include the property `dspace:dataServiceType`:
+If the DataService refers to an endpoint that supports the Dataspace Protocol, it must include the property `dspace:dataServiceType`:
 
 | Category   | Description                                                                |
 |------------|----------------------------------------------------------------------------|
-| Definition | Specifies the IDS service type                                             |
+| Definition | Specifies the service type                                             |
 | Domain     | [dcat:DataService](https://www.w3.org/TR/vocab-dcat-2/#Class:Data_Service) |
 | Type       | xsd:string                                                                 |
 | Note       | The value of this field is left intentionally open for future extension.   |
 
-The following table lists well-know IDS endpoint types:
+The following table lists well-know endpoint types:
 
 | Value         | Description          |
 |---------------|----------------------|
@@ -175,7 +176,7 @@ The discovery protocol adopted by a particular dataspace defines how a consumer 
 ### 4.3 Security
 
 It is expected (although not required) that catalog services implement access control. A catalog as well as individual catalog _datasets_ may be restricted to trusted parties.
-The catalog service may require consumers to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
+The catalog service may require consumers to include a security token along with a `CatalogRequestMessage` or `DatasetRequestMessage.` The specifics of how this is done can be found in the relevant
 catalog binding specification. The semantics of such tokens are not part of this specification.
 
 #### 4.3.1 The Proof Metadata Endpoint

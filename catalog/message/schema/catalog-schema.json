@@ -35,7 +35,7 @@
                         "dcat:service": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/DataService"
+                                "$ref": "https://w3id.org/dspace/schemas/v0.8/dataset-schema.json#/definitions/DataService"
                             },
                             "minItems": 1
                         },
@@ -50,31 +50,6 @@
                 "@type"
             ],
             "additionalProperties": false
-        },
-        "DataService": {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "https://w3id.org/dspace/schemas/v0.8/dataset-schema.json#/definitions/Resource"
-                },
-                {
-                    "properties": {
-                        "dcat:endpointDescription": {
-                            "$ref": "https://w3id.org/dspace/schemas/v0.8/dataset-schema.json#/definitions/Reference"
-                        },
-                        "dcat:endpointURL": {
-                            "type": "string"
-                        },
-                        "dcat:servesDataset": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "https://w3id.org/dspace/schemas/v0.8/dataset-schema.json#/definitions/Dataset"
-                            },
-                            "minItems": 1
-                        }
-                    }
-                }
-            ]
         }
     }
 }

@@ -14,19 +14,37 @@
             "allOf": [
                 {
                     "$ref": "#/definitions/Resource"
+                },
+                {
+                    "properties": {
+                        "odrl:hasPolicy": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
+                            },
+                            "minItems": 1
+                        },
+                        "dcat:distribution": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Distribution"
+                            },
+                            "minItems": 1
+                        }
+                    }
                 }
+            ],
+            "required": [
+                "odrl:hasPolicy"
             ]
         },
         "Resource": {
             "type": "object",
             "properties": {
-                "dcat:contactPoint": {
-                    "$ref": "#/definitions/Reference"
-                },
                 "dcat:keyword": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Multilanguage"
+                        "type": "string"
                     }
                 },
                 "dcat:theme": {
@@ -37,10 +55,10 @@
                     "minItems": 1
                 },
                 "dct:conformsTo": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 },
                 "dct:creator": {
-                    "$ref": "#/definitions/Reference"
+                    "type": "string"
                 },
                 "dct:description": {
                     "type": "array",
@@ -54,76 +72,75 @@
                 "dct:issued": {
                     "type": "string"
                 },
-                "dct:language": {
-                    "$ref": "#/definitions/Reference"
-                },
-                "dct:license": {
-                    "$ref": "#/definitions/Reference"
-                },
                 "dct:modified": {
                     "type": "string"
                 },
-                "dct:publisher": {
+                "dct:title": {
                     "type": "string"
-                },
-                "dct:relation": {
-                    "$ref": "#/definitions/Reference"
-                },
+                }
+            }
+        },
+        "Distribution": {
+            "type": "object",
+            "properties": {
                 "dct:title": {
                     "type": "string"
                 },
-                "dct:type": {
+                "dct:description": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Multilanguage"
+                    }
+                },
+                "dct:issued": {
+                    "type": "string"
+                },
+                "dct:modified": {
                     "type": "string"
                 },
                 "odrl:hasPolicy": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/dcat-catalog-schema-and-shape/negotiation/message/schema/contract-schema.json#/definitions/Policy"
+                        "$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
+                    },
+                    "minItems": 1
+                },
+                "dcat:accessService": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DataService"
                     },
                     "minItems": 1
                 }
-            }
-        },
-        "time": {
-            "type": "object",
-            "properties": {
-                "@type": {
-                    "type": "string",
-                    "const": "xsd:dateTime"
-                },
-                "@value": {
-                    "type": "string",
-                    "pattern": "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
-                }
             },
-            "required": ["@value", "@type"]
+            "required": [
+                "dcat:accessService"
+            ]
         },
-        "duration": {
+        "DataService": {
             "type": "object",
-            "properties": {
-                "@type": {
-                    "type": "string",
-                    "const": "xsd:duration"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
                 },
-                "@value": {
-                    "type": "string",
-                    "pattern": "^(-?)P(?=.)((\\d+)Y)?((\\d+)M)?((\\d+)D)?(T(?=.)((\\d+)H)?((\\d+)M)?(\\d*(\\.\\d+)?S)?)?$"
+                {
+                    "properties": {
+                        "dcat:endpointDescription": {
+                            "type": "string"
+                        },
+                        "dcat:endpointURL": {
+                            "type": "string"
+                        },
+                        "dcat:servesDataset": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Dataset"
+                            },
+                            "minItems": 1
+                        }
+                    }
                 }
-            },
-            "required": ["@value", "@type"]
-        },
-        "decimal": {
-            "type": "object",
-            "properties": {
-                "@type": {
-                    "type": "string",
-                    "const": "xsd:decimal"
-                },
-                "@value": {
-                    "type": "string"
-                }
-            },
-            "required": ["@value", "@type"]
+            ]
         },
         "Reference": {
             "type": "object",
@@ -132,7 +149,9 @@
                     "type": "string"
                 }
             },
-            "required": ["@id"]
+            "required": [
+                "@id"
+            ]
         },
         "Multilanguage": {
             "type": "object",
@@ -144,7 +163,10 @@
                     "type": "string"
                 }
             },
-            "required": ["@value", "@language"]
+            "required": [
+                "@value",
+                "@language"
+            ]
         }
     }
 }
