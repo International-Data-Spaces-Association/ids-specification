@@ -80,4 +80,5 @@ class dcat:Distribution {
 
 "dcat:Distribution" "1" --> "*" "dcat:DataService" : "dcat:accessService"
 
+
 @enduml

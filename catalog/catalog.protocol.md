@@ -2,45 +2,44 @@
 
 ## 1 Introduction: Terms
 
-This document outlines the catalog protocol. The used terms are described [here](../model/terminology.md).
+This document outlines the Catalog Protocol. The used terms are described [here](../model/terminology.md).
 
-The catalog protocol defines how a `Catalog` is requested from a `CatalogService` by a `Consumer` using an abstract message exchange format. The concrete message exchange wire
+The Catalog Protocol defines how a [Catalog](../model/terminology.md#catalog) is requested from a [Catalog Service](../model/terminology.md#catalog-service) by a [Consumer](../model/terminology.md#consumer) using an abstract message exchange format. The concrete message exchange wire
 format is defined in the binding specifications.
-
 
 ## 2 Message Types
 
 All messages must be serialized in JSON-LD compact form as specified in the [JSON-LD 1.1 Processing Algorithms and API](https://www.w3.org/TR/json-ld11-api/#compaction-algorithms).
-Further Dataspace specifications may define additional optional serialization formats.
+Further [Dataspace](../model/terminology.md#dataspace) specifications may define additional optional serialization formats.
 
 ### 2.1 CatalogRequestMessage
 
 ![](./message/diagram/catalog-request-message.png)
 
-**Sent by**: Consumer
+**Sent by**: [Consumer](../model/terminology.md#consumer)
 
 **Example**: [CatalogRequestMessage](./message/catalog-request-message.json)
 
-**Response**: [Catalog](#22-catalog) containing the [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
+**Response**: [Catalog](#22-catalog) containing the [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
 **Schema**: [CatalogRequestMessageShape](./message/shape/catalog-request-message-shape.ttl) and the [CatalogRequestMessage JSON Schema](./message/schema/catalog-request-message-schema.json)
 
 #### Description
 
-The `CatalogRequestMessage` is message sent by a consumer to a catalog service. The catalog service must respond with a `Catalog,` which is a
+The `CatalogRequestMessage` is message sent by a [Consumer](../model/terminology.md#consumer) to a [Catalog Service](../model/terminology.md#catalog-service). The [Catalog Service](../model/terminology.md#catalog-service) must respond with a [Catalog](../model/terminology.md#catalog), which is a
 valid instance of a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
-The `CatalogRequestMessage` may have a `filter` property which contains an implementation-specific query or filter expression type supported by the catalog service.
+The `CatalogRequestMessage` may have a `filter` property which contains an implementation-specific query or filter expression type supported by the [Catalog Service](../model/terminology.md#catalog-service).
 
-The catalog service may require an authorization token. Details for including that token can be found in the relevant catalog binding specification. Similarly, pagination may
-be defined in the relevant catalog binding specification.
+The [Catalog Service](../model/terminology.md#catalog-service) may require an authorization token. Details for including that token can be found in the relevant Catalog Binding Specification. Similarly, pagination may
+be defined in the relevant Catalog Binding Specification.
 
 
 ### 2.2 Catalog
 
 ![](./message/diagram/catalog.png)
 
-**Sent by**: Provider
+**Sent by**: [Provider](../model/terminology.md#provider)
 
 **Example**: [Catalog](./message/catalog.json)
 
@@ -51,14 +50,14 @@ be defined in the relevant catalog binding specification.
 
 #### Description
 
-The catalog contains all [Datasets](#31-dataset) which the requester shall see.
+The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#31-dataset) which the requester shall see.
 
 
 ### 2.3 CatalogError
 
 ![](./message/diagram/catalog-error.png)
 
-**Sent by**: Consumer or Provider
+**Sent by**: [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider)
 
 **Example**: [CatalogError](./message/catalog-error.json)
 
@@ -68,35 +67,35 @@ The catalog contains all [Datasets](#31-dataset) which the requester shall see.
 
 #### Description
 
-A Catalog Error Message is used when an error occurred after a `CatalogRequestMessage` and the provider can not provide its catalog to the requester.
+A Catalog Error Message is used when an error occurred after a `CatalogRequestMessage` and the [Provider](../model/terminology.md#provider) can not provide its [Catalog](../model/terminology.md#catalog) to the requester.
 
 ### 2.4 DatasetRequestMessage
 
 ![](./message/diagram/dataset-request-message.png)
 
-**Sent by**: Consumer
+**Sent by**: [Consumer](../model/terminology.md#consumer)
 
 **Example**: [DatasetRequestMessage](./message/dataset-request-message.json)
 
-**Response**: [Dataset](#22-catalog) containing the [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
+**Response**: [Dataset](#25-dataset) containing the [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
 
 **Schema**: [DatasetRequestMessageShape](./message/shape/dataset-request-message-shape.ttl) and the [DatasetRequestMessage JSON Schema](./message/schema/dataset-request-message-schema.json)
 
 #### Description
 
-The `DatasetRequestMessage` is message sent by a consumer to a catalog service. The catalog service must respond with a `Dataset,` which is a
+The `DatasetRequestMessage` is message sent by a [Consumer](../model/terminology.md#consumer) to a [Catalog Service](../model/terminology.md#catalog-service). The [Catalog Service](../model/terminology.md#catalog-service) must respond with a `Dataset,` which is a
 valid instance of a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
 
-The `DatasetRequestMessage` must have a `dataset` property which contains the id of the dataset.
+The `DatasetRequestMessage` must have a [Dataset](../model/terminology.md#dataset) property which contains the id of the [Dataset](../model/terminology.md#dataset).
 
-The catalog service may require an authorization token. Details for including that token can be found in the relevant catalog binding specification.
+The [Catalog Service](../model/terminology.md#catalog-service) may require an authorization token. Details for including that token can be found in the relevant Catalog Binding Specification.
 
 
 ### 2.5 Dataset
 
 ![](./message/diagram/dataset.png)
 
-**Sent by**: Provider
+**Sent by**: [Provider](../model/terminology.md#provider)
 
 **Example**: [Dataset](./message/dataset.json)
 
@@ -107,25 +106,25 @@ The catalog service may require an authorization token. Details for including th
 
 ## 3 DCAT Vocabulary Mapping
 
-This section describes how the Dataspace Protocol classes map to DCAT resources.
+This section describes how the DSP Information Model maps to DCAT resources.
 
 ### 3.1 Dataset
 
-A `Dataset` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
+A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
 #### odrl:hasPolicy
 
-A `Dataset` must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset. Offers must NOT contain any
-target attributes. The target of an offer is the associated dataset.
+A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
+target attributes. The target of an [Offer](../model/terminology.md#offer) is the associated [Dataset](../model/terminology.md#dataset).
 
 
 ### 3.2 Distributions
 
-A dataset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
-the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `TransferProcess`.
+A [Dataset](../model/terminology.md#dataset) may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
+the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a [Contract Negotiation](../model/terminology.md#contract-negotiation) and [Transfer Process](../model/terminology.md#transfer-process).
 
-A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the dataset and this explicit `Distribution`.
-Offers must NOT contain any target attributes. The target of an offer is the dataset that contains the distribution.
+A Distribution may have 0..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset) and this explicit `Distribution`.
+[Offers](../model/terminology.md#offer) must NOT contain any target attributes. The target of an [Offer](../model/terminology.md#offer) is the [Dataset](../model/terminology.md#dataset) that contains the distribution.
 
 Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
 message to clients.
@@ -149,51 +148,51 @@ The following table lists well-know endpoint types:
 
 | Value         | Description          |
 |---------------|----------------------|
-| dspace:connector | A Connector endpoint |
+| dspace:connector | A [Connector](../model/terminology.md#connector--data-service-) endpoint |
 |               |                      |
 
 #### 3.3.2 dcat:servesDataset
 
-Note that the property `dcat:servesDataset` should be omitted from the `DataService` since `DataSets` are included as top-level entries. Clients are not required to process the
+Note that the property `dcat:servesDataset` should be omitted from the `DataService` since [Datasets](../model/terminology.md#dataset) are included as top-level entries. Clients are not required to process the
 contents of `dcat:servesDataset`.
 
 ## 4 Technical Considerations
 
 ### 4.1 Queries and Filter Expressions
 
-A _**catalog service**_ may support catalog queries or filter expressions as an implementation-specific feature. However, it is expected that query capabilities will be implemented
-by the consumer against the results of a `CatalogRequestMessage,` as the latter is an RDF vocabulary. Client-side querying can be scaled by periodically crawling provider catalog
-services, caching the results, and executing queries against the locally-stored catalogs.
+A [Catalog Service](../model/terminology.md#catalog-service) may support [Catalog](../model/terminology.md#catalog) queries or filter expressions as an implementation-specific feature. However, it is expected that query capabilities will be implemented
+by the [Consumer](../model/terminology.md#consumer) against the results of a `CatalogRequestMessage,` as the latter is an RDF vocabulary. Client-side querying can be scaled by periodically crawling the [Provider's](../model/terminology.md#provider's)
+[Catalog Services](../model/terminology.md#catalog-service), caching the results, and executing queries against the locally-stored [Catalogs](../model/terminology.md#catalog).
 
 ### 4.2 Replication Protocol
 
-The catalog protocol is designed to be used by federated services without the need for a replication protocol. Each consumer is responsible for issuing requests
-to 1..N catalog services, and managing the results. It follows that a specific replication protocol is not needed, or more precisely, each consumer replicates data from catalog
+The Catalog Protocol is designed to be used by federated services without the need for a replication protocol. Each [Consumer](../model/terminology.md#consumer) is responsible for issuing requests
+to 1..N [Catalog Services](../model/terminology.md#catalog-service), and managing the results. It follows that a specific replication protocol is not needed, or more precisely, each [Consumer](../model/terminology.md#consumer) replicates data from catalog
 services by issuing `CatalogRequestMessages`.
 
-The discovery protocol adopted by a particular dataspace defines how a consumer discovers catalog services.
+The discovery protocol adopted by a particular [Dataspace](../model/terminology.md#dataspace) defines how a [Consumer](../model/terminology.md#consumer) discovers [Catalog Services](../model/terminology.md#catalog-service).
 
 ### 4.3 Security
 
-It is expected (although not required) that catalog services implement access control. A catalog as well as individual catalog _datasets_ may be restricted to trusted parties.
-The catalog service may require consumers to include a security token along with a `CatalogRequestMessage` or `DatasetRequestMessage.` The specifics of how this is done can be found in the relevant
-catalog binding specification. The semantics of such tokens are not part of this specification.
+It is expected (although not required) that [Catalog Services](../model/terminology.md#catalog-service) implement access control. A [Catalog](../model/terminology.md#catalog) as well as individual [Datasets](../model/terminology.md#dataset) may be restricted to trusted parties.
+The [Catalog Service](../model/terminology.md#catalog-service) may require [Consumers](../model/terminology.md#consumer) to include a security token along with a `CatalogRequestMessage.` The specifics of how this is done can be found in the relevant
+Catalog Binding Specification. The semantics of such tokens are not part of this specification.
 
 #### 4.3.1 The Proof Metadata Endpoint
 
-When a catalog contains protected _datasets_ the provider has two options: include all _datasets_ in the catalog response and restrict access when a contract is negotiated; 
-or, require one or more proofs when the catalog request is made and filter the _datasets_ accordingly. The latter option requires a mechanism for clients to discover 
-the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a catalog request is outside the scope of the 
-Dataspace Protocol Specifications. However, binding specifications should define a proof data endpoint for obtaining this information.  
+When a [Catalog](../model/terminology.md#catalog) contains protected [Datasets](../model/terminology.md#dataset) the [Provider](../model/terminology.md#provider) has two options: include all [Datasets](../model/terminology.md#dataset) in the [Catalog](../model/terminology.md#catalog) response and restrict access when a contract is negotiated; 
+or, require one or more proofs when the [Catalog](../model/terminology.md#catalog) request is made and filter the [Datasets](../model/terminology.md#dataset) accordingly. The latter option requires a mechanism for clients to discover 
+the type of proofs that may be presented at request time. The specifics of proof types and presenting a proof during a [Catalog](../model/terminology.md#catalog) request is outside the scope of the 
+Dataspace Protocol Specifications. However, Catalog Binding Specifications should define a proof data endpoint for obtaining this information.  
 
 ### 4.4 Catalog Brokers
 
-A dataspace may include _**catalog brokers**_. A catalog broker is a consumer that has trusted access to 1..N upstream catalog services and advertises their respective catalogs as
-a single catalog service. The broker is expected to honor upstream access control requirements.
+A [Dataspace](../model/terminology.md#dataspace) may include _**catalog brokers**_. A catalog broker is a [Consumer](../model/terminology.md#consumer) that has trusted access to 1..N upstream [Catalog Services](../model/terminology.md#catalog-service) and advertises their respective [Catalogs](../model/terminology.md#catalog) as
+a single [Catalog Service](../model/terminology.md#catalog-service). The broker is expected to honor upstream access control requirements.
 
 ## 5 DCAT and ODRL Profiles
 
-The catalog is a DCAT catalog with the following restrictions:
+The [Catalog](../model/terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following restrictions:
 
-1. Each ODRL `Offer` must be unique to a dataset since the target of the offer is derived from its enclosing context.
-2. Each ODRL `Offer` must NOT include an explicit `target` attribute. 
+1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context.
+2. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must NOT include an explicit `target` attribute. 
