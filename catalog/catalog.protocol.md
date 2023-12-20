@@ -118,8 +118,8 @@ A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.
 
 #### 3.1.1 odrl:hasPolicy
 
-A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
-target attributes. The target of an [Offer](../model/terminology.md#offer) is the associated [Dataset](../model/terminology.md#dataset).
+A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). 
+**Offers must contain one root `target` property that is the id of the associated [Dataset](./terminology.md#dataset). Policy constraints must not contain `target` properties.** 
 
 > Note: As `odrl:hasPolicy rdfs:domain odrl:Asset`, each [Dataset](../model/terminology.md#dataset) is also an `odrl:Asset` from an ODRL perspective.
 
@@ -129,7 +129,7 @@ A [Dataset](../model/terminology.md#dataset) may contain 0..N [DCAT Distribution
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a [Contract Negotiation](../model/terminology.md#contract-negotiation) and [Transfer Process](../model/terminology.md#transfer-process).
 
 A Distribution may have 0..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset) and this explicit `Distribution`.
-[Offers](../model/terminology.md#offer) must NOT contain any target attributes. The target of an [Offer](../model/terminology.md#offer) is the [Dataset](../model/terminology.md#dataset) that contains the distribution.
+**Offers must contain one root `target` property that is the id of the associated [Dataset](./terminology.md#dataset). Policy constraints must not contain `target` properties.** 
 
 Support for `hasPolicy` attributes on a `Distribution` is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
 message to clients.
@@ -199,5 +199,4 @@ a single [Catalog Service](../model/terminology.md#catalog-service). The broker 
 
 The [Catalog](../model/terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following restrictions:
 
-1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context.
-2. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must NOT include an explicit `target` attribute. 
+1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must contain only one root `target` attribute. Policy constraints may not contain `target` attributes. 

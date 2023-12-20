@@ -56,8 +56,7 @@ A [Catalog](./terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/
 
 A [Dataset](./terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
-- 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](./terminology.md#policy) associated with the [Dataset](./terminology.md#dataset). **_Offers must NOT contain any target attributes. The
-  target of an [Offer](./terminology.md#offer) is the associated [Dataset](./terminology.md#dataset)._** (ODRL PROFILE)
+- 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](./terminology.md#policy) associated with the [Dataset](./terminology.md#dataset). **Offers must contain one root `target` property that is the id of the associated [Dataset](./terminology.md#dataset). Policy constraints must not contain `target` properties.** 
 - 1..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where the distribution
   is obtained. Specifically, a `DataService` specifies the endpoint for initiating a [Contract Negotiation](./terminology.md#contract-negotiation) and [Transfer Process](./terminology.md#transfer-process). (DCAT PROFILE)
 
@@ -66,8 +65,7 @@ A [Dataset](./terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/
 An [Offer](./terminology.md#offer) is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) with the following attributes:
 
 - An ODRL `uid` is represented as an "@id" that is a unique UUID. (ODRL PROFILE)
-- The [Offer](./terminology.md#offer) must be unique to a [Dataset](./terminology.md#dataset) since the target of the [Offer](./terminology.md#offer) is derived from its enclosing context.
-- The [Offer](./terminology.md#offer) must NOT include an explicit `target` attribute.
+- An a `target` attribute that is the dataset id. 
 
 ## 2.2.4 Agreement
 
