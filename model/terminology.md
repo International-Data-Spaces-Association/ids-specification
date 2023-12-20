@@ -1,80 +1,90 @@
 # 1 Terminology
 
-This and the following section defines the core concepts, entities, and relationships that underpin a __dataspace__.
+This and the following sections define the core concepts, entities, and relationships that underpin a __dataspace__ and its protocol.
 
-## Agreement
+## 1.1 Dataspace-specific Terms
 
-A concrete [Policy](#policy) associated with a specific [Dataset](#dataset) that has been signed by both the [Provider](../model/terminology.md#provider) and consumer [Participants](#participant).
-An `Agreement` is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ [Dataset](#dataset).
+### Agreement
 
-## Catalog
+A concrete [Policy](#policy) associated with a specific [Dataset](#dataset) that has been signed by both the [Provider](../model/terminology.md#provider) and consumer [Participants](#participant). An Agreement is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ [Dataset](#dataset).
+
+### Catalog
 
 A collection of entries representing [Datasets](#dataset) and their [Offers](#offer) that is advertised by a [Provider](../model/terminology.md#provider) [Participant](#participant).
 
-## Catalog Service
+### Catalog Service
 
 A [Participant Agent](#participant-agent) that makes a [Catalog](#catalog) accessible to [Participants](#participant).
 
-## Connector (Data Service)
+### Connector (Data Service)
 
 A [Participant Agent](#participant-agent) that produces [Agreements](#agreement) and manages [Dataset](#dataset) sharing.
 
-## Consumer
+### Consumer
 
-A `Consumer` is a [Participant Agent](#participant-agent) that requests access to an offered [Dataset](#dataset).
+A [Participant Agent](#participant-agent) that requests access to an offered [Dataset](#dataset).
 
-## Contract Negotiation
+### Contract Negotiation
 
-A set of interactions between a [Provider](#provider) and [Consumer](#consumer) that establish an [Agreement](#agreement).
+A set of interactions between a [Provider](#provider) and [Consumer](#consumer) that establish an [Agreement](#agreement). It is an instantiation of the state machine of a [Contract Negotiation Protocol](#contract-negotiation-protocol).
 
-## Dataset
+### Dataset
 
 Data or a technical service that can be shared by a [Participant](#participant).
 
-## Dataspace
+### Dataspace
 
-A `Dataspace` is a set of technical services that facilitate interoperable [Dataset](#dataset) sharing between entities.
+A set of technical services that facilitate interoperable [Dataset](#dataset) sharing between entities.
 
-## Dataspace Authority
+### Dataspace Authority
 
-A `Dataspace Authority` is an entity that manages a [Dataspace](#dataspace).
+An entity that manages a [Dataspace](#dataspace).
 
-## Dataspace Registration Service
+### Dataspace Registration Service
 
-A `Dataspace Registration Service` is a technology system that maintains the state of [Participants](#participant) in a [Dataspace](#dataspace).
+A technology system that maintains the state of [Participants](#participant) in a [Dataspace](#dataspace).
 
-## Identity Provider
+### Identity Provider
 
-An `Identity Provider` is a trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and [Participant Agents](#participant-agent).
+A trusted technology system that creates, maintains, and manages identity information for a [Participant](#participant) and [Participant Agents](#participant-agent).
 
-## Message
-
-A `Message` is an instantiation of a `Message Type`.
-
-## Message Type
-
-A `Message Type` defines the structure and the meaning of a `Message`.
-
-## Offer
+### Offer
 
 A concrete [Policy](#policy) associated with a specific [Dataset](#dataset).
 
-## Participant
+### Participant
 
-A `Participant` is a [Dataspace](#dataspace) member that provides and/or consumes [Datasets](#dataset).
+A [Dataspace](#dataspace) member that provides and/or consumes [Datasets](#dataset).
 
-## Participant Agent
+### Participant Agent
 
-A `Participant Agent` is a technology system that performs operations on behalf of a [Participant](#participant) that offers [Datasets](#dataset).
+A technology system that performs operations on behalf of a [Participant](#participant) that offers a [Dataset](#dataset).
 
-## Policy
+### Policy
 
 A set of rules, duties, and obligations that define the terms of use for a [Dataset](#dataset). Also referred to as `Usage Policy`.
 
-## Provider
+### Provider
 
-A `Provider` is a [Participant Agent](#participant-agent)
+A [Participant Agent](#participant-agent) that offers a [Dataset](../model/terminology.md#dataset).
 
-## Transfer Process
+### Transfer Process
 
 A set of interactions between a [Provider](#provider) and [Consumer](#consumer) that give access to a [Dataset](#dataset) under the terms of an [Agreement](#agreement).
+
+## 1.2 Protocol-specific Terms
+
+### Contract Negotiation Protocol
+
+A set of allowable [Message Type](#message-type) sequences defined as a state machine.
+
+### Message
+
+An instantiation of a [Message Type](#message-type).
+
+### Message Type
+
+A definition of the structure of a [Message](#message).
+
+### Transfer Process Protocol
+
