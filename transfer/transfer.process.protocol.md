@@ -2,10 +2,7 @@
 
 ## 1 Introduction: Terms
 
-This document outlines the key elements of the transfer process protocol. In additiation to the generally defined [concepts](../model/terminology.md), the following terms are used:
-
-- The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine.
-- A _**transfer process (TP)**_ contains all steps necessary to transfer an [Dataset](../model/terminology.md#dataset) from the [Provider](../model/terminology.md#provider) to the [Consumer](../model/terminology.md#consumer).
+This document outlines the key elements of the [Transfer Process Protocol](../model/terminology.md#contract-negotiation-protocol). The used terms are described [here](../model/terminology.md).
 
 ## 2 Transfer Process Protocol
 
