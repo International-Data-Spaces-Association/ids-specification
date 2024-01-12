@@ -37,14 +37,14 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 ### 2.1 Contract Request Message
 
-|                     |                                                                                                                                       |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **Sent by**         | [Consumer](../model/terminology.md#consumer)                                                                                          |
-| **Resulting state** | `REQUESTED`, `TERMINATED`                                                                                                             |
-| **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                              |
-| **Schema**          | [TTL Shape](./message/shape/contract-request-message-shape.ttl), [JSON Schema](./message/schema/contract-request-message-schema.json) |
-| **Example**         | Initiating [Message](./message/contract-request-message_initial.json), [Message](./message/contract-offer-message.json)               |
-| **Diagram(s)**      | ![](./message/diagram/contract-request-message.png)                                                                                   |
+|                     |                                                                                                                                         |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **Sent by**         | [Consumer](../model/terminology.md#consumer)                                                                                            |
+| **Resulting state** | `REQUESTED`, `TERMINATED`                                                                                                               |
+| **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                                |
+| **Schema**          | [TTL Shape](./message/shape/contract-request-message-shape.ttl), [JSON Schema](./message/schema/contract-request-message-schema.json)   |
+| **Example**         | Initiating [Message](./message/example/contract-request-message_initial.json), [Message](./message/example/contract-offer-message.json) |
+| **Diagram(s)**      | ![](./message/diagram/contract-request-message.png)                                                                                     |
 
 The Contract Request Message is sent by a [Consumer](../model/terminology.md#consumer) to initiate a CN or to respond to a [Contract Offer Message](#22-contract-offer-message) sent by a [Provider](../model/terminology.md#provider).
 - The [Consumer](../model/terminology.md#consumer) must include an `offer` property, which itself must have a `@id` property. If the message includes a `providerPid` property, the request will be associated with an existing CN and a [Consumer](../model/terminology.md#consumer) [Offer](../model/terminology.md#offer) will be created using either the `offer` or `offer.@id` properties. If the message does not include a `providerPid`, a new CN will be created on [Provider](../model/terminology.md#provider) side using either the `offer` or `offer.@id` properties and the [Provider](../model/terminology.md#provider) selects an appropriate `providerPid`.
@@ -53,14 +53,14 @@ The Contract Request Message is sent by a [Consumer](../model/terminology.md#con
 
 ### 2.2 Contract Offer Message
 
-|                     |                                                                                                                                   |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **Sent by**         | [Provider](../model/terminology.md#provider)                                                                                      |
-| **Resulting state** | `OFFERED`, `TERMINATED`                                                                                                           |
-| **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                          |
-| **Schema**          | [TTL Shape](./message/shape/contract-offer-message-shape.ttl), [JSON Schema](./message/schema/contract-offer-message-schema.json) |
-| **Example**         | Initiating [Message](./message/contract-offer-message_initial.json), [Message](./message/contract-offer-message.json)             |
-| **Diagram(s)**      | ![](./message/diagram/contract-offer-message_initial.png) ![](./message/diagram/contract-offer-message.png)                       |
+|                     |                                                                                                                                       |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| **Sent by**         | [Provider](../model/terminology.md#provider)                                                                                          |
+| **Resulting state** | `OFFERED`, `TERMINATED`                                                                                                               |
+| **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                              |
+| **Schema**          | [TTL Shape](./message/shape/contract-offer-message-shape.ttl), [JSON Schema](./message/schema/contract-offer-message-schema.json)     |
+| **Example**         | Initiating [Message](./message/example/contract-offer-message_initial.json), [Message](./message/example/contract-offer-message.json) |
+| **Diagram(s)**      | ![](./message/diagram/contract-offer-message_initial.png) ![](./message/diagram/contract-offer-message.png)                           |
 
 The Contract Offer Message is sent by a [Provider](../model/terminology.md#provider) to initiate a CN or to respond to a [Contract Request Message](#21-contract-request-message) sent by a [Consumer](../model/terminology.md#consumer).
 - If the message includes a `consumerPid` property, the request will be associated with an existing CN. If the message does not include a `consumerPid`, a new CN will be created on [Consumer](../model/terminology.md#consumer) side and the [Consumer](../model/terminology.md#consumer) selects an appropriate `consumerPid`.
@@ -74,7 +74,7 @@ The Contract Offer Message is sent by a [Provider](../model/terminology.md#provi
 | **Resulting state** | `AGREED`, `TERMINATED`                                                                                                                    |
 | **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                                  |
 | **Schema**          | [TTL Shape](./message/shape/contract-agreement-message-shape.ttl), [JSON Schema](./message/schema/contract-agreement-message-schema.json) |
-| **Example**         | [Message](./message/contract-agreement-message.json)                                                                                      |
+| **Example**         | [Message](./message/example/contract-agreement-message.json)                                                                              |
 | **Diagram(s)**      | ![](./message/diagram/contract-agreement-message.png)                                                                                     |
 
 The Contract Agreement Message is sent by a [Provider](../model/terminology.md#provider) when it agrees to a contract. It contains the complete [Agreement](../model/terminology.md#agreement).
@@ -91,7 +91,7 @@ The Contract Agreement Message is sent by a [Provider](../model/terminology.md#p
 | **Resulting state** | `VERIFIED`, `TERMINATED`                                                                                                                                            |
 | **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                                                            |
 | **Schema**          | [TTL Shape](./message/shape/contract-agreement-verification-message-shape.ttl), [JSON Schema](./message/schema/contract-agreement-verification-message-schema.json) |
-| **Example**         | [Message](./message/contract-agreement-verification-message.json)                                                                                                   |
+| **Example**         | [Message](./message/example/contract-agreement-verification-message.json)                                                                                           |
 | **Diagram(s)**      | ![](./message/diagram/contract-agreement-verification-message.png)                                                                                                  |
 
 The Contract Agreement Verification Message is sent by a [Consumer](../model/terminology.md#consumer) to verify the acceptance of an [Agreement](../model/terminology.md#agreement).
@@ -106,7 +106,7 @@ The Contract Agreement Verification Message is sent by a [Consumer](../model/ter
 | **Resulting state** | `FINALIZED`, `ACCEPTED`, `TERMINATED`                                                                                                                     |
 | **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                                                  |
 | **Schema**          | [TTL Shape](./message/shape/contract-negotiation-event-message-shape.ttl), [JSON Schema](./message/schema/contract-negotiation-event-message-schema.json) |
-| **Example**         | [Message](./message/contract-negotiation-event-message.json)                                                                                              |
+| **Example**         | [Message](./message/example/contract-negotiation-event-message.json)                                                                                      |
 | **Diagram(s)**      | ![](./message/diagram/contract-negotiation-event-message.png)                                                                                             |
 
 When the Contract Negotiation Event Message is sent by a [Provider](../model/terminology.md#provider) with an `eventType` property set to `FINALIZED`, an [Agreement](../model/terminology.md#agreement) has been finalized and the associated [Dataset](../model/terminology.md#dataset) is accessible. The state machine is transitioned to the `FINALIZED` state.
@@ -127,7 +127,7 @@ Note that CN events are not intended for propagation of an [Agreement](../model/
 | **Resulting state** | `TERMINATED`                                                                                                                                                          |
 | **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                                                              |
 | **Schema**          | [TTL Shape](./message/shape/contract-negotiation-termination-message-shape.ttl), [JSON Schema](./message/schema/contract-negotiation-termination-message-schema.json) |
-| **Example**         | [Message](./message/contract-negotiation-termination-message.json)                                                                                                    |
+| **Example**         | [Message](./message/example/contract-negotiation-termination-message.json)                                                                                            |
 | **Diagram(s)**      | ![](./message/diagram/contract-negotiation-termination-message.png)                                                                                                   |
 
 The Contract Negotiation Termination Message is sent by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating it has cancelled the CN sequence. The message can be sent at any state of a CN without providing an explanation. Nevertheless, the sender may provide a description to help the receiver. 
@@ -146,7 +146,7 @@ The `ACK` and `ERROR` response message types are mapped onto a protocol such as 
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------|
 | **Sent by**     | [Consumer](../model/terminology.md#consumer), [Provider](../model/terminology.md#provider)                                    |
 | **Schema**      | [TTL Shape](./message/shape/contract-negotiation-shape.ttl), [JSON Schema](./message/schema/contract-negotiation-schema.json) |
-| **Example**     | [Process](./message/contract-negotiation.json)                                                                                |
+| **Example**     | [Process](./message/example/contract-negotiation.json)                                                                        |
 | **Diagram(s)**  | ![](./message/diagram/contract-negotiation.png)                                                                               |
 
 The Contract Negotiation is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating a successful state change happened.
@@ -157,7 +157,7 @@ The Contract Negotiation is an object returned by a [Consumer](../model/terminol
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Sent by**     | [Consumer](../model/terminology.md#consumer), [Provider](../model/terminology.md#provider)                                                |
 | **Schema**      | [TTL Shape](./message/shape/contract-negotiation-error-shape.ttl), [JSON Schema](./message/schema/contract-negotiation-error-schema.json) |
-| **Example**     | [Error](./message/contract-negotiation-error.json)                                                                                        |
+| **Example**     | [Error](./message/example/contract-negotiation-error.json)                                                                                |
 | **Diagram(s)**  | ![](./message/diagram/contract-negotiation-error.png)                                                                                     |
 
 The Contract Negotiation Error is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating an error has occurred. It does not cause a state transition.

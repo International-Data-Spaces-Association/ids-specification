@@ -18,7 +18,7 @@ Further [Dataspace](../model/terminology.md#dataspace) specifications may define
 
 **Sent by**: [Consumer](../model/terminology.md#consumer)
 
-**Example**: [CatalogRequestMessage](./message/catalog-request-message.json)
+**Example**: [CatalogRequestMessage](./message/example/catalog-request-message.json)
 
 **Response**: [Catalog](#22-catalog) containing the [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
@@ -41,7 +41,7 @@ be defined in the relevant Catalog Binding Specification.
 
 **Sent by**: [Provider](../model/terminology.md#provider)
 
-**Example**: [Catalog](./message/catalog.json)
+**Example**: [Catalog](./message/example/catalog.json)
 
 
 **Response**: OK or ERROR
@@ -59,7 +59,7 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#31-datas
 
 **Sent by**: [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider)
 
-**Example**: [CatalogError](./message/catalog-error.json)
+**Example**: [CatalogError](./message/example/catalog-error.json)
 
 **Response**: OK or ERROR
 
@@ -75,7 +75,7 @@ A Catalog Error Message is used when an error occurred after a `CatalogRequestMe
 
 **Sent by**: [Consumer](../model/terminology.md#consumer)
 
-**Example**: [DatasetRequestMessage](./message/dataset-request-message.json)
+**Example**: [DatasetRequestMessage](./message/example/dataset-request-message.json)
 
 **Response**: [Dataset](#25-dataset) containing the [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset).
 
@@ -97,7 +97,7 @@ The [Catalog Service](../model/terminology.md#catalog-service) may require an au
 
 **Sent by**: [Provider](../model/terminology.md#provider)
 
-**Example**: [Dataset](./message/dataset.json)
+**Example**: [Dataset](./catalog/message/example/dataset.json)
 
 
 **Response**: OK or ERROR

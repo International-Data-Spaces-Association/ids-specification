@@ -48,7 +48,7 @@ request.
 
 #### 2.3.2 OK (200) Response
 
-If the request is successful, the [Catalog Service](../model/terminology.md#catalog-service) must return a response body containing a [Catalog](./message/catalog.json) which is a profiled [DCAT `Catalog`](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) type
+If the request is successful, the [Catalog Service](../model/terminology.md#catalog-service) must return a response body containing a [Catalog](./message/example/catalog.json) which is a profiled [DCAT `Catalog`](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) type
 described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ### 2.4 The `catalog/datasets/{id}` endpoint
@@ -69,7 +69,7 @@ The `Authorization` header is optional if the [Catalog Service](../model/termino
 
 #### 2.4.2 OK (200) Response
 
-If the request is successful, the [Catalog Service](../model/terminology.md#catalog-service) must return a response body containing a [Dataset](./message/dataset.json) which is a [DCAT `Dataset`](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) type
+If the request is successful, the [Catalog Service](../model/terminology.md#catalog-service) must return a response body containing a [Dataset](./message/example/dataset.json) which is a [DCAT `Dataset`](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) type
 described by the [Catalog Protocol Specification](catalog.protocol.md).
 
 ## 3 Technical Considerations

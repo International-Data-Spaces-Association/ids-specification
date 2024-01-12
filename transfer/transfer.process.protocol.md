@@ -74,7 +74,7 @@ Further Dataspace specifications may define additional optional serialization fo
 
 **Resulting State**: REQUESTED
 
-**Example**: [TransferRequestMessage](./message/transfer-request-message.json)
+**Example**: [TransferRequestMessage](./message/example/transfer-request-message.json)
 
 **Response**: [ACK or ERROR.](#response-types)
 
@@ -112,7 +112,7 @@ Once a [Transfer Process](../model/terminology.md#transfer-process) has been cre
 
 **Resulting State**: STARTED
 
-**Example**: [TransferStartMessage](./message/transfer-start-message.json)
+**Example**: [TransferStartMessage](./message/example/transfer-start-message.json)
 
 **Response**: [ACK or ERROR.](#response-types)
 
@@ -135,7 +135,7 @@ The `TransferStartMessage` is sent by the [Provider](../model/terminology.md#pro
 
 **Resulting State**: SUSPENDED
 
-**Example**: [TransferSuspensionMessage](./message/transfer-suspension-message.json)
+**Example**: [TransferSuspensionMessage](./message/example/transfer-suspension-message.json)
 
 **Response**: [ACK or ERROR.](#response-types)
 
@@ -153,7 +153,7 @@ The `TransferSuspensionMessage` is sent by the [Provider](../model/terminology.m
 
 **Resulting State**: COMPLETED
 
-**Example**: [TransferCompletionMessage](./message/transfer-completion-message.json)
+**Example**: [TransferCompletionMessage](./message/example/transfer-completion-message.json)
 
 **Response**: [ACK or ERROR.](#response-types)
 
@@ -172,7 +172,7 @@ notification by performing it as part of their wire protocol. In those cases, a 
 
 **Resulting State**: TERMINATED
 
-**Example**: [TransferTerminationMessage](./message/transfer-termination-message.json)
+**Example**: [TransferTerminationMessage](./message/example/transfer-termination-message.json)
 
 **Response**: [ACK or ERROR.](#response-types)
 
@@ -190,7 +190,7 @@ a terminal state. If the termination was due to an error, the sender may include
 
 ![](./message/diagram/transfer-process.png)
 
-**Example**: [TransferProcess](./message/transfer-process.json)
+**Example**: [TransferProcess](./message/example/transfer-process.json)
 
 **Schema**: [TransferProcessShape](./message/shape/transfer-process-shape.ttl) and the [TransferProcess JSON Schema](./message/schema/transfer-process-schema.json)
 
@@ -202,7 +202,7 @@ The `TransferProcess` is an object returned by a [Consumer](../model/terminology
 
 ![](./message/diagram/transfer-error.png)
 
-**Example**: [TransferError](./message/transfer-error.json)
+**Example**: [TransferError](./message/example/transfer-error.json)
 
 **Schema**: [TransferErrorShape](./message/shape/transfer-error-shape.ttl) and the [TransferError JSON Schema](./message/schema/transfer-error-schema.json)
 
