@@ -10,6 +10,10 @@ A concrete [Policy](#policy) associated with a specific [Dataset](#dataset) that
 
 A collection of entries representing [Datasets](#dataset) and their [Offers](#offer) that is advertised by a [Provider](#provider) [Participant](#participant).
 
+### Catalog Protocol
+
+A set of allowable [Message Types](#message-type) that are used to request a [Catalog](#catalog) from a [Catalog Service](#catalog-service).
+
 ### Catalog Service
 
 A [Participant Agent](#participant-agent) that makes a [Catalog](#catalog) accessible to [Participants](#participant).
