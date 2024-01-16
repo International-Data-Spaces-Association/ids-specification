@@ -3,7 +3,7 @@
 
 This document outlines the key elements of the [Contract Negotiation Protocol](../model/terminology.md#contract-negotiation-protocol). The used terms are described [here](../model/terminology.md).
 
-## 1 Overview
+## 1 Introduction
 
 A [Contract Negotiation](../model/terminology.md#contract-negotiation) (CN) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a usage contract and [Consumer](../model/terminology.md#consumer) that requests [Datasets](../model/terminology.md#dataset). A CN is uniquely identified through an [IRI](https://www.w3.org/International/articles/idn-and-iri/). Each CN requires a newly generated IRI, which may not be used in a CN after a terminal state has been reached. A CN progresses through a series of states, which are tracked by the [Provider](../model/terminology.md#provider) and [Consumer](../model/terminology.md#consumer) using messages. A CN transitions to a state in response to an acknowledged message from the counter-party. Both parties have the same state of the CN. In case the states differ, the CN is terminated and a new CN has to be initiated.
 
@@ -161,3 +161,10 @@ The Contract Negotiation is an object returned by a [Consumer](../model/terminol
 | **Diagram(s)**  | ![](./message/diagram/contract-negotiation-error.png)                                                                                     |
 
 The Contract Negotiation Error is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating an error has occurred. It does not cause a state transition.
+
+| Field         | Type          | Description                                                                                                                              |
+|---------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| `consumerPid` | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on [Consumer](../model/terminology.md#consumer) side. |
+| `providerPid` | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on [Provider](../model/terminology.md#provider) side. |
+| `code`        | String        | An optional implementation-specific error code.                                                                                          |
+| `reason`      | Array[object] | An optional array of implementation-specific error objects.                                                                              |
