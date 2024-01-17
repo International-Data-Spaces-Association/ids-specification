@@ -2,10 +2,9 @@
 
 ## Catalog
 * [Catalog error shape (ttl)](./../catalog/message/shape/catalog-error-shape.ttl)
-* [Catalog message shape (ttl)](./../catalog/message/shape/catalog-message-shape.ttl)
 * [Catalog request message shape (ttl)](./../catalog/message/shape/catalog-request-message-shape.ttl)
-* [Catalog shape (ttl)](./../catalog/message/shape/catalog-shape.ttl)
 * [Dataset request message shape (ttl)](./../catalog/message/shape/dataset-request-message-shape.ttl)
+* [DCAT shapes (ttl)](./../catalog/message/shape/dcat-shapes.ttl)
 
 ## Contract Negotiation
 * [Contract agreement shape (ttl)](./../negotiation/message/shape/contract-agreement-message-shape.ttl)

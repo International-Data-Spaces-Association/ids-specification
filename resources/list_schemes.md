@@ -3,10 +3,10 @@
 
 ## Catalog
 * [Catalog error schema (json)](./../catalog/message/schema/catalog-error-schema.json)
-* [Catalog message schema (json)](./../catalog/message/schema/catalog-message-schema.json)
 * [Catalog request message schema (json)](./../catalog/message/schema/catalog-request-message-schema.json)
 * [Catalog schema (json)](./../catalog/message/schema/catalog-schema.json)
 * [Dataset request message schema (json)](./../catalog/message/schema/dataset-request-message-schema.json)
+* [Dataset schema (json)](./../catalog/message/schema/dataset-schema.json)
 
 ## Contract Negotiation
 * [Contract agreement schema (json)](./../negotiation/message/schema/contract-agreement-message-schema.json)
