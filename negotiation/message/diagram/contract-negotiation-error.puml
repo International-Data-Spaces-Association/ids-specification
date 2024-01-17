@@ -13,7 +13,6 @@ class "dspace:ContractNegotiationError" {
     dspace:consumerPid : String
     dspace:code : String
     dspace:reason : Array
-    dct:description : MultilanguageProperty
 }
 
 class "MultilanguageProperty" {
