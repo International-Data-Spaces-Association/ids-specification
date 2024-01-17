@@ -23,7 +23,7 @@ The CN states are:
 
 The CN state machine is represented in the following diagram:
 
-![](./contract.negotiation.state.machine.png)
+![](./figures/contract.negotiation.state.machine.png)
 
 Transitions marked with `C` indicate a message sent by the [Consumer](../model/terminology.md#consumer), transitions marked with `P` indicate a [Provider](../model/terminology.md#provider) message. Terminal states are final; the state machine may not transition to another state. A new CN may be initiated if, for instance, the CN entered the `TERMINATED` state due to a network issue.
 

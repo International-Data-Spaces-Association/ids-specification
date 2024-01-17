@@ -21,13 +21,13 @@ It is important to note that the Control and Data Planes are logical constructs.
 
 A push transfer is when the [Provider's](../model/terminology.md#provider) Data Plane initiates sending of data to a [Consumer](../model/terminology.md#consumer) endpoint. For example, after the [Consumer](../model/terminology.md#consumer) has issued a [Transfer Request Message](#21-transfer-request-message), the [Provider](../model/terminology.md#provider) begins data transmission to an endpoint specified by the [Consumer](../model/terminology.md#consumer) using an agreed-upon wire protocol.
 
-![](./push-transfer-process.png)
+![](./figures/push-transfer-process.png)
 
 #### 1.2.2 Pull Transfer
 
 A pull transfer is when the [Consumer](../model/terminology.md#consumer) Data Plane initiates retrieval of data from a [Provider](../model/terminology.md#provider) endpoint. For example, after the [Provider](../model/terminology.md#provider) has issued a [Transfer Start Message](#22-transfer-start-message), the [Consumer](../model/terminology.md#consumer) can request the data from the [Provider](../model/terminology.md#provider)-specified endpoint.
 
-![](./pull-transfer-process.png)
+![](./figures/pull-transfer-process.png)
 
 #### 1.2.3 Finite and Non-Finite Data
 
@@ -47,7 +47,7 @@ The TP states are:
 
 The TP state machine is represented in the following diagram:
 
-![](./transfer-process-state-machine.png)
+![](./figures/transfer-process-state-machine.png)
 
 Transitions marked with `C` indicate a message sent by the [Consumer](../model/terminology.md#consumer), transitions marked with `P` indicate a [Provider](../model/terminology.md#provider) message. Terminal states are final; the state machine may not transition to another state.
 
