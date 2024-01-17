@@ -1,7 +1,20 @@
 # Contract Negotiation Protocol
 
-
 This document outlines the key elements of the [Contract Negotiation Protocol](../model/terminology.md#contract-negotiation-protocol). The used terms are described [here](../model/terminology.md).
+
+* [1 Introduction](#1-introduction)
+  * [1.1 States](#11-states)
+  * [1.2 State Machine](#12-state-machine)
+* [2 Message Types](#2-message-types)
+  * [2.1 Contract Request Message](#21-contract-request-message)
+  * [2.2 Contract Offer Message](#22-contract-offer-message)
+  * [2.3 Contract Agreement Message](#23-contract-agreement-message)
+  * [2.4 Contract Agreement Verification Message](#24-contract-agreement-verification-message)
+  * [2.5 Contract Negotiation Event Message](#25-contract-negotiation-event-message)
+  * [2.6 Contract Negotiation Termination Message](#26-contract-negotiation-termination-message)
+* [3 Response Types](#3-response-types)
+  * [3.1 ACK - Contract Negotiation](#31-ack---contract-negotiation)
+  * [3.2 ERROR - Contract Negotiation Error](#32-error---contract-negotiation-error)
 
 ## 1 Introduction
 

@@ -2,6 +2,24 @@
 
 This document outlines the key elements of the [Transfer Process Protocol](../model/terminology.md#transfer-process-protocol). The used terms are described [here](../model/terminology.md).
 
+* [1 Introduction](#1-introduction)
+  * [1.1 Control and Data Planes](#11-control-and-data-planes)
+  * [1.2 Dataset Transfer Types](#12-dataset-transfer-types)
+    * [1.2.1 Push Transfer](#121-push-transfer)
+    * [1.2.2 Pull Transfer](#122-pull-transfer)
+    * [1.2.3 Finite and Non-Finite Data](#123-finite-and-non-finite-data)
+  * [1.3 States](#13-states)
+  * [1.4 State Machine](#14-state-machine)
+* [2 Message Types](#2-message-types)
+  * [2.1 Transfer Request Message](#21-transfer-request-message)
+  * [2.2 Transfer Start Message](#22-transfer-start-message)
+  * [2.3 Transfer Suspension Message](#23-transfer-suspension-message)
+  * [2.4 Transfer Completion Message](#24-transfer-completion-message)
+  * [2.5 Transfer Termination Message](#25-transfer-termination-message)
+* [3 Response Types](#3-response-types)
+  * [3.1 ACK - Transfer Process](#31-ack---transfer-process)
+  * [3.2 ERROR - Transfer Error](#32-error---transfer-error)
+
 ## 1 Introduction
 
 A [Transfer Process](../model/terminology.md#transfer-process) (TP) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a [Usage Policy](../model/terminology.md#policy) and [Consumer](../model/terminology.md#consumer) that requests [Datasets](../model/terminology.md#dataset). A TP progresses through a series of states, which are controlled by the [Provider](../model/terminology.md#provider) and [Consumer](../model/terminology.md#consumer) using messages. A TP transitions to another state as a result of an exchanged message.

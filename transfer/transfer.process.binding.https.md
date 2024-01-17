@@ -2,6 +2,27 @@
 
 This specification defines a RESTful API over HTTPS for the [Transfer Process Protocol](./transfer.process.protocol.md).
 
+* [1 Introduction](#1-introduction)
+  * [1.1 Prerequisites](#11-prerequisites)
+  * [1.2 Transfer Error](#12-transfer-error)
+    * [1.2.1 State Transition Errors](#121-state-transition-errors)
+    * [1.2.2 Object Not Found](#122-object-not-found)
+    * [1.2.3 Unauthorized Access](#123-unauthorized-access)
+  * [1.3 Authorization](#13-authorization)
+* [2 Provider Path Bindings](#2-provider-path-bindings)
+  * [2.1 The `transfers` Endpoint _(Provider-side)_](#21-the-transfers-endpoint-provider-side)
+  * [2.2 The `transfers/request` Endpoint _(Provider-side)_](#22-the-transfersrequest-endpoint-provider-side)
+  * [2.3 The `transfers/:providerPid/start` Endpoint _(Provider-side)_](#23-the-transfersproviderpidstart-endpoint-provider-side)
+  * [2.4 The `transfers/:providerPid/completion` Endpoint _(Provider-side)_](#24-the-transfersproviderpidcompletion-endpoint-provider-side)
+  * [2.5 The `transfers/:providerPid/termination` Endpoint _(Provider-side)_](#25-the-transfersproviderpidtermination-endpoint-provider-side)
+  * [2.6 The `transfers/:providerPid/suspension` Endpoint _(Provider-side)_](#26-the-transfersproviderpidsuspension-endpoint-provider-side)
+* [3 Consumer Callback Path Bindings](#3-consumer-callback-path-bindings)
+  * [3.1 Prerequisites](#31-prerequisites)
+  * [3.2 The `transfers/:consumerPid/start` Endpoint _(Consumer-side)_](#32-the-transfersconsumerpidstart-endpoint-consumer-side)
+  * [3.3 The `transfers/:consumerPid/completion` Endpoint _(Consumer-side)_](#33-the-transfersconsumerpidcompletion-endpoint-consumer-side)
+  * [3.4 The `transfers/:consumerPid/termination` Endpoint _(Consumer-side)_](#34-the-transfersconsumerpidtermination-endpoint-consumer-side)
+  * [3.5 The `transfers/:consumerPid/suspension` Endpoint _(Consumer-side)_](#35-the-transfersconsumerpidsuspension-endpoint-consumer-side)
+
 ## 1 Introduction
 
 ### 1.1 Prerequisites

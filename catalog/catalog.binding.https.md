@@ -2,6 +2,19 @@
 
 This specification defines a RESTful API over HTTPS for the [Catalog Protocol](./catalog.protocol.md).
 
+* [1 Introduction](#1-introduction)
+  * [1.1 Prerequisites](#11-prerequisites)
+  * [1.2 Catalog Error](#12-catalog-error)
+  * [1.3 Authorization](#13-authorization)
+* [2 Path Bindings](#2-path-bindings)
+  * [2.1 The `catalog/request` Endpoint (Provider-side)](#21-the-catalogrequest-endpoint--provider-side-)
+  * [2.2 The `catalog/datasets/:id` Endpoint (Provider-side)](#22-the-catalogdatasetsid-endpoint--provider-side-)
+* [3 Technical Considerations](#3-technical-considerations)
+  * [3.1 Versioning](#31-versioning)
+  * [3.2 Pagination](#32-pagination)
+  * [3.3 Compression](#33-compression)
+* [4 The Well-Known Proof Metadata Endpoint](#4-the-well-known-proof-metadata-endpoint)
+
 ## 1 Introduction
 
 ### 1.1 Prerequisites
