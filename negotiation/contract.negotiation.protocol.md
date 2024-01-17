@@ -162,9 +162,9 @@ The Contract Negotiation is an object returned by a [Consumer](../model/terminol
 
 The Contract Negotiation Error is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating an error has occurred. It does not cause a state transition.
 
-| Field         | Type          | Description                                                                                                                              |
-|---------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `consumerPid` | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on [Consumer](../model/terminology.md#consumer) side. |
-| `providerPid` | UUID          | The [Contract Negotiation](../model/terminology.md#contract-negotiation) unique id on [Provider](../model/terminology.md#provider) side. |
-| `code`        | String        | An optional implementation-specific error code.                                                                                          |
-| `reason`      | Array[object] | An optional array of implementation-specific error objects.                                                                              |
+| Field         | Type          | Description                                                            |
+|---------------|---------------|------------------------------------------------------------------------|
+| `consumerPid` | UUID          | The CN unique id on [Consumer](../model/terminology.md#consumer) side. |
+| `providerPid` | UUID          | The CN unique id on [Provider](../model/terminology.md#provider) side. |
+| `code`        | String        | An optional implementation-specific error code.                        |
+| `reason`      | Array[object] | An optional array of implementation-specific error objects.            |

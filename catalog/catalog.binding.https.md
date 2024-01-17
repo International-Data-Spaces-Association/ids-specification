@@ -1,6 +1,6 @@
 # Catalog HTTPS Binding
 
-This specification defines a RESTful API over HTTPS for the [Catalog Protocol](../model/terminology.md#catalog-protocol).
+This specification defines a RESTful API over HTTPS for the [Catalog Protocol](./catalog.protocol.md).
 
 ## 1 Introduction
 

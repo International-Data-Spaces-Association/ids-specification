@@ -32,8 +32,8 @@ All requests should use the `Authorization` header to include an authorization t
 
 ## 2 Provider Path Bindings
 
-| Endpoint                                                                        | Method | Description                |
-|:--------------------------------------------------------------------------------|:-------|:---------------------------|
+| Endpoint                                                              | Method | Description                |
+|:----------------------------------------------------------------------|:-------|:---------------------------|
 | https://provider.com/negotiations/:providerPid                        | `GET`  | Section [2.1.1](#211-get)  |
 | https://provider.com/negotiations/request                             | `POST` | Section [2.2.1](#221-post) |
 | https://provider.com/negotiations/:providerPid/request                | `POST` | Section [2.3.1](#231-post) |
@@ -47,7 +47,7 @@ All requests should use the `Authorization` header to include an authorization t
 
 ##### Request
 
-A CN can be accessed by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) sending a GET request to `negotiations`:
+A CN can be accessed by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) sending a GET request to `negotiations/:providerPid`:
 
 ```http request
 GET https://provider.com/negotiations/:providerPid
@@ -201,9 +201,11 @@ Authorization: ...
 If the CN's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return an HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 
-### 2.6 The `negotiations/:providerPid/termination` Endpoint  _(Provider-side)_
+### 2.6 The `negotiations/:providerPid/termination` Endpoint _(Provider-side)_
 
 #### 2.6.1 POST
+
+##### Request
 
 The [Consumer](../model/terminology.md#consumer) can POST a [Contract Negotiation Termination Message](./contract.negotiation.protocol.md#26-contract-negotiation-termination-message) to terminate a CN. 
 
@@ -230,20 +232,20 @@ If the CN's state is successfully transitioned, the [Provider](../model/terminol
 
 ## 3 Consumer Callback Path Bindings
 
-| Endpoint                                                               | Method | Description                |
-|:-----------------------------------------------------------------------|:-------|:---------------------------|
-| https://consumer.com/negotiations/offers                     | `POST` | Section [3.2.1](#321-post) |
-| https://consumer.com/negotiations/:consumerPid/offers        | `POST` | Section [3.3.1](#331-post) |
-| https://consumer.com/negotiations/:consumerPid/agreement     | `POST` | Section [3.4.1](#341-post) |
-| https://consumer.com/negotiations/:consumerPid/events        | `POST` | Section [3.5.1](#351-post) |
-| https://consumer.com/negotiations/:consumerPid/termination   | `POST` | Section [3.6.1](#361-post) |
+| Endpoint                                                             | Method | Description                |
+|:---------------------------------------------------------------------|:-------|:---------------------------|
+| https://consumer.com/negotiations/offers                             | `POST` | Section [3.2.1](#321-post) |
+| https://consumer.com/:callback/negotiations/:consumerPid/offers      | `POST` | Section [3.3.1](#331-post) |
+| https://consumer.com/:callback/negotiations/:consumerPid/agreement   | `POST` | Section [3.4.1](#341-post) |
+| https://consumer.com/:callback/negotiations/:consumerPid/events      | `POST` | Section [3.5.1](#351-post) |
+| https://consumer.com/:callback/negotiations/:consumerPid/termination | `POST` | Section [3.6.1](#361-post) |
 
 
 ### 3.1 Prerequisites
 
 All callback paths are relative to the `callbackAddress` base URL specified in the [Contract Request Message](./contract.negotiation.protocol.md#21-contract-request-message) that initiated a CN. For example, if the `callbackAddress` is specified as `https://consumer.com/callback` and a callback path binding is `negotiations/:consumerPid/offers`, the resolved URL will be `https://consumer.com/callback/negotiations/:consumerPid/offers`.
 
-### 3.2 The `negotiations/offers` Endpoint (consumer-side)
+### 3.2 The `negotiations/offers` Endpoint _(Consumer-side)_
 
 #### 3.2.1 POST
 
@@ -288,7 +290,7 @@ The [Consumer](../model/terminology.md#consumer) must return an HTTP 201 (Create
 }
 ```
 
-### 3.3 The `negotiations/:consumerPid/offers` Endpoint (consumer-side)
+### 3.3 The `negotiations/:consumerPid/offers` Endpoint _(Consumer-side)_
 
 #### 3.3.1 POST
 
@@ -322,9 +324,11 @@ Authorization: ...
 
 If the message is successfully processed, the [Consumer](../model/terminology.md#consumer) must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to process it.
 
-### 3.4 The `negotiations/:consumerPid/agreement` Endpoint (consumer-side)
+### 3.4 The `negotiations/:consumerPid/agreement` Endpoint _(Consumer-side)_
 
 #### 3.4.1 POST
+
+##### Request
 
 The [Provider](../model/terminology.md#provider) can POST a [Contract Agreement Message](./contract.negotiation.protocol.md#23-contract-agreement-message) to the `negotiations/:consumerPid/agreement` callback to create an [Agreement](../model/terminology.md#agreement). 
 
@@ -355,9 +359,11 @@ Authorization: ...
 
 If the CN's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return an HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
-### 3.5 The `negotiations/:consumerPid/events` Endpoint (consumer-side)
+### 3.5 The `negotiations/:consumerPid/events` Endpoint _(Consumer-side)_
 
 #### 3.5.1 POST
+
+##### Request
 
 A [Provider](../model/terminology.md#provider) can POST a [Contract Negotiation Event Message](./contract.negotiation.protocol.md#25-contract-negotiation-event-message) to the `negotiations/:consumerPid/events` callback with an `eventType` of `FINALIZED` to finalize an [Agreement](../model/terminology.md#agreement).
 
@@ -379,9 +385,11 @@ Authorization: ...
 
 If the CN's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 
 
-### 3.6 The `negotiations/:consumerPid/termination` Endpoint (consumer-side)
+### 3.6 The `negotiations/:consumerPid/termination` Endpoint _(Consumer-side)_
 
 #### 3.6.1 POST
+
+##### Request
 
 The [Provider](../model/terminology.md#provider) can POST a [Contract Negotiation Termination Message](./contract.negotiation.protocol.md#26-contract-negotiation-termination-message) to terminate a CN.
 
