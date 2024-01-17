@@ -34,6 +34,10 @@ A set of interactions between a [Provider](#provider) and [Consumer](#consumer) 
 
 A set of allowable [Message Type](#message-type) sequences defined as a state machine.
 
+## Credential Issuer
+
+A Credential Issuer is a trusted technology system that issues verifiable credentials for a [Participant](#participant) and [Participant Agents](#participant-agent).
+
 ### Dataset
 
 Data or a technical service that can be shared by a [Participant](#participant).
