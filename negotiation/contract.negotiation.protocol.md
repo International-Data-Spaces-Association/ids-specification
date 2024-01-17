@@ -17,7 +17,7 @@ The CN states are:
 - **AGREED**: The [Provider](../model/terminology.md#provider) has accepted the latest [Offer](../model/terminology.md#offer), sent an [Agreement](../model/terminology.md#agreement) to the [Consumer](../model/terminology.md#consumer), and the [Consumer](../model/terminology.md#consumer) has sent an ACK response.
 - **VERIFIED**: The [Consumer](../model/terminology.md#consumer) has sent an [Agreement](../model/terminology.md#agreement) verification to the [Provider](../model/terminology.md#provider) and the [Provider](../model/terminology.md#provider) has sent an ACK response.
 - **FINALIZED**: The [Provider](../model/terminology.md#provider) has sent a finalization message including his own [Agreement](../model/terminology.md#agreement) verification to the [Consumer](../model/terminology.md#consumer) and the [Consumer](../model/terminology.md#consumer) has sent an ACK response. Data is now available to the [Consumer](../model/terminology.md#consumer).
-- **TERMINATED** - The [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) has placed the CN in a terminated state. A termination message has been sent by either of the [Participants](../model/terminology.md#participant) and the other has sent an ACK response. This is a terminal state.
+- **TERMINATED**: The [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) has placed the CN in a terminated state. A termination message has been sent by either of the [Participants](../model/terminology.md#participant) and the other has sent an ACK response. This is a terminal state.
 
 ### 1.2 State Machine
 
