@@ -138,7 +138,7 @@ Note that a CN may be terminated for a variety of reasons, for example, an unrec
 
 ## 3 Response Types
 
-The `ACK` and `ERROR` response message types are mapped onto a protocol such as HTTPS. A description of an error might be provided in protocol-dependent forms, e.g., for an HTTPS binding in the request or response body.
+The `ACK` and `ERROR` response types are mapped onto a protocol such as HTTPS. A description of an error might be provided in protocol-dependent forms, e.g., for an HTTPS binding in the request or response body.
 
 ### 3.1 ACK - Contract Negotiation
 
