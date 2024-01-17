@@ -18,7 +18,7 @@ A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.
 
 ##### odrl:hasPolicy
 
-A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any target attributes. The target of an [Offer](../model/terminology.md#offer) is the associated [Dataset](../model/terminology.md#dataset).
+A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL Offer](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any target attributes. The target of an [Offer](../model/terminology.md#offer) is the associated [Dataset](../model/terminology.md#dataset).
 
 #### 2.1.2 Distributions
 
@@ -132,6 +132,11 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#21-datas
 | **Diagram(s)**  | ![](./message/diagram/catalog-error.png)                                                                        |
 
 A Catalog Error is used when an error occurred after a [Catalog Request Message](#31-catalog-request-message) or a [Dataset Request Message](#32-dataset-request-message) and the [Provider](../model/terminology.md#provider) cannot provide its [Catalog](../model/terminology.md#catalog) to the requester.
+
+| Field   | Type          | Description                                                  |
+|---------|---------------|--------------------------------------------------------------|
+| `code`    | String        | An optional implementation-specific error code.             |
+| `reasons` | Array[object] | An optional array of implementation-specific error objects. |
 
 ## 4 Technical Considerations
 
