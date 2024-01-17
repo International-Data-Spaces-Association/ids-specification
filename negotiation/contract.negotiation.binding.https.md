@@ -10,25 +10,25 @@ This specification defines a RESTful API over HTTPS for the [Contract Negotiatio
 
 2. All request and response messages must use the `application/json` media type. Derived media types, e.g., `application/ld+json` may be exposed in addition.
 
-### 1.2 Authorization
-
-All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP header is optional if the [Connector](../model/terminology.md#connector--data-service-) does not require authorization.
-
-### 1.3 Contract Negotiation Error
+### 1.2 Contract Negotiation Error
 
 In the event of a client request error, the [Connector](../model/terminology.md#connector--data-service-) must return an appropriate HTTP 4xx client error code. If an error body is returned it must be a [Contract Negotiation Error](./contract.negotiation.protocol.md#32-error---contract-negotiation-error).
 
-#### 1.3.1 State Transition Errors
+#### 1.2.1 State Transition Errors
 
 If a client makes a request that results in an invalid [state transition as defined by the Contract Negotiation Protocol](./contract.negotiation.protocol.md#11-states), it must return an HTTP code 400 (Bad Request) with a [Contract Negotiation Error](./contract.negotiation.protocol.md#32-error---contract-negotiation-error) in the response body.
 
-#### 1.3.2 Object Not Found
+#### 1.2.2 Object Not Found
 
 If the [Contract Negotiation](../model/terminology.md#contract-negotiation) (CN) does not exist, the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
 
-#### 1.3.3 Unauthorized Access
+#### 1.2.3 Unauthorized Access
 
 If the client is not authorized, the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
+
+### 1.3 Authorization
+
+All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP header is optional if the [Connector](../model/terminology.md#connector--data-service-) does not require authorization.
 
 ## 2 Provider Path Bindings
 
@@ -87,7 +87,7 @@ Authorization: ...
 
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:ContractRequest"
+  "@type": "dspace:ContractRequest",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:offer": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
@@ -258,14 +258,14 @@ Authorization: ...
 
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:ContractOfferMessage"
+  "@type": "dspace:ContractOfferMessage",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:offer": {
     "@type": "odrl:Offer",
     "@id": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
-  }
+  },
   "dspace:callbackAddress": "https://..."
 }
 ```

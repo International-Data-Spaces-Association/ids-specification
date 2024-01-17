@@ -94,7 +94,7 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dcat:Catalog"
+  "@type": "dcat:Catalog",
   ...
 }
 ```
@@ -106,7 +106,7 @@ Link: <https://provider.com/catalog?page=1&per_page=100>; rel="previous"
 Link: <https://provider.com/catalog?page=3&per_page=100>; rel="next"
 
 {
-   "@type": "dcat:Catalog"
+   "@type": "dcat:Catalog",
    ...
 }
 ```
@@ -117,7 +117,7 @@ Last page response:
 Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
 
 {
-   "@type": "dcat:Catalog"
+   "@type": "dcat:Catalog",
    ...
 }
 ```
