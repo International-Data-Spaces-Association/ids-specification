@@ -18,15 +18,15 @@ All requests should use the `Authorization` header to include an authorization t
 
 In the event of a client request error, the [Connector](../model/terminology.md#connector--data-service-) must return an appropriate HTTP 4xx client error code. If an error body is returned it must be a [Contract Negotiation Error](./contract.negotiation.protocol.md#32-error---contract-negotiation-error).
 
-### 1.3.1 State Transition Errors
+#### 1.3.1 State Transition Errors
 
 If a client makes a request that results in an invalid [state transition as defined by the Contract Negotiation Protocol](./contract.negotiation.protocol.md#11-states), it must return an HTTP code 400 (Bad Request) with a [Contract Negotiation Error](./contract.negotiation.protocol.md#32-error---contract-negotiation-error) in the response body.
 
-### 1.3.2 Object Not Found
+#### 1.3.2 Object Not Found
 
 If the [Contract Negotiation](../model/terminology.md#contract-negotiation) (CN) does not exist, the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
 
-### 1.3.3 Unauthorized Access
+#### 1.3.3 Unauthorized Access
 
 If the client is not authorized, the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
 
@@ -34,12 +34,12 @@ If the client is not authorized, the [Consumer](../model/terminology.md#consumer
 
 | Endpoint                                                                        | Method | Description                |
 |:--------------------------------------------------------------------------------|:-------|:---------------------------|
-| https://connector.provider.com/negotiations/:providerPid                        | `GET`  | Section [2.1.1](#211-get)  |
-| https://connector.provider.com/negotiations/request                             | `POST` | Section [2.2.1](#221-post) |
-| https://connector.provider.com/negotiations/:providerPid/request                | `POST` | Section [2.3.1](#231-post) |
-| https://connector.provider.com/negotiations/:providerPid/events                 | `POST` | Section [2.4.1](#241-post) |
-| https://connector.provider.com/negotiations/:providerPid/agreement/verification | `POST` | Section [2.5.1](#251-post) |
-| https://connector.provider.com/negotiations/:providerPid/termination            | `POST` | Section [2.6.1](#261-post) |
+| https://provider.com/negotiations/:providerPid                        | `GET`  | Section [2.1.1](#211-get)  |
+| https://provider.com/negotiations/request                             | `POST` | Section [2.2.1](#221-post) |
+| https://provider.com/negotiations/:providerPid/request                | `POST` | Section [2.3.1](#231-post) |
+| https://provider.com/negotiations/:providerPid/events                 | `POST` | Section [2.4.1](#241-post) |
+| https://provider.com/negotiations/:providerPid/agreement/verification | `POST` | Section [2.5.1](#251-post) |
+| https://provider.com/negotiations/:providerPid/termination            | `POST` | Section [2.6.1](#261-post) |
 
 ### 2.1 The `negotiations` Endpoint _(Provider-side)_
 
@@ -50,7 +50,7 @@ If the client is not authorized, the [Consumer](../model/terminology.md#consumer
 A CN can be accessed by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) sending a GET request to `negotiations`:
 
 ```http request
-GET https://connector.provider.com/negotiations/:providerPid
+GET https://provider.com/negotiations/:providerPid
 
 Authorization: ...
 
@@ -81,7 +81,7 @@ Predefined states are: `REQUESTED`, `OFFERED`, `ACCEPTED`, `AGREED`, `VERIFIED`,
 A CN is started and placed in the `REQUESTED` state when a [Consumer](../model/terminology.md#consumer) POSTs an initiating [Contract Request Message](./contract.negotiation.protocol.md#21-contract-request-message) to `negotiations/request`:
 
 ```http request
-POST https://connector.provider.com/negotiations/request
+POST https://provider.com/negotiations/request
 
 Authorization: ...
 
@@ -122,12 +122,12 @@ The [Provider](../model/terminology.md#provider) must return an HTTP 201 (Create
 A [Consumer](../model/terminology.md#consumer) may make an [Offer](../model/terminology.md#offer) by POSTing a [Contract Request Message](./contract.negotiation.protocol.md#21-contract-request-message) to `negotiations/:providerPid/request`:
 
 ```http request
-POST https://connector.provider.com/negotiations/:providerPid/request
+POST https://provider.com/negotiations/:providerPid/request
 
 Authorization: ...
 
 {
-  "@context": "https://w3id.org/dspace/v0.8/context.jsonn",
+  "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractRequestMessage",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -153,7 +153,7 @@ A [Consumer](../model/terminology.md#consumer) can POST a [Contract Negotiation 
 
 
 ```http request
-POST https://connector.provider.com/negotiations/:providerPid/events
+POST https://provider.com/negotiations/:providerPid/events
 
 Authorization: ...
 
@@ -181,7 +181,7 @@ If the current [Offer](../model/terminology.md#offer) was created by the [Consum
 The [Consumer](../model/terminology.md#consumer) can POST a [Contract Agreement Verification Message](./contract.negotiation.protocol.md#24-contract-agreement-verification-message) to verify an [Agreement](../model/terminology.md#agreement). 
 
 ```http request
-POST https://connector.provider.com/negotiations/:providerPid/agreement/verification
+POST https://provider.com/negotiations/:providerPid/agreement/verification
 
 Authorization: ...
 
@@ -208,7 +208,7 @@ If the CN's state is successfully transitioned, the [Provider](../model/terminol
 The [Consumer](../model/terminology.md#consumer) can POST a [Contract Negotiation Termination Message](./contract.negotiation.protocol.md#26-contract-negotiation-termination-message) to terminate a CN. 
 
 ```http request
-POST https://connector.provider.com/negotiations/:providerPid/termination
+POST https://provider.com/negotiations/:providerPid/termination
 
 Authorization: ...
 
@@ -232,16 +232,16 @@ If the CN's state is successfully transitioned, the [Provider](../model/terminol
 
 | Endpoint                                                               | Method | Description                |
 |:-----------------------------------------------------------------------|:-------|:---------------------------|
-| https://connector.consumer.com/negotiations/offers                     | `POST` | Section [3.2.1](#321-post) |
-| https://connector.consumer.com/negotiations/:consumerPid/offers        | `POST` | Section [3.3.1](#331-post) |
-| https://connector.consumer.com/negotiations/:consumerPid/agreement     | `POST` | Section [3.4.1](#341-post) |
-| https://connector.consumer.com/negotiations/:consumerPid/events        | `POST` | Section [3.5.1](#351-post) |
-| https://connector.consumer.com/negotiations/:consumerPid/termination   | `POST` | Section [3.6.1](#361-post) |
+| https://consumer.com/negotiations/offers                     | `POST` | Section [3.2.1](#321-post) |
+| https://consumer.com/negotiations/:consumerPid/offers        | `POST` | Section [3.3.1](#331-post) |
+| https://consumer.com/negotiations/:consumerPid/agreement     | `POST` | Section [3.4.1](#341-post) |
+| https://consumer.com/negotiations/:consumerPid/events        | `POST` | Section [3.5.1](#351-post) |
+| https://consumer.com/negotiations/:consumerPid/termination   | `POST` | Section [3.6.1](#361-post) |
 
 
 ### 3.1 Prerequisites
 
-All callback paths are relative to the `callbackAddress` base URL specified in the [Contract Request Message](./contract.negotiation.protocol.md#21-contract-request-message) that initiated a CN. For example, if the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `negotiations/:consumerPid/offers`, the resolved URL will be `https://connector.consumer.com/callback/negotiations/:consumerPid/offers`.
+All callback paths are relative to the `callbackAddress` base URL specified in the [Contract Request Message](./contract.negotiation.protocol.md#21-contract-request-message) that initiated a CN. For example, if the `callbackAddress` is specified as `https://consumer.com/callback` and a callback path binding is `negotiations/:consumerPid/offers`, the resolved URL will be `https://consumer.com/callback/negotiations/:consumerPid/offers`.
 
 ### 3.2 The `negotiations/offers` Endpoint (consumer-side)
 
@@ -252,7 +252,7 @@ All callback paths are relative to the `callbackAddress` base URL specified in t
 A CN is started and placed in the `OFFERED` state when a [Provider](../model/terminology.md#provider) POSTs a [Contract Offer Message](./contract.negotiation.protocol.md#22-contract-offer-message) to `negotiations/offers`:
 
 ```http request
-POST https://connector.consumer.com/negotiations/offers
+POST https://consumer.com/negotiations/offers
 
 Authorization: ...
 
@@ -281,7 +281,7 @@ The [Consumer](../model/terminology.md#consumer) must return an HTTP 201 (Create
 ```json
 {
   "@context": "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:ContractNegotiation"
+  "@type": "dspace:ContractNegotiation",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:state" :"OFFERED"
@@ -297,7 +297,7 @@ The [Consumer](../model/terminology.md#consumer) must return an HTTP 201 (Create
 A [Provider](../model/terminology.md#provider) may make an [Offer](../model/terminology.md#offer) by POSTing a [Contract Offer Message](./contract.negotiation.protocol.md#22-contract-offer-message) to the `negotiations/:consumerPid/offers` callback:
 
 ```http request
-POST https://connector.consumer.com/negotiations/:consumerPid/offers
+POST https://consumer.com/:callback/negotiations/:consumerPid/offers
 
 Authorization: ...
 
@@ -329,7 +329,7 @@ If the message is successfully processed, the [Consumer](../model/terminology.md
 The [Provider](../model/terminology.md#provider) can POST a [Contract Agreement Message](./contract.negotiation.protocol.md#23-contract-agreement-message) to the `negotiations/:consumerPid/agreement` callback to create an [Agreement](../model/terminology.md#agreement). 
 
 ```http request
-POST https://connector.consumer.com/negotiations/:consumerPid/agreement
+POST https://consumer.com/:callback/negotiations/:consumerPid/agreement
 
 Authorization: ...
 
@@ -362,7 +362,7 @@ If the CN's state is successfully transitioned, the [Consumer](../model/terminol
 A [Provider](../model/terminology.md#provider) can POST a [Contract Negotiation Event Message](./contract.negotiation.protocol.md#25-contract-negotiation-event-message) to the `negotiations/:consumerPid/events` callback with an `eventType` of `FINALIZED` to finalize an [Agreement](../model/terminology.md#agreement).
 
 ```http request
-POST https://connector.consumer.com/negotiations/:consumerPid/events
+POST https://consumer.com/:callback/negotiations/:consumerPid/events
 
 Authorization: ...
 
@@ -386,7 +386,7 @@ If the CN's state is successfully transitioned, the [Consumer](../model/terminol
 The [Provider](../model/terminology.md#provider) can POST a [Contract Negotiation Termination Message](./contract.negotiation.protocol.md#26-contract-negotiation-termination-message) to terminate a CN.
 
 ```http request
-POST https://connector.consumer.com/negotiations/:consumerPid/termination
+POST https://consumer.com/negotiations/:consumerPid/termination
 
 Authorization: ...
 
