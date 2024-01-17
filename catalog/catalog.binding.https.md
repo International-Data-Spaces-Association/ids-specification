@@ -12,7 +12,7 @@ This specification defines a RESTful API over HTTPS for the [Catalog Protocol](.
 
 ### 1.2 Catalog Error
 
-In the event of a request error, the [Catalog Service](../model/terminology.md#catalog-service) must return an appropriate HTTP code and a [Catalog Error](./catalog.protocol.md#43-error---catalog-error) in the response body.
+In the event of a request error, the [Catalog Service](../model/terminology.md#catalog-service) must return an appropriate HTTP code and a [Catalog Error](./catalog.protocol.md#33-error---catalog-error) in the response body.
 
 ### 1.3 Authorization
 
@@ -31,7 +31,7 @@ A [Catalog Service](../model/terminology.md#catalog-service) may require authori
 
 ##### Request
 
-The [Catalog Request Message](./catalog.protocol.md#31-catalog-request-message) corresponds to `POST https://<base>/catalog/request`:
+The [Catalog Request Message](./catalog.protocol.md#21-catalog-request-message) corresponds to `POST https://<base>/catalog/request`:
 
 ```http request
 POST https://provider.com/catalog/request
@@ -51,7 +51,7 @@ Authorization: ...
 
 ##### Response
 
-If the request is successful, the [Catalog Service](../model/terminology.md#catalog-service) must return an HTTP 200 (OK) with a response body containing a [Catalog](./catalog.protocol.md#41-ack---catalog) (which is a profiled [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) type described by the [Catalog Protocol](catalog.protocol.md)).
+If the request is successful, the [Catalog Service](../model/terminology.md#catalog-service) must return an HTTP 200 (OK) with a response body containing a [Catalog](./catalog.protocol.md#31-ack---catalog) (which is a profiled [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) type described by the [Catalog Protocol](catalog.protocol.md)).
 
 ### 2.2 The `catalog/datasets/:id` Endpoint (Provider-side)
 
@@ -59,7 +59,7 @@ If the request is successful, the [Catalog Service](../model/terminology.md#cata
 
 ##### Request
 
-The [Dataset Request Message](./catalog.protocol.md#32-dataset-request-message) corresponds to `GET https://<base>/catalog/datasets/:id}`:
+The [Dataset Request Message](./catalog.protocol.md#22-dataset-request-message) corresponds to `GET https://<base>/catalog/datasets/:id}`:
 
 ```http request
 GET https://provider.com/catalog/datasets/{id}
@@ -77,7 +77,7 @@ Authorization: ...
 
 ##### Response
 
-If the request is successful, the [Catalog Service](../model/terminology.md#catalog-service) must return an HTTP 200 (OK) with a response body containing a [Dataset](./message/example/dataset.json) (which is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) type described by the [Catalog Protocol](catalog.protocol.md)).
+If the request is successful, the [Catalog Service](../model/terminology.md#catalog-service) must return an HTTP 200 (OK) with a response body containing a [Dataset](./catalog.protocol.md#32-ack---dataset) (which is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) type described by the [Catalog Protocol](catalog.protocol.md)).
 
 ## 3 Technical Considerations
 
@@ -87,7 +87,7 @@ If the request is successful, the [Catalog Service](../model/terminology.md#cata
 
 ### 3.2 Pagination
 
-A [Catalog Service](../model/terminology.md#catalog-service) may paginate the results of a [Catalog Request Message](./catalog.protocol.md#31-catalog-request-message). Pagination data is specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988) and the HTTP `Link` header. The `Link` header will contain URLs for navigating to previous and subsequent results. The following request sequence demonstrates pagination:
+A [Catalog Service](../model/terminology.md#catalog-service) may paginate the results of a [Catalog Request Message](./catalog.protocol.md#21-catalog-request-message). Pagination data is specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988) and the HTTP `Link` header. The `Link` header will contain URLs for navigating to previous and subsequent results. The following request sequence demonstrates pagination:
 
 ```http request
 Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
@@ -124,7 +124,7 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
 
 ### 3.3 Compression
 
-[Catalog Services](../model/terminology.md#catalog-service) MAY compress responses to a [Catalog Request](./catalog.protocol.md#31-catalog-request-message) by setting the `Content-Encoding` header to `gzip` as described in the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gzip-coding).
+[Catalog Services](../model/terminology.md#catalog-service) MAY compress responses to a [Catalog Request](./catalog.protocol.md#21-catalog-request-message) by setting the `Content-Encoding` header to `gzip` as described in the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gzip-coding).
 
 ## 4 The Well-Known Proof Metadata Endpoint
 
