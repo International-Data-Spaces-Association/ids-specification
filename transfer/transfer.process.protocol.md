@@ -161,3 +161,10 @@ The Transfer Process is an object returned by a [Consumer](../model/terminology.
 | **Diagram(s)**  | ![](./message/diagram/transfer-error.png)                                                                         |
 
 The Transfer Error is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating an error has occurred. It does not cause a state transition.
+
+| Field         | Type          | Description                                                            |
+|---------------|---------------|------------------------------------------------------------------------|
+| `consumerPid` | UUID          | The TF unique id on [Consumer](../model/terminology.md#consumer) side. |
+| `providerPid` | UUID          | The TF unique id on [Provider](../model/terminology.md#provider) side. |
+| `code`        | string        | An optional implementation-specific error code.                        |
+| `reasons`     | Array[object] | An optional array of implementation-specific error objects.            |

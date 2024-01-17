@@ -1,55 +1,65 @@
 # Transfer Process HTTPS Binding
 
-## 1 Introduction
-
 This specification defines a RESTful API over HTTPS for the [Transfer Process Protocol](./transfer.process.protocol.md).
 
-## 2 Provider Path Bindings
+## 1 Introduction
 
-### 2.1 Prerequisites
+### 1.1 Prerequisites
 
-1. The `<base>` notation indicates the base URL for a [Connector](../model/terminology.md#connector--data-service-) endpoint. For example, if the scheme is `https` and the full hostname is `connector.example.com`, the
-   URL `<base>/transfers/request` will map to `https://connector.example.com/transfers/request`.
+1. The `<base>` notation indicates the base URL for a [Connector](../model/terminology.md#connector--data-service-) endpoint. For example, if the scheme is `https` and the full hostname is `connector.example.com`, the URL `<base>/transfers/request` will map to `https://connector.example.com/transfers/request`.
 
 2. All request and response messages must use the `application/json` media type. Derived media types, e.g., `application/ld+json` may be exposed in addition.
 
-### 2.2 TransferError
+### 1.2 Transfer Error
 
-In the event of a client request error, the [Connector](../model/terminology.md#connector--data-service-) must return an appropriate HTTP 4xx client error code. If an error body is returned it must be
-a [TransferError](./message/example/transfer-error.json) with the following properties:
+In the event of a client request error, the [Connector](../model/terminology.md#connector--data-service-) must return an appropriate HTTP 4xx client error code. If an error body is returned it must be a [Transfer Error](./transfer.process.protocol.md#32-error---transfer-error).
 
-| Field       | Type          | Description                                                 |
-|-------------|---------------|-------------------------------------------------------------|
-| consumerPid | UUID          | The [Transfer Process](../model/terminology.md#transfer-process) unique id on [Consumer](../model/terminology.md#consumer) side.            |
-| providerPid | UUID          | The [Transfer Process](../model/terminology.md#transfer-process) unique id on [Provider](../model/terminology.md#provider) side.            |
-| code        | string        | An optional implementation-specific error code.             |
-| reasons     | Array[object] | An optional array of implementation-specific error objects. |
+#### 1.2.1 State Transition Errors
 
-### 2.2.1 State transition errors
+If a client or [Provider](../model/terminology.md#provider) makes a request that results in an invalid [Transfer Process](../model/terminology.md#transfer-process) (TP) state transition as defined by the Transfer Process Protocol, it must return an HTTP code 400 (Bad Request) with a [Transfer Error](./transfer.process.protocol.md#32-error---transfer-error) in the response body.
 
-If a client or [Provider](../model/terminology.md#provider) makes a request that results in an invalid [Transfer Process](../model/terminology.md#transfer-process) state transition as defined by the Transfer Process Protocol, it must return
-an HTTP code 400 (Bad Request) with an `TransferError` in the response body.
+#### 1.2.2 Object Not Found
 
-### 2.3 Authorization
+If the TP does not exist, the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
 
-All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP
-header is optional if the [Connector](../model/terminology.md#connector--data-service-) does not require authorization.
+#### 1.2.3 Unauthorized Access
 
-### 2.4 The `transfers` Endpoint (provider-side)
+If the client is not authorized, the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
 
-#### 2.4.1 GET
+### 1.3 Authorization
 
-```
-GET https://connector.provider.com/transfers/:providerPid
+All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP header is optional if the [Connector](../model/terminology.md#connector--data-service-) does not require authorization.
+
+## 2 Provider Path Bindings
+
+| Endpoint                                                | Method | Description                |
+|:--------------------------------------------------------|:-------|:---------------------------|
+| https://provider.com/transfers/:providerPid             | `GET`  | Section [2.1.1](#211-get)  |
+| https://provider.com/transfers/request                  | `POST` | Section [2.2.1](#221-post) |
+| https://provider.com/transfers/:providerPid/start       | `POST` | Section [2.3.1](#231-post) |
+| https://provider.com/transfers/:providerPid/completion  | `POST` | Section [2.4.1](#241-post) |
+| https://provider.com/transfers/:providerPid/termination | `POST` | Section [2.5.1](#251-post) |
+| https://provider.com/transfers/:providerPid/suspension  | `POST` | Section [2.6.1](#261-post) |
+
+### 2.1 The `transfers` Endpoint _(Provider-side)_
+
+#### 2.1.1 GET
+
+##### Request
+
+A CN can be accessed by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) sending a GET request to `transfers/:providerPid`:
+
+```http request
+GET https://provider.com/transfers/:providerPid
 
 Authorization: ...
-
 ```
 
-If the [Transfer Process](./transfer.process.protocol.md#ack---transferprocess) is found and the client is authorized, the [Provider](../model/terminology.md#provider) must return an HTTP 200 (OK) response and a body containing
-the [TransferProcess](./message/example/transfer-process.json):
+##### Response
 
-```
+If the TP is found and the client is authorized, the [Provider](../model/terminology.md#provider) must return an HTTP 200 (OK) response and a body containing the [Transfer Process](./transfer.process.protocol.md#31-ack---transfer-process):
+
+```json
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:TransferProcess",
@@ -61,19 +71,18 @@ the [TransferProcess](./message/example/transfer-process.json):
 
 Predefined states are: `REQUESTED`, `STARTED`, `SUSPENDED`, `REQUESTED`, `COMPLETED`, and `TERMINATED`.
 
-If the [Transfer Process](./transfer.process.protocol.md#ack---transferprocess) does not exist or the client is not authorized, the [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
+### 2.2 The `transfers/request` Endpoint _(Provider-side)_
 
-### 2.5 The `transfers/request` Endpoint (provider-side)
+#### 2.2.1 POST
 
-#### 2.5.1 POST
+##### Request
 
-A [Transfer Process](../model/terminology.md#transfer-process) is started and placed in the `REQUESTED` state when a [Consumer](../model/terminology.md#consumer) POSTs a [TransferRequestMessage](./transfer.process.protocol.md#1-transferrequestmessage)
-to `transfers/request`:
+A TP is started and placed in the `REQUESTED` state when a [Consumer](../model/terminology.md#consumer) POSTs a [Transfer Request Message](./transfer.process.protocol.md#21-transfer-request-message) to `transfers/request`:
 
- ```
- POST https://connector.provider.com/transfers/request
+ ```http request
+POST https://provider.com/transfers/request
  
- Authorization: ...
+Authorization: ...
  
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
@@ -97,16 +106,15 @@ to `transfers/request`:
 }
  ```
 
-The `callbackAddress` property specifies the base endpoint `URL` where the client receives messages associated with the [Transfer Process](../model/terminology.md#transfer-process). Support for the `HTTPS` scheme is
-required. Implementations may optionally support other URL schemes.
+- The `callbackAddress` property specifies the base endpoint `URL` where the client receives messages associated with the TP. Support for the `HTTPS` scheme is required. Implementations may optionally support other URL schemes.
 
-Callback messages will be sent to paths under the base URL as described by this specification. Note that[Providers](../model/terminology.md#provider)) should properly handle the cases where a trailing `/`
-is included with or absent from the `callbackAddress` when resolving full URL.
+- Callback messages will be sent to paths under the base URL as described by this specification. Note that [Providers](../model/terminology.md#provider) should properly handle the cases where a trailing `/` is included with or absent from the `callbackAddress` when resolving full URL.
 
-The [Provider](../model/terminology.md#provider) must return an HTTP 201 (Created) response with a body containing
-the [TransferProcess](./message/example/transfer-process.json) message:
+##### Response
 
- ``` 
+The [Provider](../model/terminology.md#provider) must return an HTTP 201 (Created) response with a body containing the [Transfer Process](./transfer.process.protocol.md#31-ack---transfer-process):
+
+```json
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:TransferProcess",
@@ -114,69 +122,257 @@ the [TransferProcess](./message/example/transfer-process.json) message:
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:state": "dspace:REQUESTED"
 }
+```
 
+### 2.3 The `transfers/:providerPid/start` Endpoint _(Provider-side)_
+
+#### 2.3.1 POST
+
+##### Request
+
+The [Consumer](../model/terminology.md#consumer) can POST a [Transfer Start Message](./transfer.process.protocol.md#22-transfer-start-message) to attempt to start a TP after it has been suspended:
+
+ ```http request
+POST https://provider.com/transfers/:providerPid/start
+ 
+Authorization: ...
+ 
+{
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:TransferStartMessage",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "dspace:dataAddress": {
+    "@type": "dspace:DataAddress",
+    "dspace:endpointType": "https://w3id.org/idsa/v4.1/HTTP",
+    "dspace:endpoint": "http://example.com",
+    "dspace:endpointProperties": [
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "Authorization",
+        "dspace:value": "Bearer TOKEN-ABCDEFG"
+      }
+    ]
+  }
+}
  ```
 
-### 2.6 The `transfers/:providerPid/start` Endpoint (provider-side)
+##### Response
+
+If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+
+### 2.4 The `transfers/:providerPid/completion` Endpoint _(Provider-side)_
+
+#### 2.4.1 POST
+
+##### Request
+
+The [Consumer](../model/terminology.md#consumer) can POST a [Transfer Completion Message](./transfer.process.protocol.md#24-transfer-completion-message) to complete a TP:
+
+ ```http request
+POST https://provider.com/transfers/:providerPid/completion
+ 
+Authorization: ...
+ 
+{
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:TransferCompletionMessage",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
+}
+ ```
+
+##### Response
+
+If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+
+### 2.5 The `transfers/:providerPid/termination` Endpoint _(Provider-side)_
+
+#### 2.5.1 POST
+
+##### Request
+
+The [Consumer](../model/terminology.md#consumer) can POST a [Transfer Termination Message](./transfer.process.protocol.md#25-transfer-termination-message) to terminate a TP:
+
+ ```http request
+POST https://provider.com/transfers/:providerPid/termination
+ 
+Authorization: ...
+ 
+{
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:TransferTerminationMessage",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "dspace:code": "...",
+  "dspace:reason": [
+    ...
+  ]
+}
+ ```
+
+##### Response
+
+If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+
+### 2.6 The `transfers/:providerPid/suspension` Endpoint _(Provider-side)_
 
 #### 2.6.1 POST
 
-The [Consumer](../model/terminology.md#consumer) can POST a [TransferStartMessage](./message/example/transfer-start-message.json) to attempt to start a [Transfer Process](../model/terminology.md#transfer-process) after it has been suspended. If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+##### Request
 
-### 2.7 The `transfers/:providerPid/completion` Endpoint (provider-side)
+The [Consumer](../model/terminology.md#consumer) can POST a [Transfer Suspension Message](./transfer.process.protocol.md#23-transfer-suspension-message) to suspend a TP:
 
-#### 2.7.1 POST
+ ```http request
+POST https://provider.com/transfers/:providerPid/suspension
+ 
+Authorization: ...
+ 
+{
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:TransferSuspensionMessage",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "dspace:code": "...",
+  "dspace:reason": [
+    ...
+  ]
+}
+ ```
 
-The [Consumer](../model/terminology.md#consumer) can POST a [TransferCompletionMessage](./message/example/transfer-completion-message.json) to complete a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+##### Response
 
-### 2.8 The `transfers/:providerPid/termination` Endpoint (provider-side)
-
-#### 2.8.1 POST
-
-The [Consumer](../model/terminology.md#consumer) can POST a [TransferTerminationMessage](./message/example/transfer-termination-message.json) to terminate a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
-
-### 2.9 The `transfers/:providerPid/suspension` Endpoint  (provider-side)
-
-#### 2.9.1 POST
-
-The [Consumer](../model/terminology.md#consumer) can POST a [TransferSuspensionMessage](./message/example/transfer-suspension-message.json) to suspend a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ## 3 Consumer Callback Path Bindings
 
+| Endpoint                                                          | Method | Description                |
+|:------------------------------------------------------------------|:-------|:---------------------------|
+| https://consumer.com/:callback/transfers/:consumerPid/start       | `POST` | Section [3.2.1](#321-post) |
+| https://consumer.com/:callback/transfers/:consumerPid/completion  | `POST` | Section [3.3.1](#331-post) |
+| https://consumer.com/:callback/transfers/:consumerPid/termination | `POST` | Section [3.4.1](#341-post) |
+| https://consumer.com/:callback/transfers/:consumerPid/suspension  | `POST` | Section [3.5.1](#351-post) |
+
 ### 3.1 Prerequisites
 
-All callback paths are relative to the `callbackAddress` base URL specified in the `TransferRequestMessage` that initiated a [Transfer Process](../model/terminology.md#transfer-process). For example, if
-the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `transfers/:consumerPid/start`, the resolved URL will
-be `https://connector.consumer.com/callback/transfers/:consumerPid/start`.
+All callback paths are relative to the `callbackAddress` base URL specified in the [Transfer Request Message](./transfer.process.protocol.md#21-transfer-request-message) that initiated a TP. For example, if the `callbackAddress` is specified as `https://consumer.com/callback` and a callback path binding is `transfers/:consumerPid/start`, the resolved URL will be `https://consumer.com/callback/transfers/:consumerPid/start`.
 
-### 3.2 The `transfers/:consumerPid/start` Endpoint  (consumer-side)
+### 3.2 The `transfers/:consumerPid/start` Endpoint _(Consumer-side)_
 
 #### 3.2.1 POST
 
-The [Provider](../model/terminology.md#provider) can POST a [TransferStartMessage](./message/example/transfer-start-message.json) to indicate the start of a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+##### Request
 
-### 3.3 The `transfers/:consumerPid/completion` Endpoint (consumer-side)
+The [Provider](../model/terminology.md#provider) can POST a [Transfer Start Message](./transfer.process.protocol.md#22-transfer-start-message) to indicate the start of a TP:
+
+ ```http request
+POST https://consumer.com/:callback/transfers/:consumerPid/start
+ 
+Authorization: ...
+ 
+{
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:TransferStartMessage",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "dspace:dataAddress": {
+    "@type": "dspace:DataAddress",
+    "dspace:endpointType": "https://w3id.org/idsa/v4.1/HTTP",
+    "dspace:endpoint": "http://example.com",
+    "dspace:endpointProperties": [
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "Authorization",
+        "dspace:value": "Bearer TOKEN-ABCDEFG"
+      }
+    ]
+  }
+}
+ ```
+
+##### Response
+
+If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+
+### 3.3 The `transfers/:consumerPid/completion` Endpoint _(Consumer-side)_
 
 #### 3.3.1 POST
 
-The [Provider](../model/terminology.md#provider) can POST a [TransferCompletionMessage](./message/example/transfer-completion-message.json) to complete a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+##### Request
 
-### 3.4 The `transfers/:consumerPid/termination` Endpoint (consumer-side)
+The [Provider](../model/terminology.md#provider) can POST a [Transfer Completion Message](./transfer.process.protocol.md#24-transfer-completion-message) to complete a TP:
+
+ ```http request
+POST https://consumer.com/:callback/transfers/:consumerPid/completion
+ 
+Authorization: ...
+ 
+{
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:TransferCompletionMessage",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
+}
+ ```
+
+##### Response
+
+If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+
+### 3.4 The `transfers/:consumerPid/termination` Endpoint _(Consumer-side)_
 
 #### 3.4.1 POST
 
-The [Provider](../model/terminology.md#provider) can POST a [TransferTerminationMessage](./message/example/transfer-termination-message.json) to terminate a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+##### Request
 
-### 3.5 The `transfers/:consumerPid/suspension` Endpoint (consumer-side)
+The [Provider](../model/terminology.md#provider) can POST a [Transfer Termination Message](./transfer.process.protocol.md#25-transfer-termination-message) to terminate a TP:
+
+ ```http request
+POST https://consumer.com/:callback/transfers/:consumerPid/termination
+ 
+Authorization: ...
+ 
+{
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:TransferTerminationMessage",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "dspace:code": "...",
+  "dspace:reason": [
+    ...
+  ]
+}
+ ```
+
+##### Response
+
+If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+
+### 3.5 The `transfers/:consumerPid/suspension` Endpoint _(Consumer-side)_
 
 #### 3.5.1 POST
 
-The [Provider](../model/terminology.md#provider) can POST a [TransferSuspensionMessage](./message/example/transfer-suspension-message.json) to suspend a [Transfer Process](../model/terminology.md#transfer-process). If the [Transfer
-Process's](transfer.process.protocol.md#ack---transferprocess) state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 
+##### Request
+
+The [Provider](../model/terminology.md#provider) can POST a [Transfer Suspension Message](./transfer.process.protocol.md#23-transfer-suspension-message) to suspend a TP:
+
+ ```http request
+POST https://consumer.com/:callback/transfers/:consumerPid/suspension
+ 
+Authorization: ...
+ 
+{
+  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@type": "dspace:TransferSuspensionMessage",
+  "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+  "dspace:code": "...",
+  "dspace:reason": [
+    ...
+  ]
+}
+ ```
+
+##### Response
+
+If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 
