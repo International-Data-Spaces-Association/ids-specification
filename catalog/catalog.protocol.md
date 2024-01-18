@@ -199,4 +199,5 @@ a single [Catalog Service](../model/terminology.md#catalog-service). The broker 
 
 The [Catalog](../model/terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following restrictions:
 
-1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must contain only one root `target` attribute. Policy constraints may not contain `target` attributes. 
+1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context.
+2. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must NOT include an explicit `target` attribute. 
