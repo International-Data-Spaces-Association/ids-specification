@@ -81,6 +81,8 @@ The `ContractRequestMessage` is sent by a consumer to initiate a [Contract Negot
 - `callbackAddress` is a URL indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
   UNRECOVERABLE error.
 
+- Different to a [Catalog](../catalog/catalog.protocol.md#221-odrlhaspolicy) or [Dataset](../catalog/catalog.protocol.md#311-odrlhaspolicy), the Offer inside a ContractRequestMessage must have an `odrl:target` attribute. However, it's contained Rules must not have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
+
 
 ### 2. ContractOfferMessage
 
@@ -102,8 +104,10 @@ The `ContractOfferMessage` is sent by a provider to initiate a [Contract Negotia
 
 ### Notes
 
-If the message includes a `consumerPid` property, the request will be associated with an existing [Contract Negotiation](../model/terminology.md#contract-negotiation). If the message does not include a `consumerPid`, a new [Contract Negotiation](../model/terminology.md#contract-negotiation)
+- If the message includes a `consumerPid` property, the request will be associated with an existing [Contract Negotiation](../model/terminology.md#contract-negotiation). If the message does not include a `consumerPid`, a new [Contract Negotiation](../model/terminology.md#contract-negotiation)
 will be created on consumer side and the consumer selects an appropriate `consumerPid`.
+
+- Different to a [Catalog](../catalog/catalog.protocol.md#221-odrlhaspolicy) or [Dataset](../catalog/catalog.protocol.md#311-odrlhaspolicy), the Offer inside a ContractOfferMessage must have an `odrl:target` attribute. However, it's contained Rules must not have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
 
 #### Notes
 
@@ -137,6 +141,9 @@ An [Agreement](../model/terminology.md#agreement) must contain a `dspace:consume
 properties are a [Dataspace](../model/terminology.md#dataspace)-specific unique identifier of the [Agreement](../model/terminology.md#agreement) parties. Note that these
 identifiers are not necessarily the same as the identifiers of the [Participant Agents](../model/terminology.md#participant-agent) negotiating the
 contract (i.e. the [Connectors](../model/terminology.md#connector--data-service-)).
+
+
+An [Agreement](../model/terminology.md#agreement) must contain a `odrl:target` property. None of its Rules, however, must have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
 
 ### 4. ContractAgreementVerificationMessage
 

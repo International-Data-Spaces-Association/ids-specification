@@ -27,7 +27,7 @@
 					"type": "string"
 				},
 				"odrl:offer": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
+					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/MessageOffer"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"
