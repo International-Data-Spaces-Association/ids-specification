@@ -60,8 +60,8 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#31-datas
 
 #### 2.2.1 odrl:hasPolicy
 
-A [Catalog](../model/terminology.md#catalog) may have `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any
-explicit `target` attributes. The `target` of an [Offer](../model/terminology.md#offer) is the associated [Catalog](../model/terminology.md#catalog). This is in line with the semantics of `hasPolicy` as defined in the [ODRL Information Model](https://www.w3.org/TR/odrl-model/#policy-has), explaining that the subject (here the Dataset) is automatically the `target` of each Rule. To prevent conflicts, the `target` attribute must not be set explicitely, for example, in the Offer or Rules. 
+A [Catalog](../model/terminology.md#catalog) may have `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Catalog](../model/terminology.md#catalog). Offers must NOT contain any
+explicit `target` attributes. The `target` of an [Offer](../model/terminology.md#offer) is the associated [Catalog](../model/terminology.md#catalog). This is in line with the semantics of `hasPolicy` as defined in the [ODRL Information Model](https://www.w3.org/TR/odrl-model/#policy-has), explaining that the subject (here the Catalog) is automatically the `target` of each Rule. To prevent conflicts, the `target` attribute must not be set explicitely, for example, in the Offer or Rules. 
 
 ### 2.3 CatalogError
 
