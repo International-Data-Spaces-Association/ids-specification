@@ -29,20 +29,7 @@ This document outlines the [Catalog Protocol](../model/terminology.md#catalog-pr
 
 The Catalog Protocol defines how a [Catalog](../model/terminology.md#catalog) is requested from a [Catalog Service](../model/terminology.md#catalog-service) by a [Consumer](../model/terminology.md#consumer) using an abstract message exchange format. The concrete message exchange wire format is defined in the binding specifications.
 
-### 2.5 Dataset
-
-![](./message/diagram/dataset.png)
-
-**Sent by**: Provider
-
-**Example**: [Dataset](./message/dataset.json)
-
-
-**Response**: OK or ERROR
-
-**Schema**: [DatasetShape](./message/shape/dcat-shapes.ttl) and the [Dataset JSON Schema](./message/schema/dataset-schema.json)
-
-## 3 DCAT Vocabulary Mapping
+### 1.1 DCAT Vocabulary Mapping
 
 This section describes how the DSP Information Model maps to [DCAT](https://www.w3.org/TR/vocab-dcat-3/) resources.
 

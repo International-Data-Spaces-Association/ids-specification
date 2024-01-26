@@ -28,7 +28,6 @@ dspace_shapes:
 dspace_shapes:TransferErrorShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferError ;
-	rdfs:subClassOf dspace:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -62,9 +61,6 @@ dspace_shapes:TransferErrorShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:reason ;
-		sh:datatype rdf:langString ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:reason property must point to rdf:langString values."@en ;
 	] ;
 
 .
