@@ -66,8 +66,7 @@ A [Dataset](./terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/
 An [Offer](./terminology.md#offer) is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) with the following attributes:
 
 - An ODRL `uid` is represented as an "@id" that is a unique UUID. (ODRL PROFILE)
-- The [Offer](./terminology.md#offer) must be unique to a [Dataset](./terminology.md#dataset) since the target of the [Offer](./terminology.md#offer) is derived from its enclosing context.
-- The [Offer](./terminology.md#offer) must NOT include an explicit `target` attribute.
+- A `target` attribute that is the dataset id. Except if the Offer is used in an enclosing Catalog or Dataset, then the there must not be any `target` attribute set.
 
 ## 2.2.4 Agreement
 

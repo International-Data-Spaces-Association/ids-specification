@@ -81,7 +81,6 @@ Authorization: ...
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractRequest"
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
-  "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:callbackAddress": "https://..."
 }
@@ -197,7 +196,6 @@ Authorization: ...
   "@context": "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractOfferMessage"
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "dspace:offer": {
     "@type": "odrl:Offer",
     "@id": "...",
