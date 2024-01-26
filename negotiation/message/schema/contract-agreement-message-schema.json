@@ -26,14 +26,14 @@
 				"dspace:consumerPid": {
 					"type": "string"
 				},
-				"dspace:agreement": {
+				"cred:credentialSubject": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"
 				}
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:agreement", "dspace:callbackAddress"]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "cred:credentialSubject", "sec:proof", "dspace:callbackAddress"]
 		}
 	}
 }

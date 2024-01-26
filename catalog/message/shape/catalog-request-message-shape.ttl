@@ -28,9 +28,12 @@ dspace_shapes:
 dspace_shapes:CatalogRequestMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:CatalogRequestMessage ;
+	rdfs:subClassOf dspace_shapes:CatalogShape ;
 	
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:filter ;
+		sh:datatype xsd:string ;
 	] ;
+	
 .

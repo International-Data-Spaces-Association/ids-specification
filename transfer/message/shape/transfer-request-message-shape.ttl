@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,18 +25,20 @@ shapes:
 	] ;
 .
 
-shapes:TransferRequestMessageShape
+dspace_shapes:TransferRequestMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferRequestMessage ;
+	rdfs:subClassOf dspace_shapes:MessageShape ;
+
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:agreementId ;
-		sh:datatype xsd:anyURI ;
+		sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:agreementId property must point exactly one xsd:anyURI field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:agreementId property must point exactly one referenced Resource field."@en ;
 	] ;
 
 	sh:property [
@@ -46,7 +48,7 @@ shapes:TransferRequestMessageShape
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): A dct:format property must point exactly one entity."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): A dct:format property must point exactly one xsd:string field."@en ;
 	] ;
 
 	sh:property [
@@ -66,7 +68,7 @@ shapes:TransferRequestMessageShape
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:callbackAddress property must point exactly one xsd:anyURI field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-request-message-shape.ttl> (TransferRequestMessageShape): An dspace:callbackAddress property must point exactly one xsd:string field."@en ;
 	] ;
 
 	sh:property [
