@@ -9,7 +9,7 @@
       "@language": "en"
     }
   ],
-  "dct:publisher": "urn:DataProviderA",
+  "dct:publisher": "urn:example:DataProviderA",
   "dcat:keyword": [
     "traffic",
     "government"
