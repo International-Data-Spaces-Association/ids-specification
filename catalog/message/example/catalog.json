@@ -11,14 +11,8 @@
   ],
   "dct:publisher": "urn:DataProviderA",
   "dcat:keyword": [
-    { 
-      "@value": "traffic",
-      "@language": "en"
-    },
-    { 
-      "@value": "government",
-      "@language": "en"
-    }
+    "traffic",
+    "government"
   ],
   "dcat:service": [
     {
