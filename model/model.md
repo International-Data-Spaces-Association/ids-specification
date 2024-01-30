@@ -12,7 +12,7 @@ The relationships between the primary [Dataspace](./terminology.md#dataspace) en
 
 Note that all relationships are multiplicities unless specified.
 
-- A [Dataspace Authority](./terminology.md#dataspace-authority) manages one or more [Dataspaces](./terminology.md#dataspace). This will include [Participant](./terminology.md#participant) registration and may entail mandating business and/or requirements. For example, a [Dataspace Authority](./terminology.md#dataspace-authority) may require [Participants](./terminology.md#participant) to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the technical enforcement of specific usage policies.
+- A [Dataspace Authority](./terminology.md#dataspace-authority) manages one or more [Dataspaces](./terminology.md#dataspace). This will include [Participant](./terminology.md#participant) registration and may entail mandating business and/or technical requirements. For example, a [Dataspace Authority](./terminology.md#dataspace-authority) may require [Participants](./terminology.md#participant) to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the technical enforcement of specific usage policies.
 - A [Participant](./terminology.md#participant) is a member of one or more [Dataspaces](./terminology.md#dataspace). A [Participant](./terminology.md#participant) registers [Participant Agents](./terminology.md#participant-agent) that perform tasks on its behalf.
 - A [Participant Agent](./terminology.md#participant-agent) performs tasks such as publishing a [Catalog](./terminology.md#catalog) or engaging in a [Transfer Process](./terminology.md#transfer-process). In order to accomplish these tasks, a [Participant Agent](./terminology.md#participant-agent) may use a _**verifiable presentation**_ generated from a _**credential**_ obtained from a third-party [Credential Issuer](./terminology.md#credential-issuer). A [Participant Agent](./terminology.md#participant-agent) may also use an _**ID token**_ issued by a third-party [Identity Provider](./terminology.md#identity-provider). Note that a [Participant Agent](./terminology.md#participant-agent) is a logical construct and does not necessarily correspond to a single runtime process.
 - An [Identity Provider](./terminology.md#identity-provider) is a trust anchor that generates `ID tokens` used to verify the identity of a [Participant Agent](./terminology.md#participant-agent). Multiple identity providers may operate in a [Dataspace](./terminology.md#dataspace). The types and semantics of ID tokens are not part of this specification. An [Identity Provider](./terminology.md#identity-provider) may be a third-party or a [Participant](./terminology.md#participant) itself (for example, in the case of decentralized identifiers).
@@ -53,7 +53,7 @@ A [Dataset](./terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/
 
 An [Offer](./terminology.md#offer) is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) with the following attributes:
 
-- An ODRL `uid` is represented as an "@id" that is a unique UUID. (ODRL PROFILE)
+- An ODRL `uid` is represented as an "@id" that is a unique identifier. (ODRL PROFILE)
 - The [Offer](./terminology.md#offer) must be unique to a [Dataset](./terminology.md#dataset) since the target of the [Offer](./terminology.md#offer) is derived from its enclosing context.
 - The [Offer](./terminology.md#offer) must NOT include an explicit `target` attribute.
 
@@ -61,4 +61,4 @@ An [Offer](./terminology.md#offer) is an [ODRL Offer](https://www.w3.org/TR/odrl
 
 An [Agreement](./terminology.md#agreement) is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) with the following attributes:
 
-- The [Agreement](./terminology.md#agreement) class must include one `target` attribute that is the UUID of the [Dataset](./terminology.md#dataset) the [Agreement](./terminology.md#agreement) is associated with. An [Agreement](./terminology.md#agreement) is therefore associated with **EXACTLY ONE** [Dataset](./terminology.md#dataset). (ODRL PROFILE)
+- The [Agreement](./terminology.md#agreement) class must include one `target` attribute that is the identifier of the [Dataset](./terminology.md#dataset) the [Agreement](./terminology.md#agreement) is associated with. An [Agreement](./terminology.md#agreement) is therefore associated with **EXACTLY ONE** [Dataset](./terminology.md#dataset). (ODRL PROFILE)
