@@ -2,28 +2,29 @@
 
 This document outlines the [Catalog Protocol](../model/terminology.md#catalog-protocol). The used terms are described [here](../model/terminology.md).
 
-* [1 Introduction](#1-introduction)
-  * [1.1 DCAT Vocabulary Mapping](#11-dcat-vocabulary-mapping)
-    * [1.1.1 Dataset](#111-dataset)
-      * [odrl:hasPolicy](#odrl--haspolicy)
-    * [1.1.2 Distributions](#112-distributions)
-    * [1.1.3 Data Service](#113-data-service)
-      * [dspace:dataServiceType](#dspace--dataservicetype)
-      * [dcat:servesDataset](#dcat--servesdataset)
-  * [1.2 DCAT and ODRL Profiles](#12-dcat-and-odrl-profiles)
-* [2 Message Types](#2-message-types)
-  * [2.1 Catalog Request Message](#21-catalog-request-message)
-  * [2.2 Dataset Request Message](#22-dataset-request-message)
-* [3 Response Types](#3-response-types)
-  * [3.1 ACK - Catalog](#31-ack---catalog)
-  * [3.2 ACK - Dataset](#32-ack---dataset)
-  * [3.3 ERROR - Catalog Error](#33-error---catalog-error)
-* [4 Technical Considerations](#4-technical-considerations)
-  * [4.1 Queries and Filter Expressions](#41-queries-and-filter-expressions)
-  * [4.2 Replication Protocol](#42-replication-protocol)
-  * [4.3 Security](#43-security)
-    * [4.3.1 The Proof Metadata Endpoint](#431-the-proof-metadata-endpoint)
-  * [4.4 Catalog Brokers](#44-catalog-brokers)
+- [Catalog Protocol](#catalog-protocol)
+  - [1 Introduction](#1-introduction)
+    - [1.1 DCAT Vocabulary Mapping](#11-dcat-vocabulary-mapping)
+      - [1.1.1 Dataset](#111-dataset)
+        - [odrl:hasPolicy](#odrlhaspolicy)
+      - [1.1.2 Distributions](#112-distributions)
+      - [1.1.3 Data Service](#113-data-service)
+        - [dspace:dataServiceType](#dspacedataservicetype)
+        - [dcat:servesDataset](#dcatservesdataset)
+    - [1.2 DCAT and ODRL Profiles](#12-dcat-and-odrl-profiles)
+  - [2 Message Types](#2-message-types)
+    - [2.1 Catalog Request Message](#21-catalog-request-message)
+    - [2.2 Dataset Request Message](#22-dataset-request-message)
+  - [3 Response Types](#3-response-types)
+    - [3.1 ACK - Catalog](#31-ack---catalog)
+    - [3.2 ACK - Dataset](#32-ack---dataset)
+    - [3.3 ERROR - Catalog Error](#33-error---catalog-error)
+  - [4 Technical Considerations](#4-technical-considerations)
+    - [4.1 Queries and Filter Expressions](#41-queries-and-filter-expressions)
+    - [4.2 Replication Protocol](#42-replication-protocol)
+    - [4.3 Security](#43-security)
+      - [4.3.1 The Proof Metadata Endpoint](#431-the-proof-metadata-endpoint)
+    - [4.4 Catalog Brokers](#44-catalog-brokers)
 
 ## 1 Introduction
 
@@ -129,8 +130,8 @@ The `ACK` and `ERROR` response types are mapped onto a protocol such as HTTPS. A
 |-----------------|---------------------------------------------------------------------------------------------------|
 | **Sent by**     | [Provider](../model/terminology.md#provider)                                                      |
 | **Schema**      | [TTL Shape](./message/shape/dcat-shapes.ttl), [JSON Schema](./message/schema/catalog-schema.json) |
-| **Example**     | [Catalog](./catalog/message/example/dataset.json)                                                 |
-| **Diagram(s)**  | ![](./message/diagram/dataset.png)                                                                |
+| **Example**     | [Catalog Example](./message/example/catalog.json)                                                 |
+| **Diagram(s)**  | ![](./message/diagram/catalog.png)                                                                |
 
 The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#111-dataset) which the requester shall see.
 
@@ -140,8 +141,8 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#111-data
 |-----------------|---------------------------------------------------------------------------------------------------|
 | **Sent by**     | [Provider](../model/terminology.md#provider)                                                      |
 | **Schema**      | [TTL Shape](./message/shape/dcat-shapes.ttl), [JSON Schema](./message/schema/dataset-schema.json) |
-| **Example**     | [Dataset](./message/example/catalog.json)                                                         |
-| **Diagram(s)**  | ![](./message/diagram/catalog.png)                                                                |
+| **Example**     | [Dataset Example](./message/example/dataset.json)                                                         |
+| **Diagram(s)**  | ![](./message/diagram/dataset.png)                                                                |
 
 ### 3.3 ERROR - Catalog Error
 
