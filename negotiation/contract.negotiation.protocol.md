@@ -2,19 +2,20 @@
 
 This document outlines the key elements of the [Contract Negotiation Protocol](../model/terminology.md#contract-negotiation-protocol). The used terms are described [here](../model/terminology.md).
 
-* [1 Introduction](#1-introduction)
-  * [1.1 States](#11-states)
-  * [1.2 State Machine](#12-state-machine)
-* [2 Message Types](#2-message-types)
-  * [2.1 Contract Request Message](#21-contract-request-message)
-  * [2.2 Contract Offer Message](#22-contract-offer-message)
-  * [2.3 Contract Agreement Message](#23-contract-agreement-message)
-  * [2.4 Contract Agreement Verification Message](#24-contract-agreement-verification-message)
-  * [2.5 Contract Negotiation Event Message](#25-contract-negotiation-event-message)
-  * [2.6 Contract Negotiation Termination Message](#26-contract-negotiation-termination-message)
-* [3 Response Types](#3-response-types)
-  * [3.1 ACK - Contract Negotiation](#31-ack---contract-negotiation)
-  * [3.2 ERROR - Contract Negotiation Error](#32-error---contract-negotiation-error)
+- [Contract Negotiation Protocol](#contract-negotiation-protocol)
+  - [1 Introduction](#1-introduction)
+    - [1.1 States](#11-states)
+    - [1.2 State Machine](#12-state-machine)
+  - [2 Message Types](#2-message-types)
+    - [2.1 Contract Request Message](#21-contract-request-message)
+    - [2.2 Contract Offer Message](#22-contract-offer-message)
+    - [2.3 Contract Agreement Message](#23-contract-agreement-message)
+    - [2.4 Contract Agreement Verification Message](#24-contract-agreement-verification-message)
+    - [2.5 Contract Negotiation Event Message](#25-contract-negotiation-event-message)
+    - [2.6 Contract Negotiation Termination Message](#26-contract-negotiation-termination-message)
+  - [3 Response Types](#3-response-types)
+    - [3.1 ACK - Contract Negotiation](#31-ack---contract-negotiation)
+    - [3.2 ERROR - Contract Negotiation Error](#32-error---contract-negotiation-error)
 
 ## 1 Introduction
 
@@ -45,7 +46,7 @@ Transitions marked with `C` indicate a message sent by the [Consumer](../model/t
 The CN state machine is transitioned upon receipt and acknowledgement of a message. This section details those messages as abstract message types.
 
 - Concrete wire formats are defined by the protocol binding, e.g., [Contract Negotiation HTTPS Binding](contract.negotiation.binding.https.md)..
-- All [Policy](../model/terminology.md#policy) types ([Offer](../model/terminology.md#offer), [Agreement](../model/terminology.md#agreement)) must contain a unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the pattern <urn:uuid:{GUID}>.
+- All [Policy](../model/terminology.md#policy) types ([Offer](../model/terminology.md#offer), [Agreement](../model/terminology.md#agreement)) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the pattern <urn:uuid:{GUID}>.
 - An [ODRL Agreement](https://www.w3.org/TR/odrl-vocab/#term-Agreement) must have a target property containing the [Dataset](../model/terminology.md#dataset) id.
 
 ### 2.1 Contract Request Message
@@ -63,6 +64,8 @@ The Contract Request Message is sent by a [Consumer](../model/terminology.md#con
 - The [Consumer](../model/terminology.md#consumer) must include an `offer` property, which itself must have a `@id` property. If the message includes a `providerPid` property, the request will be associated with an existing CN and a [Consumer](../model/terminology.md#consumer) [Offer](../model/terminology.md#offer) will be created using either the `offer` or `offer.@id` properties. If the message does not include a `providerPid`, a new CN will be created on [Provider](../model/terminology.md#provider) side using either the `offer` or `offer.@id` properties and the [Provider](../model/terminology.md#provider) selects an appropriate `providerPid`.
 - An `offer.@id` will generally refer to an [Offer](../model/terminology.md#offer) contained in a [Catalog](../model/terminology.md#catalog). If the [Provider](../model/terminology.md#provider) is not aware of the `offer.@id` value, it must respond with an error message.
 - The `callbackAddress` is a URL indicating where messages to the [Consumer](../model/terminology.md#consumer) should be sent in asynchronous settings. If the address is not understood, the [Provider](../model/terminology.md#provider) MUST return an UNRECOVERABLE error.
+- Different to a [Catalog](../catalog/catalog.protocol.md#221-odrlhaspolicy) or [Dataset](../catalog/catalog.protocol.md#311-odrlhaspolicy), the Offer inside a ContractRequestMessage must have an `odrl:target` attribute. However, it's contained Rules must not have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
+
 
 ### 2.2 Contract Offer Message
 
@@ -72,12 +75,14 @@ The Contract Request Message is sent by a [Consumer](../model/terminology.md#con
 | **Resulting state** | `OFFERED`, `TERMINATED`                                                                                                               |
 | **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                              |
 | **Schema**          | [TTL Shape](./message/shape/contract-offer-message-shape.ttl), [JSON Schema](./message/schema/contract-offer-message-schema.json)     |
-| **Example**         | Initiating [Message](./message/example/contract-offer-message_initial.json), [Message](./message/example/contract-offer-message.json) |
+| **Example**         | [Example Initial Message](./message/example/contract-offer-message_initial.json), [Example Message](./message/example/contract-offer-message.json) |
 | **Diagram(s)**      | ![](./message/diagram/contract-offer-message_initial.png) ![](./message/diagram/contract-offer-message.png)                           |
 
 The Contract Offer Message is sent by a [Provider](../model/terminology.md#provider) to initiate a CN or to respond to a [Contract Request Message](#21-contract-request-message) sent by a [Consumer](../model/terminology.md#consumer).
 - If the message includes a `consumerPid` property, the request will be associated with an existing CN. If the message does not include a `consumerPid`, a new CN will be created on [Consumer](../model/terminology.md#consumer) side and the [Consumer](../model/terminology.md#consumer) selects an appropriate `consumerPid`.
 - The [Dataset](../model/terminology.md#dataset) id is not required but can be included when the [Provider](../model/terminology.md#provider) initiates a CN.
+- Different to a [Dataset](../model/terminology.md#dataset) (see [DCAT Vocabulry Mapping](../catalog/catalog.protocol.md#11-dcat-vocabulary-mapping)), the Offer inside a ContractOfferMessage must have an `odrl:target` attribute. However, it's contained Rules must not have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
+
 
 ### 2.3 Contract Agreement Message
 
@@ -95,6 +100,8 @@ The Contract Agreement Message is sent by a [Provider](../model/terminology.md#p
 - The message must contain an [ODRL Agreement](https://www.w3.org/TR/odrl-vocab/#term-Agreement).
 - An [Agreement](../model/terminology.md#agreement) must contain a `timestamp` property defined as an [XSD DateTime](https://www.w3schools.com/XML/schema_dtypes_date.asp) type.
 - An [Agreement](../model/terminology.md#agreement) must contain a `consumerId` and `providerId`. The contents of these properties are a dataspace-specific unique identifier of the [Agreement](../model/terminology.md#agreement) parties. Note that these identifiers are not necessarily the same as the identifiers of the [Participant Agents](../model/terminology.md#participant-agent) negotiating the contract (e.g., [Connectors](../model/terminology.md#connector--data-service-)).
+- An [Agreement](../model/terminology.md#agreement) must contain a `odrl:target` property. None of its Rules, however, must have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
+
 
 ### 2.4 Contract Agreement Verification Message
 

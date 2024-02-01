@@ -45,8 +45,7 @@
                     }
                 }
             ],
-            "required": [ "@context", "@type" ],
-            "additionalProperties": false
+            "required": [ "@context", "@type" ]
         }
     }
 }

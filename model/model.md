@@ -55,7 +55,8 @@ An [Offer](./terminology.md#offer) is an [ODRL Offer](https://www.w3.org/TR/odrl
 
 - An ODRL `uid` is represented as an "@id" that is a unique identifier. (ODRL PROFILE)
 - The [Offer](./terminology.md#offer) must be unique to a [Dataset](./terminology.md#dataset) since the target of the [Offer](./terminology.md#offer) is derived from its enclosing context.
-- The [Offer](./terminology.md#offer) must NOT include an explicit `target` attribute.
+- The value of the `target` attribute is the dataset id. Except if the Offer is used in an enclosing Catalog or Dataset, then the there must not be any `target` attribute set.
+
 
 ## 2.2.4 Agreement
 

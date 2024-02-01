@@ -38,9 +38,11 @@ This section describes how the DSP Information Model maps to [DCAT](https://www.
 
 A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
+
 ##### odrl:hasPolicy
 
-A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL Offer](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Dataset](../model/terminology.md#dataset). Offers must NOT contain any target attributes. The target of an [Offer](../model/terminology.md#offer) is the associated [Dataset](../model/terminology.md#dataset).
+A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Catalog](../model/terminology.md#catalog). Offers must NOT contain any
+explicit `target` attributes. The `target` of an [Offer](../model/terminology.md#offer) is the associated [Dataset](../model/terminology.md#dataset). This is in line with the semantics of `hasPolicy` as defined in the [ODRL Information Model](https://www.w3.org/TR/odrl-model/#policy-has), explaining that the subject (here the Dataset) is automatically the `target` of each Rule. To prevent conflicts, the `target` attribute must not be set explicitely, for example, in the Offer or Rules. 
 
 #### 1.1.2 Distributions
 
@@ -80,7 +82,8 @@ Note that the property `dcat:servesDataset` should be omitted from the `DataServ
 
 The [Catalog](../model/terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following restrictions:
 
-1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context. 2. Each [ODRL Offer](https://www.w3.org/TR/odrl-vocab/#term-Offer) must NOT include an explicit `target` attribute.
+1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context. 
+1. Each [ODRL Offer](https://www.w3.org/TR/odrl-vocab/#term-Offer) linked from a [Catalog](../model/terminology.md#catalog) must NOT include an explicit `target` attribute.
 
 ## 2 Message Types
 

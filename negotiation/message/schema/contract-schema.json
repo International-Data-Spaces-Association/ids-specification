@@ -12,6 +12,9 @@
         "Policy": {
             "oneOf": [
                 {
+                    "$ref": "#/definitions/MessageOffer"
+                },
+                {
                     "$ref": "#/definitions/Offer"
                 },
                 {
@@ -65,9 +68,10 @@
                 "dspace:consumerId": {
                     "type": "string"
                 }
-            }
+            },
+            "not": { "required": [ "odrl:target" ] }
         },
-        "Offer": {
+        "MessageOffer": {
             "type": "object",
             "allOf": [
                 {
@@ -98,6 +102,15 @@
             ],
             "required": [ "@type", "dspace:providerId" ]
         },
+        "#/definitions/Offer": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/MessageOffer"
+                }
+            ],
+            "not": { "required": [ "odrl:target" ] }
+        },
         "Agreement": {
             "type": "object",
             "allOf": [
@@ -109,6 +122,12 @@
                         "@type": {
                             "type": "string",
                             "const": "odrl:Agreement"
+                        },
+                        "@id": {
+                            "type": "string"
+                        },
+                        "odrl:target": {
+                            "type": "string"
                         },
                         "dspace:timestamp": {
                             "type": "string",
@@ -133,6 +152,8 @@
             ],
             "required": [
                 "@type",
+                "@id",
+                "@target",
                 "dspace:providerId",
                 "dspace:consumerId", 
                 "dspace:timestamp"
