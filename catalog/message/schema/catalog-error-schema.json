@@ -24,20 +24,7 @@
 					"type": "string"
 				},
 				"dspace:reason": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"@value": {
-								"type": "string"
-							},
-							"@language": {
-								"type": "string"
-							}
-						},
-						"required": ["@value", "@language"]
-					},
-					"minItems": 1
+					"type": "array"
 				}
 			},
 			"required": [ "@context", "@type" ]

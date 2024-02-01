@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,7 +25,7 @@ shapes:
 	] ;
 .
 
-shapes:TransferTerminationMessageShape
+dspace_shapes:TransferTerminationMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferTerminationMessage ;
 

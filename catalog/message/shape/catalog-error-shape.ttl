@@ -33,6 +33,8 @@ dspace_shapes:CatalogErrorShape
 		sh:datatype xsd:string ;
 	] ;
 	sh:property [
-        sh:path dspace:reason ;
-        sh:datatype rdf:langString ;
-    ] .
+		sh:path dspace:reason ;
+		sh:datatype rdf:langString ;
+	] ;
+
+.

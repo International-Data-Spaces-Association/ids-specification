@@ -36,6 +36,7 @@
     "dspace:catalog": { "@container": "@set" },
     "dspace:filter": { "@container": "@set" },
     "dspace:timestamp": { "@type": "xsd:dateTime" },
+    "dspace:callbackAddress": { "@type": "xsd:anyURI" },
 
     "foaf:homepage": { "@type": "xsd:anyURI" },
 
