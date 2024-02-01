@@ -28,7 +28,6 @@ shapes:
 shapes:TransferErrorShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferError ;
-	rdfs:subClassOf dspace:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
