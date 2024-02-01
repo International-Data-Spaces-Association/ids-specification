@@ -51,10 +51,10 @@ dspace_shapes:DatasetShape
     sh:property [
         a sh:PropertyShape ;
         sh:path dct:description ;
-        sh:datatype xsd:string ;
+        sh:datatype rdf:langString ;
         sh:minCount 0;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dct:description property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dct:description property must point to a rdf:langString field."@en ;
     ] ;
 
     sh:property [

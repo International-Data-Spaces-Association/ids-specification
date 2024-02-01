@@ -28,24 +28,13 @@ dspace_shapes:
 dspace_shapes:CatalogErrorShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:CatalogError ;
-	rdfs:subClassOf dspace_shapes:CatalogShape ;
-
 	sh:property [
-		a sh:PropertyShape ;
 		sh:path dspace:code ;
 		sh:datatype xsd:string ;
-		sh:maxCount 1 ;
-		sh:minCount 1 ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-error-shape.ttl> (CatalogErrorShape): An dspace:code property must point to exactly one xsd:string value."@en ;
 	] ;
 	sh:property [
-		a sh:PropertyShape ;
-        sh:path dspace:reason ;
+		sh:path dspace:reason ;
         sh:datatype rdf:langString ;
-		sh:minCount 1;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-error-shape.ttl> (CatalogErrorShape): An dspace:reason property must point zero or more rdf:langString values."@en ;
 	] ;
 
 .

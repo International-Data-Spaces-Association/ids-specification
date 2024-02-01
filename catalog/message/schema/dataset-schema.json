@@ -138,8 +138,7 @@
                             },
                             "minItems": 1
                         }
-                    },
-                    "required": [ "@context", "@type" ]
+                    }
                 }
             ]
         },
@@ -150,9 +149,7 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "@id"
-            ]
+            "required": [ "@id" ]
         },
         "Multilanguage": {
             "type": "object",
@@ -164,10 +161,7 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "@value",
-                "@language"
-            ]
+            "required": [ "@value", "@language" ]
         }
     }
 }
