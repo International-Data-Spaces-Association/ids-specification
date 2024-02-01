@@ -62,7 +62,7 @@ This specification defines a RESTful API over HTTPS for the [Contract Negotiatio
 
 ### 1.1 Prerequisites
 
-1. The `<base>` notation indicates the base URL for a [Connector](../model/terminology.md#connector--data-service-) endpoint. For example, if the base [Connector](../model/terminology.md#connector--data-service-) URL is `connector.example.com`, the URL `https://<base>/negotiation/request` will map to `https//connector.example.com/negotiation/request`.
+1. The `<base>` notation indicates the base URL for a [Connector](../model/terminology.md#connector--data-service-) endpoint. For example, if the base [Connector](../model/terminology.md#connector--data-service-) URL is `connector.example.com`, the URL `https://<base>/negotiations/request` will map to `https//connector.example.com/negotiation/request`.
 
 2. All request and response messages must use the `application/json` media type. Derived media types, e.g., `application/ld+json` may be exposed in addition.
 
