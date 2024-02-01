@@ -299,6 +299,7 @@ If the CN's state is successfully transitioned, the [Provider](../model/terminol
 | https://consumer.com/:callback/negotiations/:consumerPid/events      | `POST` | Section [3.5.1](#351-post) |
 | https://consumer.com/:callback/negotiations/:consumerPid/termination | `POST` | Section [3.6.1](#361-post) |
 
+**_Note:_** The `:callback` can be chosen freely by the implementations.
 
 ### 3.1 Prerequisites
 
