@@ -64,19 +64,19 @@ The Contract Request Message is sent by a [Consumer](../model/terminology.md#con
 - The [Consumer](../model/terminology.md#consumer) must include an `offer` property, which itself must have a `@id` property. If the message includes a `providerPid` property, the request will be associated with an existing CN and a [Consumer](../model/terminology.md#consumer) [Offer](../model/terminology.md#offer) will be created using either the `offer` or `offer.@id` properties. If the message does not include a `providerPid`, a new CN will be created on [Provider](../model/terminology.md#provider) side using either the `offer` or `offer.@id` properties and the [Provider](../model/terminology.md#provider) selects an appropriate `providerPid`.
 - An `offer.@id` will generally refer to an [Offer](../model/terminology.md#offer) contained in a [Catalog](../model/terminology.md#catalog). If the [Provider](../model/terminology.md#provider) is not aware of the `offer.@id` value, it must respond with an error message.
 - The `callbackAddress` is a URL indicating where messages to the [Consumer](../model/terminology.md#consumer) should be sent in asynchronous settings. If the address is not understood, the [Provider](../model/terminology.md#provider) MUST return an UNRECOVERABLE error.
-- Different to a [Catalog](../catalog/catalog.protocol.md#221-odrlhaspolicy) or [Dataset](../catalog/catalog.protocol.md#311-odrlhaspolicy), the Offer inside a ContractRequestMessage must have an `odrl:target` attribute. However, it's contained Rules must not have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
+- Different to a [Catalog](../model/terminology.md#catalog) or [Dataset](../model/terminology.md#dataset), the [Offer](../model/terminology.md#offer) inside a [Contract Request Message](#21-contract-request-message) must have an `odrl:target` attribute. However, it's contained Rules must not have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
 
 
 ### 2.2 Contract Offer Message
 
-|                     |                                                                                                                                       |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **Sent by**         | [Provider](../model/terminology.md#provider)                                                                                          |
-| **Resulting state** | `OFFERED`, `TERMINATED`                                                                                                               |
-| **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                              |
-| **Schema**          | [TTL Shape](./message/shape/contract-offer-message-shape.ttl), [JSON Schema](./message/schema/contract-offer-message-schema.json)     |
+|                     |                                                                                                                                                    |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Sent by**         | [Provider](../model/terminology.md#provider)                                                                                                       |
+| **Resulting state** | `OFFERED`, `TERMINATED`                                                                                                                            |
+| **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                                           |
+| **Schema**          | [TTL Shape](./message/shape/contract-offer-message-shape.ttl), [JSON Schema](./message/schema/contract-offer-message-schema.json)                  |
 | **Example**         | [Example Initial Message](./message/example/contract-offer-message_initial.json), [Example Message](./message/example/contract-offer-message.json) |
-| **Diagram(s)**      | ![](./message/diagram/contract-offer-message_initial.png) ![](./message/diagram/contract-offer-message.png)                           |
+| **Diagram(s)**      | ![](./message/diagram/contract-offer-message_initial.png) ![](./message/diagram/contract-offer-message.png)                                        |
 
 The Contract Offer Message is sent by a [Provider](../model/terminology.md#provider) to initiate a CN or to respond to a [Contract Request Message](#21-contract-request-message) sent by a [Consumer](../model/terminology.md#consumer).
 - If the message includes a `consumerPid` property, the request will be associated with an existing CN. If the message does not include a `consumerPid`, a new CN will be created on [Consumer](../model/terminology.md#consumer) side and the [Consumer](../model/terminology.md#consumer) selects an appropriate `consumerPid`.

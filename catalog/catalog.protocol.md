@@ -38,7 +38,6 @@ This section describes how the DSP Information Model maps to [DCAT](https://www.
 
 A [Dataset](../model/terminology.md#dataset) is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
-
 ##### odrl:hasPolicy
 
 A [Dataset](../model/terminology.md#dataset) must have 1..N `hasPolicy` attributes that contain an [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) defining the [Usage Policy](../model/terminology.md#policy) associated with the [Catalog](../model/terminology.md#catalog). Offers must NOT contain any
@@ -62,7 +61,7 @@ If the Data Service refers to an endpoint that supports the Dataspace Protocol, 
 
 | Category   | Description                                                                |
 |------------|----------------------------------------------------------------------------|
-| Definition | Specifies the service type                                             |
+| Definition | Specifies the service type                                                 |
 | Domain     | [dcat:DataService](https://www.w3.org/TR/vocab-dcat-2/#Class:Data_Service) |
 | Type       | xsd:string                                                                 |
 | Note       | The value of this field is left intentionally open for future extension.   |
@@ -83,7 +82,7 @@ Note that the property `dcat:servesDataset` should be omitted from the `DataServ
 The [Catalog](../model/terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following restrictions:
 
 1. Each [ODRL `Offer`](https://www.w3.org/TR/odrl-vocab/#term-Offer) must be unique to a [Dataset](../model/terminology.md#dataset) since the target of the [Offer](../model/terminology.md#offer) is derived from its enclosing context. 
-1. Each [ODRL Offer](https://www.w3.org/TR/odrl-vocab/#term-Offer) linked from a [Catalog](../model/terminology.md#catalog) must NOT include an explicit `target` attribute.
+2. Each [ODRL Offer](https://www.w3.org/TR/odrl-vocab/#term-Offer) linked from a [Catalog](../model/terminology.md#catalog) must NOT include an explicit `target` attribute.
 
 ## 2 Message Types
 
@@ -144,7 +143,7 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#111-data
 |-----------------|---------------------------------------------------------------------------------------------------|
 | **Sent by**     | [Provider](../model/terminology.md#provider)                                                      |
 | **Schema**      | [TTL Shape](./message/shape/dcat-shapes.ttl), [JSON Schema](./message/schema/dataset-schema.json) |
-| **Example**     | [Dataset Example](./message/example/dataset.json)                                                         |
+| **Example**     | [Dataset Example](./message/example/dataset.json)                                                 |
 | **Diagram(s)**  | ![](./message/diagram/dataset.png)                                                                |
 
 ### 3.3 ERROR - Catalog Error
@@ -158,8 +157,8 @@ The [Catalog](../model/terminology.md#catalog) contains all [Datasets](#111-data
 
 A Catalog Error is used when an error occurred after a [Catalog Request Message](#21-catalog-request-message) or a [Dataset Request Message](#22-dataset-request-message) and the [Provider](../model/terminology.md#provider) cannot provide its [Catalog](../model/terminology.md#catalog) to the requester.
 
-| Field   | Type          | Description                                                  |
-|---------|---------------|--------------------------------------------------------------|
+| Field     | Type          | Description                                                 |
+|-----------|---------------|-------------------------------------------------------------|
 | `code`    | String        | An optional implementation-specific error code.             |
 | `reasons` | Array[object] | An optional array of implementation-specific error objects. |
 
