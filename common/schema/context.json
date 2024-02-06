@@ -30,8 +30,6 @@
     "dspace:dataset": { "@type": "@id" },
     "dspace:transportType": { "@type": "@id" },
     "dspace:state": { "@type": "@id" },
-    "dspace:providerId": { "@type": "@id" },
-    "dspace:consumerId": { "@type": "@id" },
     "dspace:reason": { "@container": "@set" },
     "dspace:catalog": { "@container": "@set" },
     "dspace:filter": { "@container": "@set" },
@@ -50,6 +48,8 @@
     "odrl:leftOperand": { "@type": "@id" },
     "odrl:operator": { "@type": "@id" },
     "odrl:rightOperandReference": { "@type": "@id" },
-    "odrl:profile": { "@type": "@id" }
+    "odrl:profile": { "@type": "@id" },
+    "odrl:assigner": { "@type": "@id" },
+    "odrl:assignee": { "@type": "@id" }
   }
 }
