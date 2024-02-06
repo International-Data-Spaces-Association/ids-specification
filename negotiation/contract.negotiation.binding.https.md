@@ -194,7 +194,7 @@ Authorization: ...
 
 ##### Response
 
-If the CN's state is successfully transitioned, the provider must return an HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the CN's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return an HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 If the current [Offer](../model/terminology.md#offer) was created by the [Consumer](../model/terminology.md#consumer), the [Provider](../model/terminology.md#provider) must return an HTTP code 400 (Bad Request) with a [Contract Negotiation Error](./contract.negotiation.protocol.md#32-error---contract-negotiation-error) in the response body.
 

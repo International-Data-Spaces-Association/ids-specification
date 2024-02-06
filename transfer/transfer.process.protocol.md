@@ -139,7 +139,7 @@ The Transfer Suspension Message is sent by the [Provider](../model/terminology.m
 | **Example**         | [Message](./message/example/transfer-completion-message.json)                                                                               |
 | **Diagram(s)**      | ![](./message/diagram/transfer-completion-message.png)                                                                                      |
 
-The Transfer Completion Message is sent by the [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) when a data transfer has completed. Note that some connector implementations may optimize completion notification by performing it as part of their wire protocol. In those cases, a Transfer Completion Message does not need to be sent.
+The Transfer Completion Message is sent by the [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) when a data transfer has completed. Note that some [Connector](../model/terminology.md#connector--data-service-) implementations may optimize completion notification by performing it as part of their wire protocol. In those cases, a Transfer Completion Message does not need to be sent.
 
 ### 2.5 Transfer Termination Message
 

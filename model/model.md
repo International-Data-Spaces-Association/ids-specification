@@ -32,7 +32,7 @@ The diagram below depicts the relationships between [Participant Agent](./termin
 Not all [Dataspace](./terminology.md#dataspace) entities have a concrete _technical_ materialization; some entities may exist as purely logical constructs. For example, a [Dataspace Authority](./terminology.md#dataspace-authority) and a [Participant Agent](./terminology.md#participant-agent) have no representation in the protocol message flows that constitute [Dataspace](./terminology.md#dataspace) interactions. This section outlines the classes that comprise the concrete elements of the model, i.e., those that are represented in protocol message flows.
 
 **_Note 1:_**
-The classes and definitions used in the Dataspace Protocol are reused from different standards and specifications as much as possible, in particular, [DCAT](https://www.w3.org/TR/vocab-dcat-3) and [ODRL](https://www.w3.org/TR/odrl/). As, however, the external definitions allow different interpretations or provide more attributes than required, the dataspace protocol is leveraging _profiles_ of the original definitions rather than the complete original expressiveness. A _profile_ in this sense is a restriction or subset of an external definition, enforcing that every occurrence of an externally defined class is always conformant with the original definition. However, not every standard-compliant class might be compliant to the dataspace profile.
+The classes and definitions used in the Dataspace Protocol are reused from different standards and specifications as much as possible, in particular, [DCAT](https://www.w3.org/TR/vocab-dcat-3) and [ODRL](https://www.w3.org/TR/odrl/). As, however, the external definitions allow different interpretations or provide more attributes than required, the Dataspace Protocol is leveraging _profiles_ of the original definitions rather than the complete original expressiveness. A _profile_ in this sense is a restriction or subset of an external definition, enforcing that every occurrence of an externally defined class is always conformant with the original definition. However, not every standard-compliant class might be compliant to the dataspace profile.
 
 ### 2.2.1 Catalog
 
@@ -55,7 +55,7 @@ An [Offer](./terminology.md#offer) is an [ODRL Offer](https://www.w3.org/TR/odrl
 
 - An ODRL `uid` is represented as an "@id" that is a unique identifier. (ODRL PROFILE)
 - The [Offer](./terminology.md#offer) must be unique to a [Dataset](./terminology.md#dataset) since the target of the [Offer](./terminology.md#offer) is derived from its enclosing context.
-- The value of the `target` attribute is the dataset id. Except if the Offer is used in an enclosing Catalog or Dataset, then the there must not be any `target` attribute set.
+- The value of the `target` attribute is the dataset id. Except if the [Offer][Catalog](./terminology.md#offer) is used in an enclosing [Catalog](./terminology.md#catalog) or [Dataset](./terminology.md#dataset), then the there must not be any `target` attribute set.
 
 
 ## 2.2.4 Agreement
