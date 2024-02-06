@@ -33,4 +33,5 @@ dspace_shapes:CatalogRequestMessageShape
 		a sh:PropertyShape ;
 		sh:path dspace:filter ;
 	] ;
+	
 .

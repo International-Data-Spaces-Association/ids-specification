@@ -11,7 +11,6 @@ class "dspace:ContractRequestMessage" {
     @type : dspace:ContractRequestMessage
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:offer : odrl:Offer
     dspace:callbackAddress : String
 }
 
@@ -19,6 +18,7 @@ class odrl:Offer {
     @type : odrl:Offer,
     @id: String
     odrl:target : xsd:anyURI
+    ...
 }
 
 "dspace:ContractRequestMessage" "1" *-- "1" "odrl:Offer" : "dspace:offer"

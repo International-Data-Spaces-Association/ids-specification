@@ -11,7 +11,7 @@ class "dspace:ContractNegotiationTerminationMessage" {
     @type : "dspace:ContractNegotiationTerminationMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:code : Object
+    dspace:code : String
     dspace:reason : Array
 }
 

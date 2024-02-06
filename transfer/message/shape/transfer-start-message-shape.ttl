@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,10 +25,9 @@ shapes:
 	] ;
 .
 
-shapes:TransferStartMessageShape
+dspace_shapes:TransferStartMessageShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferStartMessage ;
-	rdfs:subClassOf dspace:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -55,9 +54,9 @@ shapes:TransferStartMessageShape
 		sh:path dspace:dataAddress ;
 		sh:class dspace:DataAddress ;
 		sh:maxCount 1 ;
-		sh:minCount 1 ;
+		sh:minCount 0 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:dataAddress property must point from an dspace:TransferStartMessage to exactly one dspace:DataAddress field."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-start-message-shape.ttl> (TransferStartMessageShape): An dspace:dataAddress property must point from an dspace:TransferStartMessage to a dspace:DataAddress object."@en ;
 	] ;
 
 .

@@ -4,9 +4,12 @@
   "@type": "dcat:Catalog",
   "dct:title": "Data Provider A Catalog",
   "dct:description": [
-    "A catalog of data items"
+    { 
+      "@value": "A catalog of data items",
+      "@language": "en"
+    }
   ],
-  "dct:publisher": "Data Provider A",
+  "dct:publisher": "urn:example:DataProviderA",
   "dcat:keyword": [
     "traffic",
     "government"
@@ -57,7 +60,13 @@
       "dcat:distribution": {
         "@type": "dcat:Distribution",
         "dct:format": "dspace:s3+push",
-        "dcat:accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
+        "dcat:accessService": [
+          {
+            "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
+            "@type": "dcat:DataService",
+            "dcat:endpointURL": "https://provder-a.com/connector"
+          }
+        ]
       }
     }
   ]

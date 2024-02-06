@@ -13,7 +13,7 @@
 
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-shapes:
+dspace_shapes:
 	a owl:Ontology ;
 	sh:declare [
 		sh:prefix "rdf" ;
@@ -25,10 +25,9 @@ shapes:
 	] ;
 .
 
-shapes:TransferErrorShape
+dspace_shapes:TransferErrorShape
 	a sh:NodeShape ;
 	sh:targetClass dspace:TransferError ;
-	rdfs:subClassOf dspace:MessageShape ;
 
 	sh:property [
 		a sh:PropertyShape ;
@@ -56,15 +55,12 @@ shapes:TransferErrorShape
 		sh:datatype xsd:string ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:code property must point from an dspace:TransferError to exactly one dspace:TerminationCode."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:code property must point to exactly one xsd:string field."@en ;
 	] ;
 
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:reason ;
-		sh:datatype rdf:langString ;
-		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/transfer-error-shape.ttl> (TransferErrorShape): An dspace:reason property must point to rdf:langString values."@en ;
 	] ;
 
 .

@@ -11,7 +11,6 @@ class "dspace:ContractNegotiationEventMessage" {
     @type : "dspace:ContractNegotiationEventMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:eventType : dspace:NegotiationEvent
 }
 
 enum dspace:NegotiationEvent {

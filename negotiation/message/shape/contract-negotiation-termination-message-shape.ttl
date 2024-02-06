@@ -52,6 +52,8 @@ dspace_shapes:ContractNegotiationTerminationMessageShape
 		a sh:PropertyShape ;
         sh:path dspace:code ;
         sh:datatype xsd:string ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-negotiation-termination-message-shape.ttl> (ContractNegotiationTerminationMessageShape): An dspace:code property must point to an xsd:string value."@en ;
 	] ;
 	sh:property [
 		a sh:PropertyShape ;

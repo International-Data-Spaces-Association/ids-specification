@@ -11,7 +11,6 @@ class "dspace:ContractAgreementVerificationMessage" {
     @type : "dspace:ContractAgreementVerificationMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:hashedMessage : HashedMessage
 }
 
 class HashedMessage {

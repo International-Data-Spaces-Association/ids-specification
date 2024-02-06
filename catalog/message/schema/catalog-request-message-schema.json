@@ -23,7 +23,6 @@
 				"dspace:filter": {
 					"type": "array",
 					"items": {
-						"type": "string"
 					}
 				}
 			},
