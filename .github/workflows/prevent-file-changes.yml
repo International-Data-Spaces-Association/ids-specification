@@ -1,0 +1,18 @@
+name: Prevent Changes to Release Files
+
+on:
+  pull_request:
+    types: [ opened ]
+  pull_request_target:
+    types: [ opened ]
+
+jobs:
+  check:
+    runs-on: ubunut-latest
+    steps:
+      - name: Prevent file change
+        uses: xalvarez/prevent-file-change-action@v1
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          pattern: releases/.*
+          allowNewFiles: true
