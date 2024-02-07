@@ -162,6 +162,14 @@ dspace_shapes:CatalogShape
 		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (CatalogShape): A foaf:homepage property must point to a xsd:string field."@en ;
 	] ;
 
+    sh:property [
+		a sh:PropertyShape ;
+		sh:path odrl:hasPolicy ;
+        sh:maxCount 0 ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (CatalogShape): A dspace:Catalog must not have any odrl:hasPolicy property."@en ;
+	] ;
+
 .
 
 
