@@ -25,22 +25,9 @@
 				},
 				"dspace:consumerPid": {
 					"type": "string"
-				},
-				"dspace:hashedMessage": {
-					"type": "object",
-					"properties": {
-						"dspace:digest": {
-							"type": "string"
-						},
-						"dspace:algorithm": {
-							"type": "string"
-						}
-					},
-					"required": [ "dspace:digest", "dspace:algorithm"]
 				}
-
 			},
-			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid", "dspace:hashedMessage" ]
+			"required": [ "@context", "@type", "dspace:providerPid", "dspace:consumerPid" ]
 		}
 	}
 }
