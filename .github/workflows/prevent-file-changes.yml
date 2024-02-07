@@ -8,7 +8,7 @@ on:
 
 jobs:
   check:
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Prevent file change
         uses: xalvarez/prevent-file-change-action@v1
