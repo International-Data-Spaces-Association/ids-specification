@@ -34,6 +34,8 @@ Note that all relationships are multiplicities unless specified.
   of decentralized identifiers).
 - A `Credential Issuer` issues _verifiable credentials_ used by participant agents to allow access to assets and verify usage control.
 
+Further information on the context of the Dataspace Protocol can be found in the [IDSA Rulebook](https://docs.internationaldataspaces.org/idsa-rulebook).
+
 #### 2.1.2 Dataspace Protocol specific
 
 The Dataspace Protocol shall enable the interactions between the `ParticipantAgents` in a Dataspace.
