@@ -24,6 +24,7 @@ This specification defines a RESTful API over HTTPS for the [Contract Negotiatio
   - [3.5 The `negotiations/:consumerPid/events` Endpoint _(Consumer-side)_](#35-the-negotiationsconsumerpidevents-endpoint-consumer-side)
   - [3.6 The `negotiations/:consumerPid/termination` Endpoint _(Consumer-side)_](#36-the-negotiationsconsumerpidtermination-endpoint-consumer-side)
 
+
 ## 1 Introduction
 
 ### 1.1 Prerequisites
@@ -214,10 +215,7 @@ Authorization: ...
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
   "@type": "dspace:ContractAgreementVerificationMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
-  "dspace:hashedMessage": {
-      ...
-  }
+  "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
 }
 ```
 
