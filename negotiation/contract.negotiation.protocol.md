@@ -99,7 +99,7 @@ The Contract Agreement Message is sent by a [Provider](../model/terminology.md#p
 - The message must contain a `consumerPid` and a `providerPid`.
 - The message must contain an [ODRL Agreement](https://www.w3.org/TR/odrl-vocab/#term-Agreement).
 - An [Agreement](../model/terminology.md#agreement) must contain a `timestamp` property defined as an [XSD DateTime](https://www.w3schools.com/XML/schema_dtypes_date.asp) type.
-- An [Agreement](../model/terminology.md#agreement) must contain a `consumerId` and `providerId`. The contents of these properties are a dataspace-specific unique identifier of the [Agreement](../model/terminology.md#agreement) parties. Note that these identifiers are not necessarily the same as the identifiers of the [Participant Agents](../model/terminology.md#participant-agent) negotiating the contract (e.g., [Connectors](../model/terminology.md#connector--data-service-)).
+- An [Agreement](../model/terminology.md#agreement) must contain an `assigner` and `assignee`. The contents of these properties are a dataspace-specific unique identifier of the [Agreement](../model/terminology.md#agreement) parties. Note that these identifiers are not necessarily the same as the identifiers of the [Participant Agents](../model/terminology.md#participant-agent) negotiating the contract (e.g., [Connectors](../model/terminology.md#connector--data-service-)).
 - An [Agreement](../model/terminology.md#agreement) must contain a `odrl:target` property. None of its Rules, however, must have any `odrl:target` attributes to prevent inconsistencies with the [ODRL inferencing rules for compact policies](https://www.w3.org/TR/odrl-model/#composition-compact).
 
 
