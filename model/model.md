@@ -12,7 +12,7 @@ the [IDSA Rulebook](https://docs.internationaldataspaces.org/idsa-rulebook).
 #### 2.1.1 Context of the Dataspace Protocol
 
 In a broader context, the Dataspace Protocol enables the interaction between participants of
-a Dataspace. This may require addiotonal concepts, which are not in scope of this specification.
+a Dataspace. This may require additional concepts, which are not in the scope of this specification.
 The definitions below are therefore informative and not-normative.
 The relationships between the primary [Dataspace](./terminology.md#dataspace) entities are defined as follows:
 
