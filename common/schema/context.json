@@ -17,12 +17,14 @@
     "dct:modified": { "@type": "xsd:dateTime" },
 
     "dcat:byteSize": { "@type": "xsd:decimal" },
+    "dcat:distribution": { "@container": "@set" },
     "dcat:theme": { "@type": "@id" },
     "dcat:conformsTo": { "@type": "@id" },
     "dcat:dataset": { "@container": "@set" },
     "dcat:endpointURL": { "@type": "xsd:anyURI" },
     "dcat:endpointDescription": { "@type": "xsd:anyURI" },
     "dcat:keyword": { "@container": "@set" },
+    "dcat:servesDataset": {"@container": "@set" },
     "dcat:service": { "@container": "@set" },
     "dcat:accessService": { "@container": "@set" },
 
@@ -35,12 +37,14 @@
     "dspace:filter": { "@container": "@set" },
     "dspace:timestamp": { "@type": "xsd:dateTime" },
     "dspace:callbackAddress": { "@type": "xsd:anyURI" },
+    "dspace:endpointProperties": { "@container": "@set" },
 
     "foaf:homepage": { "@type": "xsd:anyURI" },
 
     "odrl:hasPolicy": { "@container": "@set" },
     "odrl:permission": { "@container": "@set" },
     "odrl:prohibition": { "@container": "@set" },
+    "odrl:obligation": { "@container": "@set" },
     "odrl:duty": { "@container": "@set" },
     "odrl:constraint": { "@container": "@set" },
     "odrl:action": { "@type": "@id" },
@@ -48,7 +52,7 @@
     "odrl:leftOperand": { "@type": "@id" },
     "odrl:operator": { "@type": "@id" },
     "odrl:rightOperandReference": { "@type": "@id" },
-    "odrl:profile": { "@type": "@id" },
+    "odrl:profile": { "@container": "@set" }
     "odrl:assigner": { "@type": "@id" },
     "odrl:assignee": { "@type": "@id" }
   }
