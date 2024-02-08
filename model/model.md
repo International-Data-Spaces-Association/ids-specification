@@ -3,6 +3,9 @@
 ## 2 Dataspace Information Model
 
 The following sections outline the Dataspace Information Model, which form the foundation of this specification.
+Some aspects of this section describe additional concepts of Dataspaces and provide context for the Dataspace Protocol,
+those are considered as not-normative. Further information on the functional requirements of a Dataspace can be found in
+the [IDSA Rulebook](https://docs.internationaldataspaces.org/idsa-rulebook).
 
 ### 2.1 Dataspace Entity Relationships
 
