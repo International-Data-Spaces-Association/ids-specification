@@ -23,6 +23,6 @@ class odrl:Agreement {
     dspace:providerId : String
 }
 
-"dspace:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "odrl:agreement"
+"dspace:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "dspace:agreement"
 
 @enduml

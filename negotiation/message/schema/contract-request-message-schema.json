@@ -26,7 +26,7 @@
 				"dspace:consumerPid": {
 					"type": "string"
 				},
-				"odrl:offer": {
+				"dspace:offer": {
 					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/MessageOffer"
 				},
 				"dspace:callbackAddress": {
