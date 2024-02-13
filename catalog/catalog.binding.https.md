@@ -149,4 +149,4 @@ When an implementation supports protected [Datasets](../model/terminology.md#dat
 
 The contents of the response is a JSON object defined by individual trust specifications and not defined here.
 
-Note that if multiple [Connectors](../model/terminology.md#connector--data-service-) are hosted under the same base URL, a path segment appended to the base well-known URL can be used, for example, `https://example.com/.well-known/dspace-trust/connector1.`
+Note that if multiple [Connectors](../model/terminology.md#connector--data-service-) are hosted under the same base URL, an arbitrary path segment appended to the base well-known URL can be used, for example, `https://example.com/.well-known/dspace-trust/connector1.` In this case, the document retrievable at the `dspace-trust` path segment must contain all the child paths.
