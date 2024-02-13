@@ -10,7 +10,6 @@ This specification defines a RESTful API over HTTPS for the [Catalog Protocol](.
   * [2.1 The `catalog/request` Endpoint (Provider-side)](#21-the-catalogrequest-endpoint--provider-side-)
   * [2.2 The `catalog/datasets/:id` Endpoint (Provider-side)](#22-the-catalogdatasetsid-endpoint--provider-side-)
 * [3 Technical Considerations](#3-technical-considerations)
-  * [3.1 Versioning](#31-versioning)
   * [3.2 Pagination](#32-pagination)
   * [3.3 Compression](#33-compression)
 * [4 The Well-Known Proof Metadata Endpoint](#4-the-well-known-proof-metadata-endpoint)
@@ -94,11 +93,7 @@ If the request is successful, the [Catalog Service](../model/terminology.md#cata
 
 ## 3 Technical Considerations
 
-### 3.1 Versioning
-
-- Versioning will be done via URLs. TBD.
-
-### 3.2 Pagination
+### 3.1 Pagination
 
 A [Catalog Service](../model/terminology.md#catalog-service) may paginate the results of a [Catalog Request Message](./catalog.protocol.md#21-catalog-request-message). Pagination data is specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988) and the HTTP `Link` header. The `Link` header will contain URLs for navigating to previous and subsequent results. The following request sequence demonstrates pagination:
 
@@ -135,9 +130,10 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
 }
 ```
 
-### 3.3 Compression
+### 3.2 Compression
 
 [Catalog Services](../model/terminology.md#catalog-service) MAY compress responses to a [Catalog Request](./catalog.protocol.md#21-catalog-request-message) by setting the `Content-Encoding` header to `gzip` as described in the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gzip-coding).
+
 
 ## 4 The Well-Known Proof Metadata Endpoint
 
