@@ -60,7 +60,7 @@ Authorization: ...
 
 - The `Authorization` header is optional if the [Catalog Service](../model/terminology.md#catalog-service) does not require authorization. If present, the contents of the `Authorization` header are detailed in the [Authorization section](#13-authorization).
 
-- The `filter` property is optional. If present, the `filter` property can contain an implementation-specific filter expression or query to be executed as part of the [Catalog](../model/terminology.md#catalog) request.
+- The `filter` property is optional. If present, the `filter` property can contain an implementation-specific filter expression or query to be executed as part of the [Catalog](../model/terminology.md#catalog) request. If a filter expression is not supported by an implementation, it must return a HTTP 400 (Bad Request) response.
 
 ##### Response
 
@@ -100,10 +100,13 @@ If the request is successful, the [Catalog Service](../model/terminology.md#cata
 
 ### 3.2 Pagination
 
-A [Catalog Service](../model/terminology.md#catalog-service) may paginate the results of a [Catalog Request Message](./catalog.protocol.md#21-catalog-request-message). Pagination data is specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988) and the HTTP `Link` header. The `Link` header will contain URLs for navigating to previous and subsequent results. The following request sequence demonstrates pagination:
+A [Catalog Service](../model/terminology.md#catalog-service) may paginate the results of a [Catalog Request Message](./catalog.protocol.md#21-catalog-request-message). Pagination data must be specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988) and the HTTP `Link` header. The `Link` header will contain URLs for navigating to previous and subsequent results. Only the `next` and `previous` link relation types must be supported. 
+Note that the content and structure of the link query parameters is not defined by the current specification. 
+
+The following request sequence demonstrates pagination:
 
 ```http request
-Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
+Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="next"
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
@@ -115,8 +118,8 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
 Second page response:
 
 ```http request
-Link: <https://provider.com/catalog?page=1&per_page=100>; rel="previous"
-Link: <https://provider.com/catalog?page=3&per_page=100>; rel="next"
+Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="previous"
+Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="next"
 
 {
    "@type": "dcat:Catalog",
@@ -127,7 +130,7 @@ Link: <https://provider.com/catalog?page=3&per_page=100>; rel="next"
 Last page response:
 
 ```http request
-Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
+Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="previous"
 
 {
    "@type": "dcat:Catalog",
