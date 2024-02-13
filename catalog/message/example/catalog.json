@@ -4,12 +4,12 @@
   "@type": "dcat:Catalog",
   "dct:title": "Data Provider A Catalog",
   "dct:description": [
-    { 
+    {
       "@value": "A catalog of data items",
       "@language": "en"
     }
   ],
-  "dct:publisher": "urn:example:DataProviderA",
+  "dspace:participantId": "urn:example:DataProviderA",
   "dcat:keyword": [
     "traffic",
     "government"

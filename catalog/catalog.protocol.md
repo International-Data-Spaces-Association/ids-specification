@@ -77,6 +77,10 @@ The following table lists well-know endpoint types:
 
 Note that the property `dcat:servesDataset` should be omitted from the `DataService` since [Datasets](../model/terminology.md#dataset) are included as top-level entries. Clients are not required to process the contents of `dcat:servesDataset`.
 
+#### 1.1.4 Participant Id
+
+The identifier of the participant providing the `Catalog` is specified using the `dspace:participantId` attribute on that `DCAT Catalog`.
+
 ### 1.2 DCAT and ODRL Profiles
 
 The [Catalog](../model/terminology.md#catalog) is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following restrictions:
