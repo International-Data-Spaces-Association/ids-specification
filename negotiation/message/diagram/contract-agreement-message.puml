@@ -23,6 +23,6 @@ class odrl:Agreement {
     odrl:assigner : String
 }
 
-"dspace:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "odrl:agreement"
+"dspace:ContractAgreementMessage" "1" *-- "1" "odrl:Agreement" : "dspace:agreement"
 
 @enduml
