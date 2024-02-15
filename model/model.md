@@ -31,7 +31,7 @@ Further information on the context of the Dataspace Protocol can be found in the
 
 #### 2.1.2 Dataspace Protocol specific
 
-The Dataspace Protocol shall enable the interactions between the `ParticipantAgents` in a Dataspace.
+The Dataspace Protocol shall enable the interactions between the [Participant Agents](./terminology.md#participant-agent) in a Dataspace.
 The following concepts are therefore normative.
 
 The diagram below depicts the relationships between [Participant Agent](./terminology.md#participant-agent) types:
