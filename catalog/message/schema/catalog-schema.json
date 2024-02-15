@@ -39,6 +39,9 @@
                             },
                             "minItems": 1
                         },
+                        "dspace:participantId": {
+                            "type": "string"
+                        },
                         "foaf:homepage": {
                             "type": "string"
                         }

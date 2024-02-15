@@ -164,6 +164,14 @@ dspace_shapes:CatalogShape
 
     sh:property [
 		a sh:PropertyShape ;
+		sh:path dspace:participantId ;
+        sh:nodeKind sh:IRI ;
+		sh:severity sh:Violation ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (CatalogShape): A dspace:participantId property must point to an IRI."@en ;
+	] ;
+
+    sh:property [
+		a sh:PropertyShape ;
 		sh:path odrl:hasPolicy ;
         sh:maxCount 0 ;
 		sh:severity sh:Violation ;
