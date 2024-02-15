@@ -4,7 +4,7 @@
 
 The following sections outline the Dataspace Information Model, which form the foundation of this specification.
 Some aspects of this section describe additional concepts of Dataspaces and provide context for the Dataspace Protocol,
-those are considered as not-normative. Further information on the functional requirements of a Dataspace can be found in
+those are considered as not-normative. Further information on the functional requirements of a Dataspace can be found  for example in
 the [IDSA Rulebook](https://docs.internationaldataspaces.org/idsa-rulebook).
 
 ### 2.1 Dataspace Entity Relationships
@@ -18,7 +18,7 @@ The relationships between the primary [Dataspace](./terminology.md#dataspace) en
 
 ![](./m.dataspace.relationships.png)
 
-Note that all relationships are multiplicities unless specified. `Dataspace Authority` and `Dataspace Registry` are non-normative entities. 
+Note that all relationships are multiplicities unless specified. `Dataspace Authority` and `Dataspace Registry` are non-normative entities.
 
 - A [Dataspace Authority](./terminology.md#dataspace-authority) manages one or more [Dataspaces](./terminology.md#dataspace). This will include [Participant](./terminology.md#participant) registration and may entail mandating business and/or technical requirements. For example, a [Dataspace Authority](./terminology.md#dataspace-authority) may require [Participants](./terminology.md#participant) to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the technical enforcement of specific usage policies.
 - A [Dataspace Registry](./terminology.md#dataspace-registration-service-dataspace-registry) records dataspace participants. Registration and unregistration processes may be different depending on various aspects.
@@ -27,7 +27,7 @@ Note that all relationships are multiplicities unless specified. `Dataspace Auth
 - An [Identity Provider](./terminology.md#identity-provider) is a trust anchor that generates `ID tokens` used to verify the identity of a [Participant Agent](./terminology.md#participant-agent). Multiple identity providers may operate in a [Dataspace](./terminology.md#dataspace). The types and semantics of ID tokens are not part of this specification. An [Identity Provider](./terminology.md#identity-provider) may be a third-party or a [Participant](./terminology.md#participant) itself (for example, in the case of decentralized identifiers).
 - A [Credential Issuer](./terminology.md#credential-issuer) issues _verifiable credentials_ used by [Participant Agents](./terminology.md#participant-agent) to allow access to [Datasets](./terminology.md#dataset) and verify usage control.
 
-Further information on the context of the Dataspace Protocol can be found in the [IDSA Rulebook](https://docs.internationaldataspaces.org/idsa-rulebook).
+Further non-normative information on the context of the Dataspace Protocol can be found for example in the [IDSA Rulebook](https://docs.internationaldataspaces.org/idsa-rulebook).
 
 #### 2.1.2 Dataspace Protocol specific
 
