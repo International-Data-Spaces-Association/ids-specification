@@ -1,6 +1,4 @@
-# Dataspace Protocol - Working Draft
-
-> __NOTE:__ These specifications are working drafts and subject to change.
+# Dataspace Protocol Release 2024-1
 
 > __NOTE:__ For GitHub users, the link to the rendered content is https://docs.internationaldataspaces.org/dataspace-protocol/.
 
