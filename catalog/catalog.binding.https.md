@@ -10,8 +10,8 @@ This specification defines a RESTful API over HTTPS for the [Catalog Protocol](.
   * [2.1 The `catalog/request` Endpoint (Provider-side)](#21-the-catalogrequest-endpoint--provider-side-)
   * [2.2 The `catalog/datasets/:id` Endpoint (Provider-side)](#22-the-catalogdatasetsid-endpoint--provider-side-)
 * [3 Technical Considerations](#3-technical-considerations)
-  * [3.2 Pagination](#32-pagination)
-  * [3.3 Compression](#33-compression)
+  * [3.1 Pagination](#31-pagination)
+  * [3.2 Compression](#32-compression)
 * [4 The Well-Known Proof Metadata Endpoint](#4-the-well-known-proof-metadata-endpoint)
 
 ## 1 Introduction
