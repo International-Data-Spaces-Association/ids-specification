@@ -79,7 +79,7 @@ Note that the property `dcat:servesDataset` should be omitted from the `DataServ
 
 #### 1.1.4 Participant Id
 
-The identifier of the participant providing the `Catalog` is specified using the `dspace:participantId` attribute on that `DCAT Catalog`.
+The identifier of the participant providing the [Catalog](../model/terminology.md#catalog) is specified using the `dspace:participantId` attribute on that [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
 ### 1.2 DCAT and ODRL Profiles
 
