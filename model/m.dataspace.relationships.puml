@@ -9,8 +9,8 @@ agent ParticipantAgent
 agent CI as "Credential\nIssuer"
 agent IDP as "Identity\nProvider"
 agent Dataspace
-agent DataspaceAuthority as "Dataspace\nAuthority"
-agent Registry as "Dataspace\nRegistry"
+agent DataspaceAuthority as "Dataspace\nAuthority" #FAFAFA
+agent Registry as "Dataspace\nRegistry" #FAFAFA
 
 DataspaceAuthority -down-> Dataspace  : manages
 
