@@ -118,7 +118,7 @@ Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014
 Second page response:
 
 ```http request
-Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="previous"
+Link: <https://provider.com/catalog?continuationToken=a59779015bn44de8ab4bfc9014502d53>; rel="previous"
 Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="next"
 
 {
@@ -130,7 +130,7 @@ Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014
 Last page response:
 
 ```http request
-Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="previous"
+Link: <https://provider.com/catalog?continuationToken=bn9556075bn44de8ab4bfc9014582t76>; rel="previous"
 
 {
    "@type": "dcat:Catalog",
