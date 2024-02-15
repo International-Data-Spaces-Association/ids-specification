@@ -5,14 +5,12 @@ This specification defines a RESTful API over HTTPS for the [Catalog Protocol](.
 * [1 Introduction](#1-introduction)
   * [1.1 Prerequisites](#11-prerequisites)
   * [1.2 Catalog Error](#12-catalog-error)
-  * [1.3 Authorization](#13-authorization)
 * [2 Path Bindings](#2-path-bindings)
   * [2.1 The `catalog/request` Endpoint (Provider-side)](#21-the-catalogrequest-endpoint--provider-side-)
   * [2.2 The `catalog/datasets/:id` Endpoint (Provider-side)](#22-the-catalogdatasetsid-endpoint--provider-side-)
 * [3 Technical Considerations](#3-technical-considerations)
-  * [3.1 Versioning](#31-versioning)
-  * [3.2 Pagination](#32-pagination)
-  * [3.3 Compression](#33-compression)
+  * [3.1 Pagination](#31-pagination)
+  * [3.2 Compression](#32-compression)
 * [4 The Well-Known Proof Metadata Endpoint](#4-the-well-known-proof-metadata-endpoint)
 
 ## 1 Introduction
@@ -26,10 +24,6 @@ This specification defines a RESTful API over HTTPS for the [Catalog Protocol](.
 ### 1.2 Catalog Error
 
 In the event of a request error, the [Catalog Service](../model/terminology.md#catalog-service) must return an appropriate HTTP code and a [Catalog Error](./catalog.protocol.md#33-error---catalog-error) in the response body.
-
-### 1.3 Authorization
-
-A [Catalog Service](../model/terminology.md#catalog-service) may require authorization. If the [Catalog Service](../model/terminology.md#catalog-service) requires authorization, requests must include an HTTP `Authorization` header with a token. The semantics of such tokens are not part of this specification.
 
 ## 2 Path Bindings
 
@@ -60,7 +54,7 @@ Authorization: ...
 
 - The `Authorization` header is optional if the [Catalog Service](../model/terminology.md#catalog-service) does not require authorization. If present, the contents of the `Authorization` header are detailed in the [Authorization section](#13-authorization).
 
-- The `filter` property is optional. If present, the `filter` property can contain an implementation-specific filter expression or query to be executed as part of the [Catalog](../model/terminology.md#catalog) request.
+- The `filter` property is optional. If present, the `filter` property can contain an implementation-specific filter expression or query to be executed as part of the [Catalog](../model/terminology.md#catalog) request. If a filter expression is not supported by an implementation, it must return a HTTP 400 (Bad Request) response.
 
 ##### Response
 
@@ -94,16 +88,15 @@ If the request is successful, the [Catalog Service](../model/terminology.md#cata
 
 ## 3 Technical Considerations
 
-### 3.1 Versioning
+### 3.1 Pagination
 
-- Versioning will be done via URLs. TBD.
+A [Catalog Service](../model/terminology.md#catalog-service) may paginate the results of a [Catalog Request Message](./catalog.protocol.md#21-catalog-request-message). Pagination data must be specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988) and the HTTP `Link` header. The `Link` header will contain URLs for navigating to previous and subsequent results. Only the `next` and `previous` link relation types must be supported. 
+Note that the content and structure of the link query parameters is not defined by the current specification. 
 
-### 3.2 Pagination
-
-A [Catalog Service](../model/terminology.md#catalog-service) may paginate the results of a [Catalog Request Message](./catalog.protocol.md#21-catalog-request-message). Pagination data is specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988) and the HTTP `Link` header. The `Link` header will contain URLs for navigating to previous and subsequent results. The following request sequence demonstrates pagination:
+The following request sequence demonstrates pagination:
 
 ```http request
-Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
+Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="next"
 
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
@@ -115,8 +108,8 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
 Second page response:
 
 ```http request
-Link: <https://provider.com/catalog?page=1&per_page=100>; rel="previous"
-Link: <https://provider.com/catalog?page=3&per_page=100>; rel="next"
+Link: <https://provider.com/catalog?continuationToken=a59779015bn44de8ab4bfc9014502d53>; rel="previous"
+Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="next"
 
 {
    "@type": "dcat:Catalog",
@@ -127,7 +120,7 @@ Link: <https://provider.com/catalog?page=3&per_page=100>; rel="next"
 Last page response:
 
 ```http request
-Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
+Link: <https://provider.com/catalog?continuationToken=bn9556075bn44de8ab4bfc9014582t76>; rel="previous"
 
 {
    "@type": "dcat:Catalog",
@@ -135,9 +128,10 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
 }
 ```
 
-### 3.3 Compression
+### 3.2 Compression
 
 [Catalog Services](../model/terminology.md#catalog-service) MAY compress responses to a [Catalog Request](./catalog.protocol.md#21-catalog-request-message) by setting the `Content-Encoding` header to `gzip` as described in the [HTTP 1.1 Specification](https://www.rfc-editor.org/rfc/rfc9110.html#name-gzip-coding).
+
 
 ## 4 The Well-Known Proof Metadata Endpoint
 
@@ -149,4 +143,4 @@ When an implementation supports protected [Datasets](../model/terminology.md#dat
 
 The contents of the response is a JSON object defined by individual trust specifications and not defined here.
 
-Note that if multiple [Connectors](../model/terminology.md#connector--data-service-) are hosted under the same base URL, a path segment appended to the base well-known URL can be used, for example, `https://example.com/.well-known/dspace-trust/connector1.`
+Note that if multiple [Connectors](../model/terminology.md#connector--data-service-) are hosted under the same base URL, an arbitrary path segment appended to the base well-known URL can be used, for example, `https://example.com/.well-known/dspace-trust/connector1.` In this case, the document retrievable at the `dspace-trust` path segment must contain all the child paths.

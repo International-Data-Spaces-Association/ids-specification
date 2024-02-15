@@ -48,11 +48,11 @@ A set of technical services that facilitate interoperable [Dataset](#dataset) sh
 
 ### Dataspace Authority
 
-An entity that manages a [Dataspace](#dataspace).
+An entity that manages a [Dataspace](#dataspace). The form and capabilities of a Dataspace Authority are not covered in these specifications.
 
-### Dataspace Registration Service
+### Dataspace Registration Service (Dataspace Registry)
 
-A technology system that maintains the state of [Participants](#participant) in a [Dataspace](#dataspace).
+A technology system that maintains the state of [Participants](#participant) in a [Dataspace](#dataspace).  The form and capabilities of a Dataspace Registration Service are not covered in these specifications.
 
 ### Identity Provider
 

@@ -10,8 +10,13 @@
     "dspace:endpointProperties": [
       {
         "@type": "dspace:EndpointProperty",
-        "dspace:name": "Authorization",
-        "dspace:value": "Bearer TOKEN-ABCDEFG"
+        "dspace:name": "authorization",
+        "dspace:value": "TOKEN-ABCDEFG"
+      },
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "authType",
+        "dspace:value": "bearer"
       }
     ]
   }

@@ -101,7 +101,7 @@ All messages must be serialized in JSON-LD compact form as specified in the [JSO
 
 The Catalog Request Message is message sent by a [Consumer](../model/terminology.md#consumer) to a [Catalog Service](../model/terminology.md#catalog-service). The [Catalog Service](../model/terminology.md#catalog-service) must respond with a [Catalog](#31-ack---catalog), which is a valid instance of a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
-- The message may have a `filter` property which contains an implementation-specific query or filter expression type supported by the [Catalog Service](../model/terminology.md#catalog-service).
+- The message may have a `filter` property which contains an implementation-specific query or filter expression type supported by the [Catalog Service](../model/terminology.md#catalog-service). 
 
 - The [Catalog Service](../model/terminology.md#catalog-service) may require an authorization token. Details for including that token can be found in the protocol binding, e.g., [Catalog HTTPS Binding](./catalog.binding.https.md). Similarly, pagination may be defined in the protocol binding.
 

@@ -9,7 +9,6 @@ This specification defines a RESTful API over HTTPS for the [Contract Negotiatio
       - [1.2.1 State Transition Errors](#121-state-transition-errors)
       - [1.2.2 Object Not Found](#122-object-not-found)
       - [1.2.3 Unauthorized Access](#123-unauthorized-access)
-    - [1.3 Authorization](#13-authorization)
   - [2 Provider Path Bindings](#2-provider-path-bindings)
     - [2.1 The `negotiations` Endpoint _(Provider-side)_](#21-the-negotiations-endpoint-provider-side)
       - [2.1.1 GET](#211-get)

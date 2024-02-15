@@ -8,7 +8,6 @@ This specification defines a RESTful API over HTTPS for the [Transfer Process Pr
     * [1.2.1 State Transition Errors](#121-state-transition-errors)
     * [1.2.2 Object Not Found](#122-object-not-found)
     * [1.2.3 Unauthorized Access](#123-unauthorized-access)
-  * [1.3 Authorization](#13-authorization)
 * [2 Provider Path Bindings](#2-provider-path-bindings)
   * [2.1 The `transfers` Endpoint _(Provider-side)_](#21-the-transfers-endpoint-provider-side)
   * [2.2 The `transfers/request` Endpoint _(Provider-side)_](#22-the-transfersrequest-endpoint-provider-side)
@@ -46,10 +45,6 @@ If the TP does not exist, the [Consumer](../model/terminology.md#consumer) or [P
 #### 1.2.3 Unauthorized Access
 
 If the client is not authorized, the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) must return an HTTP 404 (Not Found) response.
-
-### 1.3 Authorization
-
-All requests should use the `Authorization` header to include an authorization token. The semantics of such tokens are not part of this specification. The `Authorization` HTTP header is optional if the [Connector](../model/terminology.md#connector--data-service-) does not require authorization.
 
 ## 2 Provider Path Bindings
 
@@ -110,7 +105,7 @@ Authorization: ...
   "@type": "dspace:TransferRequestMessage",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-  "dct:format": "dspace:S3_AWS_PUSH",
+  "dct:format": "example:HTTP_PUSH",
   "dspace:dataAddress": {
     "@type": "dspace:DataAddress",
     "dspace:endpointType": "https://w3id.org/idsa/v4.1/HTTP",
@@ -118,8 +113,13 @@ Authorization: ...
     "dspace:endpointProperties": [
       {
         "@type": "dspace:EndpointProperty",
-        "dspace:name": "Authorization",
-        "dspace:value": "Bearer TOKEN-ABCDEFG"
+        "dspace:name": "authorization",
+        "dspace:value": "TOKEN-ABCDEFG"
+      },
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "authType",
+        "dspace:value": "bearer"
       }
     ]
   },
@@ -170,8 +170,13 @@ Authorization: ...
     "dspace:endpointProperties": [
       {
         "@type": "dspace:EndpointProperty",
-        "dspace:name": "Authorization",
-        "dspace:value": "Bearer TOKEN-ABCDEFG"
+        "dspace:name": "authorization",
+        "dspace:value": "TOKEN-ABCDEFG"
+      },
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "authType",
+        "dspace:value": "bearer"
       }
     ]
   }
@@ -303,8 +308,13 @@ Authorization: ...
     "dspace:endpointProperties": [
       {
         "@type": "dspace:EndpointProperty",
-        "dspace:name": "Authorization",
-        "dspace:value": "Bearer TOKEN-ABCDEFG"
+        "dspace:name": "authorization",
+        "dspace:value": "TOKEN-ABCDEFG"
+      },
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "authType",
+        "dspace:value": "bearer"
       }
     ]
   }

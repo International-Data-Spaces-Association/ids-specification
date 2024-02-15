@@ -3,12 +3,12 @@
   "@type": "dspace:ContractAgreementMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
-  "dspace:consumerId": "...",
-  "dspace:providerId": "...",
   "dspace:agreement": {
     "@id": "some-other-id",
     "@type": "odrl:Agreement",
     "odrl:target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+    "odrl:assignee": "...",
+    "odrl:assigner": "...",
     "odrl:permission": [
       {
         "@id": "some-permission-id",
