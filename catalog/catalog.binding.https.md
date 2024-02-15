@@ -5,7 +5,6 @@ This specification defines a RESTful API over HTTPS for the [Catalog Protocol](.
 * [1 Introduction](#1-introduction)
   * [1.1 Prerequisites](#11-prerequisites)
   * [1.2 Catalog Error](#12-catalog-error)
-  * [1.3 Authorization](#13-authorization)
 * [2 Path Bindings](#2-path-bindings)
   * [2.1 The `catalog/request` Endpoint (Provider-side)](#21-the-catalogrequest-endpoint--provider-side-)
   * [2.2 The `catalog/datasets/:id` Endpoint (Provider-side)](#22-the-catalogdatasetsid-endpoint--provider-side-)
@@ -26,10 +25,6 @@ This specification defines a RESTful API over HTTPS for the [Catalog Protocol](.
 ### 1.2 Catalog Error
 
 In the event of a request error, the [Catalog Service](../model/terminology.md#catalog-service) must return an appropriate HTTP code and a [Catalog Error](./catalog.protocol.md#33-error---catalog-error) in the response body.
-
-### 1.3 Authorization
-
-A [Catalog Service](../model/terminology.md#catalog-service) may require authorization. If the [Catalog Service](../model/terminology.md#catalog-service) requires authorization, requests must include an HTTP `Authorization` header with a token. The semantics of such tokens are not part of this specification.
 
 ## 2 Path Bindings
 
