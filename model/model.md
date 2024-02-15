@@ -73,7 +73,7 @@ An [Offer](./terminology.md#offer) is an [ODRL Offer](https://www.w3.org/TR/odrl
 - The [Offer](./terminology.md#offer) must be unique to a [Dataset](./terminology.md#dataset) since the target of the [Offer](./terminology.md#offer) is derived from its enclosing context.
 - The value of the `target` attribute is the dataset id. Except if the [Offer][Catalog](./terminology.md#offer) is used in an enclosing [Catalog](./terminology.md#catalog) or [Dataset](./terminology.md#dataset), then the there must not be any `target` attribute set.
 
-### 2.2.4 Agreement
+#### 2.2.4 Agreement
 
 An [Agreement](./terminology.md#agreement) is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) with the following attributes:
 
