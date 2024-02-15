@@ -39,10 +39,13 @@ The specifications are organized into the following documents:
 * [__*Transfer Process Protocol*__](./transfer/transfer.process.protocol.md) and [__*Transfer Process HTTPS Binding*__](./transfer/transfer.process.binding.https.md) documents that define how [Transfer Processes](./model/terminology.md#transfer-process) using a given data transfer protocol are governed via HTTPS
   endpoints.
 
-This specification does not cover the data transfer process as such.
-While the data transfer is controlled by the __*Transfer Process Protocol*__ mentioned above, e.g. the initation of the transfer channels or their decomissioning, the data transfer itself and especially the handling of technical exceptions is an obligation to the Transport Protocol.
-As an implication, the data transfer can be conducted in a separated process if required, as long as this process is to the specified extend controlled by the __*Transfer Process Protocol*__.
-
+> **This specification does not cover the data transfer process as such.**
+>
+> While the data transfer is controlled by the __*Transfer Process Protocol*__ mentioned above, e.g. the initation of the transfer channels or their decomissioning, the data transfer itself and especially the handling of technical exceptions is an obligation to the Transport Protocol.
+>
+> As an implication, the data transfer can be conducted in a separated process if required, as long as this process is to the specified extend controlled by the __*Transfer Process Protocol*__.
+>
+> Nevertheless, illustrative message examples are provided in the [__*Transfer Process Protocol section*__](./transfer/transfer.process.protocol.md#2-message-types). The best practices section may contain further non-normative examples and explanations.
 
 ### Context of this specification
 
