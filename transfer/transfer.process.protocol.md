@@ -93,6 +93,10 @@ The Transfer Request Message is sent by a [Consumer](../model/terminology.md#con
 - The `dataAddress` contains a transport-specific endpoint address for pushing the data. It may include a temporary authorization via the `endpointProperties` property.
 - `callbackAddress` is a URI indicating where messages to the [Consumer](../model/terminology.md#consumer) should be sent. If the address is not understood, the [Provider](../model/terminology.md#provider) MUST return an UNRECOVERABLE error.
 
+- The `endpointProperties` may contain the following optional values:
+  - `authorization` - An opaque authorization token that clients must present when accessing the transport-specific endpoint address. 
+  - `authType` - The auth token type. For example, the value may be `bearer`. If present, this value may be used in conjunction with transport rules to define how the client must present an authorization token.   
+
 Note that [Providers](../model/terminology.md#provider) should implement idempotent behavior for [Transfer Request Messages](#21-transfer-request-message) based on the value of `consumerPid`. [Providers](../model/terminology.md#provider) may choose to implement idempotent behavior for a certain period of time. For example, until a TP has completed and been archived after an implementation-specific expiration period, repeated sending of [Transfer Request Messages](#21-transfer-request-message) does not change the state of the TP. If a request for the given `consumerPid` has already been received *and* the same [Consumer](../model/terminology.md#consumer) sent the original message again, the [Provider](../model/terminology.md#provider) should respond with an appropriate [Transfer Start Message](#22-transfer-start-message).
 
 - Once a TP has been created, all associated callback messages must include a `consumerPid` and `providerPid`.
@@ -114,6 +118,9 @@ Note that [Providers](../model/terminology.md#provider) should implement idempot
 The Transfer Start Message is sent by the [Provider](../model/terminology.md#provider) to indicate the data transfer has been initiated.
 
 - The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the data. It may include a temporary authorization via the `endpointProperties` property.
+- The `endpointProperties` may contain the following optional values:
+  - `authorization` - An opaque authorization token that clients must present when accessing the transport-specific endpoint address. 
+  - `authType` - The auth token type. For example, the value may be `bearer`. If present, this value may be used in conjunction with transport rules to define how the client must present an authorization token.   
 
 ### 2.3 Transfer Suspension Message
 

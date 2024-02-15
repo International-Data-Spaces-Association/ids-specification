@@ -105,7 +105,7 @@ Authorization: ...
   "@type": "dspace:TransferRequestMessage",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-  "dct:format": "dspace:S3_AWS_PUSH",
+  "dct:format": "example:HTTP_PUSH",
   "dspace:dataAddress": {
     "@type": "dspace:DataAddress",
     "dspace:endpointType": "https://w3id.org/idsa/v4.1/HTTP",
@@ -113,8 +113,13 @@ Authorization: ...
     "dspace:endpointProperties": [
       {
         "@type": "dspace:EndpointProperty",
-        "dspace:name": "Authorization",
-        "dspace:value": "Bearer TOKEN-ABCDEFG"
+        "dspace:name": "authorization",
+        "dspace:value": "TOKEN-ABCDEFG"
+      },
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "authType",
+        "dspace:value": "bearer"
       }
     ]
   },
@@ -165,8 +170,13 @@ Authorization: ...
     "dspace:endpointProperties": [
       {
         "@type": "dspace:EndpointProperty",
-        "dspace:name": "Authorization",
-        "dspace:value": "Bearer TOKEN-ABCDEFG"
+        "dspace:name": "authorization",
+        "dspace:value": "TOKEN-ABCDEFG"
+      },
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "authType",
+        "dspace:value": "bearer"
       }
     ]
   }
@@ -298,8 +308,13 @@ Authorization: ...
     "dspace:endpointProperties": [
       {
         "@type": "dspace:EndpointProperty",
-        "dspace:name": "Authorization",
-        "dspace:value": "Bearer TOKEN-ABCDEFG"
+        "dspace:name": "authorization",
+        "dspace:value": "TOKEN-ABCDEFG"
+      },
+      {
+        "@type": "dspace:EndpointProperty",
+        "dspace:name": "authType",
+        "dspace:value": "bearer"
       }
     ]
   }
