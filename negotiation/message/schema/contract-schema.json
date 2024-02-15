@@ -62,10 +62,10 @@
         },
         "AbstractPolicyRule": {
             "properties": {
-                "dspace:providerId": {
+                "odrl:assigner": {
                     "type": "string"
                 },
-                "dspace:consumerId": {
+                "odrl:assignee": {
                     "type": "string"
                 }
             },
@@ -100,7 +100,7 @@
                     ]
                 }
             ],
-            "required": [ "@type", "dspace:providerId" ]
+            "required": [ "@type", "odrl:assigner" ]
         },
         "#/definitions/Offer": {
             "type": "object",
@@ -154,9 +154,8 @@
                 "@type",
                 "@id",
                 "@target",
-                "dspace:providerId",
-                "dspace:consumerId", 
-                "dspace:timestamp"
+                "odrl:assignee", 
+                "odrl:assigner"
             ]
         },
         "RuleClass": {
