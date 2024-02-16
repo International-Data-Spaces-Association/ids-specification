@@ -185,7 +185,7 @@ Authorization: ...
 
 ##### Response
 
-If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 204 (No Content).
 
 ### 2.4 The `transfers/:providerPid/completion` Endpoint _(Provider-side)_
 
@@ -210,7 +210,7 @@ Authorization: ...
 
 ##### Response
 
-If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 204 (No Content).
 
 ### 2.5 The `transfers/:providerPid/termination` Endpoint _(Provider-side)_
 
@@ -239,7 +239,7 @@ Authorization: ...
 
 ##### Response
 
-If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 204 (No Content).
 
 ### 2.6 The `transfers/:providerPid/suspension` Endpoint _(Provider-side)_
 
@@ -268,7 +268,7 @@ Authorization: ...
 
 ##### Response
 
-If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the TP's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 204 (No Content).
 
 ## 3 Consumer Callback Path Bindings
 
@@ -323,7 +323,7 @@ Authorization: ...
 
 ##### Response
 
-If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 204 (No Content).
 
 ### 3.3 The `transfers/:consumerPid/completion` Endpoint _(Consumer-side)_
 
@@ -348,7 +348,7 @@ Authorization: ...
 
 ##### Response
 
-If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 204 (No Content).
 
 ### 3.4 The `transfers/:consumerPid/termination` Endpoint _(Consumer-side)_
 
@@ -377,7 +377,7 @@ Authorization: ...
 
 ##### Response
 
-If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 204 (No Content).
 
 ### 3.5 The `transfers/:consumerPid/suspension` Endpoint _(Consumer-side)_
 
@@ -406,4 +406,4 @@ Authorization: ...
 
 ##### Response
 
-If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 
+If the TP's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 204 (No Content). 

@@ -2,60 +2,26 @@
 
 This specification defines a RESTful API over HTTPS for the [Contract Negotiation Protocol](./contract.negotiation.protocol.md).
 
-- [Contract Negotiation HTTPS Binding](#contract-negotiation-https-binding)
-  - [1 Introduction](#1-introduction)
-    - [1.1 Prerequisites](#11-prerequisites)
-    - [1.2 Contract Negotiation Error](#12-contract-negotiation-error)
-      - [1.2.1 State Transition Errors](#121-state-transition-errors)
-      - [1.2.2 Object Not Found](#122-object-not-found)
-      - [1.2.3 Unauthorized Access](#123-unauthorized-access)
-  - [2 Provider Path Bindings](#2-provider-path-bindings)
-    - [2.1 The `negotiations` Endpoint _(Provider-side)_](#21-the-negotiations-endpoint-provider-side)
-      - [2.1.1 GET](#211-get)
-        - [Request](#request)
-        - [Response](#response)
-    - [2.2 The `negotiations/request` Endpoint _(Provider-side)_](#22-the-negotiationsrequest-endpoint-provider-side)
-      - [2.2.1 POST](#221-post)
-        - [Request](#request-1)
-        - [Response](#response-1)
-    - [2.3 The `negotiations/:providerPid/request` Endpoint _(Provider-side)_](#23-the-negotiationsproviderpidrequest-endpoint-provider-side)
-      - [2.3.1 POST](#231-post)
-        - [Request](#request-2)
-        - [Response](#response-2)
-    - [2.4 The `negotiations/:providerPid/events` Endpoint _(Provider-side)_](#24-the-negotiationsproviderpidevents-endpoint-provider-side)
-      - [2.4.1 POST](#241-post)
-        - [Request](#request-3)
-        - [Response](#response-3)
-    - [2.5 The `negotiations/:providerPid/agreement/verification` Endpoint  _(Provider-side)_](#25-the-negotiationsproviderpidagreementverification-endpoint--provider-side)
-      - [2.5.1 POST](#251-post)
-        - [Request](#request-4)
-        - [Response](#response-4)
-    - [2.6 The `negotiations/:providerPid/termination` Endpoint _(Provider-side)_](#26-the-negotiationsproviderpidtermination-endpoint-provider-side)
-      - [2.6.1 POST](#261-post)
-        - [Request](#request-5)
-        - [Response](#response-5)
-  - [3 Consumer Callback Path Bindings](#3-consumer-callback-path-bindings)
-    - [3.1 Prerequisites](#31-prerequisites)
-    - [3.2 The `negotiations/offers` Endpoint _(Consumer-side)_](#32-the-negotiationsoffers-endpoint-consumer-side)
-      - [3.2.1 POST](#321-post)
-        - [Request](#request-6)
-        - [Response](#response-6)
-    - [3.3 The `negotiations/:consumerPid/offers` Endpoint _(Consumer-side)_](#33-the-negotiationsconsumerpidoffers-endpoint-consumer-side)
-      - [3.3.1 POST](#331-post)
-        - [Request](#request-7)
-        - [Response](#response-7)
-    - [3.4 The `negotiations/:consumerPid/agreement` Endpoint _(Consumer-side)_](#34-the-negotiationsconsumerpidagreement-endpoint-consumer-side)
-      - [3.4.1 POST](#341-post)
-        - [Request](#request-8)
-        - [Response](#response-8)
-    - [3.5 The `negotiations/:consumerPid/events` Endpoint _(Consumer-side)_](#35-the-negotiationsconsumerpidevents-endpoint-consumer-side)
-      - [3.5.1 POST](#351-post)
-        - [Request](#request-9)
-        - [Response](#response-9)
-    - [3.6 The `negotiations/:consumerPid/termination` Endpoint _(Consumer-side)_](#36-the-negotiationsconsumerpidtermination-endpoint-consumer-side)
-      - [3.6.1 POST](#361-post)
-        - [Request](#request-10)
-        - [Response](#response-10)
+- [1 Introduction](#1-introduction)
+  - [1.1 Prerequisites](#11-prerequisites)
+  - [1.2 Contract Negotiation Error](#12-contract-negotiation-error)
+    - [1.2.1 State Transition Errors](#121-state-transition-errors)
+    - [1.2.2 Object Not Found](#122-object-not-found)
+    - [1.2.3 Unauthorized Access](#123-unauthorized-access)
+- [2 Provider Path Bindings](#2-provider-path-bindings)
+  - [2.1 The `negotiations` Endpoint _(Provider-side)_](#21-the-negotiations-endpoint-provider-side)
+  - [2.2 The `negotiations/request` Endpoint _(Provider-side)_](#22-the-negotiationsrequest-endpoint-provider-side)
+  - [2.3 The `negotiations/:providerPid/request` Endpoint _(Provider-side)_](#23-the-negotiationsproviderpidrequest-endpoint-provider-side)
+  - [2.4 The `negotiations/:providerPid/events` Endpoint _(Provider-side)_](#24-the-negotiationsproviderpidevents-endpoint-provider-side)
+  - [2.5 The `negotiations/:providerPid/agreement/verification` Endpoint  _(Provider-side)_](#25-the-negotiationsproviderpidagreementverification-endpoint--provider-side)
+  - [2.6 The `negotiations/:providerPid/termination` Endpoint _(Provider-side)_](#26-the-negotiationsproviderpidtermination-endpoint-provider-side)
+- [3 Consumer Callback Path Bindings](#3-consumer-callback-path-bindings)
+  - [3.1 Prerequisites](#31-prerequisites)
+  - [3.2 The `negotiations/offers` Endpoint _(Consumer-side)_](#32-the-negotiationsoffers-endpoint-consumer-side)
+  - [3.3 The `negotiations/:consumerPid/offers` Endpoint _(Consumer-side)_](#33-the-negotiationsconsumerpidoffers-endpoint-consumer-side)
+  - [3.4 The `negotiations/:consumerPid/agreement` Endpoint _(Consumer-side)_](#34-the-negotiationsconsumerpidagreement-endpoint-consumer-side)
+  - [3.5 The `negotiations/:consumerPid/events` Endpoint _(Consumer-side)_](#35-the-negotiationsconsumerpidevents-endpoint-consumer-side)
+  - [3.6 The `negotiations/:consumerPid/termination` Endpoint _(Consumer-side)_](#36-the-negotiationsconsumerpidtermination-endpoint-consumer-side)
 
 ## 1 Introduction
 
@@ -199,7 +165,7 @@ Authorization: ...
 
 ##### Response
 
-If the message is successfully processed, the [Provider](../model/terminology.md#provider) must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to process it.
+If the message is successfully processed, the [Provider](../model/terminology.md#provider) must return an HTTP 204 (No Content) response.
 
 ### 2.4 The `negotiations/:providerPid/events` Endpoint _(Provider-side)_
 
@@ -226,7 +192,7 @@ Authorization: ...
 
 ##### Response
 
-If the CN's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return an HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the CN's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return an HTTP code 204 (No Content).
 
 If the current [Offer](../model/terminology.md#offer) was created by the [Consumer](../model/terminology.md#consumer), the [Provider](../model/terminology.md#provider) must return an HTTP code 400 (Bad Request) with a [Contract Negotiation Error](./contract.negotiation.protocol.md#32-error---contract-negotiation-error) in the response body.
 
@@ -253,7 +219,7 @@ Authorization: ...
 
 ##### Response
 
-If the CN's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return an HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the CN's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return an HTTP code  204 (No Content).
 
 
 ### 2.6 The `negotiations/:providerPid/termination` Endpoint _(Provider-side)_
@@ -283,7 +249,7 @@ Authorization: ...
 
 ##### Response
 
-If the CN's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the CN's state is successfully transitioned, the [Provider](../model/terminology.md#provider) must return HTTP code  204 (No Content).
 
 ## 3 Consumer Callback Path Bindings
 
@@ -377,7 +343,7 @@ Authorization: ...
 
 ##### Response
 
-If the message is successfully processed, the [Consumer](../model/terminology.md#consumer) must return an HTTP 200 (OK) response. The response body is not specified and clients are not required to process it.
+If the message is successfully processed, the [Consumer](../model/terminology.md#consumer) must return an HTTP code 204 (No Content).
 
 ### 3.4 The `negotiations/:consumerPid/agreement` Endpoint _(Consumer-side)_
 
@@ -412,7 +378,7 @@ Authorization: ...
 
 ##### Response
 
-If the CN's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return an HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the CN's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return an HTTP code 204 (No Content).
 
 ### 3.5 The `negotiations/:consumerPid/events` Endpoint _(Consumer-side)_
 
@@ -438,7 +404,7 @@ Authorization: ...
 
 ##### Response
 
-If the CN's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 
+If the CN's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 204 (No Content). 
 
 ### 3.6 The `negotiations/:consumerPid/termination` Endpoint _(Consumer-side)_
 
@@ -467,4 +433,4 @@ Authorization: ...
 
 ##### Response
 
-If the CN's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+If the CN's state is successfully transitioned, the [Consumer](../model/terminology.md#consumer) must return HTTP code 204 (No Content).
