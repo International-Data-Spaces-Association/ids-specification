@@ -18,6 +18,7 @@ class dcat:Catalog {
     dct:issued : String
     dct:modified : String
     dct:title : String
+    dspace:participantId : String
     dct:description : Array<MultilanguageText>
     ...
 }
