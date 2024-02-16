@@ -8,7 +8,7 @@
 
 ## About versions of the Dataspace Protocol
 
-The specification of the Dataspace Protocol is work in progress and subject to change. Since [version 0.8](https://github.com/International-Data-Spaces-Association/ids-specification/releases/tag/v0.8) the specification is stable with changes in details. All changes made to the specification can be reviewed in the [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
+The specification of the Dataspace Protocol is work in progress and subject to change. Since [version 0.8](https://github.com/International-Data-Spaces-Association/ids-specification/releases/tag/v0.8) the specification is stable with changes in details. The current release version has the tag `2024/1`. All changes made to the specification can be reviewed in the [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
 
 > __NOTE:__ A versioning scheme beside the commits to the repository is not available but will be provided in the future. 
 

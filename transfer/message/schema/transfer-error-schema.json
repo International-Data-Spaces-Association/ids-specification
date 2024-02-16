@@ -7,14 +7,14 @@
 		"$ref": "#/definitions/TransferError"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/v0.8/TransferErrorSchema",
+	"$id": "https://w3id.org/dspace/schemas/2024/1/TransferErrorSchema",
 	"definitions": {
 		"TransferError": {
 			"type": "object",
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/v0.8/context.json"
+					"const": "https://w3id.org/dspace/2024/1/context.json"
 				},
 				"@type": {
 					"type": "string",
