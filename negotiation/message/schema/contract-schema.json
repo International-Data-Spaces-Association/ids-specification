@@ -288,7 +288,7 @@
                 "odrl:stream",
                 "cc:ShareAlike",
                 "odrl:acceptTracking",
-                "cc:CommericalUse",
+                "cc:CommercialUse",
                 "odrl:present",
                 "odrl:use"
             ]
@@ -323,7 +323,7 @@
                 "odrl:isNoneOf",
                 "odrl:isPartOf",
                 "odrl:lt",
-                "odrl:term-lteq",
+                "odrl:lteq",
                 "odrl:neq"
             ]
         },
