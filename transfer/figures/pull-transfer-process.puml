@@ -1,42 +1,42 @@
 @startuml "pull-transfer-process"
 !pragma layout smetana
 
-!include ../common/style/diagram.styles.puml
+!include ../../common/style/diagram.styles.puml
 
 hide empty description
 
 skinparam defaultTextAlignment center
 
 box Consumer
-participant DataPlane1
-participant ControlPlane1
+participant DataPlane_C
+participant ControlPlane_C
 end box
 
 box Provider
-participant ControlPlane2
-participant DataPlane2
+participant ControlPlane_P
+participant DataPlane_P
 end box
 
-activate ControlPlane1
-activate ControlPlane2
+activate ControlPlane_C
+activate ControlPlane_P
 
-ControlPlane1 -> ControlPlane2 : TransferRequestMessage
-ControlPlane2 --> ControlPlane1 : ACK
+ControlPlane_C -> ControlPlane_P : TransferRequestMessage
 
-ControlPlane2 -> ControlPlane1 : TransferStartMessage(dataAddress)
-ControlPlane1 --> ControlPlane2 : ACK
+ControlPlane_P -> ControlPlane_C : TransferStartMessage
 
-activate DataPlane1
-DataPlane1 -> DataPlane2 : pullData
-activate DataPlane2
-DataPlane2 --> DataPlane1 : data
-deactivate DataPlane2
-deactivate DataPlane1
+activate DataPlane_C
+activate DataPlane_P
+DataPlane_C -> DataPlane_P : pull data
+deactivate DataPlane_P
+deactivate DataPlane_C
 
-ControlPlane1 -> ControlPlane2 : TransferCompletionMessage
-ControlPlane2 --> ControlPlane1 : ACK
+alt "Consumer ends TP"
+    ControlPlane_C -> ControlPlane_P : TransferCompletionMessage
+else "Provider ends TP"
+    ControlPlane_P -> ControlPlane_C : TransferCompletionMessage
+end
 
-deactivate ControlPlane1
-deactivate ControlPlane2
+deactivate ControlPlane_C
+deactivate ControlPlane_P
 
 @enduml
