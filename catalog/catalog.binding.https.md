@@ -52,7 +52,7 @@ Authorization: ...
 }
 ```
 
-- The `Authorization` header is optional if the [Catalog Service](../model/terminology.md#catalog-service) does not require authorization. If present, the contents of the `Authorization` header are detailed in the [Authorization section](#13-authorization).
+- The `Authorization` header is optional if the [Catalog Service](../model/terminology.md#catalog-service) does not require authorization. If present, the contents of the `Authorization` header are detailed in the [Authorization section](../common/common.binding.https.md#2-authorization).
 
 - The `filter` property is optional. If present, the `filter` property can contain an implementation-specific filter expression or query to be executed as part of the [Catalog](../model/terminology.md#catalog) request. If a filter expression is not supported by an implementation, it must return a HTTP 400 (Bad Request) response.
 
@@ -80,7 +80,7 @@ Authorization: ...
 }
 ```
 
-- The `Authorization` header is optional if the [Catalog Service](../model/terminology.md#catalog-service) does not require authorization. If present, the contents of the `Authorization` header are detailed in the [Authorization section](#13-authorization).
+- The `Authorization` header is optional if the [Catalog Service](../model/terminology.md#catalog-service) does not require authorization. If present, the contents of the `Authorization` header are detailed in the [Authorization section](../common/common.binding.https.md#2-authorization).
 
 ##### Response
 

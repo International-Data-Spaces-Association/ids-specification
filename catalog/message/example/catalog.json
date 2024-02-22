@@ -4,12 +4,12 @@
   "@type": "dcat:Catalog",
   "dct:title": "Data Provider A Catalog",
   "dct:description": [
-    { 
+    {
       "@value": "A catalog of data items",
       "@language": "en"
     }
   ],
-  "dct:publisher": "urn:example:DataProviderA",
+  "dspace:participantId": "urn:example:DataProviderA",
   "dcat:keyword": [
     "traffic",
     "government"
@@ -19,7 +19,7 @@
       "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
       "@type": "dcat:DataService",
       "dcat:endpointDescription": "dspace:connector",
-      "dcat:endpointURL": "https://provder-a.com/connector"
+      "dcat:endpointURL": "https://provider-a.com/connector"
     }
   ],
   "dcat:dataset": [
@@ -64,7 +64,7 @@
           {
             "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
             "@type": "dcat:DataService",
-            "dcat:endpointURL": "https://provder-a.com/connector"
+            "dcat:endpointURL": "https://provider-a.com/connector"
           }
         ]
       }

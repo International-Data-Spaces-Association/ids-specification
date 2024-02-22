@@ -3,13 +3,14 @@
 This document outlines the key elements of the [Transfer Process Protocol](../model/terminology.md#transfer-process-protocol). The used terms are described [here](../model/terminology.md).
 
 * [1 Introduction](#1-introduction)
-  * [1.1 Control and Data Planes](#11-control-and-data-planes)
-  * [1.2 Dataset Transfer Types](#12-dataset-transfer-types)
-    * [1.2.1 Push Transfer](#121-push-transfer)
-    * [1.2.2 Pull Transfer](#122-pull-transfer)
-    * [1.2.3 Finite and Non-Finite Data](#123-finite-and-non-finite-data)
-  * [1.3 States](#13-states)
-  * [1.4 State Machine](#14-state-machine)
+  * [1.1 Prerequisites](#11-prerequisites)
+    * [1.1.1 Control and Data Planes](#111-control-and-data-planes)
+    * [1.1.2 Data Transfer Types](#112-data-transfer-types)
+      * [Push Transfer](#push-transfer)
+      * [Pull Transfer](#pull-transfer)
+      * [Finite and Non-Finite Data](#finite-and-non-finite-data)
+  * [1.2 States](#12-states)
+  * [1.3 State Machine](#13-state-machine)
 * [2 Message Types](#2-message-types)
   * [2.1 Transfer Request Message](#21-transfer-request-message)
   * [2.2 Transfer Start Message](#22-transfer-start-message)
@@ -22,36 +23,43 @@ This document outlines the key elements of the [Transfer Process Protocol](../mo
 
 ## 1 Introduction
 
-A [Transfer Process](../model/terminology.md#transfer-process) (TP) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a [Usage Policy](../model/terminology.md#policy) and [Consumer](../model/terminology.md#consumer) that requests [Datasets](../model/terminology.md#dataset). A TP progresses through a series of states, which are controlled by the [Provider](../model/terminology.md#provider) and [Consumer](../model/terminology.md#consumer) using messages. A TP transitions to another state as a result of an exchanged message.
+A [Transfer Process](../model/terminology.md#transfer-process) (TP) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a [Usage Policy](../model/terminology.md#policy) and a [Consumer](../model/terminology.md#consumer) that requests [Datasets](../model/terminology.md#dataset). A TP progresses through a series of states, which are controlled by the [Provider](../model/terminology.md#provider) and [Consumer](../model/terminology.md#consumer) using messages. A TP transitions to another state as a result of an exchanged message.
 
-A TP is managed by a [Connector](../model/terminology.md#connector--data-service-). The [Connector](../model/terminology.md#connector--data-service-) serves as a coordinating technical entity that receives counter-party messages and manages its local state of the TP. It may as well also operate the hosting of the [Datasets](../model/terminology.md#dataset), or control their offering through another system.
+### 1.1 Prerequisites
 
-### 1.1 Control and Data Planes
-A TP is managed by a [Connector](../model/terminology.md#connector--data-service-). The [Connector](../model/terminology.md#connector--data-service-) consists of two logical components, a _Control Plane_ and a _Data Plane_. The Control Plane serves as a coordinating layer that receives counter-party messages and manages the TP state. The Data Plane performs the actual transfer of [Datasets](../model/terminology.md#dataset) using a wire protocol. Both participants run Control and Data Planes.
+To put the document into the right context, some non-normative descriptions of the core concepts follow in this subsection.
 
-It is important to note that the Control and Data Planes are logical constructs. Implementations may choose to deploy both components within a single process or across heterogeneous clusters.
+#### 1.1.1 Control and Data Planes
 
-### 1.2 Dataset Transfer Types
+A TP involves two logical constructs, a control plane and a data plane. Serving as a coordinating layer, services on the _control plane_ receive messages and manage the local state of the TP (same as for the [Catalog Protocol](../model/terminology.md#catalog-protocol) and the [Contract Negotiation Protocol](../model/terminology.md#contract-negotiation-protocol)). On the _data plane_, the actual transfer of data takes place using a wire protocol. Both participants in a data sharing scenario run services logically regarded as control and/or data plane services.
+
+The specification of data plane interfaces and interaction patterns are not in scope of this document.
+
+#### 1.1.2 Data Transfer Types
 
 [Dataset](../model/terminology.md#dataset) transfers are characterized as `push` or `pull` transfers and it's data is either `finite` or `non-finite`. This section describes the difference between these types.
 
-#### 1.2.1 Push Transfer
+##### Push Transfer
 
-A push transfer is when the [Provider's](../model/terminology.md#provider) Data Plane initiates sending of data to a [Consumer](../model/terminology.md#consumer) endpoint. For example, after the [Consumer](../model/terminology.md#consumer) has issued a [Transfer Request Message](#21-transfer-request-message), the [Provider](../model/terminology.md#provider) begins data transmission to an endpoint specified by the [Consumer](../model/terminology.md#consumer) using an agreed-upon wire protocol.
+A push transfer is when the [Provider's](../model/terminology.md#provider) data plane initiates sending data to a [Consumer](../model/terminology.md#consumer) endpoint. For example, after the [Consumer](../model/terminology.md#consumer) has issued a [Transfer Request Message](#21-transfer-request-message), the [Provider](../model/terminology.md#provider) begins data transmission to an endpoint specified by the [Consumer](../model/terminology.md#consumer) using an agreed-upon wire protocol.
 
 ![](./figures/push-transfer-process.png)
 
-#### 1.2.2 Pull Transfer
+_Note that the illustration of the sequence is only exemplary. The activation of actors is not determined, also, responses, parameters, possible recursions, and interactions between the components of one participant are not shown._
 
-A pull transfer is when the [Consumer](../model/terminology.md#consumer) Data Plane initiates retrieval of data from a [Provider](../model/terminology.md#provider) endpoint. For example, after the [Provider](../model/terminology.md#provider) has issued a [Transfer Start Message](#22-transfer-start-message), the [Consumer](../model/terminology.md#consumer) can request the data from the [Provider](../model/terminology.md#provider)-specified endpoint.
+##### Pull Transfer
+
+A pull transfer is when the [Consumer's](../model/terminology.md#consumer) data plane initiates retrieval of data from a [Provider](../model/terminology.md#provider) endpoint. For example, after the [Provider](../model/terminology.md#provider) has issued a [Transfer Start Message](#22-transfer-start-message), the [Consumer](../model/terminology.md#consumer) can request the data from the [Provider](../model/terminology.md#provider)-specified endpoint.
 
 ![](./figures/pull-transfer-process.png)
 
-#### 1.2.3 Finite and Non-Finite Data
+_Note that the illustration of the sequence is only exemplary. The activation of actors is not determined, also, responses, parameters, possible recursions, and interactions between the components of one participant are not shown._
 
-Data may be `finite` or `non-finite.` Finite data is data that is defined by a finite set, for example, machine learning data or images. After finite data transmission has finished, the TP is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example streams or an API endpoint. With non-finite data, a TP will continue indefinitely until either the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) explicitly terminates the transmission.
+##### Finite and Non-Finite Data
 
-### 1.3 States
+Data may be `finite` or `non-finite`. This applies to either push and pull transfers. Finite data is data that is defined by a finite set, for example, machine learning data or images. After finite data transmission has finished, the TP is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example, streams or an API endpoint. With non-finite data, a TP will continue indefinitely until either the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) explicitly terminates the transmission.
+
+### 1.2 States
 
 The TP states are:
 
@@ -61,7 +69,7 @@ The TP states are:
 - **SUSPENDED**: The transfer has been suspended by the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider).
 - **TERMINATED**: The [Transfer Process](../model/terminology.md#transfer-process) has been terminated by the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider).
 
-### 1.4 State Machine
+### 1.3 State Machine
 
 The TP state machine is represented in the following diagram:
 
