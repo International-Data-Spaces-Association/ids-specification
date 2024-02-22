@@ -20,7 +20,7 @@ end box
 activate ControlPlane_C
 activate ControlPlane_P
 
-ControlPlane_C -> ControlPlane_P : TransferRequestMessage
+ControlPlane_C -> ControlPlane_P : TransferRequestMessage(dataAddress)
 
 ControlPlane_P -> ControlPlane_C : TransferStartMessage
 

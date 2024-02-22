@@ -22,7 +22,7 @@ activate ControlPlane_P
 
 ControlPlane_C -> ControlPlane_P : TransferRequestMessage
 
-ControlPlane_P -> ControlPlane_C : TransferStartMessage
+ControlPlane_P -> ControlPlane_C : TransferStartMessage(dataAddress)
 
 activate DataPlane_C
 activate DataPlane_P
