@@ -31,7 +31,7 @@ To put the document into the right context, some non-normative descriptions of t
 
 #### 1.1.1 Control and Data Planes
 
-A TP involves two logical constructs, a control plane and a data plane. Services on the _control plane_ serve as a coordinating layer that receives messages and manages the local state of the TP (same as for the [Catalog Protocol](../model/terminology.md#catalog-protocol) and the [Contract Negotiation Protocol](../model/terminology.md#contract-negotiation-protocol)). The _data plane_ performs the actual transfer of data using a wire protocol. Both participants in a data sharing scenario run services located on control and/or data plane.
+A TP involves two logical constructs, a control plane and a data plane. Serving as a coordinating layer, services on the _control plane_ receive messages and manage the local state of the TP (same as for the [Catalog Protocol](../model/terminology.md#catalog-protocol) and the [Contract Negotiation Protocol](../model/terminology.md#contract-negotiation-protocol)). On the _data plane_, the actual transfer of data takes place using a wire protocol. Both participants in a data sharing scenario run services logically regarded as control and/or data plane services.
 
 The specification of data plane interfaces and interaction patterns are not in scope of this document.
 
