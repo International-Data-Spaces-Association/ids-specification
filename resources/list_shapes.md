@@ -1,12 +1,14 @@
 # Shapes
 
 ## Catalog
+
 * [Catalog error shape (ttl)](./../catalog/message/shape/catalog-error-shape.ttl)
 * [Catalog request message shape (ttl)](./../catalog/message/shape/catalog-request-message-shape.ttl)
 * [Dataset request message shape (ttl)](./../catalog/message/shape/dataset-request-message-shape.ttl)
 * [DCAT shapes (ttl)](./../catalog/message/shape/dcat-shapes.ttl)
 
 ## Contract Negotiation
+
 * [Contract agreement shape (ttl)](./../negotiation/message/shape/contract-agreement-message-shape.ttl)
 * [Contract agreement verification shape (ttl)](./../negotiation/message/shape/contract-agreement-verification-message-shape.ttl)
 * [Contract negotiation error shape (ttl)](./../negotiation/message/shape/contract-negotiation-error-shape.ttl)
@@ -18,6 +20,7 @@
 * [Contract request shape (ttl)](./../negotiation/message/shape/contract-request-message-shape.ttl)
 
 ## Transfer Process
+
 * [Transfer completion shape (ttl)](./../transfer/message/shape/transfer-completion-message-shape.ttl)
 * [Transfer error shape (ttl)](./../transfer/message/shape/transfer-error-shape.ttl)
 * [Transfer prcess shape (ttl)](./../transfer/message/shape/transfer-process-shape.ttl)
