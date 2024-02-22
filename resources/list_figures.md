@@ -7,6 +7,7 @@
 * [Participant Entities (source)](./../model/m.participant.entities.drawio)
 
 ## Catalog
+
 * [Catalog (png)](./../catalog/message/diagram/catalog.png)
 * [Catalog (source)](./../catalog/message/diagram/catalog.puml)
 * [Catalog error message (png)](./../catalog/message/diagram/catalog-error.png)
@@ -15,6 +16,7 @@
 * [Catalog request message (source)](./../catalog/message/diagram/catalog-request-message.puml)
 
 ## Contract Negotiation
+
 * [Contract agreement message (png)](./../negotiation/message/diagram/contract-agreement-message.png)
 * [Contract agreement message (source)](./../negotiation/message/diagram/contract-agreement-message.puml)
 * [Contract agreement verification message (png)](./../negotiation/message/diagram/contract-agreement-verification-message.png)
@@ -33,6 +35,7 @@
 * [Contract request message (source)](./../negotiation/message/diagram/contract-request-message.puml)
 
 ## Transfer Process
+
 * [Transfer completion message (png)](./../transfer/message/diagram/transfer-completion-message.png)
 * [Transfer completion message (source)](./../transfer/message/diagram/transfer-completion-message.puml)
 * [Transfer error (png)](./../transfer/message/diagram/transfer-error.png)

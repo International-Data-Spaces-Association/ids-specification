@@ -1,6 +1,7 @@
 # Messages
 
 ## Catalog
+
 * [Catalog (json)](./../catalog/message/example/catalog.json)
 * [Catalog error message (json)](./../catalog/message/example/catalog-error.json)
 * [Catalog request message (json)](./../catalog/message/example/catalog-request-message.json)
@@ -8,6 +9,7 @@
 * [Dataset request message (json)](./../catalog/message/example/dataset-request-message.json)
 
 ## Contract Negotiation
+
 * [Contract agreement message (json)](./../negotiation/message/example/contract-agreement-message.json)
 * [Contract agreement verification message (json)](./../negotiation/message/example/contract-agreement-verification-message.json)
 * [Contract negotiation (json)](./../negotiation/message/example/contract-negotiation.json)
@@ -18,6 +20,7 @@
 * [Contract request message (json)](./../negotiation/message/example/contract-request-message.json)
 
 ## Transfer Process
+
 * [Transfer completion message (json)](./../transfer/message/example/transfer-completion-message.json)
 * [Transfer error (json)](./../transfer/message/example/transfer-error.json)
 * [Transfer prcess (json)](./../transfer/message/example/transfer-process.json)

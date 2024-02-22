@@ -1,7 +1,7 @@
 # Dataspace Protocol Release 2024-1
 
-> __NOTE:__ For GitHub users, the link to the rendered content is https://docs.internationaldataspaces.org/dataspace-protocol/.
-
+> __NOTE:__ For GitHub users, the link to the rendered content is [https://docs.internationaldataspaces.org/dataspace-protocol/](https://docs.internationaldataspaces.org/dataspace-protocol/).
+>
 > __NOTE:__ The human-friendly version of this specification in the [IDSA Knowledge base](https://docs.internationaldataspaces.org/dataspace-protocol/) will always show the latest version of the document. The version history and changes are provided via the [GitHub Repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
 
 ## About versions of the Dataspace Protocol
@@ -77,4 +77,3 @@ Users of this specification are invited to provide feedback such as, but not lim
 * What did you like in this document?
 
 Please provide your feedback as Issue in our [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/issues).
-

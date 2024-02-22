@@ -18,7 +18,7 @@ The relationships between the primary [Dataspace](./terminology.md#dataspace) en
 
 ![](./m.dataspace.relationships.png)
 
-Note that all relationships are multiplicities unless specified. `Dataspace Authority` and `Dataspace Registry` are non-normative entities. 
+Note that all relationships are multiplicities unless specified. `Dataspace Authority` and `Dataspace Registry` are non-normative entities.
 
 - A [Dataspace Authority](./terminology.md#dataspace-authority) manages one or more [Dataspaces](./terminology.md#dataspace). This will include [Participant](./terminology.md#participant) registration and may entail mandating business and/or technical requirements. For example, a [Dataspace Authority](./terminology.md#dataspace-authority) may require [Participants](./terminology.md#participant) to obtain some form of business certification. A [Dataspace Authority](./terminology.md#dataspace-authority) may also impose technical requirements such as support for the technical enforcement of specific usage policies.
 - A [Dataspace Registry](./terminology.md#dataspace-registration-service-dataspace-registry) records dataspace participants.

@@ -1,7 +1,7 @@
 # Schemes
 
-
 ## Catalog
+
 * [Catalog error schema (json)](./../catalog/message/schema/catalog-error-schema.json)
 * [Catalog request message schema (json)](./../catalog/message/schema/catalog-request-message-schema.json)
 * [Catalog schema (json)](./../catalog/message/schema/catalog-schema.json)
@@ -9,6 +9,7 @@
 * [Dataset schema (json)](./../catalog/message/schema/dataset-schema.json)
 
 ## Contract Negotiation
+
 * [Contract agreement schema (json)](./../negotiation/message/schema/contract-agreement-message-schema.json)
 * [Contract agreement verification schema (json)](./../negotiation/message/schema/contract-agreement-verification-message-schema.json)
 * [Contract negotiation error schema (json)](./../negotiation/message/schema/contract-negotiation-error-schema.json)
@@ -19,6 +20,7 @@
 * [Contract request schema (json)](./../negotiation/message/schema/contract-request-message-schema.json)
 
 ## Transfer Process
+
 * [Transfer completion schema (json)](./../transfer/message/schema/transfer-completion-message-schema.json)
 * [Transfer error schema (json)](./../transfer/message/schema/transfer-error-schema.json)
 * [Transfer prcess schema (json)](./../transfer/message/schema/transfer-process-schema.json)
