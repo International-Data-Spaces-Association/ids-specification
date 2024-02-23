@@ -6,8 +6,8 @@
 
 ## About versions of the Dataspace Protocol
 
-This specification [version 2024-1](https://github.com/International-Data-Spaces-Association/ids-specification/releases/tag/v0.8) of the Dataspace Protocol is the release candidate and considered to be stable. Further changes shall not affect conformity.
-  Since [version 0.8](https://github.com/International-Data-Spaces-Association/ids-specification/releases/tag/v0.8) the specification is stable with changes in details. All changes made to the specification can be reviewed in the [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
+This version ([2024-1](https://github.com/International-Data-Spaces-Association/ids-specification/tree/main/releases/2024-1)) of the Dataspace Protocol specification is the release candidate and considered to be stable. Further changes shall not affect conformity.
+  Since [version 0.8](https://github.com/International-Data-Spaces-Association/ids-specification/tree/main/releases/v0.8) the specification is stable with changes in details. All changes made to the specification can be reviewed in the [GitHub repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
 
 > __NOTE:__ A versioning scheme beside the commits to the repository is not available but will be provided in the future.
 

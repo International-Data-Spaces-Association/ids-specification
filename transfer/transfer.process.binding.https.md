@@ -77,7 +77,7 @@ If the TP is found and the client is authorized, the [Provider](../model/termino
 
 ```json
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferProcess",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -101,7 +101,7 @@ POST https://provider.com/transfers/request
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferRequestMessage",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
@@ -137,7 +137,7 @@ The [Provider](../model/terminology.md#provider) must return an HTTP 201 (Create
 
 ```json
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferProcess",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -159,7 +159,7 @@ POST https://provider.com/transfers/:providerPid/start
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferStartMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -201,7 +201,7 @@ POST https://provider.com/transfers/:providerPid/completion
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferCompletionMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
@@ -226,7 +226,7 @@ POST https://provider.com/transfers/:providerPid/termination
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferTerminationMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -255,7 +255,7 @@ POST https://provider.com/transfers/:providerPid/suspension
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferSuspensionMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -297,7 +297,7 @@ POST https://consumer.com/:callback/transfers/:consumerPid/start
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferStartMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -339,7 +339,7 @@ POST https://consumer.com/:callback/transfers/:consumerPid/completion
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferCompletionMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
@@ -364,7 +364,7 @@ POST https://consumer.com/:callback/transfers/:consumerPid/termination
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferTerminationMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -393,7 +393,7 @@ POST https://consumer.com/:callback/transfers/:consumerPid/suspension
 Authorization: ...
  
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:TransferSuspensionMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
