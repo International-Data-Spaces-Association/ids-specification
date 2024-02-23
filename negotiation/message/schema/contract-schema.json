@@ -102,7 +102,7 @@
             ],
             "required": [ "@type", "odrl:assigner" ]
         },
-        "#/definitions/Offer": {
+        "Offer": {
             "type": "object",
             "allOf": [
                 {
