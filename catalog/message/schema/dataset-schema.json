@@ -7,7 +7,7 @@
             "$ref": "#/definitions/Dataset"
         }
     ],
-    "$id": "https://w3id.org/dspace/schemas/v0.8/DatasetSchema",
+    "$id": "https://w3id.org/dspace/schemas/2024/1/DatasetSchema",
     "definitions": {
         "Dataset": {
             "type": "object",
@@ -20,7 +20,7 @@
                         "odrl:hasPolicy": {
                             "type": "array",
                             "items": {
-                                "$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
+                                "$ref": "https://w3id.org/dspace/schemas/2024/1/contract-schema.json#/definitions/Offer"
                             },
                             "minItems": 1
                         },
@@ -101,7 +101,7 @@
                 "odrl:hasPolicy": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Offer"
+                        "$ref": "https://w3id.org/dspace/schemas/2024/1/contract-schema.json#/definitions/Offer"
                     },
                     "minItems": 1
                 },

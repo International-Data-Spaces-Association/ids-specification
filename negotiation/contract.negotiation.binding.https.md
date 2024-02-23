@@ -117,7 +117,7 @@ If the CN is found and the client is authorized, the [Provider](../model/termino
 
 ```json
 {
-  "@context": "https://w3id.org/dspace/v0.8/context.json",
+  "@context": "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractNegotiation",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -141,7 +141,7 @@ POST https://provider.com/negotiations/request
 Authorization: ...
 
 {
-  "@context": "https://w3id.org/dspace/v0.8/context.json",
+  "@context": "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractRequestMessage",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:offer": {
@@ -163,7 +163,7 @@ The [Provider](../model/terminology.md#provider) must return an HTTP 201 (Create
 
 ```json
 {
-  "@context": "https://w3id.org/dspace/v0.8/context.json",
+  "@context": "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractNegotiation",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -185,7 +185,7 @@ POST https://provider.com/negotiations/:providerPid/request
 Authorization: ...
 
 {
-  "@context": "https://w3id.org/dspace/v0.8/context.json",
+  "@context": "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractRequestMessage",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -216,7 +216,7 @@ POST https://provider.com/negotiations/:providerPid/events
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractNegotiationEventMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -244,7 +244,7 @@ POST https://provider.com/negotiations/:providerPid/agreement/verification
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractAgreementVerificationMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833"
@@ -270,7 +270,7 @@ POST https://provider.com/negotiations/:providerPid/termination
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractNegotiationTerminationMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -315,7 +315,7 @@ POST https://consumer.com/negotiations/offers
 Authorization: ...
 
 {
-  "@context": "https://w3id.org/dspace/v0.8/context.json",
+  "@context": "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractOfferMessage",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:offer": {
@@ -337,7 +337,7 @@ The [Consumer](../model/terminology.md#consumer) must return an HTTP 201 (Create
 
 ```json
 {
-  "@context": "https://w3id.org/dspace/v0.8/context.json",
+  "@context": "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractNegotiation",
   "dspace:providerPid": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -359,7 +359,7 @@ POST https://consumer.com/:callback/negotiations/:consumerPid/offers
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractOfferMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -393,7 +393,7 @@ POST https://consumer.com/:callback/negotiations/:consumerPid/agreement
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractAgreementMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -428,7 +428,7 @@ POST https://consumer.com/:callback/negotiations/:consumerPid/events
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractNegotiationEventMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
@@ -454,7 +454,7 @@ POST https://consumer.com/negotiations/:consumerPid/termination
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/v0.8/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:ContractNegotiationTerminationMessage",
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
