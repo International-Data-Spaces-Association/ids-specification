@@ -76,7 +76,7 @@ The Contract Request Message is sent by a [Consumer](../model/terminology.md#con
 | **Response**        | [ACK](#31-ack---contract-negotiation) or [ERROR](#32-error---contract-negotiation-error)                                                           |
 | **Schema**          | [TTL Shape](./message/shape/contract-offer-message-shape.ttl), [JSON Schema](./message/schema/contract-offer-message-schema.json)                  |
 | **Example**         | [Example Initial Message](./message/example/contract-offer-message_initial.json), [Example Message](./message/example/contract-offer-message.json) |
-| **Diagram(s)**      | ![](./message/diagram/contract-offer-message_initial.png) ![](./message/diagram/contract-offer-message.png)                                        |
+| **Diagram(s)**      | <p>Initial message (note the missing `consumerPid`) </p> <p>![](./message/diagram/contract-offer-message_initial.png) </p> <p/> <p> Message following a [Contract Request Message](#21-contract-request-message):</p> <p>     ![](./message/diagram/contract-offer-message.png) </p>                                |
 
 The Contract Offer Message is sent by a [Provider](../model/terminology.md#provider) to initiate a CN or to respond to a [Contract Request Message](#21-contract-request-message) sent by a [Consumer](../model/terminology.md#consumer).
 - If the message includes a `consumerPid` property, the request will be associated with an existing CN. If the message does not include a `consumerPid`, a new CN will be created on [Consumer](../model/terminology.md#consumer) side and the [Consumer](../model/terminology.md#consumer) selects an appropriate `consumerPid`.
