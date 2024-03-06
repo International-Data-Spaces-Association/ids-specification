@@ -19,7 +19,7 @@ jobs:
           files: negotiation/message/example/**.json
 
           # optional, defaults to `$schema` in your JSON file
-          schema: negotiation/message/schema/contract-agreement-message-schema.json
+          schema: negotiation/message/schema/**.json
 
           # optional, default: draft-04
           schema-version: draft-04
