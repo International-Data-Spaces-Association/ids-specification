@@ -4,7 +4,10 @@ on:
     branches:
       - main
       - shapes-and-schemas-subtask
-      
+  pull_request:
+    branches:
+      - main
+      - shapes-and-schemas-subtask   
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -13,7 +16,7 @@ jobs:
       - name: Validate JSON Schema
         uses: walbo/validate-json@v1.1.0
         with:
-          files: negotiation/message/example/contract-agreement-message.json
+          files: negotiation/message/example/**.json
 
           # optional, defaults to `$schema` in your JSON file
           schema: negotiation/message/schema/contract-agreement-message-schema.json
