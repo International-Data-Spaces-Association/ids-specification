@@ -20,13 +20,11 @@ jobs:
             echo "Validating schemas in folder: $folder"
             schemas=$(find "$folder/message/schema" -name "*-schema.json")
             for schema in $schemas; do
-              echo "$schema test"
-              json_file=${schema#"$folder/message/schema/"}  # Remove redundant path part
+              json_file=${schema#"$folder/message/schema/"}
               json_file=${json_file%-schema.json}            # Remove ".schema.json"
               json_file_path="$folder/message/$json_file.json"  # Construct correct path
-              echo "$json_file_path test"
               
-              echo "Validating $json_file with $schema"
+              echo "Validating $json_file_path with $schema"
               uses: jakejarvis/json-schema-validate@v4
                 with:
                   schema: $schema
