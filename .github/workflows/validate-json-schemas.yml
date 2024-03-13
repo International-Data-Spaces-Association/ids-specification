@@ -18,10 +18,10 @@ jobs:
           top_level_folders=(catalog negotiation transfer)
           for folder in "${top_level_folders[@]}"; do
             echo "Validating schemas in folder: $folder"
-            schemas=$(find "$folder" -path "*/example/schema/*-schema.json")
+            schemas=$(find "$folder/message/schema" -name "*-schema.json")
             for schema in $schemas; do
-              json_file=${schema%-schema.json}.json  # Remove "-schema.json" and add ".json"
-              json_file_path="${schema%/*}/../$json_file"  # Construct path to JSON file
+              json_file=${schema%*-schema.json}  # Remove "-schema.json"
+              json_file_path="$folder/message/$json_file.json"  # Construct path to JSON file
               
               echo "Validating $json_file with $schema"
               uses: jakejarvis/json-schema-validate@v4
