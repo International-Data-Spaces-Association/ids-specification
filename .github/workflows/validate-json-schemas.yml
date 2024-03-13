@@ -23,7 +23,7 @@ jobs:
               echo "$schema test"
               
               json_file=${schema%*-schema.json}  # Remove "-schema.json"
-              json_file_path="$folder/message/$json_file.json"  # Construct path to JSON file
+              json_file_path="$json_file.json"  # Construct path to JSON file
               echo "$json_file_path test"
               
               echo "Validating $json_file with $schema"
