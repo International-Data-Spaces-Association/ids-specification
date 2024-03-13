@@ -1,4 +1,4 @@
-name: Validate JSON
+name: Validate JSON Schemas
 on: 
   push:
     branches:
@@ -9,32 +9,25 @@ on:
       - main
       - shapes-and-schemas-subtask   
 jobs:
-  validate:
+  validate-json:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Validate JSON Schema
-        uses: walbo/validate-json@v1.1.0
-        with:
-          files: negotiation/message/example/**.json
-
-          # optional, defaults to `$schema` in your JSON file
-          schema: negotiation/message/schema/**.json
-
-          # optional, default: draft-04
-          schema-version: draft-04
-
-          # optional, default: false
-          print-valid-files: false
-
-          # optional, default: false
-          fail-on-missing-schema: false
-
-          # optional, default: true
-          strict: true
-
-          # optional, default: false
-          allow-matching-properties: false
-
-          # optional, default: true
-          allow-union-types: true
+        run: |
+          top_level_folders=(catalog negotiation transfer)
+          for folder in "${top_level_folders[@]}"; do
+            echo "Validating schemas in folder: $folder"
+            schemas=$(find "$folder" -path "*/example/schema/*-schema.json")
+            for schema in $schemas; do
+              json_file=${schema%-schema.json}.json  # Remove "-schema.json" and add ".json"
+              json_file_path="${schema%/*}/../$json_file"  # Construct path to JSON file
+              
+              echo "Validating $json_file with $schema"
+              uses: jakejarvis/json-schema-validate@v4
+                with:
+                  schema: $schema
+                  files: $json_file_path
+                  fail-on-invalid: true
+            done
+          done
