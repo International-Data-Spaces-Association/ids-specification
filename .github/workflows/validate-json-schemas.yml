@@ -23,7 +23,7 @@ jobs:
               json_file=${schema%*-schema.json}  # Remove "-schema.json"
               json_file_path="$folder/message/$json_file.json"  # Construct path to JSON file
               
-              echo "Validating $json_file with $schema"
+              echo "Validating $json_file_path with $schema"
               uses: jakejarvis/json-schema-validate@v4
                 with:
                   schema: $schema
