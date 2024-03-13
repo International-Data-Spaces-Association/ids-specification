@@ -27,7 +27,7 @@
 					"type": "string"
 				},
 				"dspace:agreement": {
-					"$ref": "https://w3id.org/dspace/schemas/v0.8/contract-schema.json#/definitions/Agreement"
+					"$ref": "https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/main/negotiation/message/schema/contract-schema.json#/definitions/Agreement"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"
