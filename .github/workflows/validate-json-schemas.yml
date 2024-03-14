@@ -25,15 +25,10 @@ jobs:
               json_file_path="$folder/message/$json_file.json"  # Construct correct path
               
               echo "Validating $json_file_path with $schema"
-              uses: walbo/validate-json@v1.1.0
+              uses: jakejarvis/json-schema-validate@v4
                 with:
-                  files: $json_file_path
                   schema: $schema
-                  schema-version: draft-04
-                  print-valid-files: false
-                  fail-on-missing-schema: false
-                  strict: true
-                  allow-matching-properties: false
-                  allow-union-types: true
+                  files: $json_file_path
+                  fail-on-invalid: true
             done
           done
