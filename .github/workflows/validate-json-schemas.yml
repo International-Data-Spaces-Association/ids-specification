@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy: 
       matrix:
-        schema: ["catalog/message/schema/catalog-error-schema.json", "catalog/message/schema/catalog-request-message-schema.json"]
-        example: ["catalog/message/*.json"]
+        schema: ["catalog/message/schema/catalog-error-schema.json", "catalog/message/schema/catalog-request-message-schema.json", "catalog/message/schema/catalog-schema.json", "catalog/message/schema/dataset-request-message-schema.json", "catalog/message/schema/dataset-schema.json"]
+        example: ["catalog/message/catalog-error.json", "catalog/message/catalog-request-message.json", "catalog/message/catalog.json", "catalog/message/dataset-request-message.json", "catalog/message/dataset.json"]
     steps:
       - uses: actions/checkout@v3
         name: Checkout
