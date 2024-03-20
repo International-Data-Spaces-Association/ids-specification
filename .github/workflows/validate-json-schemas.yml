@@ -19,8 +19,9 @@ jobs:
       - uses: actions/checkout@v3
         name: Checkout
       - name: Validate JSON Schema
-        uses: jakejarvis/json-schema-validate@v4
+        uses: walbo/validate-json@v1.1.0
         with:
           schema: ${{ matrix.schema }}
           files: ${{ matrix.example }}
-          fail-on-invalid: true
+          fail-on-missing-schema: true
+          schema-version: draft-04
