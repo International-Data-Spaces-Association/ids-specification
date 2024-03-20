@@ -1,6 +1,6 @@
 {
   "@context":  "https://w3id.org/dspace/v0.8/context.json",
-  "@type": "dspace:CatalogError",
+  "@type": "dspace:CatalogErro",
   "dspace:code": "123:A",
   "dspace:reason": [
     { 
