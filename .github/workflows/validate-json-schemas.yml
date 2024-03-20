@@ -14,7 +14,7 @@ jobs:
     strategy: 
       matrix:
         schema: ["catalog/message/schema/catalog-error-schema.json", "catalog/message/schema/catalog-request-message-schema.json"]
-        example: ["catalog/message/catalog-error.json"]
+        example: ["catalog/message/*.json"]
     steps:
       - uses: actions/checkout@v3
         name: Checkout
