@@ -11,25 +11,16 @@ on:
 jobs:
   validate-json:
     runs-on: ubuntu-latest
+    strategy: 
+      matrix:
+        schema: ["catalog/message/schema/catalog-error-schema.json", "catalog/message/schema/catalog-request-message-schema.json"]
+        example: ["catalog/message/catalog-error.json"]
     steps:
       - uses: actions/checkout@v3
         name: Checkout
       - name: Validate JSON Schema
-        run: |
-          top_level_folders=(catalog negotiation transfer)
-          for folder in "${top_level_folders[@]}"; do
-            echo "Validating schemas in folder: $folder"
-            schemas=$(find "$folder/message/schema" -name "*-schema.json")
-            for schema in $schemas; do
-              json_file=${schema#"$folder/message/schema/"}
-              json_file=${json_file%-schema.json}            # Remove ".schema.json"
-              json_file_path="$folder/message/$json_file.json"  # Construct correct path
-              
-              echo "Validating $json_file_path with $schema"
-              uses: jakejarvis/json-schema-validate@v4
-                with:
-                  schema: $schema
-                  files: $json_file_path
-                  fail-on-invalid: true
-            done
-          done
+        uses: jakejarvis/json-schema-validate@v4
+        with:
+          schema: ${{ matrix.schema }}
+          files: ${{ matrix.example }}
+          fail-on-invalid: true
