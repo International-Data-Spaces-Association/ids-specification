@@ -28,4 +28,5 @@ jobs:
       - name: Bash to execute the JSON Schema Checks
         run: |
           sudo pipx install check-jsonschema
+          echo "run: check-jsonschema --schemafile ${{ matrix.param }}"
           check-jsonschema --schemafile ${{ matrix.param }}
