@@ -24,4 +24,4 @@ jobs:
           schema: ${{ matrix.schema }}
           files: ${{ matrix.example }}
           fail-on-missing-schema: true
-          schema-version: draft-04
+          schema-version: draft-2019-09
