@@ -27,5 +27,5 @@ jobs:
       #    fail-on-invalid: true
       - name: Bash to execute the JSON Schema Checks
         run: |
-          sudo apt-get install check-jsonschema
+          sudo pipx install check-jsonschema
           check-jsonschema --schemafiles ${{ matrix.param }}
