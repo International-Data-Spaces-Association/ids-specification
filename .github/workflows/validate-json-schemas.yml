@@ -13,14 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy: 
       matrix:
-        schema: ["catalog/message/schema/catalog-error-schema.json", "catalog/message/schema/catalog-request-message-schema.json", "catalog/message/schema/catalog-schema.json", "catalog/message/schema/dataset-request-message-schema.json", "catalog/message/schema/dataset-schema.json"]
-        example: ["catalog/message/catalog-error.json", "catalog/message/catalog-request-message.json", "catalog/message/catalog.json", "catalog/message/dataset-request-message.json", "catalog/message/dataset.json"]
+        #schema: ["catalog/message/schema/catalog-error-schema.json", "catalog/message/schema/catalog-request-message-schema.json", "catalog/message/schema/catalog-schema.json", "catalog/message/schema/dataset-request-message-schema.json", "catalog/message/schema/dataset-schema.json"]
+        #example: ["catalog/message/catalog-error.json", "catalog/message/catalog-request-message.json", "catalog/message/catalog.json", "catalog/message/dataset-request-message.json", "catalog/message/dataset.json"]
+        param: ["catalog/message/schema/catalog-error-schema.json catalog/message/catalog-error.json", "catalog/message/schema/catalog-request-message-schema.json catalog/message/catalog-request-message.json"] 
     steps:
       - uses: actions/checkout@v3
         name: Checkout
-      - name: Validate JSON Schema
-        uses: dsanders11/json-schema-validate-action@v1.1.2
-        with:
-          schema: ${{ matrix.schema }}
-          files: ${{ matrix.example }}
-          fail-on-invalid: true
+      #- name: Validate JSON Schema
+      #  uses: dsanders11/json-schema-validate-action@v1.1.2
+      #  with:
+      #    schema: ${{ matrix.schema }}
+      #    files: ${{ matrix.example }}
+      #    fail-on-invalid: true
+      - name: Bash to execute the JSON Schema Checks
+        run: |
+          sudo apt-get install check-jsonschema
+          check-jsonschema --schemafiles ${{ matrix.param }}
