@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/TransferCompletionMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/TransferCompletionMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/transfer/transfer-completion-message-schema.json",
 	"definitions": {
 		"TransferCompletionMessage": {
 			"type": "object",
