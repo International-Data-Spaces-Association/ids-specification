@@ -13,9 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy: 
       matrix:
-        #schema: ["catalog/message/schema/catalog-error-schema.json", "catalog/message/schema/catalog-request-message-schema.json", "catalog/message/schema/catalog-schema.json", "catalog/message/schema/dataset-request-message-schema.json", "catalog/message/schema/dataset-schema.json"]
-        #example: ["catalog/message/catalog-error.json", "catalog/message/catalog-request-message.json", "catalog/message/catalog.json", "catalog/message/dataset-request-message.json", "catalog/message/dataset.json"]
-        param: ["catalog/message/schema/catalog-error-schema.json catalog/message/catalog-error.json", "catalog/message/schema/catalog-request-message-schema.json catalog/message/catalog-request-message.json"] 
+        # List of folders containing JSON files and schemas
+        folders:
+          - catalog/message
+          - negotiation/message
+          - transfer/message
     steps:
       - uses: actions/checkout@v3
         name: Checkout
@@ -28,5 +30,20 @@ jobs:
       - name: Bash to execute the JSON Schema Checks
         run: |
           sudo pipx install check-jsonschema
-          echo "run: check-jsonschema --schemafile ${{ matrix.param }}"
-          check-jsonschema --schemafile ${{ matrix.param }}
+
+          # Iterate through each folder
+          for folder in ${{ matrix.folders }}
+          do
+            # Iterate through each JSON file in the folder
+            for json_file in $folder/*.json
+            do
+              schema_file="$folder/schema/${json_file##*/}-schema.json"  # Construct schema filename
+
+              if [[ -f "$schema_file" ]]; then  # Check if schema file exists
+                echo "Validating $json_file against $schema_file"
+                check-jsonschema --schemafile "$schema_file" "$json_file"
+              else
+                echo "WARNING: Schema file not found for $json_file"
+              fi
+            done
+          done
