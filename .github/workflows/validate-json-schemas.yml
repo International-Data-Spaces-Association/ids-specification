@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy: 
       matrix:
-        # List of folders containing JSON files and schemas
         folders:
           - catalog/message
           - negotiation/message
@@ -31,17 +30,12 @@ jobs:
         run: |
           sudo pipx install check-jsonschema
 
-          # Iterate through each folder
           for folder in ${{ matrix.folders }}
           do
-            # Iterate through each JSON file in the folder
             for json_file in $folder/*.json
             do
-              echo "json file: $json_file"
               _base_filename=$(basename "$json_file" .json)  # Remove .json extension
-              echo "base filename: $_base_filename"
               schema_file="$folder/schema/${_base_filename}-schema.json"
-              echo "schema file: $schema_file"
               
               if [[ -f "$schema_file" ]]; then
                 echo "Validating $json_file against $schema_file"
