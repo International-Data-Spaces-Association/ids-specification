@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/ContractNegotiationEventMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/ContractNegotiationEventMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/negotiation/contract-negotiation-event-message-schema.json",
 	"definitions": {
 		"ContractNegotiationEventMessage": {
 			"type": "object",

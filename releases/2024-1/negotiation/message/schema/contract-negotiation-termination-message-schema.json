@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/ContractNegotiationTerminationMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/ContractNegotiationTerminationMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/negotiation/contract-negotiation-termination-message-schema.json",
 	"definitions": {
 		"ContractNegotiationTerminationMessage": {
 			"type": "object",
