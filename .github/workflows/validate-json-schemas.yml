@@ -38,7 +38,7 @@ jobs:
             for json_file in $folder/*.json
             do
               schema_file="$folder/schema/${json_file}-schema.json"  # Construct schema filename
-              echo schema_file;
+              echo $schema_file;
               if [[ -f "$schema_file" ]]; then  # Check if schema file exists
                 echo "Validating $json_file against $schema_file"
                 check-jsonschema --schemafile "$schema_file" "$json_file"
