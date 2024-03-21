@@ -37,15 +37,17 @@ jobs:
             # Iterate through each JSON file in the folder
             for json_file in $folder/*.json
             do
-              _base_filename="${json_file}"
-              echo "base filename is: $_base_filename"
-              schema_file="$folder/schema/${_base_filename}-schema.json"  # Construct schema filename
-              echo $schema_file
-              if [[ -f "$schema_file" ]]; then  # Check if schema file exists
-                echo "Validating $json_file against $schema_file"
-                check-jsonschema --schemafile "$schema_file" "$json_file"
-              else
-                echo "WARNING: Schema file not found for $json_file"
-              fi
-            done
-          done
+              echo "json file: $json_file"
+              _base_filename=$(basename "$json_file" .json)  # Remove .json extension
+              echo "base filename: $_base_filename"
+             schema_file="$folder/schema/${_base_filename}-schema.json"
+             echo "schema file: $schema_file"
+
+             if [[ -f "$schema_file" ]]; then
+               echo "Validating $json_file against $schema_file"
+               check-jsonschema --schemafile "$schema_file" "$json_file"
+             else
+               echo "WARNING: Schema file not found for $json_file"
+             fi
+           done
+         done
