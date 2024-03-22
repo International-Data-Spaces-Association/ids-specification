@@ -20,7 +20,7 @@ The __Dataspace Protocol__ is a set of specifications designed to facilitate int
 Sharing data between autonomous entities requires the provision of metadata to facilitate the transfer of [Datasets](./model/terminology.md#dataset) by making use of a data transfer (or application layer) protocol.
 The __Dataspace Protocol__ defines how this metadata is provisioned:
 
-1. How [Datasets](./model/terminology.md#dataset) are deployed as [DCAT Catalogs](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) and usage control is expressed as [ODRL Policies](https://www.w3.org/TR/odrl-model/).
+1. How [Datasets](./model/terminology.md#dataset) are deployed as [Catalogs](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) in terms of the DCAT Data Catalog Vocabulary, and how usage control is expressed as [Policies](https://www.w3.org/TR/odrl-model/) in the ODRL Open Digital Rights Language.
 2. How [Agreements](./model/terminology.md#agreement) that govern data usage are syntactically expressed and electronically negotiated.
 3. How [Datasets](./model/terminology.md#dataset) are accessed using [Transfer Process Protocols](./model/terminology.md#transfer-process-protocol).
 
