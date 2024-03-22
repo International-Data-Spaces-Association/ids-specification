@@ -26,6 +26,7 @@ jobs:
       - name: Install SHACL Validator
         run: |
           sudo pipx install pyshacl
+          echo pyshacl --version
 
       - name: Validate Shapes
         run: |
@@ -33,8 +34,10 @@ jobs:
           do
             for json_file in $folder/*.json
             do
+              echo "json file: $json_file"
               _base_filename=$(basename "$json_file" .json)
               shape_file="$folder/shape/${_base_filename}-shape.ttl"
+              echo "shape file: $shape_file"
 
               if [[ -f "$shape_file" ]]; then
                 echo "Validating $json_file against $shape_file"
