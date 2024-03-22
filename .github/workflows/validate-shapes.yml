@@ -38,7 +38,7 @@ jobs:
 
               if [[ -f "$shape_file" ]]; then
                 echo "Validating $json_file against $shape_file"
-                pyshacl validate -f rdf --data $json_file --shapes $shape_file
+                pyshacl validate --data $json_file --shapes $shape_file
               else
                 echo "WARNING: Shape file not found for $json_file"
               fi
