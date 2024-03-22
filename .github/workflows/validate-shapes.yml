@@ -25,7 +25,7 @@ jobs:
 
       - name: Install SHACL Validator
         run: |
-          sudo pipx install --force-reinstall pyshacl
+          sudo pipx install pyshacl
 
       - name: Validate Shapes
         run: |
