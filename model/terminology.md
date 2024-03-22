@@ -80,7 +80,7 @@ A technology system that performs operations on behalf of a [Participant](#parti
 
 ### Policy
 
-A set of rules, duties, and obligations that define the terms of use for a [Dataset](#dataset). Also referred to as "Usage Policy".
+A set of rules, duties, and obligations that define the terms of use for a [Dataset](#dataset). Also referred to as “Usage Policy”.
 
 ### Provider
 
