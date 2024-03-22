@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/CatalogRequestMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/CatalogRequestMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/catalog/catalog-request-message-schema.json",
 	"definitions": {
 		"CatalogRequestMessage": {
 			"type": "object",

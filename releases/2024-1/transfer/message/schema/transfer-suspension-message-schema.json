@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/TransferSuspensionMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/TransferSuspensionMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/transfer/transfer-suspension-message-schema.json",
 	"definitions": {
 		"TransferSuspensionMessage": {
 			"type": "object",

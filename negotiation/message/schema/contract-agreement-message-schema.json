@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/ContractAgreementMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/ContractAgreementMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/negotiation/contract-agreement-message-schema.json",
 	"definitions": {
 		"ContractAgreementMessage": {
 			"type": "object",
@@ -27,7 +27,7 @@
 					"type": "string"
 				},
 				"dspace:agreement": {
-					"$ref": "https://w3id.org/dspace/schemas/2024/1/contract-schema.json#/definitions/Agreement"
+					"$ref": "https://w3id.org/dspace/2024/1/negotiation/contract-schema.json#/definitions/Agreement"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"

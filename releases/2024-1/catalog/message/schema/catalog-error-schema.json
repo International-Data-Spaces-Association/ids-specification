@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/CatalogError"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/CatalogErrorSchema",
+	"$id": "https://w3id.org/dspace/2024/1/catalog/catalog-error-schema.json",
 	"definitions": {
 		"CatalogError": {
 			"type": "object",

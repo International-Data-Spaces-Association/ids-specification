@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/TransferRequestMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/TransferRequestMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/transfer/transfer-request-message-schema.json",
 	"definitions": {
 		"TransferRequestMessage": {
 			"type": "object",

@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/DatasetRequestMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/DatasetRequestMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/catalog/dataset-request-message-schema.json",
 	"definitions": {
 		"DatasetRequestMessage": {
 			"type": "object",

@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/ContractNegotiation"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/ContractNegotiationSchema",
+	"$id": "https://w3id.org/dspace/2024/1/negotiation/contract-negotiation-schema.json",
 	"definitions": {
 		"ContractNegotiation": {
 			"type": "object",

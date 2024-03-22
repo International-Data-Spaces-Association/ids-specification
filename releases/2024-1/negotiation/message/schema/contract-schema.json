@@ -7,7 +7,7 @@
             "$ref": "#/definitions/Policy"
         }
     ],
-    "$id": "https://w3id.org/dspace/schemas/0/8/PolicySchema",
+    "$id": "https://w3id.org/dspace/2024/1/negotiation/contract-schema.json",
     "definitions": {
         "Policy": {
             "oneOf": [

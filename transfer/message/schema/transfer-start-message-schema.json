@@ -7,7 +7,7 @@
 		"$ref": "#/definitions/TransferStartMessage"
 	  }
 	],
-	"$id": "https://w3id.org/dspace/schemas/2024/1/TransferStartMessageSchema",
+	"$id": "https://w3id.org/dspace/2024/1/transfer/transfer-start-message-schema.json",
 	"definitions": {
 		"TransferStartMessage": {
 			"type": "object",
