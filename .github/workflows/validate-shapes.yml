@@ -1,0 +1,46 @@
+name: Validate Shapes
+on:
+  push:
+    branches:
+      - main
+      - shapes-and-schemas-subtask
+  pull_request:
+    branches:
+      - main
+      - shapes-and-schemas-subtask
+
+jobs:
+  validate-shapes:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folders:
+          - catalog/message
+          - negotiation/message
+          - transfer/message
+
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout
+
+      - name: Install SHACL Validator
+        run: |
+          sudo pipx install pyshacl
+
+      - name: Validate Shapes
+        run: |
+          for folder in ${{ matrix.folders }}
+          do
+            for json_file in $folder/*.json
+            do
+              _base_filename=$(basename "$json_file" .json)
+              shape_file="$folder/shape/${_base_filename}-shape.ttl"
+
+              if [[ -f "$shape_file" ]]; then
+                echo "Validating $json_file against $shape_file"
+                pyshacl validate -f rdf --data $json_file --shapes $shape_file
+              else
+                echo "WARNING: Shape file not found for $json_file"
+              fi
+            done
+          done
