@@ -7,18 +7,11 @@ hide empty description
 
 
 class "dspace:ContractAgreementVerificationMessage" {
-    @context : "https://w3id.org/dspace/v0.8/context.json"
+    @context : "https://w3id.org/dspace/2024/1/context.json"
     @type : "dspace:ContractAgreementVerificationMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
-    dspace:hashedMessage : HashedMessage
 }
 
-class HashedMessage {
-    dspace:digest : String
-    dspace:algorithm : String
-}
-
-"dspace:ContractAgreementVerificationMessage" "1" *-- "1" "HashedMessage" : "dspace:hashedMessage"
 
 @enduml

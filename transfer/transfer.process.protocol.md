@@ -1,213 +1,203 @@
 # Transfer Process Protocol
 
-## Introduction: Terms
+This document outlines the key elements of the [Transfer Process Protocol](../model/terminology.md#transfer-process-protocol). The used terms are described [here](../model/terminology.md).
 
-This document outlines the key elements of the Transfer Process Protocol. The following terms are used:
+* [1 Introduction](#1-introduction)
+  * [1.1 Prerequisites](#11-prerequisites)
+    * [1.1.1 Control and Data Planes](#111-control-and-data-planes)
+    * [1.1.2 Data Transfer Types](#112-data-transfer-types)
+      * [Push Transfer](#push-transfer)
+      * [Pull Transfer](#pull-transfer)
+      * [Finite and Non-Finite Data](#finite-and-non-finite-data)
+  * [1.2 States](#12-states)
+  * [1.3 State Machine](#13-state-machine)
+* [2 Message Types](#2-message-types)
+  * [2.1 Transfer Request Message](#21-transfer-request-message)
+  * [2.2 Transfer Start Message](#22-transfer-start-message)
+  * [2.3 Transfer Suspension Message](#23-transfer-suspension-message)
+  * [2.4 Transfer Completion Message](#24-transfer-completion-message)
+  * [2.5 Transfer Termination Message](#25-transfer-termination-message)
+* [3 Response Types](#3-response-types)
+  * [3.1 ACK - Transfer Process](#31-ack---transfer-process)
+  * [3.2 ERROR - Transfer Error](#32-error---transfer-error)
 
-- A _**message type**_ defines the structure of a _message_.
-- A _**message**_  is an instantiation of a _message type_.
-- The _**transfer process protocol**_ is the set of allowable message type sequences and is defined as a state machine (TP-SM).
-- A _**transfer process (TP)**_ is an instantiation of the CNP-TP.
-- A _**provider**_ is a [Participant Agent](../model/terminology.md#participant-agent) that offers a [Dataset](../model/terminology.md#dataset).
-- A _**consumer**_ is a [Participant Agent](../model/terminology.md#participant-agent) that requests access to an offered [Dataset](../model/terminology.md#dataset).
-- A _**Connector**_ is a [Participant Agent](../model/terminology.md#participant-agent) that produces [Agreements](../model/terminology.md#agreement) and manages [Dataset](../model/terminology.md#dataset) sharing.
-- A _**Dataset**_ is data or a service a provider grants access to.
-- An _**Agreement**_ is a result of a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and is associated with _exactly one_ [Dataset](../model/terminology.md#dataset).
+## 1 Introduction
 
-## Transfer Process Protocol
+A [Transfer Process](../model/terminology.md#transfer-process) (TP) involves two parties, a [Provider](../model/terminology.md#provider) that offers one or more [Datasets](../model/terminology.md#dataset) under a [Usage Policy](../model/terminology.md#policy) and a [Consumer](../model/terminology.md#consumer) that requests [Datasets](../model/terminology.md#dataset). A TP progresses through a series of states, which are controlled by the [Provider](../model/terminology.md#provider) and [Consumer](../model/terminology.md#consumer) using messages. A TP transitions to another state as a result of an exchanged message.
 
-A [Transfer Process](../model/terminology.md#transfer-process) (TP) involves two parties, a _provider_ that offers one or more [Datasets](../model/terminology.md#dataset) under a [Usage Policy](../model/terminology.md#policy) and _consumer_ that requests [Datasets](../model/terminology.md#dataset). A TP progresses through
-a series of states, which are tracked by the provider and consumer using messages. A TP transitions to a state in response to a message from the counter-party.
+### 1.1 Prerequisites
 
-### Connector Components: Control and Data Planes
+To put the document into the right context, some non-normative descriptions of the core concepts follow in this subsection.
 
-A TP is managed by a [Connector](../model/terminology.md#connector--data-service-). The [Connector](../model/terminology.md#connector--data-service-) consists of two logical components, a `Control Plane` and a `Data Plane`. The control plane serves as a coordinating layer that
-receives counter-party messages and manages the TP state. The data plane performs the actual transfer of data using a wire protocol. Both [Participants](../model/terminology.md#participant) run control and data
-planes.
+#### 1.1.1 Control and Data Planes
 
-It is important to note that the control and data planes are logical constructs. Implementations may choose to deploy both components within a single process or across
-heterogeneous clusters.
+A TP involves two logical constructs, a control plane and a data plane. Serving as a coordinating layer, services on the _control plane_ receive messages and manage the local state of the TP (same as for the [Catalog Protocol](../model/terminology.md#catalog-protocol) and the [Contract Negotiation Protocol](../model/terminology.md#contract-negotiation-protocol)). On the _data plane_, the actual transfer of data takes place using a wire protocol. Both participants in a data sharing scenario run services logically regarded as control and/or data plane services.
 
-### Dataset Transfer Types
+The specification of data plane interfaces and interaction patterns are not in scope of this document.
+
+#### 1.1.2 Data Transfer Types
 
 [Dataset](../model/terminology.md#dataset) transfers are characterized as `push` or `pull` transfers and it's data is either `finite` or `non-finite`. This section describes the difference between these types.
 
-#### Push Transfer
+##### Push Transfer
 
-A push transfer is when the provider data plane initiates sending of data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
-provider begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
+A push transfer is when the [Provider's](../model/terminology.md#provider) data plane initiates sending data to a [Consumer](../model/terminology.md#consumer) endpoint. For example, after the [Consumer](../model/terminology.md#consumer) has issued a [Transfer Request Message](#21-transfer-request-message), the [Provider](../model/terminology.md#provider) begins data transmission to an endpoint specified by the [Consumer](../model/terminology.md#consumer) using an agreed-upon wire protocol.
 
-![](./push-transfer-process.png)
+![](./figures/push-transfer-process.png)
 
-#### Pull Transfer
+_Note that the illustration of the sequence is only exemplary. The activation of actors is not determined, also, responses, parameters, possible recursions, and interactions between the components of one participant are not shown._
 
-A pull transfer is when the consumer data plane initiates retrieval of data from a provider endpoint. For example, after the provider has issued an `TransferProcessStart,`
-message, the consumer can request the data from the provider-specified endpoint.
+##### Pull Transfer
 
-![](./pull-transfer-process.png)
+A pull transfer is when the [Consumer's](../model/terminology.md#consumer) data plane initiates retrieval of data from a [Provider](../model/terminology.md#provider) endpoint. For example, after the [Provider](../model/terminology.md#provider) has issued a [Transfer Start Message](#22-transfer-start-message), the [Consumer](../model/terminology.md#consumer) can request the data from the [Provider](../model/terminology.md#provider)-specified endpoint.
 
-#### Finite and Non-Finite Data
+![](./figures/pull-transfer-process.png)
 
-Data may be `finite` or `non-finite.` Finite data is data that is defined by a finite set, for example, machine learning data or images. After finite data transmission has
-finished, the [Transfer Process](../model/terminology.md#transfer-process) is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example streams or an API endpoint. With
-non-finite data, a TP will continue indefinitely until either the consumer or provider explicitly terminates the transmission.
+_Note that the illustration of the sequence is only exemplary. The activation of actors is not determined, also, responses, parameters, possible recursions, and interactions between the components of one participant are not shown._
 
-### Transfer Process States
+##### Finite and Non-Finite Data
+
+Data may be `finite` or `non-finite`. This applies to either push and pull transfers. Finite data is data that is defined by a finite set, for example, machine learning data or images. After finite data transmission has finished, the TP is completed. Non-finite data is data that is defined by an infinite set or has no specified end, for example, streams or an API endpoint. With non-finite data, a TP will continue indefinitely until either the [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) explicitly terminates the transmission.
+
+### 1.2 States
 
 The TP states are:
 
-- **REQUESTED** - A [Dataset](../model/terminology.md#dataset) has been requested under an [Agreement](../model/terminology.md#agreement) by the consumer and the provider has sent an ACK response.
-- **STARTED** - The [Dataset](../model/terminology.md#dataset) is available for access by the consumer or the provider has begun pushing the data to the consumer endpoint.
-- **COMPLETED** - The transfer has been completed by either the consumer or the provider.
-- **SUSPENDED** - The transfer has been suspended by the consumer or the provider.
-- **TERMINATED** - The [Transfer Process](../model/terminology.md#transfer-process) has been terminated by the consumer or the provider.
+- **REQUESTED**: A [Dataset](../model/terminology.md#dataset) has been requested under an [Agreement](../model/terminology.md#agreement) by the [Consumer](../model/terminology.md#consumer) and the [Provider](../model/terminology.md#provider) has sent an ACK response.
+- **STARTED**: The [Dataset](../model/terminology.md#dataset) is available for access by the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider) has begun pushing the data to the [Consumer](../model/terminology.md#consumer) endpoint.
+- **COMPLETED**: The transfer has been completed by either the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider).
+- **SUSPENDED**: The transfer has been suspended by the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider).
+- **TERMINATED**: The [Transfer Process](../model/terminology.md#transfer-process) has been terminated by the [Consumer](../model/terminology.md#consumer) or the [Provider](../model/terminology.md#provider).
 
-### Transfer Process State Machine
+### 1.3 State Machine
 
-![](./transfer-process-state-machine.png)
+The TP state machine is represented in the following diagram:
 
-## Message Types
+![](./figures/transfer-process-state-machine.png)
 
-### 1. TransferRequestMessage
+Transitions marked with `C` indicate a message sent by the [Consumer](../model/terminology.md#consumer), transitions marked with `P` indicate a [Provider](../model/terminology.md#provider) message. Terminal states are final; the state machine may not transition to another state.
 
-![](./message/diagram/transfer-request-message.png)
+## 2 Message Types
 
-**Sent by**: Consumer
+All messages must be serialized in JSON-LD compact form as specified in the [JSON-LD 1.1 Processing Algorithms and API](https://www.w3.org/TR/json-ld11-api/#compaction-algorithms). Further Dataspace specifications may define additional optional serialization formats.
 
-**Resulting State**: REQUESTED
+### 2.1 Transfer Request Message
 
-**Example**: [TransferRequestMessage](./message/transfer-request-message.json)
+|                     |                                                                                                                                       |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| **Sent by**         | [Consumer](../model/terminology.md#consumer)                                                                                          |
+| **Resulting state** | `REQUESTED`                                                                                                                           |
+| **Response**        | [ACK](#31-ack---transfer-process) or [ERROR](#32-error---transfer-error)                                                              |
+| **Schema**          | [TTL Shape](./message/shape/transfer-request-message-shape.ttl), [JSON Schema](./message/schema/transfer-request-message-schema.json) |
+| **Example**         | [Message](./message/example/transfer-request-message.json)                                                                            |
+| **Diagram(s)**      | ![](./message/diagram/transfer-request-message.png)                                                                                   |
 
-**Response**: [ACK or ERROR.](#response-types)
+The Transfer Request Message is sent by a [Consumer](../model/terminology.md#consumer) to initiate a TP.
 
-**Schema**: [TransferRequestMessage](./message/shape/transfer-request-message-shape.ttl), [TransferRequestMessage JSON Schema](./message/schema/transfer-request-message-schema.json), [TransferProcess Shape](./message/shape/transfer-process-shape.ttl) and the [TransferProcess JSON Schema](./message/schema/transfer-process-schema.json)
-
-#### Description
-
-The `TransferRequestMessage` is sent by a consumer to initiate a [Transfer Process](../model/terminology.md#transfer-process).
-
-#### Notes
-
-- The `consumerPid` property refers to the transfer id on consumer side.
-- The `agreementId` property refers to an existing [Agreement](../model/terminology.md#agreement) between the consumer and provider.
-- The `dct:format` property is a format specified by a `Distribution` for the [Dataset](../model/terminology.md#dataset) associated with the [Agreement](../model/terminology.md#agreement). This is generally obtained from the provider [Catalog](../model/terminology.md#catalog).
+- The `consumerPid` property refers to the transfer id of the [Consumer](../model/terminology.md#consumer) side.
+- The `agreementId` property refers to an existing contract [Agreement](../model/terminology.md#agreement) between the [Consumer](../model/terminology.md#consumer) and [Provider](../model/terminology.md#provider).
+- The `dct:format` property is a format specified by a `Distribution` for the [Dataset](../model/terminology.md#dataset) associated with the [Agreement](../model/terminology.md#agreement). This is generally obtained from the [Provider's](../model/terminology.md#provider) [Catalog](../model/terminology.md#catalog).
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
-- `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
+- The `dataAddress` contains a transport-specific endpoint address for pushing the data. It may include a temporary authorization via the `endpointProperties` property.
+- `callbackAddress` is a URI indicating where messages to the [Consumer](../model/terminology.md#consumer) should be sent. If the address is not understood, the [Provider](../model/terminology.md#provider) MUST return an UNRECOVERABLE error.
 
-Providers should implement idempotent behavior for `TransferRequestMessage` based on the value of `dspace:consumerPid`. Providers may choose to implement idempotent behavior for a certain period of
-time. For example, until a [Transfer Process](../model/terminology.md#transfer-process) has completed and been archived after an implementation-specific expiration period. If a request for the given `dspace:consumerPid` has already been
-received *and* the same consumer sent the original message, the provider should respond with an appropriate `DataAddressMessage`.
+- The `endpointProperties` may contain the following optional values:
+  - `authorization` - An opaque authorization token that clients must present when accessing the transport-specific endpoint address. 
+  - `authType` - The auth token type. For example, the value may be `bearer`. If present, this value may be used in conjunction with transport rules to define how the client must present an authorization token.   
 
-Once a [Transfer Process](../model/terminology.md#transfer-process) have been created, all associated callback messages must include a `dspace:consumerPid` and `dspace:providerPid`.
+Note that [Providers](../model/terminology.md#provider) should implement idempotent behavior for [Transfer Request Messages](#21-transfer-request-message) based on the value of `consumerPid`. [Providers](../model/terminology.md#provider) may choose to implement idempotent behavior for a certain period of time. For example, until a TP has completed and been archived after an implementation-specific expiration period, repeated sending of [Transfer Request Messages](#21-transfer-request-message) does not change the state of the TP. If a request for the given `consumerPid` has already been received *and* the same [Consumer](../model/terminology.md#consumer) sent the original message again, the [Provider](../model/terminology.md#provider) should respond with an appropriate [Transfer Start Message](#22-transfer-start-message).
 
-Providers must include a `dspace:consumerPid` and a `dspace:providerPid` property in the `TransferProcess`.
-
-- The `dataAddress` contains a transport-specific endpoint address for pushing the data. It may include a temporary authorization via the `dspace:endpointProperties` property.
-- Valid states of a `TransferProcess` are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
-
-
-### 2. TransferStartMessage
-
-![](./message/diagram/transfer-start-message.png)
-
-**Sent by**: Provider
-
-**Resulting State**: STARTED
-
-**Example**: [TransferStartMessage](./message/transfer-start-message.json)
-
-**Response**: [ACK or ERROR.](#response-types)
-
-**Schema**: [TransferStartMessageShape](./message/shape/transfer-start-message-shape.ttl) and the [TransferStartMessage JSON Schema](./message/schema/transfer-start-message-schema.json)
+- Once a TP has been created, all associated callback messages must include a `consumerPid` and `providerPid`.
+- [Providers](../model/terminology.md#provider) must include a `consumerPid` and a `providerPid` property in the object.
+- Valid states of a TP are `REQUESTED`, `STARTED`, `TERMINATED`, `COMPLETED`, and `SUSPENDED`.
 
 
-#### Description
+### 2.2 Transfer Start Message
 
-The `TransferStartMessage` is sent by the provider to indicate the [Dataset](../model/terminology.md#dataset) transfer has been initiated.
+|                     |                                                                                                                                   |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **Sent by**         | [Provider](../model/terminology.md#provider)                                                                                      |
+| **Resulting state** | `STARTED`                                                                                                                         |
+| **Response**        | [ACK](#31-ack---transfer-process) or [ERROR](#32-error---transfer-error)                                                          |
+| **Schema**          | [TTL Shape](./message/shape/transfer-start-message-shape.ttl), [JSON Schema](./message/schema/transfer-start-message-schema.json) |
+| **Example**         | [Message](./message/example/transfer-start-message.json)                                                                          |
+| **Diagram(s)**      | ![](./message/diagram/transfer-start-message.png)                                                                                 |
 
-#### Notes
+The Transfer Start Message is sent by the [Provider](../model/terminology.md#provider) to indicate the data transfer has been initiated.
 
-- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the [Dataset](../model/terminology.md#dataset). It may include a temporary authorization via the `dspace:endpointProperties` property.
+- The `dataAddress` is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the data. It may include a temporary authorization via the `endpointProperties` property.
+- The `endpointProperties` may contain the following optional values:
+  - `authorization` - An opaque authorization token that clients must present when accessing the transport-specific endpoint address. 
+  - `authType` - The auth token type. For example, the value may be `bearer`. If present, this value may be used in conjunction with transport rules to define how the client must present an authorization token.   
 
-### 3. TransferSuspensionMessage
+### 2.3 Transfer Suspension Message
 
-![](./message/diagram/transfer-suspension-message.png)
+|                     |                                                                                                                                             |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **Sent by**         | [Consumer](../model/terminology.md#consumer), [Provider](../model/terminology.md#provider)                                                  |
+| **Resulting state** | `SUSPENDED`                                                                                                                                 |
+| **Response**        | [ACK](#31-ack---transfer-process) or [ERROR](#32-error---transfer-error)                                                                    |
+| **Schema**          | [TTL Shape](./message/shape/transfer-suspension-message-shape.ttl), [JSON Schema](./message/schema/transfer-suspension-message-schema.json) |
+| **Example**         | [Message](./message/example/transfer-suspension-message.json)                                                                               |
+| **Diagram(s)**      | ![](./message/diagram/transfer-suspension-message.png)                                                                                      |
 
-**Sent by**: Provider or Consumer
+The Transfer Suspension Message is sent by the [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) when either of them needs to temporarily suspend the TP.
 
-**Resulting State**: SUSPENDED
+### 2.4 Transfer Completion Message
 
-**Example**: [TransferSuspensionMessage](./message/transfer-suspension-message.json)
+|                     |                                                                                                                                             |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **Sent by**         | [Consumer](../model/terminology.md#consumer), [Provider](../model/terminology.md#provider)                                                  |
+| **Resulting state** | `COMPLETED`                                                                                                                                 |
+| **Response**        | [ACK](#31-ack---transfer-process) or [ERROR](#32-error---transfer-error)                                                                    |
+| **Schema**          | [TTL Shape](./message/shape/transfer-completion-message-shape.ttl), [JSON Schema](./message/schema/transfer-completion-message-schema.json) |
+| **Example**         | [Message](./message/example/transfer-completion-message.json)                                                                               |
+| **Diagram(s)**      | ![](./message/diagram/transfer-completion-message.png)                                                                                      |
 
-**Response**: [ACK or ERROR.](#response-types)
+The Transfer Completion Message is sent by the [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) when a data transfer has completed. Note that some [Connector](../model/terminology.md#connector--data-service-) implementations may optimize completion notification by performing it as part of their wire protocol. In those cases, a Transfer Completion Message does not need to be sent.
 
-**Schema**: [TransferSuspensionMessageShape](./message/shape/transfer-suspension-message-shape.ttl) and the [TransferSuspensionMessage JSON Schema](./message/schema/transfer-suspension-message-schema.json)
+### 2.5 Transfer Termination Message
 
-#### Description
+|                     |                                                                                                                                               |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| **Sent by**         | [Consumer](../model/terminology.md#consumer), [Provider](../model/terminology.md#provider)                                                    |
+| **Resulting state** | `TERMINATED`                                                                                                                                  |
+| **Response**        | [ACK](#31-ack---transfer-process) or [ERROR](#32-error---transfer-error)                                                                      |
+| **Schema**          | [TTL Shape](./message/shape/transfer-termination-message-shape.ttl), [JSON Schema](./message/schema/transfer-termination-message-schema.json) |
+| **Example**         | [Message](./message/example/transfer-termination-message.json)                                                                                |
+| **Diagram(s)**      | ![](./message/diagram/transfer-termination-message.png)                                                                                       |
 
-The `TransferSuspensionMessage` is sent by the provider or consumer when either of them needs to temporarily suspend the [Transfer Process](../model/terminology.md#transfer-process).
+The Transfer Termination Message is sent by the [Provider](../model/terminology.md#provider) or [Consumer](../model/terminology.md#consumer) at any point except a terminal state to indicate the TP should stop and be placed in a terminal state. If the termination was due to an error, the sender may include error information.
 
-### 4. TransferCompletionMessage
+## 3 Response Types
 
-![](./message/diagram/transfer-completion-message.png)
+The `ACK` and `ERROR` response types are mapped onto a protocol such as HTTPS. A description of an error might be provided in protocol-dependent forms, e.g., for an HTTPS binding in the request or response body.
 
-**Sent by**: Provider or Consumer
+### 3.1 ACK - Transfer Process
 
-**Resulting State**: COMPLETED
+|                 |                                                                                                                       |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------|
+| **Sent by**     | [Consumer](../model/terminology.md#consumer), [Provider](../model/terminology.md#provider)                            |
+| **Schema**      | [TTL Shape](./message/shape/transfer-process-shape.ttl), [JSON Schema](./message/schema/transfer-process-schema.json) |
+| **Example**     | [Process](./message/example/transfer-process.json)                                                                    |
+| **Diagram(s)**  | ![](./message/diagram/transfer-process.png)                                                                           |
 
-**Example**: [TransferCompletionMessage](./message/transfer-completion-message.json)
+The Transfer Process is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating a successful state change happened.
 
-**Response**: [ACK or ERROR.](#response-types)
+### 3.2 ERROR - Transfer Error
 
-**Schema**: [TransferCompletionMessageShape](./message/shape/transfer-completion-message-shape.ttl) and the [TransferCompletionMessage JSON Schema](./message/schema/transfer-completion-message-schema.json)
+|                 |                                                                                                                   |
+|-----------------|-------------------------------------------------------------------------------------------------------------------|
+| **Sent by**     | [Consumer](../model/terminology.md#consumer), [Provider](../model/terminology.md#provider)                        |
+| **Schema**      | [TTL Shape](./message/shape/transfer-error-shape.ttl), [JSON Schema](./message/schema/transfer-error-schema.json) |
+| **Example**     | [Process](./message/example/transfer-error.json)                                                                  |
+| **Diagram(s)**  | ![](./message/diagram/transfer-error.png)                                                                         |
 
-#### Description
+The Transfer Error is an object returned by a [Consumer](../model/terminology.md#consumer) or [Provider](../model/terminology.md#provider) indicating an error has occurred. It does not cause a state transition.
 
-The `TransferCompletionMessage` is sent by the provider or consumer when a [Dataset](../model/terminology.md#dataset) transfer has completed. Note that some data plane implementations may optimize completion
-notification by performing it as part of its wire protocol. In those cases, a `TransferCompletionMessage` message does not need to be sent.
-
-### 5. TransferTerminationMessage
-
-![](./message/diagram/transfer-termination-message.png)
-
-**Sent by**: Provider or Consumer
-
-**Resulting State**: TERMINATED
-
-**Example**: [TransferTerminationMessage](./message/transfer-termination-message.json)
-
-**Response**: [ACK or ERROR.](#response-types)
-
-**Schema**: [TransferTerminationMessageShape](./message/shape/transfer-termination-message-shape.ttl) and the [TransferTerminationMessage JSON Schema](./message/schema/transfer-termination-message-schema.json)
-
-#### Description
-
-The `TransferTerminationMessage` is sent by the provider or consumer at any point except a terminal state to indicate the [Transfer Process](../model/terminology.md#transfer-process) should stop and be placed in
-a terminal state. If the termination was due to an error, the sender may include error information.
-
-
-## Response Types
-
-### ACK - TransferProcess
-
-![](./message/diagram/transfer-process.png)
-
-**Example**: [TransferProcess](./message/transfer-process.json)
-
-**Schema**: [TransferProcessShape](./message/shape/transfer-process-shape.ttl) and the [TransferProcess JSON Schema](./message/schema/transfer-process-schema.json)
-
-#### Description
-
-The `TransferProcess` is an object returned by a consumer or provider indicating a successful state change happened.
-
-### ERROR - TransferError
-
-![](./message/diagram/transfer-error.png)
-
-**Example**: [TransferError](./message/transfer-error.json)
-
-**Schema**: [TransferErrorShape](./message/shape/transfer-error-shape.ttl) and the [TransferError JSON Schema](./message/schema/transfer-error-schema.json)
-
-#### Description
-
-The `TransferError` is an object returned by a consumer or provider indicating an error has occurred. It does not cause a state transition.
+| Field         | Type          | Description                                                            |
+|---------------|---------------|------------------------------------------------------------------------|
+| `consumerPid` | UUID          | The TF unique id on [Consumer](../model/terminology.md#consumer) side. |
+| `providerPid` | UUID          | The TF unique id on [Provider](../model/terminology.md#provider) side. |
+| `code`        | string        | An optional implementation-specific error code.                        |
+| `reasons`     | Array[object] | An optional array of implementation-specific error objects.            |

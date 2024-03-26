@@ -2,9 +2,14 @@
 
 ## Overview
 
-* [Dataspace Protocol - Working Draft](./README.md)
+* [Dataspace Protocol 2024-1](./README.md)
 * [Terminology](./model/terminology.md)
 * [Information Model](./model/model.md)
+
+## Common Functionalities
+
+* [Specification](./common/common.protocol.md)
+* [Binding: HTTPS](./common/common.binding.https.md)
 
 ## Catalog
 

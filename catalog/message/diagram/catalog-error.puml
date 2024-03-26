@@ -1,4 +1,4 @@
-@startuml "catalog-error-message"
+@startuml "catalog-error"
 !pragma layout smetana
 
 !include ../../../common/style/diagram.styles.puml
@@ -7,7 +7,7 @@ hide empty description
 
 
 class "dspace:CatalogError" {
-    @context : "https://w3id.org/dspace/v0.8/context.json"
+    @context : "https://w3id.org/dspace/2024/1/context.json"
     @type : "dspace:CatalogError"
     dspace:code : String
     dspace:reason : Array
