@@ -32,13 +32,11 @@ jobs:
 
           for folder in ${{ matrix.folders }}
           do
-            echo $folder
             for json_file in $folder/example/*.json
             do
-              echo $json_file
               _base_filename=$(basename "$json_file" .json)  # Remove .json extension
               schema_file="$folder/schema/${_base_filename}-schema.json"
-              echo $schema_file
+              
               if [[ -f "$schema_file" ]]; then
                 echo "Validating $json_file against $schema_file"
                 check-jsonschema --schemafile "$schema_file" "$json_file"
