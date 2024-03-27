@@ -33,7 +33,7 @@ jobs:
           for folder in ${{ matrix.folders }}
           do
             echo $folder
-            for json_file in $folder/*.json
+            for json_file in $folder/example/*.json
             do
               echo $json_file
               _base_filename=$(basename "$json_file" .json)  # Remove .json extension
