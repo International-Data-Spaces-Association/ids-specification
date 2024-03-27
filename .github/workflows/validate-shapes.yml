@@ -31,7 +31,7 @@ jobs:
         run: |
           for folder in ${{ matrix.folders }}
           do
-            for json_file in $folder/*.json
+            for json_file in $folder/example/*.json
             do
               _base_filename=$(basename "$json_file" .json)
               shape_file="$folder/shape/${_base_filename}-shape.ttl"
