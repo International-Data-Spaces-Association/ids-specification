@@ -22,10 +22,7 @@ jobs:
         name: Checkout
       #- name: Validate JSON Schema
       #  uses: dsanders11/json-schema-validate-action@v1.1.2
-      #  with:
-      #    schema: ${{ matrix.schema }}
-      #    files: ${{ matrix.example }}
-      #    fail-on-invalid: true
+      
       - name: Bash to execute the JSON Schema Checks
         run: |
           sudo pipx install check-jsonschema
