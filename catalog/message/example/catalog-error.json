@@ -1,7 +1,7 @@
 {
   "@context":  "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json",
   "@type": "dspace:CatalogError",
-  "dspace:code": 123,
+  "dspace:code": "123:A",
   "dspace:reason": [
     { 
       "@value": "Catalog not provisioned for this requester.", 
