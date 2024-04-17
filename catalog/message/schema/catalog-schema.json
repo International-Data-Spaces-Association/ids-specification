@@ -13,7 +13,7 @@
             "type": "object",
             "allOf": [
                 {
-                    "$ref": "https://w3id.org/dspace/2024/1/negotiation/contract-schema.json#/definitions/Resource"
+                    "$ref": "https://w3id.org/dspace/2024/1/catalog/dataset-schema.json#/definitions/Resource"
                 },
                 {
                     "properties": {
