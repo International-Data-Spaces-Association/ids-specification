@@ -50,7 +50,7 @@
                   "odrl:rightOperand": "http://example.org/EU"
                 }
               ],
-              "odrl:duty": {}
+              "odrl:duty": []
             }
           ],
           "odrl:prohibition": [],

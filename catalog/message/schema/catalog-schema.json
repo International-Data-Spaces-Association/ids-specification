@@ -13,7 +13,7 @@
             "type": "object",
             "allOf": [
                 {
-                    "$ref": "https://w3id.org/dspace/2024/1/catalog/dataset-schema.json#/definitions/Resource"
+                    "$ref": "https://w3id.org/dspace/2024/1/catalog/dataset-schema.json#/definitions/Dataset"
                 },
                 {
                     "properties": {
@@ -44,25 +44,14 @@
                         },
                         "foaf:homepage": {
                             "type": "string"
-                        },
-                        "odrl:hasPolicy": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "https://w3id.org/dspace/2024/1/negotiation/contract-schema.json#/definitions/Offer"
-                            },
-                            "minItems": 1
-                        },
-                        "dcat:distribution": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Distribution"
-                            },
-                            "minItems": 1
                         }
                     }
                 }
             ],
-            "required": [ "@context", "@type" ]
+            "required": [ "@context", "@type" ],
+            "not": {
+                "required": [ "odrl:hasPolicy" ]
+            }
         }
     }
 }
