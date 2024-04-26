@@ -36,27 +36,6 @@
       "dcat:keyword": [
         "traffic"
       ],
-      "odrl:hasPolicy": [
-        {
-          "@type": "odrl:Offer",
-          "dspace:providerId": "http://example.com/Provider",
-          "odrl:permission": [
-            {
-              "odrl:action": "odrl:use",
-              "odrl:constraint": [
-                {
-                  "odrl:leftOperand": "odrl:spatial",
-                  "odrl:operator": "odrl:eq",
-                  "odrl:rightOperand": "http://example.org/EU"
-                }
-              ],
-              "odrl:duty": []
-            }
-          ],
-          "odrl:prohibition": [],
-          "odrl:obligation": []
-        }
-      ],
       "dcat:distribution": {
         "@type": "dcat:Distribution",
         "dct:format": "dspace:s3+push",
