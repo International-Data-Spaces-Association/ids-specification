@@ -46,8 +46,8 @@
               "odrl:constraint": [
                 {
                   "odrl:leftOperand": "odrl:spatial",
-                  "odrl:operator": "odrl:eq",
-                  "odrl:rightOperand": "http://example.org/EU"
+                  "odrl:operator": "odrl:EQ",
+                  "odrl:rightOperand": "odrl:EU"
                 }
               ],
               "odrl:duty": []
