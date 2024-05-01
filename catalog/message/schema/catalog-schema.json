@@ -53,7 +53,8 @@
                 {
                     "not" : { "required" : [ "odrl:hasPolicy" ] }
                 }
-            ]
+            ],
+            "additionalProperties" : false
         }
     }
 }
