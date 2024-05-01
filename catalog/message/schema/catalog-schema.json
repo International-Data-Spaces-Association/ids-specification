@@ -48,7 +48,10 @@
                     }
                 }
             ],
-            "required": [ "@context", "@type" ]
+            "required": [ "@context", "@type" ],
+            "not": {
+                "required": [ "odrl:hasPolicy" ]
+            }
         }
     }
 }
