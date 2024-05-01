@@ -38,8 +38,9 @@
       ],
       "odrl:hasPolicy": [
         {
+          "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
           "@type": "odrl:Offer",
-          "dspace:providerId": "http://example.com/Provider",
+          "odrl:assigner": "http://example.com/Provider",
           "odrl:permission": [
             {
               "odrl:action": "odrl:use",
@@ -54,7 +55,11 @@
             }
           ],
           "odrl:prohibition": [],
-          "odrl:obligation": []
+          "odrl:obligation": [
+            {
+              "odrl:type": "...",  "...": "..."
+            }
+          ]
         }
       ],
       "dcat:distribution": {
