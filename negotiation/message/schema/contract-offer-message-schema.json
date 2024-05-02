@@ -27,7 +27,7 @@
 					"type": "string"
 				},
 				"dspace:offer": {
-					"$ref": "https://w3id.org/dspace/2024/1/negotiation/contract-schema.json#/definitions/MessageOffer"
+					"$ref": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/negotiation/message/schema/contract-schema.json#/definitions/MessageOffer"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"
