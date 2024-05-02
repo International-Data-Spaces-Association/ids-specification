@@ -153,7 +153,6 @@
             "required": [
                 "@type",
                 "@id",
-                "@target",
                 "odrl:assignee", 
                 "odrl:assigner"
             ]
