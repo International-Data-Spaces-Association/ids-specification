@@ -13,7 +13,7 @@
             "type": "object",
             "allOf": [
                 {
-                    "$ref": "https://w3id.org/dspace/2024/1/catalog/dataset-schema.json#/definitions/Dataset"
+                    "$ref": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/schema/dataset-schema.json#/definitions/Dataset"
                 },
                 {
                     "properties": {
@@ -28,14 +28,14 @@
                         "dcat:dataset": {
                             "type": "array",
                             "items": {
-                                "$ref": "https://w3id.org/dspace/2024/1/catalog/dataset-schema.json#/definitions/Dataset"
+                                "$ref": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/schema/dataset-schema.json#/definitions/Dataset"
                             },
                             "minItems": 1
                         },
                         "dcat:service": {
                             "type": "array",
                             "items": {
-                                "$ref": "https://w3id.org/dspace/2024/1/catalog/dataset-schema.json#/definitions/DataService"
+                                "$ref": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/schema/dataset-schema.json#/definitions/DataService"
                             },
                             "minItems": 1
                         },
