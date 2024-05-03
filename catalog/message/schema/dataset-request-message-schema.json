@@ -14,15 +14,14 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://w3id.org/dspace/2024/1/context.json"
+					"const": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json"
 				},
 				"@type": {
 					"type": "string",
 					"const": "dspace:DatasetRequestMessage"
 				},
 				"dspace:dataset": {
-                    "type": "string",
-					"const": "dcat:Dataset"
+                    "type": "string"
 				}
 			},
 			"required": [ "@context", "@type", "dspace:dataset" ]
