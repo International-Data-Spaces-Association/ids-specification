@@ -21,7 +21,8 @@
 					"const": "dspace:DatasetRequestMessage"
 				},
 				"dspace:dataset": {
-                    "type": "string"
+                    "type": "string",
+					"const": "dcat:Dataset"
 				}
 			},
 			"required": [ "@context", "@type", "dspace:dataset" ]
