@@ -109,7 +109,7 @@
                 "odrl:hasPolicy": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/negotiation/message/schema/contract-schema.json#/definitions/Offer"
+                        "$ref": "https://w3id.org/dspace/2024/1/negotiation/contract-schema.json#/definitions/Offer"
                     },
                     "minItems": 1
                 },

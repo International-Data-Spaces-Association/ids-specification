@@ -36,7 +36,7 @@ dspace_shapes:DatasetShape
         sh:class dcat:Distribution ;
         sh:minCount 0;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dcat:distribution property must point to a dcat:Distribution."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dataset-shape.ttl> (DatasetShape): A dcat:distribution property must point to a dcat:Distribution."@en ;
     ] ; 
 
     sh:property [
@@ -45,7 +45,7 @@ dspace_shapes:DatasetShape
         sh:datatype xsd:string ;
         sh:minCount 0;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dcat:keyword property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dataset-shape.ttl> (DatasetShape): A dcat:keyword property must point to a xsd:string field."@en ;
     ] ;
 
     sh:property [
@@ -54,7 +54,7 @@ dspace_shapes:DatasetShape
         sh:datatype rdf:langString ;
         sh:minCount 0;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dct:description property must point to a rdf:langString field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dataset-shape.ttl> (DatasetShape): A dct:description property must point to a rdf:langString field."@en ;
     ] ;
 
     sh:property [
@@ -63,7 +63,7 @@ dspace_shapes:DatasetShape
         sh:datatype xsd:string ;
         sh:minCount 0;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dct:title property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dataset-shape.ttl> (DatasetShape): A dct:title property must point to a xsd:string field."@en ;
     ] ; 
 
     sh:property [
@@ -72,7 +72,7 @@ dspace_shapes:DatasetShape
         sh:class odrl:Policy ;
         sh:severity sh:Violation ;
         sh:minCount 0;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dataset-shape.ttl> (DatasetShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
     ] ;
 
 .

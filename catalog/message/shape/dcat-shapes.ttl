@@ -38,7 +38,7 @@ dspace_shapes:ResourceShape
 		sh:path dcat:keyword ;
         sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dcat:keyword property must point to a xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dcat:keyword property must point to a xsd:string field."@en ;
 	] ;
 
     sh:property [
@@ -47,7 +47,7 @@ dspace_shapes:ResourceShape
 		sh:class skos:Concept ;
         sh:minCount 0 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dcat:theme property must point to a skos:Concept."@en ;
+		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dcat:theme property must point to a skos:Concept."@en ;
 	] ;
 
       sh:property [
@@ -55,7 +55,7 @@ dspace_shapes:ResourceShape
         sh:path dct:conformsTo ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dct:accessconformsToRights property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dct:accessconformsToRights property must point to a xsd:string field."@en ;
     ] ;  
 
     sh:property [
@@ -63,7 +63,7 @@ dspace_shapes:ResourceShape
         sh:path dct:creator ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dct:creator property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dct:creator property must point to a xsd:string field."@en ;
     ] ;  
 
     sh:property [
@@ -71,7 +71,7 @@ dspace_shapes:ResourceShape
         sh:path dct:description ;
         sh:datatype rdf:langString ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dct:description property must point to a rdf:langString field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dct:description property must point to a rdf:langString field."@en ;
     ] ;  
 
     sh:property [
@@ -79,7 +79,7 @@ dspace_shapes:ResourceShape
         sh:path dct:identifier ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dct:identifier property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dct:identifier property must point to a xsd:string field."@en ;
     ] ;
 
     sh:property [
@@ -87,7 +87,7 @@ dspace_shapes:ResourceShape
         sh:path dct:issued ;
         sh:datatype xsd:dateTime ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dct:issued property must point to a xsd:dateTime field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dct:issued property must point to a xsd:dateTime field."@en ;
     ] ;
 
     sh:property [
@@ -95,7 +95,7 @@ dspace_shapes:ResourceShape
         sh:path dct:modified ;
         sh:datatype xsd:dateTime ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dct:modified property must point to a xsd:dateTime field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dct:modified property must point to a xsd:dateTime field."@en ;
     ] ;
 
     sh:property [
@@ -103,7 +103,7 @@ dspace_shapes:ResourceShape
         sh:path dct:title ;
         sh:datatype rdf:langString ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): A dct:title property must point to a rdf:langString field."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): A dct:title property must point to a rdf:langString field."@en ;
     ] ;
 
     sh:property [
@@ -111,7 +111,7 @@ dspace_shapes:ResourceShape
         sh:path odrl:hasPolicy ;
         sh:class odrl:Offer ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (ResourceShape): An odrl:hasPolicy property must point to an odrl:Offer."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (ResourceShape): An odrl:hasPolicy property must point to an odrl:Offer."@en ;
     ] ;
 
 .
@@ -128,7 +128,7 @@ dspace_shapes:DatasetShape
         sh:class dcat:Distribution ;
         sh:minCount 0;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dcat:distribution property must point to a dcat:Distribution."@en ;
+        sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dataset-shape.ttl> (DatasetShape): A dcat:distribution property must point to a dcat:Distribution."@en ;
     ] ;
 
 .
@@ -143,7 +143,7 @@ dspace_shapes:CatalogShape
 		sh:path dcat:dataset ;
 		sh:class dcat:Dataset ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (CatalogShape): A dcat:dataset property must point to a dcat:Dataset."@en ;
+		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (CatalogShape): A dcat:dataset property must point to a dcat:Dataset."@en ;
 	] ;
     
     sh:property [
@@ -151,7 +151,7 @@ dspace_shapes:CatalogShape
 		sh:path dcat:service ;
 		sh:class dcat:DataService ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (CatalogShape): A dcat:service property must point to a dcat:DataService."@en ;
+		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (CatalogShape): A dcat:service property must point to a dcat:DataService."@en ;
 	] ;
 
     sh:property [
@@ -159,7 +159,7 @@ dspace_shapes:CatalogShape
 		sh:path foaf:homepage ;
 		sh:datatype xsd:string ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (CatalogShape): A foaf:homepage property must point to a xsd:string field."@en ;
+		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (CatalogShape): A foaf:homepage property must point to a xsd:string field."@en ;
 	] ;
 
     sh:property [
@@ -167,7 +167,7 @@ dspace_shapes:CatalogShape
 		sh:path dspace:participantId ;
         sh:nodeKind sh:IRI ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (CatalogShape): A dspace:participantId property must point to an IRI."@en ;
+		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (CatalogShape): A dspace:participantId property must point to an IRI."@en ;
 	] ;
 
     sh:property [
@@ -175,7 +175,7 @@ dspace_shapes:CatalogShape
 		sh:path odrl:hasPolicy ;
         sh:maxCount 0 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (CatalogShape): A dspace:Catalog must not have any odrl:hasPolicy property."@en ;
+		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dcat-shapes.ttl> (CatalogShape): A dspace:Catalog must not have any odrl:hasPolicy property."@en ;
 	] ;
 
 .
