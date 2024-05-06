@@ -4,7 +4,7 @@
 
 The following sections outline the Dataspace Information Model, which form the foundation of this specification.
 Some aspects of this section describe additional concepts of Dataspaces and provide context for the Dataspace Protocol,
-those are considered as non-normative. Further information on the functional requirements of a Dataspace can be found  for example in
+those are considered as non-normative. Further information on the functional requirements of a Dataspace can be found, for example, in
 the [IDSA Rulebook](https://docs.internationaldataspaces.org/idsa-rulebook).
 
 ### 2.1 Dataspace Entity Relationships
@@ -13,7 +13,7 @@ the [IDSA Rulebook](https://docs.internationaldataspaces.org/idsa-rulebook).
 
 In a broader context, the Dataspace Protocol enables the interaction between participants of
 a Dataspace. This may require additional concepts, which are not in the scope of this specification.
-The definitions below are therefore informative and not-normative.
+The definitions below are therefore informative and non-normative.
 The relationships between the primary [Dataspace](./terminology.md#dataspace) entities are defined as follows:
 
 ![](./m.dataspace.relationships.png)
