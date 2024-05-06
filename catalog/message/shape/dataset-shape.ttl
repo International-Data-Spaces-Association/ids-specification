@@ -61,6 +61,7 @@ dspace_shapes:DatasetShape
         a sh:PropertyShape ;
         sh:path dct:title ;
         sh:datatype xsd:string ;
+        sh:minCount 0;
         sh:severity sh:Violation ;
         sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/dataset-shape.ttl> (DatasetShape): A dct:title property must point to a xsd:string field."@en ;
     ] ; 
