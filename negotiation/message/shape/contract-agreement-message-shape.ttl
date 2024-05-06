@@ -64,6 +64,6 @@ dspace_shapes:ContractAgreementMessageShape
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/negotiation/shape/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:callbackAddress property must point to exactly one xsd:anyURI value."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/contract-agreement-message-shape.ttl> (ContractAgreementMessageShape): An dspace:callbackAddress property must point to exactly one xsd:anyURI value."@en ;
 	]
 .
