@@ -10,7 +10,7 @@
     "dcat": "http://www.w3.org/ns/dcat#",
     "dspace": "https://w3id.org/dspace/2024/1/",
 
-    "dct:title": { "@language": "en" },
+    "dct:title": { "@type": "xsd:string" },
     "dct:creator": { "@type": "@id" },
     "dct:description": { "@container": "@set" },
     "dct:issued": { "@type": "xsd:dateTime" },
