@@ -1,5 +1,5 @@
 {
-  "@context":  "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json",
+  "@context":  "https://w3id.org/dspace/2024/1/context.json",
   "@type": "dspace:DatasetRequestMessage",
   "dspace:dataset": {
     "@type": "dcat:Dataset"
