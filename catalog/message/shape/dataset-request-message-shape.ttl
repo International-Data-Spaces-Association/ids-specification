@@ -36,6 +36,6 @@ dspace_shapes:DatasetRequestMessageShape
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:severity sh:Violation ;
-		sh:message "<https://raw.githubusercontent.com/simantvermasap/ids-specification/main/catalog/message/shape/catalog-request-message-shape.ttl> (DatasetRequestMessage): An dspace:dataset property must point to one dcat:Dataset."@en ;
+		sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/catalog-request-message-shape.ttl> (DatasetRequestMessage): An dspace:dataset property must point to one dcat:Dataset."@en ;
 	] ;
 .
