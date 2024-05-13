@@ -250,9 +250,9 @@ dspace_shapes:DataServiceShape
     sh:property [
         a sh:PropertyShape ;
         sh:path dcat:endpointURL ;
-        sh:datatype xsd:string ;
+        sh:datatype xsd:anyURI ;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (DataServiceShape): A dcat:endpointURL property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dcat-shapes.ttl> (DataServiceShape): A dcat:endpointURL property must point to a xsd:anyURI field."@en ;
     ] ;  
 
     sh:property [

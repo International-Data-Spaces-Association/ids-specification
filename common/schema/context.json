@@ -22,7 +22,7 @@
     "dcat:conformsTo": { "@type": "@id" },
     "dcat:dataset": { "@container": "@set" },
     "dcat:endpointURL": { "@type": "xsd:anyURI" },
-    "dcat:endpointDescription": { "@type": "xsd:anyURI" },
+    "dcat:endpointDescription": { "@type": "xsd:string" },
     "dcat:keyword": { "@container": "@set" },
     "dcat:servesDataset": {"@container": "@set" },
     "dcat:service": { "@container": "@set" },
