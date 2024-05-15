@@ -43,6 +43,9 @@ jobs:
               # Use dcat-shapes.ttl for catalog.json
               if [[ "$json_file" == "catalog/message/example/catalog.json" ]]; then
                 shape_file="catalog/message/shape/dcat-shapes.ttl"
+              # Use contract-agreement-message-shape.ttl for specific file
+              elif [[ "$json_file" == "negotiation/message/example/contract.agreement.message.http.transfer.json" ]]; then
+                shape_file="negotiation/message/shape/contract-agreement-message-shape.ttl"
               else
                 shape_file="$folder/shape/${_base_filename}-shape.ttl"
               fi
