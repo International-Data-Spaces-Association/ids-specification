@@ -42,7 +42,7 @@ jobs:
 
               # Use dcat-shapes.ttl for catalog.json
               if [[ "$json_file" == "catalog/message/example/catalog.json" ]]; then
-                shape_file="dcat-shapes.ttl"
+                shape_file="catalog/message/shape/dcat-shapes.ttl"
               else
                 shape_file="$folder/shape/${_base_filename}-shape.ttl"
               fi
