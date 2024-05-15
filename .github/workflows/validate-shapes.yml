@@ -39,9 +39,17 @@ jobs:
               if [[ "$_base_filename" =~ _initial$ ]]; then
                 _base_filename=${_base_filename%_initial}  # Remove "_initial" suffix
               fi
-              
-              shape_file="$folder/shape/${_base_filename}-shape.ttl"
 
+              # Use dcat-shapes.ttl for catalog.json
+              if [[ "$json_file" == "catalog/message/example/catalog.json" ]]; then
+                shape_file="catalog/message/shape/dcat-shapes.ttl"
+              # Use contract-agreement-message-shape.ttl for specific file
+              elif [[ "$json_file" == "negotiation/message/example/contract.agreement.message.http.transfer.json" ]]; then
+                shape_file="negotiation/message/shape/contract-agreement-message-shape.ttl"
+              else
+                shape_file="$folder/shape/${_base_filename}-shape.ttl"
+              fi
+              
               if [[ -f "$shape_file" ]]; then
                 echo "Validating $json_file against $shape_file"
                 pyshacl -df json-ld -sf turtle -s $shape_file  $json_file
