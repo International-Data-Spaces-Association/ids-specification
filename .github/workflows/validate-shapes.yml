@@ -46,7 +46,7 @@ jobs:
               else
                 shape_file="$folder/shape/${_base_filename}-shape.ttl"
               fi
-              echo "Validating $json_file against $shape_file test"
+              
               if [[ -f "$shape_file" ]]; then
                 echo "Validating $json_file against $shape_file"
                 pyshacl -df json-ld -sf turtle -s $shape_file  $json_file
