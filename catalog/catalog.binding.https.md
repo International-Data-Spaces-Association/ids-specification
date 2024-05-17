@@ -46,7 +46,7 @@ POST https://provider.com/catalog/request
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/2024/1/context.json",
+  "@context":  "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json",
   "@type": "dspace:CatalogRequestMessage",
   "dspace:filter": {}
 }
@@ -74,7 +74,7 @@ GET https://provider.com/catalog/datasets/{id}
 Authorization: ...
 
 {
-  "@context":  "https://w3id.org/dspace/2024/1/context.json",
+  "@context":  "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json",
   "@type": "dspace:DatasetRequestMessage",
   "dspace:dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
 }
@@ -99,7 +99,7 @@ The following request sequence demonstrates pagination:
 Link: <https://provider.com/catalog?continuationToken=f59892315ac44de8ab4bdc9014502d52>; rel="next"
 
 {
-  "@context":  "https://w3id.org/dspace/2024/1/context.json",
+  "@context":  "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json",
   "@type": "dcat:Catalog",
   ...
 }
