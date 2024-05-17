@@ -33,7 +33,7 @@ dspace_shapes:TransferRequestMessageShape
 	sh:property [
 		a sh:PropertyShape ;
 		sh:path dspace:agreementId ;
-		sh:datatype xsd:string ;
+		sh:datatype xsd:anyURI ;
 		sh:severity sh:Violation ;
 		sh:maxCount 1 ;
 		sh:minCount 1 ;
