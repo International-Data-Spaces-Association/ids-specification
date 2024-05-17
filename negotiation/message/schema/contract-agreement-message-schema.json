@@ -27,7 +27,7 @@
 					"type": "string"
 				},
 				"dspace:agreement": {
-					"$ref": "https://w3id.org/dspace/2024/1/negotiation/contract-schema.json#/definitions/Agreement"
+					"$ref": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/negotiation/schema/contract-schema.json#/definitions/Agreement"
 				},
 				"dspace:callbackAddress": {
 					"type" : "string"
