@@ -13,7 +13,7 @@
     "traffic"
   ],
   "odrl:hasPolicy": [ {
-    "@type": "odrl:Policy",
+    "@type": "odrl:Offer",
     "@id": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
     "odrl:assigner": "urn:tsdshhs636378",
     "odrl:permission": [
