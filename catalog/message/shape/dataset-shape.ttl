@@ -63,7 +63,7 @@ dspace_shapes:DatasetShape
         sh:datatype rdf:langString ;
         sh:minCount 0;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dct:title property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dct:title property must point to a language tagged field."@en ;
     ] ; 
 
     sh:property [
