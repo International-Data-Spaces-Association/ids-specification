@@ -55,9 +55,7 @@
                 "odrl:action": "cc:Attribution"
               }
             }
-          ],
-          "odrl:prohibition": [],
-          "odrl:obligation": []
+          ]
         }
       ],
       "dcat:distribution": [
