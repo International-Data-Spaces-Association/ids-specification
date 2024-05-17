@@ -57,12 +57,7 @@
             }
           ],
           "odrl:prohibition": [],
-          "odrl:obligation": [
-            {
-              "odrl:type": "odrl:Attribution",  
-              "odrl:action": "odrl:use"
-            }
-          ]
+          "odrl:obligation": []
         }
       ],
       "dcat:distribution": [
