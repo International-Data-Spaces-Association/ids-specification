@@ -8,7 +8,7 @@ A [Connector](../model/terminology.md#connector--data-service-) must respond to 
 
 ```json
 {
-    "@context": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json",
+    "@context": "https://w3id.org/dspace/2024/1/context.json",
     "protocolVersions": [
        {
             "version": "1.0",

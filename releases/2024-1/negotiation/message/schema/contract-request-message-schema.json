@@ -14,7 +14,7 @@
 			"properties": {
 				"@context": {
 					"type": "string",
-					"const": "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json"
+					"const": "https://w3id.org/dspace/2024/1/context.json"
 				},
 				"@type": {
 					"type": "string",

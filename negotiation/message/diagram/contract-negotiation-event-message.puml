@@ -7,7 +7,7 @@ hide empty description
 
 
 class "dspace:ContractNegotiationEventMessage" {
-    @context : "https://raw.githubusercontent.com/simantvermasap/ids-specification/main/common/schema/context.json"
+    @context : "https://w3id.org/dspace/2024/1/context.json"
     @type : "dspace:ContractNegotiationEventMessage"
     dspace:providerPid : String
     dspace:consumerPid : String
