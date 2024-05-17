@@ -69,7 +69,7 @@ dspace_shapes:DatasetShape
     sh:property [
         a sh:PropertyShape ;
         sh:path odrl:hasPolicy ;
-        sh:class odrl:Policy ;
+	sh:class odrl:Offer ;
         sh:severity sh:Violation ;
         sh:minCount 0;
         sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
