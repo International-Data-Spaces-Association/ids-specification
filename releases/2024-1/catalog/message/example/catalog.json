@@ -38,36 +38,39 @@
       ],
       "odrl:hasPolicy": [
         {
+          "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
           "@type": "odrl:Offer",
-          "dspace:providerId": "http://example.com/Provider",
+          "odrl:assigner": "http://example.com/Provider",
           "odrl:permission": [
             {
               "odrl:action": "odrl:use",
               "odrl:constraint": [
                 {
                   "odrl:leftOperand": "odrl:spatial",
-                  "odrl:operator": "odrl:EQ",
-                  "odrl:rightOperand": "odrl:EU"
+                  "odrl:operator": "odrl:eq",
+                  "odrl:rightOperand": "http://example.org/EU"
                 }
               ],
-              "odrl:duty": []
+              "odrl:duty": {
+                "odrl:action": "cc:Attribution"
+              }
             }
-          ],
-          "odrl:prohibition": [],
-          "odrl:obligation": []
+          ]
         }
       ],
-      "dcat:distribution": {
-        "@type": "dcat:Distribution",
-        "dct:format": "dspace:s3+push",
-        "dcat:accessService": [
-          {
-            "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
-            "@type": "dcat:DataService",
-            "dcat:endpointURL": "https://provider-a.com/connector"
-          }
-        ]
-      }
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:format": "dspace:s3+push",
+          "dcat:accessService": [
+            {
+              "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
+              "@type": "dcat:DataService",
+              "dcat:endpointURL": "https://provider-a.com/connector"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

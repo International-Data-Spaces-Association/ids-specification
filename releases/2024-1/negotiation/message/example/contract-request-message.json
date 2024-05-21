@@ -4,6 +4,8 @@
   "dspace:providerPid": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "dspace:consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
   "dspace:offer": {
+    "@type": "odrl:Offer",
+    "@id": "urn:uuid:d526561f-528e-4d5a-ae12-9a9dd9b7a815",
     "odrl:target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
     "odrl:assigner": "urn:tsdshhs636378",
     "odrl:assignee": "urn:jashd766",
@@ -16,5 +18,5 @@
       }]
     }]
   },
-  "dspace:callbackAddress": "https://......"
+  "dspace:callbackAddress": "https://example.com/callback"
 }

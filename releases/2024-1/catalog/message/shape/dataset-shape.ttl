@@ -60,16 +60,16 @@ dspace_shapes:DatasetShape
     sh:property [
         a sh:PropertyShape ;
         sh:path dct:title ;
-        sh:datatype xsd:string ;
+        sh:datatype rdf:langString ;
         sh:minCount 0;
         sh:severity sh:Violation ;
-        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dct:title property must point to a xsd:string field."@en ;
+        sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): A dct:title property must point to a language tagged field."@en ;
     ] ; 
 
     sh:property [
         a sh:PropertyShape ;
         sh:path odrl:hasPolicy ;
-        sh:class odrl:Policy ;
+	sh:class odrl:Offer ;
         sh:severity sh:Violation ;
         sh:minCount 0;
         sh:message "<https://raw.githubusercontent.com/International-Data-Spaces-Association/ids-specification/master/schemas/dataset-shape.ttl> (DatasetShape): An odrl:hasPolicy property must point to an odrl:Policy."@en ;
