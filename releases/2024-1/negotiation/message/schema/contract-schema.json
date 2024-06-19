@@ -68,8 +68,7 @@
                 "odrl:assignee": {
                     "type": "string"
                 }
-            },
-            "not": { "required": [ "odrl:target" ] }
+            }
         },
         "MessageOffer": {
             "type": "object",
@@ -153,7 +152,7 @@
             "required": [
                 "@type",
                 "@id",
-                "@target",
+                "odrl:target",
                 "odrl:assignee", 
                 "odrl:assigner"
             ]

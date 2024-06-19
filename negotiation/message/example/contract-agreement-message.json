@@ -19,5 +19,5 @@
       }]
     }]
   },
-  "dspace:callbackAddress": "https://......"
+  "dspace:callbackAddress": "https://example.com/callback"
 }

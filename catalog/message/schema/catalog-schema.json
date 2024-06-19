@@ -13,7 +13,7 @@
             "type": "object",
             "allOf": [
                 {
-                    "$ref": "https://w3id.org/dspace/2024/1/catalog/dataset-schema.json#/definitions/Dataset"
+                    "$ref": "https://w3id.org/dspace/2024/1/catalog/dataset-schema.json#/definitions/AbstractDataset"
                 },
                 {
                     "properties": {
@@ -49,9 +49,11 @@
                 }
             ],
             "required": [ "@context", "@type" ],
-            "not": {
-                "required": [ "odrl:hasPolicy" ]
-            }
+            "anyOf" : [
+                {
+                    "not" : { "required" : [ "odrl:hasPolicy" ] }
+                }
+            ]
         }
     }
 }
