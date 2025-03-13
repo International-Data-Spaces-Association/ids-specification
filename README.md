@@ -5,7 +5,7 @@
 > __NOTE:__ The web rendering of the Dataspace Protocol represents the current state on this repo's main branch: https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/ 
 The Dataspace Protocol aims for a release as Eclipse Specification combining this specification with the [Dataspace TCK](https://projects.eclipse.org/projects/technology.dataspacetck ) and at least one conformant implementation. The [Eclipse Dataspace Components EDC](https://projects.eclipse.org/projects/technology.edc ) are planned as compliant implementation, others are welcome. The Dataspace Protocol targets a PAS transposition to ISO during 2025.
 > 
-> __NOTE:__ Feel free to join our [Mailing list.](https://accounts.eclipse.org/mailing-list/dataspace-protocol-base-dev))
+> __NOTE:__ Feel free to join our [Mailing list.](https://accounts.eclipse.org/mailing-list/dataspace-protocol-base-dev)
 
 
 ## About versions of the Dataspace Protocol
