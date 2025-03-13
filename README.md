@@ -1,8 +1,12 @@
 # Dataspace Protocol Release 2024-1
 
-> __NOTE:__ For GitHub users, the link to the rendered content is [https://docs.internationaldataspaces.org/dataspace-protocol/](https://docs.internationaldataspaces.org/dataspace-protocol/).
+> __NOTE:__ The Dataspace Protocol is now an Eclipse Specification project and has a new home in this [Repository](https://github.com/eclipse-dataspace-protocol-base/DataspaceProtocol). 
 >
-> __NOTE:__ The human-friendly version of this specification in the [IDSA Knowledge base](https://docs.internationaldataspaces.org/dataspace-protocol/) will always show the latest version of the document. The version history and changes are provided via the [GitHub Repository](https://github.com/International-Data-Spaces-Association/ids-specification/).
+> __NOTE:__ The web rendering of the Dataspace Protocol represents the current state on this repo's main branch: https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/ 
+The Dataspace Protocol aims for a release as Eclipse Specification combining this specification with the [Dataspace TCK](https://projects.eclipse.org/projects/technology.dataspacetck ) and at least one conformant implementation. The [Eclipse Dataspace Components EDC](https://projects.eclipse.org/projects/technology.edc ) are planned as compliant implementation, others are welcome. The Dataspace Protocol targets a PAS transposition to ISO during 2025.
+> 
+> __NOTE:__ Feel free to join our [Mailing list.](https://accounts.eclipse.org/mailing-list/dataspace-protocol-base-dev))
+
 
 ## About versions of the Dataspace Protocol
 
